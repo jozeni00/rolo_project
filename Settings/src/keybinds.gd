@@ -10,10 +10,8 @@ func _ready() -> void:
 	# Set timer time
 	#for str in InputMap.get_actions():
 		#print(str)
-	$Timer.wait_time = 3.0
-	$Timer.one_shot = false
 	# Iterate through buttons and connect the 'pressed' signal to a function
-	for button in $Controls/KeyBindButtons.get_children():
+	for button in $KeyBindButtons.get_children():
 		button.pressed.connect(_on_button_pressed.bind(button))
 
 
@@ -38,10 +36,17 @@ func _on_timer_timeout() -> void:
 	
 func _input(event):	# an input was recieved
 	if waiting:	# accepting user input
+		# Check if event already exists
+		if InputMap.has_action(currentbutton.name):
+			# remove event currently binded
+			InputMap.action_erase_event(currentbutton.name, event)
+		else:
+			InputMap.add_action(currentbutton.name)
 		var key_event = InputEventKey.new()
 		if event is InputEventKey:
 			currentbutton.text = event.as_text_keycode()
 			key_event.keycode = event.keycode
+			InputMap.action_add_event(currentbutton.name, key_event)
 			waiting = false
 		elif event is InputEventMouseButton:
 			match event.button_index:
