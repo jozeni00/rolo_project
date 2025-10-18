@@ -1,13 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy6aot16krxbq"]
+[gd_scene load_steps=18 format=3 uid="uid://dy6aot16krxbq"]
 
+[ext_resource type="Script" uid="uid://d1b81ch5be6tp" path="res://Settings/src/settings.gd" id="1_bweuv"]
 [ext_resource type="Texture2D" uid="uid://dgj5bglyt416g" path="res://Settings/assets/Options.png" id="1_fdbd3"]
 [ext_resource type="Script" uid="uid://bxnm5xbouexjd" path="res://Settings/src/keybinds.gd" id="1_ofnyb"]
 [ext_resource type="Theme" uid="uid://d264k6851ktxi" path="res://tres/test.tres" id="3_fdbd3"]
 [ext_resource type="Texture2D" uid="uid://8lrhxq3mtw14" path="res://Settings/assets/bar.png" id="3_ofnyb"]
 [ext_resource type="Script" uid="uid://yvm6ts0f5ntr" path="res://Settings/src/sounds.gd" id="4_fdbd3"]
 [ext_resource type="Script" uid="uid://hrunk24uwtfs" path="res://Settings/src/displays.gd" id="5_utkq2"]
+[ext_resource type="FontFile" uid="uid://crexq1h32bkfk" path="res://fonts/Bungee-Regular.ttf" id="7_wvwsk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlw3h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bweuv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvwsk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_si0cj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6t43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpocd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a78v1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvwsk"]
+bg_color = Color(0.7882353, 0.7882353, 0.7882353, 0.09803922)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fb0xf"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -15,314 +34,31 @@
 layout_mode = 3
 anchor_left = 0.277
 anchor_top = 0.231
-anchor_right = 0.758
-anchor_bottom = 0.744
+anchor_right = 0.694
+anchor_bottom = 0.883
 offset_left = -0.27999878
 offset_top = -0.16000366
-offset_right = -1.1199951
-offset_bottom = -0.83999634
+offset_right = -0.16000366
+offset_bottom = 0.11999512
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_bweuv")
 
 [node name="FrameSprite" type="Sprite2D" parent="Settings"]
 position = Vector2(154, 93)
 texture = ExtResource("1_fdbd3")
 
-[node name="Timer" type="Timer" parent="Settings"]
-
-[node name="Sounds" type="Control" parent="Settings"]
-visible = false
-anchors_preset = 0
-offset_left = 49.0
-offset_top = -14.0
-offset_right = 250.0
-offset_bottom = -14.0
-
-[node name="Sound" type="Label" parent="Settings/Sounds"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = -1.0
-offset_right = 103.0
-offset_bottom = 22.0
-theme = ExtResource("3_fdbd3")
-theme_override_font_sizes/font_size = 14
-text = "Sound"
-
-[node name="SoundSliders" type="VBoxContainer" parent="Settings/Sounds"]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 12.9999695
-offset_top = 24.0
-offset_right = 120.0
-offset_bottom = 60.0
-theme = ExtResource("3_fdbd3")
-
-[node name="SoundEffects" type="HSlider" parent="Settings/Sounds/SoundSliders"]
-layout_mode = 2
-
-[node name="Music" type="HSlider" parent="Settings/Sounds/SoundSliders"]
-layout_mode = 2
-
-[node name="SoundLabels" type="VBoxContainer" parent="Settings/Sounds"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.9020001
-anchor_top = -0.43500003
-anchor_right = -1.9020001
-anchor_bottom = -0.43500003
-offset_left = 514.302
-offset_top = 26.0
-offset_right = 564.302
-offset_bottom = 65.99999
-theme = ExtResource("3_fdbd3")
-
-[node name="SoundEffects" type="Label" parent="Settings/Sounds/SoundLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "Sound Effects"
-
-[node name="Music" type="Label" parent="Settings/Sounds/SoundLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "Music"
-
-[node name="Displays" type="Control" parent="Settings"]
-visible = false
-anchors_preset = 0
-offset_left = 49.0
-offset_top = -10.0
-offset_right = 250.0
-offset_bottom = -10.0
-
-[node name="Display" type="Label" parent="Settings/Displays"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 55.0
-offset_right = 103.0
-offset_bottom = 78.0
-theme = ExtResource("3_fdbd3")
-theme_override_font_sizes/font_size = 14
-text = "Display"
-
-[node name="DisplayLabels" type="VBoxContainer" parent="Settings/Displays"]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 77.0
-offset_right = 170.0
-offset_bottom = 117.0
-theme = ExtResource("3_fdbd3")
-
-[node name="Brightness" type="Label" parent="Settings/Displays/DisplayLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "Brightness"
-
-[node name="Resolution" type="Label" parent="Settings/Displays/DisplayLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "Resolution"
-
-[node name="DisplayControls" type="VBoxContainer" parent="Settings/Displays"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 77.0
-offset_right = 121.0
-offset_bottom = 128.0
-
-[node name="Brightness" type="HSlider" parent="Settings/Displays/DisplayControls"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-
-[node name="OptionButton" type="OptionButton" parent="Settings/Displays/DisplayControls"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-selected = 0
-item_count = 3
-popup/item_0/text = "640x360"
-popup/item_0/id = 0
-popup/item_1/text = "1280x720"
-popup/item_1/id = 1
-popup/item_2/text = "Fullscreen"
-popup/item_2/id = 2
-
-[node name="Keybinds" type="Control" parent="Settings"]
-visible = false
-anchors_preset = 0
-offset_left = 49.0
-offset_top = -6.0
-offset_right = 250.0
-offset_bottom = -6.0
-
-[node name="Controls" type="Label" parent="Settings/Keybinds"]
-layout_mode = 0
-offset_left = 12.824005
-offset_top = 106.528
-offset_right = 102.824005
-offset_bottom = 129.528
-theme = ExtResource("3_fdbd3")
-theme_override_font_sizes/font_size = 14
-text = "Controls"
-
-[node name="KeyBindLabels" type="VBoxContainer" parent="Settings/Keybinds"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 131.0
-offset_right = 84.100006
-offset_bottom = 260.398
-theme = ExtResource("3_fdbd3")
-
-[node name="UpLabel" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "UP"
-
-[node name="DownLabel" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "DOWN"
-
-[node name="LeftLabel" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "LEFT"
-
-[node name="RightLabel" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "RIGHT"
-
-[node name="InteractLabel" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "INTERACT"
-
-[node name="PauseLabel" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "PAUSE"
-
-[node name="Dodge" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "Dodge"
-
-[node name="BasicAttackLabel" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "Basic Attack"
-
-[node name="OffHandAction" type="Label" parent="Settings/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "OFF HAND ACTION"
-
-[node name="KeyBindButtons" type="VBoxContainer" parent="Settings/Keybinds"]
-layout_mode = 0
-offset_left = 121.0
-offset_top = 131.0
-offset_right = 180.1
-offset_bottom = 253.704
-
-[node name="Up" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_constants/h_separation = 4
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "UP"
-
-[node name="Down" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_constants/h_separation = 4
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "Down"
-
-[node name="Left" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "LEFT"
-
-[node name="Right" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "RIGHT"
-
-[node name="Interact" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "F"
-
-[node name="Pause" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "P"
-
-[node name="Dodge" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_constants/h_separation = 4
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "Shift"
-
-[node name="BasicAttack" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "Left-Click"
-
-[node name="OffHandAction" type="Button" parent="Settings/Keybinds/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "RIGHT-CLICK"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="Settings"]
-layout_mode = 0
-offset_left = 49.0
-offset_top = -14.0
-offset_right = 250.0
-offset_bottom = 216.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.661
+anchor_top = -0.35200003
+anchor_right = -0.661
+anchor_bottom = -0.35200003
+offset_left = 225.487
+offset_top = 68.72001
+offset_right = 426.487
+offset_bottom = 298.72
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/ScrollContainer"]
 layout_mode = 2
@@ -334,25 +70,31 @@ layout_mode = 2
 texture = ExtResource("3_ofnyb")
 
 [node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/SoundHeader"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 3.0
-offset_right = 197.0
-offset_bottom = 26.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.1680001
+anchor_top = -2.459
+anchor_right = -1.1680001
+anchor_bottom = -2.459
+offset_left = 232.42403
+offset_top = 71.852005
+offset_right = 422.424
+offset_bottom = 94.852005
 theme = ExtResource("3_fdbd3")
 theme_override_font_sizes/font_size = 14
 text = "Sound"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SoundBody" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+[node name="Sounds" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 50)
 layout_mode = 2
 border_color = Color(0.97566444, 4.5724214e-06, 1.540184e-06, 1)
 border_width = 0.0
 script = ExtResource("4_fdbd3")
 
-[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/SoundBody"]
+[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Sounds"]
 layout_mode = 0
 offset_left = 141.0
 offset_top = -2.0
@@ -362,7 +104,7 @@ theme = ExtResource("3_fdbd3")
 text = "Sound Effect"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/SoundBody"]
+[node name="SoundEffect" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/Sounds"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = -1.0
@@ -370,7 +112,7 @@ offset_right = 131.0
 offset_bottom = 15.0
 theme = ExtResource("3_fdbd3")
 
-[node name="Label2" type="Label" parent="Settings/ScrollContainer/VBoxContainer/SoundBody"]
+[node name="Label2" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Sounds"]
 layout_mode = 0
 offset_left = 141.0
 offset_top = 21.0
@@ -380,7 +122,7 @@ theme = ExtResource("3_fdbd3")
 text = "Music"
 vertical_alignment = 1
 
-[node name="HSlider2" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/SoundBody"]
+[node name="Music" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/Sounds"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 22.0
@@ -404,14 +146,15 @@ text = "Display"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DisplayBody" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+[node name="Displays" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 100)
 layout_mode = 2
 border_color = Color(0.97566444, 4.5724214e-06, 1.540184e-06, 1)
 border_width = 0.0
 script = ExtResource("5_utkq2")
 
-[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/DisplayBody"]
+[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Displays"]
 layout_mode = 0
 offset_left = 142.0
 offset_top = -2.0
@@ -421,7 +164,7 @@ theme = ExtResource("3_fdbd3")
 text = "Brightness"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/DisplayBody"]
+[node name="Brightness" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/Displays"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = -1.0
@@ -429,7 +172,7 @@ offset_right = 131.0
 offset_bottom = 15.0
 theme = ExtResource("3_fdbd3")
 
-[node name="Label2" type="Label" parent="Settings/ScrollContainer/VBoxContainer/DisplayBody"]
+[node name="Label2" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Displays"]
 layout_mode = 0
 offset_left = 142.0
 offset_top = 27.0
@@ -439,7 +182,7 @@ theme = ExtResource("3_fdbd3")
 text = "Resolution"
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Settings/ScrollContainer/VBoxContainer/DisplayBody"]
+[node name="Resolution" type="OptionButton" parent="Settings/ScrollContainer/VBoxContainer/Displays"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 26.0
@@ -471,12 +214,13 @@ text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="KeybindBody" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+[node name="Keybinds" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 script = ExtResource("1_ofnyb")
 
-[node name="KeyBindLabels" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody"]
+[node name="KeyBindLabels" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/Keybinds"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 18.0
@@ -484,59 +228,70 @@ offset_right = 84.100006
 offset_bottom = 147.39801
 theme = ExtResource("3_fdbd3")
 
-[node name="UpLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="UpLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "UP"
 
-[node name="DownLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="DownLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "DOWN"
 
-[node name="LeftLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="LeftLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "LEFT"
 
-[node name="RightLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="RightLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "RIGHT"
 
-[node name="InteractLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="InteractLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "INTERACT"
 
-[node name="PauseLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="PauseLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "PAUSE"
 
-[node name="Dodge" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="Dodge" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "Dodge"
 
-[node name="BasicAttackLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="BasicAttackLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "Basic Attack"
 
-[node name="OffHandAction" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindLabels"]
+[node name="OffHandAction" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "OFF HAND ACTION"
 
-[node name="KeyBindButtons" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody"]
+[node name="Inventory" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("3_fdbd3")
+text = "Inventory"
+
+[node name="SkillTree" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("3_fdbd3")
+text = "Skill Tree"
+
+[node name="KeyBindButtons" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/Keybinds"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 121.0
 offset_top = 18.0
 offset_right = 180.1
 offset_bottom = 140.704
 
-[node name="Up" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
+[node name="Up" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -546,7 +301,7 @@ theme_override_constants/h_separation = 4
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "UP"
 
-[node name="Down" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
+[node name="Down" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -556,7 +311,7 @@ theme_override_constants/h_separation = 4
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "Down"
 
-[node name="Left" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
+[node name="Left" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -565,7 +320,7 @@ theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "LEFT"
 
-[node name="Right" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
+[node name="Right" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -574,16 +329,7 @@ theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "RIGHT"
 
-[node name="Interact" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 8
-theme = ExtResource("3_fdbd3")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
-text = "F"
-
-[node name="Pause" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
+[node name="Pause" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -592,7 +338,16 @@ theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "P"
 
-[node name="Dodge" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
+[node name="Interact" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("3_fdbd3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "F"
+
+[node name="Dodge" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -602,7 +357,7 @@ theme_override_constants/h_separation = 4
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "Shift"
 
-[node name="BasicAttack" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
+[node name="BasicAttack" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -611,7 +366,7 @@ theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "Left-Click"
 
-[node name="OffHandAction" type="Button" parent="Settings/ScrollContainer/VBoxContainer/KeybindBody/KeyBindButtons"]
+[node name="OffHandAction" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -620,4 +375,59 @@ theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "RIGHT-CLICK"
 
-[connection signal="timeout" from="Settings/Timer" to="Settings" method="_on_timer_timeout"]
+[node name="Inventory" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("3_fdbd3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "I"
+
+[node name="SkillTree" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("3_fdbd3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "T"
+
+[node name="Accept" type="Button" parent="Settings"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.66200006
+anchor_top = -0.35300002
+anchor_right = -0.66200006
+anchor_bottom = -0.35300002
+offset_left = 287.75403
+offset_top = 304.95502
+offset_right = 364.75403
+offset_bottom = 331.95502
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_wvwsk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bweuv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wvwsk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_si0cj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j6t43")
+text = "Accept"
+
+[node name="Exit" type="Button" parent="Settings"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.66200006
+anchor_top = -0.35300002
+anchor_right = -0.66200006
+anchor_bottom = -0.35300002
+offset_left = 416.75403
+offset_top = 38.955
+offset_right = 443.75403
+offset_bottom = 66.955
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qpocd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a78v1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wvwsk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fb0xf")
