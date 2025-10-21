@@ -19,7 +19,6 @@ func _process(delta: float) -> void:
 func _on_accept_pressed() -> void:
 	### This will update/create the configuration file to keep changes
 	var config: ConfigFile = ConfigFile.new()
-	var file: FileAccess = FileAccess.new.call()
 	
 	## Iterate through each settings section and write/update current values.
 	for sound in $ScrollContainer/VBoxContainer/Sounds.get_children():
@@ -33,7 +32,7 @@ func _on_accept_pressed() -> void:
 			config.set_value("Displays", display.name, display.selected)
 	
 	for keybind in $ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons.get_children():
-		if keybind is Button:	# to make sure we cannot get non-buttons
-			config.set_value("KeyBindButtons", keybind.name, InputMap.action_get_events(keybind.name))
+		if keybind is KeybindButton:	# to make sure we cannot get non-buttons
+			config.set_value("KeyBindButtons", keybind.action, InputMap.action_get_events(keybind.action)[0])
 	
 	config.save(configPath)

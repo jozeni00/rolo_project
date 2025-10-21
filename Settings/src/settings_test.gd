@@ -2,9 +2,9 @@ extends Node2D
 
 const configPath: String = "user://settings.cfg"
 
-@onready var soundsection := $%Sounds
-@onready var displaysection := $%Displays
-@onready var keybindsection := $%Keybinds
+@onready var soundsection := $CanvasLayer/Settings/ScrollContainer/VBoxContainer/Sounds
+@onready var displaysection := $CanvasLayer/Settings/ScrollContainer/VBoxContainer/Displays
+@onready var keybindsection := $CanvasLayer/Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -60,13 +60,11 @@ func load_config() -> void:
 			
 	# updating keybinds
 	for keybind in keybindsection.get_children():
-		if keybind is Button:
-			var event = config.get_value(keybindsection.name,keybind.name)
-			var key_event = InputEventKey.new()
+		if keybind is KeybindButton:
+			var event = config.get_value(keybindsection.name,keybind.action)
 			
-			if event is InputEvent:
-				keybind.text = event.as_text_keycode()
-				key_event = event
+			if event is InputEventKey:
+				keybind.text = event.as_text_physical_keycode()
 				
 			elif event is InputEventMouseButton:
 				match event.button_index:
@@ -76,7 +74,6 @@ func load_config() -> void:
 						keybind.text = "Right-Click"
 					MOUSE_BUTTON_MIDDLE:
 						keybind.text = "Scroll-Button"
-				key_event = event
 			
-			InputMap.action_erase_event(keybind.name,event)
-			InputMap.action_add_event(keybind.name, key_event)
+			InputMap.action_erase_events(keybind.action)
+			InputMap.action_add_event(keybind.action, event)
