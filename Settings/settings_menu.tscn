@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d1b81ch5be6tp" path="res://Settings/src/settings.gd" id="1_bweuv"]
 [ext_resource type="Texture2D" uid="uid://dgj5bglyt416g" path="res://Settings/assets/Options.png" id="1_fdbd3"]
-[ext_resource type="Script" uid="uid://bxnm5xbouexjd" path="res://Settings/src/keybinds.gd" id="1_ofnyb"]
 [ext_resource type="Theme" uid="uid://d264k6851ktxi" path="res://tres/test.tres" id="3_fdbd3"]
 [ext_resource type="Texture2D" uid="uid://8lrhxq3mtw14" path="res://Settings/assets/bar.png" id="3_ofnyb"]
 [ext_resource type="Script" uid="uid://yvm6ts0f5ntr" path="res://Settings/src/sounds.gd" id="4_fdbd3"]
 [ext_resource type="Script" uid="uid://hrunk24uwtfs" path="res://Settings/src/displays.gd" id="5_utkq2"]
+[ext_resource type="Script" uid="uid://p0th473dlhdq" path="res://Settings/src/KeybindButton.gd" id="7_bweuv"]
 [ext_resource type="FontFile" uid="uid://crexq1h32bkfk" path="res://fonts/Bungee-Regular.ttf" id="7_wvwsk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlw3h"]
@@ -218,7 +218,6 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-script = ExtResource("1_ofnyb")
 
 [node name="KeyBindLabels" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/Keybinds"]
 layout_mode = 0
@@ -248,15 +247,15 @@ layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "RIGHT"
 
-[node name="InteractLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
-layout_mode = 2
-theme = ExtResource("3_fdbd3")
-text = "INTERACT"
-
 [node name="PauseLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
 theme = ExtResource("3_fdbd3")
 text = "PAUSE"
+
+[node name="InteractLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("3_fdbd3")
+text = "INTERACT"
 
 [node name="Dodge" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
 layout_mode = 2
@@ -300,6 +299,9 @@ theme = ExtResource("3_fdbd3")
 theme_override_constants/h_separation = 4
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "UP"
+script = ExtResource("7_bweuv")
+action = "Up"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="Down" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -310,6 +312,9 @@ theme = ExtResource("3_fdbd3")
 theme_override_constants/h_separation = 4
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "Down"
+script = ExtResource("7_bweuv")
+action = "Down"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="Left" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -319,6 +324,9 @@ size_flags_vertical = 8
 theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "LEFT"
+script = ExtResource("7_bweuv")
+action = "Left"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="Right" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -328,6 +336,9 @@ size_flags_vertical = 8
 theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "RIGHT"
+script = ExtResource("7_bweuv")
+action = "Right"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="Pause" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -337,6 +348,9 @@ size_flags_vertical = 8
 theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "P"
+script = ExtResource("7_bweuv")
+action = "Pause"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="Interact" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -346,6 +360,9 @@ size_flags_vertical = 8
 theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "F"
+script = ExtResource("7_bweuv")
+action = "Interact"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="Dodge" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -356,6 +373,9 @@ theme = ExtResource("3_fdbd3")
 theme_override_constants/h_separation = 4
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "Shift"
+script = ExtResource("7_bweuv")
+action = "Dodge"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="BasicAttack" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -365,6 +385,9 @@ size_flags_vertical = 8
 theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "Left-Click"
+script = ExtResource("7_bweuv")
+action = "BasicAttack"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="OffHandAction" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -374,6 +397,9 @@ size_flags_vertical = 8
 theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "RIGHT-CLICK"
+script = ExtResource("7_bweuv")
+action = "OffHandAction"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="Inventory" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -383,6 +409,9 @@ size_flags_vertical = 8
 theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "I"
+script = ExtResource("7_bweuv")
+action = "Inventory"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="SkillTree" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
 custom_minimum_size = Vector2(1, 0)
@@ -392,6 +421,9 @@ size_flags_vertical = 8
 theme = ExtResource("3_fdbd3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
 text = "T"
+script = ExtResource("7_bweuv")
+action = "SkillTree"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
 
 [node name="Accept" type="Button" parent="Settings"]
 unique_name_in_owner = true
