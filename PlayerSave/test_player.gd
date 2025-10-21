@@ -37,4 +37,4 @@ func apply_save_data(data: Dictionary) -> void:
 		health = data["health"]
 	if data.has("xp"):
 		xp = data["xp"]
-	print("✅ Player data applied:", data)
+	print("Player data applied:", data)
