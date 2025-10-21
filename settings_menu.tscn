@@ -8,6 +8,19 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
+[node name="BrightnessOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 177.0
+offset_top = 83.0
+offset_right = 177.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
 [node name="Settings" type="Control" parent="."]
 layout_mode = 3
 anchor_left = 0.277
@@ -225,9 +238,11 @@ offset_bottom = 66.224
 
 [node name="SoundEffects" type="HSlider" parent="Settings/Sound/SoundSliders"]
 layout_mode = 2
+value = 50.0
 
 [node name="Music" type="HSlider" parent="Settings/Sound/SoundSliders"]
 layout_mode = 2
+value = 50.0
 
 [node name="SoundLabels" type="VBoxContainer" parent="Settings/Sound"]
 layout_mode = 1
@@ -291,6 +306,7 @@ offset_bottom = 60.0
 
 [node name="Brightness" type="HSlider" parent="Settings/Display/DisplayControls"]
 layout_mode = 2
+value = 50.0
 
 [node name="OptionButton" type="OptionButton" parent="Settings/Display/DisplayControls"]
 layout_mode = 2
@@ -304,3 +320,7 @@ popup/item_2/text = "Fullscreen"
 popup/item_2/id = 2
 
 [connection signal="timeout" from="Settings/Timer" to="Settings" method="_on_timer_timeout"]
+[connection signal="value_changed" from="Settings/Sound/SoundSliders/SoundEffects" to="Settings" method="_on_sound_effects_value_changed"]
+[connection signal="value_changed" from="Settings/Sound/SoundSliders/Music" to="Settings" method="_on_music_value_changed"]
+[connection signal="value_changed" from="Settings/Display/DisplayControls/Brightness" to="Settings" method="_on_brightness_value_changed"]
+[connection signal="item_selected" from="Settings/Display/DisplayControls/OptionButton" to="Settings" method="_on_option_button_item_selected"]

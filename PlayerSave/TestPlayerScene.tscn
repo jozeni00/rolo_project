@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b37fqdog0c64w"]
+
+[ext_resource type="Script" uid="uid://mdw3e1njo2rs" path="res://PlayerSave/test_scene.gd" id="1_1lg5w"]
+[ext_resource type="Texture2D" uid="uid://2xf1xhybhlgw" path="res://icon.svg" id="2_1lg5w"]
+[ext_resource type="Script" uid="uid://dfjqleg2ro072" path="res://PlayerSave/test_player.gd" id="2_p77o1"]
+
+[node name="TestPlayerScene" type="Node2D"]
+script = ExtResource("1_1lg5w")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_p77o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_1lg5w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Save Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Load Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Save Button" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Load Button" to="." method="_on_LoadButton_pressed"]
