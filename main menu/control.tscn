@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://7j4i00qli0xj"]
+
+[ext_resource type="Script" path="res://main menu/control.gd" id="1_j8dlu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 638.0
+offset_bottom = 365.0
+script = ExtResource("1_j8dlu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 641.0
+offset_bottom = 359.0
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 107.0
+offset_right = 353.0
+offset_bottom = 138.0
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 137.0
+offset_right = 352.0
+offset_bottom = 168.0
+text = "Options"
