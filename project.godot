@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SaveManager="*res://PlayerSave/src/save_manager.gd"
+SettingsMenu="*res://settings_menu.tscn"
 
 [display]
 

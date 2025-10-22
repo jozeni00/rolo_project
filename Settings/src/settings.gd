@@ -8,10 +8,9 @@ var currentbutton
 # --- Display & Sound Nodes ---
 @onready var music_slider = $Sound/SoundSliders/Music
 @onready var sfx_slider = $Sound/SoundSliders/SoundEffects
-@onready var brightness_slider = $Display/DisplayControls/Brightness
 @onready var resolution_option = $Display/DisplayControls/OptionButton
-@onready var brightness_overlay = get_node("BrightnessOverlay")
-
+@onready var brightness_slider = $Display/DisplayControls/Brightness
+@onready var brightness_overlay = $BrightnessOverlay
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -96,10 +95,11 @@ func _on_sound_effects_value_changed(value: float) -> void:
 
 # Brightness Control
 func _on_brightness_value_changed(value: float) -> void:
-	if brightness_overlay:
-		# 0 = darkest (black opaque), 100 = brightest (fully transparent)
-		brightness_overlay.modulate = Color(0, 0, 0, (100.0 - value) / 100.0)
-	print("Brightness set to:", value)
+	# Map slider 0–100 → alpha 0.6–0 (dark to bright)
+	var alpha = lerp(0.6, 0.0, value / 100.0)
+	brightness_overlay.color = Color(0, 0, 0, alpha)
+	print("Brightness overlay:", alpha)
+
 
 
 # Resolution Options

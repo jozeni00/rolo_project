@@ -8,19 +8,6 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="BrightnessOverlay" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 177.0
-offset_top = 83.0
-offset_right = 177.0
-offset_bottom = 83.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
-
 [node name="Settings" type="Control" parent="."]
 layout_mode = 3
 anchor_left = 0.277
@@ -34,6 +21,17 @@ offset_bottom = -0.83999634
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_mlw3h")
+
+[node name="BrightnessOverlay" type="ColorRect" parent="Settings"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.3019608)
 
 [node name="MenuSprite" type="Sprite2D" parent="Settings"]
 position = Vector2(154, 93)
