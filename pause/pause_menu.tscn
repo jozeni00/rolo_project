@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://wxb4le0tibcc"]
+[gd_scene load_steps=2 format=3 uid="uid://wxb4le0tibcc"]
 
 [ext_resource type="Script" uid="uid://bddwwm27tbgvt" path="res://pause/pause_menu.gd" id="1_ytbj3"]
-[ext_resource type="Script" uid="uid://gkeivg3kn6xe" path="res://pause/defaultButton.gd" id="2_8pr2g"]
 
 [node name="Pause_Menu" type="Control"]
 layout_mode = 3
@@ -30,7 +29,6 @@ layout_mode = 2
 [node name="Resume" type="Button" parent="GraphFrame/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
-script = ExtResource("2_8pr2g")
 
 [node name="Options" type="Button" parent="GraphFrame/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -48,6 +46,16 @@ text = "Main Menu"
 layout_mode = 2
 text = "Quit Game"
 
+[node name="quitConfirm" type="ConfirmationDialog" parent="GraphFrame/MarginContainer/VBoxContainer"]
+title = "Truly Quit the Game?"
+size = Vector2i(400, 100)
+ok_button_text = "Yes"
+cancel_button_text = "No"
+
+[node name="mainConfirm" type="ConfirmationDialog" parent="GraphFrame/MarginContainer/VBoxContainer"]
+title = "Return to the Main Menu?"
+size = Vector2i(400, 100)
+
 [node name="PAUSED" type="Label" parent="."]
 layout_mode = 0
 offset_left = -23.0
@@ -62,3 +70,6 @@ horizontal_alignment = 1
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="confirmed" from="GraphFrame/MarginContainer/VBoxContainer/quitConfirm" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="confirmed" from="GraphFrame/MarginContainer/VBoxContainer/quitConfirm" to="." method="_on_quit_confirm_confirmed"]
+[connection signal="confirmed" from="GraphFrame/MarginContainer/VBoxContainer/mainConfirm" to="." method="_on_main_confirm_confirmed"]

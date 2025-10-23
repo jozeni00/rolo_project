@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpc1nndulm64w"]
-
-[ext_resource type="Script" path="res://pause/confirm_box.gd" id="1_m4i5i"]
+[gd_scene format=3 uid="uid://dpc1nndulm64w"]
 
 [node name="ConfirmBox" type="Control"]
 layout_mode = 3
@@ -11,7 +9,6 @@ offset_right = -542.0
 offset_bottom = -217.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_m4i5i")
 
 [node name="GraphFrame" type="GraphFrame" parent="."]
 layout_mode = 0
