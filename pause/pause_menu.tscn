@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wxb4le0tibcc"]
+[gd_scene load_steps=3 format=3 uid="uid://wxb4le0tibcc"]
 
 [ext_resource type="Script" uid="uid://bddwwm27tbgvt" path="res://pause/pause_menu.gd" id="1_ytbj3"]
+[ext_resource type="PackedScene" uid="uid://ds2csofjmux4f" path="res://pause/confirm_box.tscn" id="2_8pr2g"]
 
 [node name="Pause_Menu" type="Control"]
 layout_mode = 3
@@ -50,6 +51,14 @@ offset_right = 124.0
 offset_bottom = -7.0
 text = "PAUSED"
 horizontal_alignment = 1
+
+[node name="ConfirmBox" parent="." instance=ExtResource("2_8pr2g")]
+visible = false
+layout_mode = 1
+offset_left = 9.0
+offset_top = -40.0
+offset_right = -89.0
+offset_bottom = -183.0
 
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
