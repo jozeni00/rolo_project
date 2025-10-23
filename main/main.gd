@@ -30,4 +30,5 @@ func pauseGame():
 		Engine.time_scale = 0
 		#print("Paused")	
 		pauseMenu.show()
+		$Pause_Menu/GraphFrame/MarginContainer/VBoxContainer/Resume.grab_focus()
 		paused = true
