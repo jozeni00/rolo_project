@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ssp76li6h0cr"]
+[gd_scene load_steps=18 format=3 uid="uid://ssp76li6h0cr"]
 
 [ext_resource type="Script" uid="uid://cpegmt0ce3ee1" path="res://main/main.gd" id="1_53q0u"]
 [ext_resource type="Texture2D" uid="uid://b4gdvfnq1hruk" path="res://main/assets/sprites/Idle/idle_000.png" id="2_4dugh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cj1wuvrmdvq17" path="res://main/assets/sprites/walk/walk_003.png" id="11_n3o0a"]
 [ext_resource type="Texture2D" uid="uid://cjk3cewd2f2u" path="res://main/assets/sprites/walk/walk_004.png" id="12_s758e"]
 [ext_resource type="Texture2D" uid="uid://cktradnbcb8nx" path="res://main/assets/sprites/walk/walk_005.png" id="13_4hmqs"]
+[ext_resource type="PackedScene" uid="uid://wxb4le0tibcc" path="res://pause/pause_menu.tscn" id="15_5xyti"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_na0o7"]
 animations = [{
@@ -82,3 +83,10 @@ animation = &"walk"
 position = Vector2(-0.5, 2.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_73k8k")
+
+[node name="Pause_Menu" parent="." instance=ExtResource("15_5xyti")]
+visible = false
+offset_left = 271.0
+offset_top = 118.0
+offset_right = 271.0
+offset_bottom = 118.0

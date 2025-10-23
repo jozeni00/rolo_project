@@ -4,7 +4,7 @@ extends Node
 
 @export var screensize = Vector2i(720,480)
 
-#@onready var pause_Menu = $pauseMenu
+@onready var pauseMenu = $Pause_Menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,11 +23,11 @@ func returnPause() -> int:
 func pauseGame():
 	if(paused):
 		Engine.time_scale = 1
-		#pause_Menu.hide()
-		print("Unpaused")
+		pauseMenu.hide()
+		#print("Unpaused")
 		paused = false
 	else:
 		Engine.time_scale = 0
-		print("Paused")	
-		#pause_Menu.show()
+		#print("Paused")	
+		pauseMenu.show()
 		paused = true
