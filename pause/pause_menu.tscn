@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wxb4le0tibcc"]
+[gd_scene load_steps=3 format=3 uid="uid://wxb4le0tibcc"]
 
 [ext_resource type="Script" uid="uid://bddwwm27tbgvt" path="res://pause/pause_menu.gd" id="1_ytbj3"]
+[ext_resource type="Script" uid="uid://gkeivg3kn6xe" path="res://pause/defaultButton.gd" id="2_8pr2g"]
 
 [node name="Pause_Menu" type="Control"]
 layout_mode = 3
@@ -18,7 +19,7 @@ layout_mode = 0
 offset_left = -59.0
 offset_top = -51.0
 offset_right = 157.0
-offset_bottom = 148.0
+offset_bottom = 206.0
 
 [node name="MarginContainer" type="MarginContainer" parent="GraphFrame"]
 layout_mode = 2
@@ -29,6 +30,7 @@ layout_mode = 2
 [node name="Resume" type="Button" parent="GraphFrame/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
+script = ExtResource("2_8pr2g")
 
 [node name="Options" type="Button" parent="GraphFrame/MarginContainer/VBoxContainer"]
 layout_mode = 2

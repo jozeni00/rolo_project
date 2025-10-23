@@ -17,13 +17,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	velocity = Input.get_vector("Left", "Right", "Up", "Down")
+	
 	position += velocity * speed * delta
 	if(get_parent().returnPause() == 0):
 		if ((velocity.length() > 0)):
 			sprite.play("walk")
 		
 			if(velocity[0] < 0 and self.scale != LEFT):# and self.get_child(2).cursor_position.x < self.position.x):
-				#print("Going Left?")
+				
 				self.scale = LEFT
 			elif(velocity[0] > 0 and self.scale == LEFT):
 				self.scale = RIGHT
