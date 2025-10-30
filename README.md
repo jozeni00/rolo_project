@@ -11,7 +11,7 @@ The Settings Menu currently contains the options for *Sounds*, *Displays*, and *
 ### Sound Settings
 The sound options include three horizontal sliders corresponding to their respective audio buses: *Master*, *Sound Effect*, and *Music*.
 All the sliders uses the custom `VolumeHSlider` class, which inherits from the Godot `HSlider` node. The `VolumeHSlider` class 
-has the property `Bus` that could that is of type `enum BusIndex`. Other things the class does is initializes the `HSlider` properties:
+has the property `Bus` that is of type `enum BusIndex`. Other things the class does is initializes the `HSlider` properties:
 `min_value`, `max_value`, `step`, and `value`; and also updates the audio bus with the current value.
 ```gdscript
 enum BusIndex = {Master, SoundEffect, Music}
