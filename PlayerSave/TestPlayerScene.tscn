@@ -11,6 +11,8 @@ script = ExtResource("1_1lg5w")
 script = ExtResource("2_p77o1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(99, 31)
+scale = Vector2(0.34375, 0.3515625)
 texture = ExtResource("2_1lg5w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
