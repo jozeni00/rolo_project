@@ -1,41 +1,26 @@
-[gd_scene load_steps=18 format=3 uid="uid://ssp76li6h0cr"]
+[gd_scene load_steps=15 format=3 uid="uid://ssp76li6h0cr"]
 
 [ext_resource type="Script" uid="uid://cpegmt0ce3ee1" path="res://main/main.gd" id="1_53q0u"]
-[ext_resource type="Texture2D" uid="uid://b4gdvfnq1hruk" path="res://main/assets/sprites/Idle/idle_000.png" id="2_4dugh"]
 [ext_resource type="Script" uid="uid://b8eehyx61oppo" path="res://main/character.gd" id="2_73k8k"]
-[ext_resource type="Texture2D" uid="uid://cn2pho3117m7k" path="res://main/assets/sprites/Idle/idle_001.png" id="3_67ri8"]
-[ext_resource type="Texture2D" uid="uid://cnwwebj73t8rf" path="res://main/assets/sprites/Idle/idle_002.png" id="4_grrlh"]
-[ext_resource type="Texture2D" uid="uid://dpe7uu5xtpb05" path="res://main/assets/sprites/Idle/idle_003.png" id="5_0i4oc"]
-[ext_resource type="Texture2D" uid="uid://c01pw4da3meit" path="res://main/assets/sprites/Idle/idle_004.png" id="6_bsumw"]
-[ext_resource type="Texture2D" uid="uid://dcw3p0twm4k0f" path="res://main/assets/sprites/Idle/idle_005.png" id="7_fwcvl"]
-[ext_resource type="Texture2D" uid="uid://fkgylx1krdvh" path="res://main/assets/sprites/walk/walk_000.png" id="8_na0o7"]
-[ext_resource type="Texture2D" uid="uid://di4rv3oq5nrcb" path="res://main/assets/sprites/walk/walk_001.png" id="9_73k8k"]
-[ext_resource type="Texture2D" uid="uid://cahwor2hgy6if" path="res://main/assets/sprites/walk/walk_002.png" id="10_5xyti"]
-[ext_resource type="Texture2D" uid="uid://cj1wuvrmdvq17" path="res://main/assets/sprites/walk/walk_003.png" id="11_n3o0a"]
-[ext_resource type="Texture2D" uid="uid://cjk3cewd2f2u" path="res://main/assets/sprites/walk/walk_004.png" id="12_s758e"]
-[ext_resource type="Texture2D" uid="uid://cktradnbcb8nx" path="res://main/assets/sprites/walk/walk_005.png" id="13_4hmqs"]
+[ext_resource type="Texture2D" uid="uid://cdldfjrrkwq65" path="res://sprites/player sprites/idle/idle1.png" id="3_fwcvl"]
+[ext_resource type="Texture2D" uid="uid://qj4byoqd5txq" path="res://sprites/player sprites/idle/idle2.png" id="4_na0o7"]
+[ext_resource type="Texture2D" uid="uid://ba0brndrk340d" path="res://sprites/player sprites/walkRight/walkRight1.png" id="5_fwcvl"]
+[ext_resource type="Texture2D" uid="uid://cauuwpmq1vl80" path="res://sprites/player sprites/walkRight/walkRight2.png" id="6_na0o7"]
+[ext_resource type="Texture2D" uid="uid://77ar8b36ngc2" path="res://sprites/player sprites/walkRight/walkRight3.png" id="7_73k8k"]
+[ext_resource type="Texture2D" uid="uid://dtys6xfurowxa" path="res://sprites/player sprites/walkRight/walkRight4.png" id="8_5xyti"]
+[ext_resource type="Texture2D" uid="uid://ctu6mcixiewa6" path="res://sprites/player sprites/walkRight/walkRight5.png" id="9_n3o0a"]
+[ext_resource type="Texture2D" uid="uid://chxm0iwl2orp" path="res://sprites/player sprites/walkRight/walkRight6.png" id="10_s758e"]
 [ext_resource type="PackedScene" uid="uid://wxb4le0tibcc" path="res://pause/pause_menu.tscn" id="15_5xyti"]
+[ext_resource type="PackedScene" uid="uid://bwv8i6uar2y4a" path="res://enemy.tscn" id="16_n3o0a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_na0o7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4dugh")
+"texture": ExtResource("3_fwcvl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_67ri8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_grrlh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_0i4oc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_bsumw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_fwcvl")
+"texture": ExtResource("4_na0o7")
 }],
 "loop": true,
 "name": &"idle",
@@ -43,22 +28,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_na0o7")
+"texture": ExtResource("5_fwcvl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_73k8k")
+"texture": ExtResource("6_na0o7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_5xyti")
+"texture": ExtResource("7_73k8k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_n3o0a")
+"texture": ExtResource("8_5xyti")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_s758e")
+"texture": ExtResource("9_n3o0a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_4hmqs")
+"texture": ExtResource("10_s758e")
 }],
 "loop": true,
 "name": &"walk",
@@ -72,12 +57,12 @@ size = Vector2(8.5, 13.5)
 script = ExtResource("1_53q0u")
 
 [node name="Chara" type="Area2D" parent="."]
-position = Vector2(200, 100)
+position = Vector2(199, 101)
 script = ExtResource("2_73k8k")
 
 [node name="charaSprite" type="AnimatedSprite2D" parent="Chara"]
 sprite_frames = SubResource("SpriteFrames_na0o7")
-animation = &"walk"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chara"]
 position = Vector2(-0.5, 2.5)
@@ -90,3 +75,5 @@ offset_left = 261.0
 offset_top = 105.5
 offset_right = 261.0
 offset_bottom = 105.5
+
+[node name="Enemy" parent="." instance=ExtResource("16_n3o0a")]
