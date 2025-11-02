@@ -7,7 +7,7 @@ func save_game(slot: int, player_data: Dictionary, keybinds: Dictionary):
 	if slot < 1 or slot > NUM_SLOTS:
 		push_error("Invalid save slot.")
 		return
-		
+
 	DirAccess.make_dir_recursive_absolute(SAVE_PATH)
 
 	var file_path = SAVE_PATH + "slot%d.save" % slot
