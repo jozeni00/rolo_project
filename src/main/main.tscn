@@ -57,7 +57,7 @@ size = Vector2(8.5, 13.5)
 script = ExtResource("1_ibsor")
 
 [node name="Chara" type="Area2D" parent="."]
-position = Vector2(199, 101)
+position = Vector2(299, 101)
 script = ExtResource("2_hc2u7")
 
 [node name="charaSprite" type="AnimatedSprite2D" parent="Chara"]

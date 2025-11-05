@@ -16,15 +16,15 @@ var aggro_timer: Timer = Timer.new()
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	sprite.play("idle")
-	aggro_timer.one_shot = true;
-	aggro_timer.wait_time = 2;
+	aggro_timer.one_shot = true
+	aggro_timer.wait_time = 2
 	add_child(aggro_timer)
 	aggro_timer.connect("timeout", Callable(self,"_on_aggro_timeout"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(state == "aggro"):
+	if(state == "aggro" or state == "chasing"):
 		chase(player.position, delta)
 		#velocity = 0
 		position += velocity * delta
@@ -42,7 +42,9 @@ func _process(delta: float) -> void:
 		sprite.play("idle")
 			#print("Nothin at all")
 	elif (state == "violence"):
-		print("I wish to demolish you")
+		if(speed < 180):
+			speed += 1
+		#print("I wish to demolish you")
 		sprite.play("idle")
 	#pass
 	
@@ -50,7 +52,12 @@ func chase(player, delta: float):
 	if(speed < 180):
 		speed += 1
 	var direction = (player - global_position).normalized()
+	"""if(state == "chasing"):
+		speed *= 4"""
 	velocity = direction * speed
+	"""if(state == "chasing"):
+		speed /= 4
+		state = "aggro" """
 	
 
 func check_move() -> bool:
@@ -60,7 +67,7 @@ func check_move() -> bool:
 
 func _on_detection_area_entered(area: Area2D) -> void:
 	if area == player:
-		print("IT BE THE PLAYER")
+		#print("IT BE THE PLAYER")
 		state = "aggro"
 		aggro_timer.stop()
 	#pass # Replace with function body.
@@ -68,8 +75,8 @@ func _on_detection_area_entered(area: Area2D) -> void:
 
 func _on_detection_area_exited(area: Area2D) -> void:
 	if area == player:
-		print("YOU CANNOT ESCAPE")
-		#state = "idle"
+		#print("YOU CANNOT ESCAPE")
+		state = "chasing"
 		aggro_timer.start()
 	#pass # Replace with function body.
 
@@ -78,7 +85,7 @@ func _on_detection_area_exited(area: Area2D) -> void:
 
 func _on_attack_area_entered(area: Area2D) -> void:
 	if ((area == player)):
-		print("ATTACK")
+		#print("ATTACK")
 		state = "violence"
 	#pass # Replace with function body.
 	
@@ -87,13 +94,13 @@ func _on_attack_area_entered(area: Area2D) -> void:
 
 func _on_exit_attack_range(area: Area2D) -> void:
 	if ((area == player)):
-		print("GET BACK HERE")
+		#print("GET BACK HERE")
 		state = "aggro"
 		#timer.stop()
 	#pass # Replace with function body.
 
 
 func _on_aggro_timeout() -> void:
-	print("Must've been the wind...")
+	#print("Must've been the wind...")
 	state = "idle"
 	#pass # Replace with function body.
