@@ -7,14 +7,19 @@ const RIGHT = Vector2(1,1)
 var velocity
 var player
 var state
+var aggro_timer: Timer = Timer.new()
 
 @onready var sprite := $enemSprite
-@onready var timer := $AggroTimer
+#@onready var timer := $AggroTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	sprite.play("idle")
+	aggro_timer.one_shot = true;
+	aggro_timer.wait_time = 2;
+	add_child(aggro_timer)
+	aggro_timer.connect("timeout", Callable(self,"_on_aggro_timeout"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,7 +44,7 @@ func _process(delta: float) -> void:
 	elif (state == "violence"):
 		print("I wish to demolish you")
 		sprite.play("idle")
-	pass
+	#pass
 	
 func chase(player, delta: float):
 	if(speed < 180):
@@ -57,15 +62,16 @@ func _on_detection_area_entered(area: Area2D) -> void:
 	if area == player:
 		print("IT BE THE PLAYER")
 		state = "aggro"
-	pass # Replace with function body.
+		aggro_timer.stop()
+	#pass # Replace with function body.
 
 
 func _on_detection_area_exited(area: Area2D) -> void:
 	if area == player:
-		print("Similarly edgy dialogue")
+		print("YOU CANNOT ESCAPE")
 		#state = "idle"
-		timer.start()
-	pass # Replace with function body.
+		aggro_timer.start()
+	#pass # Replace with function body.
 
 
 
@@ -74,7 +80,7 @@ func _on_attack_area_entered(area: Area2D) -> void:
 	if ((area == player)):
 		print("ATTACK")
 		state = "violence"
-	pass # Replace with function body.
+	#pass # Replace with function body.
 	
 	
 
@@ -84,10 +90,10 @@ func _on_exit_attack_range(area: Area2D) -> void:
 		print("GET BACK HERE")
 		state = "aggro"
 		#timer.stop()
-	pass # Replace with function body.
+	#pass # Replace with function body.
 
 
-func _on_aggro_timer_timeout() -> void:
+func _on_aggro_timeout() -> void:
 	print("Must've been the wind...")
 	state = "idle"
-	pass # Replace with function body.
+	#pass # Replace with function body.
