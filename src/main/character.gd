@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
@@ -27,7 +27,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	velocity = Input.get_vector("Left", "Right", "Up", "Down")
-	
 	if(Input.is_action_just_pressed("Dodge") and canDash):
 		speed *= 4
 		dash_timer.start()
@@ -44,11 +43,11 @@ func _process(delta: float) -> void:
 		if ((velocity.length() > 0)):
 			sprite.play("walk")
 		
-			if(velocity[0] < 0 and self.scale != LEFT):# and self.get_child(2).cursor_position.x < self.position.x):
+			if(velocity[0] < 0 and sprite.scale != LEFT):# and self.get_child(2).cursor_position.x < self.position.x):
 				
-				self.scale = LEFT
-			elif(velocity[0] > 0 and self.scale == LEFT):
-				self.scale = RIGHT
+				sprite.scale = LEFT
+			elif(velocity[0] > 0 and sprite.scale == LEFT):
+				sprite.scale = RIGHT
 			
 		else:
 			sprite.play("idle")

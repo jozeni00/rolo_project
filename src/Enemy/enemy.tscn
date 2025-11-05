@@ -1,18 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1v2f6vunujwc"]
+[gd_scene load_steps=21 format=3 uid="uid://d1v2f6vunujwc"]
 
-[ext_resource type="Script" uid="uid://blxcihr8ws807" path="res://enemy.gd" id="1_e1ltt"]
-[ext_resource type="Texture2D" uid="uid://c5glh37p4cocm" path="res://enemySprites/knightfin2.png" id="1_hb8ge"]
-[ext_resource type="Texture2D" uid="uid://ducx1rktpkhtn" path="res://enemySprites/knightfin3.png" id="2_e1ltt"]
-[ext_resource type="Texture2D" uid="uid://csgktqpsbfb2o" path="res://enemySprites/knightfin4.png" id="3_dxifv"]
-[ext_resource type="Texture2D" uid="uid://cahk886qxv3yl" path="res://enemySprites/knightfin5.png" id="4_pwjut"]
-[ext_resource type="Texture2D" uid="uid://cl14svk0riek8" path="res://enemySprites/knightfin6.png" id="5_n0g06"]
-[ext_resource type="Texture2D" uid="uid://ch02t5qouppjn" path="res://enemySprites/knightfin7.png" id="6_ar8e5"]
-[ext_resource type="Texture2D" uid="uid://bo1hnlhs8u4r8" path="res://enemySprites/knightfin8.png" id="7_doop2"]
-[ext_resource type="Texture2D" uid="uid://c04qokka10onb" path="res://enemySprites/knightfin9.png" id="8_5hcft"]
-[ext_resource type="Texture2D" uid="uid://b6wdkd6omotsf" path="res://enemySprites/knightfin_walk1.png" id="10_ar8e5"]
-[ext_resource type="Texture2D" uid="uid://cfu42wlw23rvy" path="res://enemySprites/knightfin_walk2.png" id="11_doop2"]
-[ext_resource type="Texture2D" uid="uid://c4veaxysl5486" path="res://enemySprites/knightfin_walk3.png" id="12_5hcft"]
-[ext_resource type="Texture2D" uid="uid://dcunc0flxtkp4" path="res://enemySprites/knightfin_walk4.png" id="13_nnovl"]
+[ext_resource type="Script" uid="uid://blxcihr8ws807" path="res://src/Enemy/enemy.gd" id="1_e1ltt"]
+[ext_resource type="Texture2D" uid="uid://c5glh37p4cocm" path="res://src/enemySprites/knightfin2.png" id="1_hb8ge"]
+[ext_resource type="Texture2D" uid="uid://ducx1rktpkhtn" path="res://src/enemySprites/knightfin3.png" id="2_e1ltt"]
+[ext_resource type="Texture2D" uid="uid://csgktqpsbfb2o" path="res://src/enemySprites/knightfin4.png" id="3_dxifv"]
+[ext_resource type="Texture2D" uid="uid://cahk886qxv3yl" path="res://src/enemySprites/knightfin5.png" id="4_pwjut"]
+[ext_resource type="Texture2D" uid="uid://cl14svk0riek8" path="res://src/enemySprites/knightfin6.png" id="5_n0g06"]
+[ext_resource type="Texture2D" uid="uid://ch02t5qouppjn" path="res://src/enemySprites/knightfin7.png" id="6_ar8e5"]
+[ext_resource type="Texture2D" uid="uid://bo1hnlhs8u4r8" path="res://src/enemySprites/knightfin8.png" id="7_doop2"]
+[ext_resource type="Texture2D" uid="uid://c04qokka10onb" path="res://src/enemySprites/knightfin9.png" id="8_5hcft"]
+[ext_resource type="Texture2D" uid="uid://b6wdkd6omotsf" path="res://src/enemySprites/knightfin_walk1.png" id="10_ar8e5"]
+[ext_resource type="Texture2D" uid="uid://cfu42wlw23rvy" path="res://src/enemySprites/knightfin_walk2.png" id="11_doop2"]
+[ext_resource type="Texture2D" uid="uid://c4veaxysl5486" path="res://src/enemySprites/knightfin_walk3.png" id="12_5hcft"]
+[ext_resource type="Texture2D" uid="uid://dcunc0flxtkp4" path="res://src/enemySprites/knightfin_walk4.png" id="13_nnovl"]
+[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="14_nn272"]
+[ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="15_yfud7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nnovl"]
 animations = [{
@@ -69,6 +71,9 @@ size = Vector2(20, 26)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ar8e5"]
 radius = 105.00476
 
+[sub_resource type="Resource" id="Resource_7una0"]
+script = ExtResource("15_yfud7")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_doop2"]
 radius = 36.013885
 
@@ -92,6 +97,8 @@ shape = SubResource("RectangleShape2D_ar8e5")
 shape = SubResource("CircleShape2D_ar8e5")
 
 [node name="Attack" type="Area2D" parent="Area2D"]
+script = ExtResource("14_nn272")
+stats = SubResource("Resource_7una0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Attack"]
 shape = SubResource("CircleShape2D_doop2")
