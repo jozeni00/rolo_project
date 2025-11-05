@@ -1,0 +1,465 @@
+[gd_scene load_steps=18 format=3 uid="uid://dy6aot16krxbq"]
+
+[ext_resource type="Script" path="res://Settings/src/settings.gd" id="1_8iijd"]
+[ext_resource type="Texture2D" path="res://Settings/assets/Options.png" id="2_0ssak"]
+[ext_resource type="Texture2D" path="res://Settings/assets/bar.png" id="3_ge1c5"]
+[ext_resource type="Theme" path="res://tres/test.tres" id="4_5tuox"]
+[ext_resource type="Script" path="res://Settings/src/sounds.gd" id="5_pq4o7"]
+[ext_resource type="Script" path="res://Settings/src/displays.gd" id="6_j0v1c"]
+[ext_resource type="Script" path="res://Settings/src/KeybindButton.gd" id="7_hmgo0"]
+[ext_resource type="FontFile" path="res://fonts/Bungee-Regular.ttf" id="8_ijhvp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlw3h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bweuv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvwsk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_si0cj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6t43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpocd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a78v1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvwsk"]
+bg_color = Color(0.7882353, 0.7882353, 0.7882353, 0.09803922)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fb0xf"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Settings" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.277
+anchor_top = 0.231
+anchor_right = 0.694
+anchor_bottom = 0.883
+offset_left = -0.27999878
+offset_top = -0.16000366
+offset_right = -0.16000366
+offset_bottom = 0.11999512
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_8iijd")
+
+[node name="FrameSprite" type="Sprite2D" parent="Settings"]
+position = Vector2(154, 93)
+texture = ExtResource("2_0ssak")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.661
+anchor_top = -0.35200003
+anchor_right = -0.661
+anchor_bottom = -0.35200003
+offset_left = 225.487
+offset_top = 68.72001
+offset_right = 426.487
+offset_bottom = 298.72
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SoundHeader" type="TextureRect" parent="Settings/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_ge1c5")
+
+[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/SoundHeader"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.1680001
+anchor_top = -2.459
+anchor_right = -1.1680001
+anchor_bottom = -2.459
+offset_left = 232.42403
+offset_top = 71.852005
+offset_right = 422.424
+offset_bottom = 94.852005
+theme = ExtResource("4_5tuox")
+theme_override_font_sizes/font_size = 14
+text = "Sound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sounds" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+border_color = Color(0.97566444, 4.5724214e-06, 1.540184e-06, 1)
+border_width = 0.0
+script = ExtResource("5_pq4o7")
+
+[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Sounds"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = -2.0
+offset_right = 193.0
+offset_bottom = 16.0
+theme = ExtResource("4_5tuox")
+text = "Sound Effect"
+vertical_alignment = 1
+
+[node name="SoundEffect" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/Sounds"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -1.0
+offset_right = 131.0
+offset_bottom = 15.0
+theme = ExtResource("4_5tuox")
+
+[node name="Label2" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Sounds"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 21.0
+offset_right = 193.0
+offset_bottom = 39.0
+theme = ExtResource("4_5tuox")
+text = "Music"
+vertical_alignment = 1
+
+[node name="Music" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/Sounds"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 22.0
+offset_right = 131.0
+offset_bottom = 38.0
+theme = ExtResource("4_5tuox")
+
+[node name="DisplayHeader" type="TextureRect" parent="Settings/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_ge1c5")
+
+[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/DisplayHeader"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 197.0
+offset_bottom = 26.0
+theme = ExtResource("4_5tuox")
+theme_override_font_sizes/font_size = 14
+text = "Display"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Displays" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 100)
+layout_mode = 2
+border_color = Color(0.97566444, 4.5724214e-06, 1.540184e-06, 1)
+border_width = 0.0
+script = ExtResource("6_j0v1c")
+
+[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Displays"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = -2.0
+offset_right = 194.0
+offset_bottom = 16.0
+theme = ExtResource("4_5tuox")
+text = "Brightness"
+vertical_alignment = 1
+
+[node name="Brightness" type="HSlider" parent="Settings/ScrollContainer/VBoxContainer/Displays"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -1.0
+offset_right = 131.0
+offset_bottom = 15.0
+theme = ExtResource("4_5tuox")
+
+[node name="Label2" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Displays"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 27.0
+offset_right = 194.0
+offset_bottom = 45.0
+theme = ExtResource("4_5tuox")
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Resolution" type="OptionButton" parent="Settings/ScrollContainer/VBoxContainer/Displays"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 125.0
+offset_bottom = 57.0
+theme = ExtResource("4_5tuox")
+selected = 0
+item_count = 3
+popup/item_0/text = "640x360"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+
+[node name="KeybindHeader" type="TextureRect" parent="Settings/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_ge1c5")
+
+[node name="Label" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindHeader"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 197.0
+offset_bottom = 26.0
+theme = ExtResource("4_5tuox")
+theme_override_font_sizes/font_size = 14
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keybinds" type="ReferenceRect" parent="Settings/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="KeyBindLabels" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/Keybinds"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 84.100006
+offset_bottom = 147.39801
+theme = ExtResource("4_5tuox")
+
+[node name="UpLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "UP"
+
+[node name="DownLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "DOWN"
+
+[node name="LeftLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "LEFT"
+
+[node name="RightLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "RIGHT"
+
+[node name="PauseLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "PAUSE"
+
+[node name="InteractLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "INTERACT"
+
+[node name="Dodge" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "Dodge"
+
+[node name="BasicAttackLabel" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "Basic Attack"
+
+[node name="OffHandAction" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "OFF HAND ACTION"
+
+[node name="Inventory" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "Inventory"
+
+[node name="SkillTree" type="Label" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindLabels"]
+layout_mode = 2
+theme = ExtResource("4_5tuox")
+text = "Skill Tree"
+
+[node name="KeyBindButtons" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/Keybinds"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 121.0
+offset_top = 18.0
+offset_right = 180.1
+offset_bottom = 140.704
+
+[node name="Up" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_constants/h_separation = 4
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "UP"
+script = ExtResource("7_hmgo0")
+action = "Up"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="Down" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_constants/h_separation = 4
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "Down"
+script = ExtResource("7_hmgo0")
+action = "Down"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="Left" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "LEFT"
+script = ExtResource("7_hmgo0")
+action = "Left"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="Right" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "RIGHT"
+script = ExtResource("7_hmgo0")
+action = "Right"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="Pause" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "P"
+script = ExtResource("7_hmgo0")
+action = "Pause"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="Interact" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "F"
+script = ExtResource("7_hmgo0")
+action = "Interact"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="Dodge" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_constants/h_separation = 4
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "Shift"
+script = ExtResource("7_hmgo0")
+action = "Dodge"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="BasicAttack" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "Left-Click"
+script = ExtResource("7_hmgo0")
+action = "BasicAttack"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="OffHandAction" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "RIGHT-CLICK"
+script = ExtResource("7_hmgo0")
+action = "OffHandAction"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="Inventory" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "I"
+script = ExtResource("7_hmgo0")
+action = "Inventory"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="SkillTree" type="Button" parent="Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme = ExtResource("4_5tuox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mlw3h")
+text = "T"
+script = ExtResource("7_hmgo0")
+action = "SkillTree"
+metadata/_custom_type_script = "uid://p0th473dlhdq"
+
+[node name="Accept" type="Button" parent="Settings"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.66200006
+anchor_top = -0.35300002
+anchor_right = -0.66200006
+anchor_bottom = -0.35300002
+offset_left = 287.75403
+offset_top = 304.95502
+offset_right = 364.75403
+offset_bottom = 331.95502
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_ijhvp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bweuv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wvwsk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_si0cj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j6t43")
+text = "Accept"
+
+[node name="Exit" type="Button" parent="Settings"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.66200006
+anchor_top = -0.35300002
+anchor_right = -0.66200006
+anchor_bottom = -0.35300002
+offset_left = 416.75403
+offset_top = 38.955
+offset_right = 443.75403
+offset_bottom = 66.955
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qpocd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a78v1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wvwsk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fb0xf")
