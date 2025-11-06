@@ -56,6 +56,7 @@ func _process(delta: float) -> void:
 func check_move() -> bool:
 	# Check ahead for collision
 	return true
+	
 
 func _on_dash_timeout() -> void:
 	canDash = true;

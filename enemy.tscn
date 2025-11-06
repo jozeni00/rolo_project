@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwv8i6uar2y4a"]
+[gd_scene load_steps=20 format=3 uid="uid://bwv8i6uar2y4a"]
 
-[ext_resource type="Script" uid="uid://blxcihr8ws807" path="res://src/Enemy/enemy.gd" id="1_ar8e5"]
+[ext_resource type="Script" uid="uid://d4ikve7xqcjvp" path="res://enemy.gd" id="1_5hcft"]
 [ext_resource type="Texture2D" uid="uid://c5glh37p4cocm" path="res://src/enemySprites/knightfin2.png" id="2_ar8e5"]
+[ext_resource type="Texture2D" uid="uid://bgb8odpxn8ktr" path="res://src/enemySprites/knightfin_hurt.png" id="2_doop2"]
 [ext_resource type="Texture2D" uid="uid://ducx1rktpkhtn" path="res://src/enemySprites/knightfin3.png" id="3_doop2"]
 [ext_resource type="Texture2D" uid="uid://csgktqpsbfb2o" path="res://src/enemySprites/knightfin4.png" id="4_5hcft"]
 [ext_resource type="Texture2D" uid="uid://cahk886qxv3yl" path="res://src/enemySprites/knightfin5.png" id="5_nnovl"]
@@ -13,9 +14,18 @@
 [ext_resource type="Texture2D" uid="uid://cfu42wlw23rvy" path="res://src/enemySprites/knightfin_walk2.png" id="11_o7rgc"]
 [ext_resource type="Texture2D" uid="uid://c4veaxysl5486" path="res://src/enemySprites/knightfin_walk3.png" id="12_kdav3"]
 [ext_resource type="Texture2D" uid="uid://dcunc0flxtkp4" path="res://src/enemySprites/knightfin_walk4.png" id="13_jpbtr"]
+[ext_resource type="Script" uid="uid://dwbrig7kmq58l" path="res://src/Classes/Hurtbox.gd" id="15_5hcft"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nnovl"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_doop2")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ar8e5")
@@ -64,7 +74,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ar8e5"]
-size = Vector2(20, 26)
+size = Vector2(24, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ar8e5"]
 radius = 105.00476
@@ -73,18 +83,20 @@ radius = 105.00476
 radius = 36.013885
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_5hcft")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(100, 100)
-script = ExtResource("1_ar8e5")
 
 [node name="enemSprite" type="AnimatedSprite2D" parent="Area2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nnovl")
-animation = &"walk"
+animation = &"hurt"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Hurt" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_ar8e5")
+script = ExtResource("15_5hcft")
 
 [node name="Detection" type="Area2D" parent="Area2D"]
 
@@ -96,6 +108,7 @@ shape = SubResource("CircleShape2D_ar8e5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Attack"]
 shape = SubResource("CircleShape2D_doop2")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D/Detection" to="Area2D" method="_on_detection_area_entered"]
 [connection signal="area_exited" from="Area2D/Detection" to="Area2D" method="_on_detection_area_exited"]
 [connection signal="area_entered" from="Area2D/Attack" to="Area2D" method="_on_attack_area_entered"]

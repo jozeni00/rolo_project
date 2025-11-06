@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyuq4h0s1ksb6"]
+
+[ext_resource type="Script" uid="uid://byypt60t6nbck" path="res://src/main/weapon.gd" id="1_e4ynd"]
+[ext_resource type="Texture2D" uid="uid://bscrkmkr0jpqm" path="res://src/sprite sheets/weaponSprites/payerSwordl.png" id="2_r76a6"]
+[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="3_r76a6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwvek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r76a6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx5id"]
+size = Vector2(4, 15)
+
+[sub_resource type="Animation" id="Animation_e4ynd"]
+resource_name = "attackR"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r76a6"]
+_data = {
+&"attackR": SubResource("Animation_e4ynd")
+}
+
+[node name="Weapon" type="Node2D"]
+position = Vector2(183, 193)
+script = ExtResource("1_e4ynd")
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(21, -6)
+sprite_frames = SubResource("SpriteFrames_dwvek")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_r76a6")
+
+[node name="Hitbox2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(21, -9.5)
+shape = SubResource("RectangleShape2D_rx5id")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r76a6")
+}

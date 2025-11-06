@@ -8,7 +8,7 @@ var velocity
 var player
 var state
 
-@onready var sprite := $enemSprite
+@onready var sprite := $Area2D/enemSprite
 @onready var timer := get_parent().get_child(1)
 
 # Called when the node enters the scene tree for the first time.
@@ -89,4 +89,10 @@ func _on_exit_attack_range(area: Area2D) -> void:
 func _on_aggro_timer_timeout() -> void:
 	print("Must've been the wind...")
 	state = "idle"
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area is Hitbox:
+		sprite.play("hurt")
 	pass # Replace with function body.
