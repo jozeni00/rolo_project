@@ -1,7 +1,8 @@
 extends Control
 
-	#pass
-
+func _ready() -> void:
+	$Settings.visible = false
+	$Settings/ConfirmationDialog.confirmed.connect(_on_accept_pressed)
 
 func _on_resume_pressed() -> void:
 	get_parent().pauseGame()
@@ -22,7 +23,12 @@ func _on_quit_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	print("Display the Settings Menu Here") # Replace with function body.
+	$GraphFrame.visible = false
+	$Settings.visible = true
 
+func _on_accept_pressed() -> void:
+	$Settings.visible = false
+	$GraphFrame.visible = true
 
 func _on_main_menu_pressed() -> void:
 	$GraphFrame/MarginContainer/VBoxContainer/mainConfirm.popup_centered()

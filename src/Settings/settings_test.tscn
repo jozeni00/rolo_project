@@ -6,4 +6,8 @@
 [node name="settings_test" type="Node2D"]
 script = ExtResource("1_fqjbn")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("1_ywpix")]
+[node name="Settings" parent="." instance=ExtResource("1_ywpix")]
+offset_left = 167.72
+offset_top = 65.84
+offset_right = 198.84
+offset_bottom = 65.84

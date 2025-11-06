@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://wxb4le0tibcc"]
+[gd_scene load_steps=3 format=3 uid="uid://wxb4le0tibcc"]
 
-[ext_resource type="Script" uid="uid://bddwwm27tbgvt" path="res://pause/pause_menu.gd" id="1_ytbj3"]
+[ext_resource type="Script" uid="uid://bddwwm27tbgvt" path="res://src/pause/pause_menu.gd" id="1_ytbj3"]
+[ext_resource type="PackedScene" uid="uid://dy6aot16krxbq" path="res://src/Settings/settings_menu.tscn" id="2_bvkbt"]
 
 [node name="Pause_Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -542.0
-offset_bottom = -217.0
+offset_left = 247.0
+offset_top = 113.0
+offset_right = -295.0
+offset_bottom = -104.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ytbj3")
@@ -65,11 +68,18 @@ offset_bottom = -7.0
 text = "PAUSED"
 horizontal_alignment = 1
 
+[node name="Settings" parent="." instance=ExtResource("2_bvkbt")]
+layout_mode = 1
+offset_left = -130.146
+offset_top = -69.033005
+offset_right = -99.026
+offset_bottom = -72.753006
+
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="GraphFrame/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="confirmed" from="GraphFrame/MarginContainer/VBoxContainer/quitConfirm" to="." method="_on_confirmation_dialog_confirmed"]
 [connection signal="confirmed" from="GraphFrame/MarginContainer/VBoxContainer/quitConfirm" to="." method="_on_quit_confirm_confirmed"]
+[connection signal="confirmed" from="GraphFrame/MarginContainer/VBoxContainer/quitConfirm" to="." method="_on_confirmation_dialog_confirmed"]
 [connection signal="confirmed" from="GraphFrame/MarginContainer/VBoxContainer/mainConfirm" to="." method="_on_main_confirm_confirmed"]
