@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cpegmt0ce3ee1" path="res://src/main/main.gd" id="1_ibsor"]
 [ext_resource type="Script" uid="uid://b8eehyx61oppo" path="res://src/main/character.gd" id="2_hc2u7"]
-[ext_resource type="Script" uid="uid://doy4qbkj73mk4" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="3_ibsor"]
+[ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="3_ibsor"]
 [ext_resource type="Texture2D" uid="uid://cdldfjrrkwq65" path="res://src/sprites/player sprites/idle/idle1.png" id="4_hc2u7"]
 [ext_resource type="Texture2D" uid="uid://qj4byoqd5txq" path="res://src/sprites/player sprites/idle/idle2.png" id="4_ibsor"]
 [ext_resource type="Texture2D" uid="uid://ba0brndrk340d" path="res://src/sprites/player sprites/walkRight/walkRight1.png" id="5_hc2u7"]
@@ -62,11 +62,11 @@ size = Vector2(8.5, 13.5)
 [node name="main" type="Node2D"]
 script = ExtResource("1_ibsor")
 
-[node name="Chara" type="Node2D" parent="."]
+[node name="Chara" type="Node2D" parent="." groups=["Player"]]
+position = Vector2(386, 111)
 script = ExtResource("2_hc2u7")
 
 [node name="charaSprite" type="AnimatedSprite2D" parent="Chara"]
-position = Vector2(299, 101)
 sprite_frames = SubResource("SpriteFrames_na0o7")
 animation = &"walk"
 
@@ -76,7 +76,6 @@ stats = SubResource("Resource_hc2u7")
 metadata/_custom_type_script = "uid://dwbrig7kmq58l"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chara/Hurtbox"]
-position = Vector2(298.5, 103.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_73k8k")
 

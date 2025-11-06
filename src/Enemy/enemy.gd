@@ -5,7 +5,8 @@ const RIGHT = Vector2(1,1)
 
 @export var speed = 180
 var velocity
-var player
+var direction: Vector2
+var player: Node2D
 var state
 var aggro_timer: Timer = Timer.new()
 
@@ -14,6 +15,7 @@ var aggro_timer: Timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("Player")
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	sprite.play("idle")
 	aggro_timer.one_shot = true
@@ -24,10 +26,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	direction = Vector2.ZERO
 	if(state == "aggro" or state == "chasing"):
-		chase(player.position, delta)
+		chase(player, delta)
 		#velocity = 0
-		position += velocity * delta
+		##position += velocity * delta
 		if ((velocity.length() > 0)):
 			sprite.play("walk")
 		
@@ -51,22 +54,20 @@ func _process(delta: float) -> void:
 func chase(player, delta: float):
 	if(speed < 180):
 		speed += 1
-	var direction = (player - global_position).normalized()
+	direction = global_position.direction_to(player.global_position)
+	#direction =direction.normalized()
 	"""if(state == "chasing"):
 		speed *= 4"""
+	#print(direction)
+	global_position += direction * speed * delta
 	velocity = direction * speed
 	"""if(state == "chasing"):
 		speed /= 4
 		state = "aggro" """
-	
-
-func check_move() -> bool:
-	# Check ahead for collision
-	return true
 
 
 func _on_detection_area_entered(area: Area2D) -> void:
-	if area == player:
+	if area.get_parent().is_in_group("Player"):
 		#print("IT BE THE PLAYER")
 		state = "aggro"
 		aggro_timer.stop()
@@ -74,7 +75,7 @@ func _on_detection_area_entered(area: Area2D) -> void:
 
 
 func _on_detection_area_exited(area: Area2D) -> void:
-	if area == player:
+	if area.get_parent().is_in_group("Player"):
 		#print("YOU CANNOT ESCAPE")
 		state = "chasing"
 		aggro_timer.start()
@@ -84,7 +85,7 @@ func _on_detection_area_exited(area: Area2D) -> void:
 
 
 func _on_attack_area_entered(area: Area2D) -> void:
-	if ((area == player)):
+	if ((area.get_parent().is_in_group("Player"))):
 		#print("ATTACK")
 		state = "violence"
 	#pass # Replace with function body.
@@ -93,7 +94,7 @@ func _on_attack_area_entered(area: Area2D) -> void:
 
 
 func _on_exit_attack_range(area: Area2D) -> void:
-	if ((area == player)):
+	if ((area.get_parent().is_in_group("Player"))):
 		#print("GET BACK HERE")
 		state = "aggro"
 		#timer.stop()
