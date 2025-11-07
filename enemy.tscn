@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://dcunc0flxtkp4" path="res://src/enemySprites/knightfin_walk4.png" id="13_jpbtr"]
 [ext_resource type="Script" uid="uid://dwbrig7kmq58l" path="res://src/Classes/Hurtbox.gd" id="15_5hcft"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hcft"]
+size = Vector2(25, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nnovl"]
 animations = [{
 "frames": [{
@@ -73,9 +76,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ar8e5"]
-size = Vector2(24, 30)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ar8e5"]
 radius = 105.00476
 
@@ -85,31 +85,30 @@ radius = 36.013885
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_5hcft")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(100, 100)
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("15_5hcft")
+metadata/_custom_type_script = "uid://dwbrig7kmq58l"
 
-[node name="enemSprite" type="AnimatedSprite2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(100.5, 101)
+shape = SubResource("RectangleShape2D_5hcft")
+
+[node name="enemSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(102, 100)
 sprite_frames = SubResource("SpriteFrames_nnovl")
 animation = &"hurt"
 
-[node name="Hurt" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 1)
-shape = SubResource("RectangleShape2D_ar8e5")
-script = ExtResource("15_5hcft")
+[node name="Detection" type="Area2D" parent="."]
+visible = false
+position = Vector2(100, 100)
 
-[node name="Detection" type="Area2D" parent="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_ar8e5")
 
-[node name="Attack" type="Area2D" parent="Area2D"]
+[node name="Attack" type="Area2D" parent="."]
+visible = false
+position = Vector2(100, 100)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Attack"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 shape = SubResource("CircleShape2D_doop2")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Area2D/Detection" to="Area2D" method="_on_detection_area_entered"]
-[connection signal="area_exited" from="Area2D/Detection" to="Area2D" method="_on_detection_area_exited"]
-[connection signal="area_entered" from="Area2D/Attack" to="Area2D" method="_on_attack_area_entered"]
-[connection signal="area_exited" from="Area2D/Attack" to="Area2D" method="_on_exit_attack_range"]

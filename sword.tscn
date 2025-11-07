@@ -37,6 +37,7 @@ sprite_frames = SubResource("SpriteFrames_dwvek")
 
 [node name="Hitbox" type="Area2D" parent="."]
 script = ExtResource("3_r76a6")
+metadata/_custom_type_script = "uid://b6utarwb21mpe"
 
 [node name="Hitbox2" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(21, -9.5)

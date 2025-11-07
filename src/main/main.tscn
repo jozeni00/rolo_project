@@ -18,6 +18,11 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_na0o7"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_ibsor")
@@ -69,7 +74,7 @@ script = ExtResource("2_hc2u7")
 
 [node name="charaSprite" type="AnimatedSprite2D" parent="Chara"]
 sprite_frames = SubResource("SpriteFrames_na0o7")
-animation = &"walk"
+animation = &"hurt"
 
 [node name="Hurtbox" type="Area2D" parent="Chara"]
 script = ExtResource("11_ibsor")
