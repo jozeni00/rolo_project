@@ -35,6 +35,7 @@ func _input(event) -> void:
 		# checking if event already assigned to custom input
 		for buttons in $%KeyBindButtons.get_children(): 
 			if InputMap.action_has_event(buttons.action, event):
+				print("here")
 				# collision; cannot assign event to action
 				# put previous text on button
 				var current_event = InputMap.action_get_events(action)[0]
