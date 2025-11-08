@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://brlhdohaxc6gj"]
+
+[ext_resource type="Script" uid="uid://3korhd0mky3g" path="res://src/Skills/Sword/sword_flame_blast.gd" id="1_5m7lc"]
+[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="1_45ao0"]
+[ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="3_5m7lc"]
+
+[sub_resource type="Resource" id="Resource_hncae"]
+script = ExtResource("3_5m7lc")
+Attack = 0
+WeaponElement = 4
+ElementalAttack = 5
+Cooldown = 0.25
+AttackDuration = 1.0
+metadata/_custom_type_script = "uid://cejpp4oi6kwgh"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5m7lc"]
+
+[node name="SwordFlameBlast" type="Node2D"]
+script = ExtResource("1_5m7lc")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("1_45ao0")
+stats = SubResource("Resource_hncae")
+metadata/_custom_type_script = "uid://cfv57468pxk6p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_5m7lc")
+
+[node name="Duration" type="Timer" parent="."]
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="Duration" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

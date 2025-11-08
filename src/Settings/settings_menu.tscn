@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dy6aot16krxbq"]
+[gd_scene load_steps=17 format=3 uid="uid://dy6aot16krxbq"]
 
 [ext_resource type="Script" uid="uid://d1b81ch5be6tp" path="res://src/Settings/src/settings.gd" id="1_bweuv"]
-[ext_resource type="Script" uid="uid://blca0dljoag1y" path="res://src/Settings/src/VolumeHSlider.gd" id="3_utkq2"]
 [ext_resource type="Script" uid="uid://yvm6ts0f5ntr" path="res://src/Settings/src/sounds.gd" id="4_fdbd3"]
 [ext_resource type="AudioStream" uid="uid://7sewal75vlan" path="res://src/Settings/assets/beepd-86247.mp3" id="4_wvwsk"]
 [ext_resource type="Script" uid="uid://hrunk24uwtfs" path="res://src/Settings/src/displays.gd" id="5_utkq2"]
@@ -128,7 +127,6 @@ offset_left = 7.0
 offset_top = -1.0
 offset_right = 143.0
 offset_bottom = 15.0
-script = ExtResource("3_utkq2")
 metadata/_custom_type_script = "uid://blca0dljoag1y"
 
 [node name="Label2" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Sounds"]
@@ -147,8 +145,6 @@ offset_left = 7.0
 offset_top = 22.0
 offset_right = 144.0
 offset_bottom = 38.0
-script = ExtResource("3_utkq2")
-bus = 1
 metadata/_custom_type_script = "uid://blca0dljoag1y"
 
 [node name="Label3" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Sounds"]
@@ -167,8 +163,6 @@ offset_left = 7.0
 offset_top = 45.0
 offset_right = 143.0
 offset_bottom = 61.0
-script = ExtResource("3_utkq2")
-bus = 2
 metadata/_custom_type_script = "uid://blca0dljoag1y"
 
 [node name="testbeep" type="AudioStreamPlayer2D" parent="Panel/ScrollContainer/VBoxContainer/Sounds"]

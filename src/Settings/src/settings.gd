@@ -25,7 +25,6 @@ func _on_accept_pressed() -> void:
 	$ConfirmationDialog.popup_centered()
 	### This will update/create the configuration file to keep changes
 	var config: ConfigFile = ConfigFile.new()
-	var file: FileAccess = FileAccess.new.call()
 	
 	## Iterate through each settings section and write/update current values.
 	for sound in $%Sounds.get_children():
