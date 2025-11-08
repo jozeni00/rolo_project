@@ -559,3 +559,5 @@ text = "Back"
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 ok_button_text = "Yes"
 cancel_button_text = "No"
+
+[connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/Displays/Resolution" to="Panel/ScrollContainer/VBoxContainer/Displays" method="_on_resolution_item_selected"]

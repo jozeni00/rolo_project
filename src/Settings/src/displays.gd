@@ -22,6 +22,18 @@ func _on_brightness_value_changed(value: float) -> void:
 
 # Resolution Options
 func _on_option_button_item_selected(index: int) -> void:
+	print("here")
+	var resolutions = [
+		Vector2i(640, 360),
+		Vector2i(1280, 720),
+		Vector2i(1920, 1080)
+	]
+	DisplayServer.window_set_size(resolutions[index])
+	print("Resolution changed to:", resolutions[index])
+
+
+func _on_resolution_item_selected(index: int) -> void:
+	print("here")
 	var resolutions = [
 		Vector2i(640, 360),
 		Vector2i(1280, 720),
