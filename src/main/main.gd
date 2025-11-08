@@ -15,6 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		#print("This should be pausing rn")
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pauseGame()
 	#pass
 	
