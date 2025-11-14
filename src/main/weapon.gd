@@ -1,19 +1,28 @@
 extends Node2D
 
 @export var speed = 100
-@onready var sprite := $WeaponSprite2
+@onready var sprite := $WeaponSprite
 @onready var Hitbox = $Hitbox
 
 const LASTFRAME = 5
 const FULLYDRAWN = 2
-const LEFT = Vector2(-1,1)
+const FLIP = Vector2(1,-1)
 const RIGHT = Vector2(1,1)
+var state;
+
+var weapon_timer: Timer = Timer.new()
 
 #var arrow = preload("res://character/arrow.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	state = 0;
+	$Hitbox/Hitbox2.disabled = true
 	global_position = get_parent().get_position()
+	weapon_timer.one_shot = true
+	weapon_timer.wait_time = .75
+	add_child(weapon_timer)
+	weapon_timer.connect("timeout", Callable(self,"_on_weapon_timeout"))
 #	sprite.play("default")
 	#sprite.set_frame(0)
 	#sprite.pause()
@@ -28,8 +37,10 @@ func _process(delta: float) -> void:
 	#### Animation Controls ####
 	## Bow Attack ##
 	if Input.is_action_just_pressed("BasicAttack"):
+		state = 1
 		print("BasicAttack")
-		$Hitbox/Hitbox2.disabled = false
+		weapon_timer.start()
+		sprite.play("default")
 	
 		
 
@@ -38,14 +49,36 @@ func _process(delta: float) -> void:
 	
 	
 	self.rotation = rotation_angle
-	if(self.get_parent().scale == LEFT):
-			#rotation_angle = rotation_angle * -1
-		self.scale = LEFT
-		
-		self.rotation = -self.rotation
-	else: #if(self.get_parent().scale == RIGHT):
-		self.scale = RIGHT
+	if(self.rotation < -1.8 or self.rotation > 2.5):
+		self.scale = FLIP
+	elif(self.scale == FLIP):
+		self.scale = Vector2(1, 1)
 	
+	#print(self.rotation)
+	#self.scale = FLIP
+	#print("\n")
+	#if(self.get_parent().scale == LEFT):
+			#rotation_angle = rotation_angle * -1
+		#self.scale = LEFT
+		
+		#self.rotation = -self.rotation
+	#else: #if(self.get_parent().scale == RIGHT):
+		#self.scale = RIGHT
+	
+func _on_weapon_timeout() -> void:
+	if(state == 1):
+		$Hitbox/Hitbox2.disabled = false
+		state = 2
+		weapon_timer.wait_time = .5
+		weapon_timer.start()
+	elif(state == 2):
+		$Hitbox/Hitbox2.disabled = true
+		sprite.play("default")
+		weapon_timer.wait_time = .75
+		sprite.stop()
+		
+		state = 0
+	#pass # Replace with function body.
 	
 		
 	#### Cursor Controls ####

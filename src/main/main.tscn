@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://ssp76li6h0cr"]
+[gd_scene load_steps=16 format=3 uid="uid://ssp76li6h0cr"]
 
 [ext_resource type="Script" uid="uid://cpegmt0ce3ee1" path="res://src/main/main.gd" id="1_ibsor"]
 [ext_resource type="Script" uid="uid://b8eehyx61oppo" path="res://src/main/character.gd" id="2_hc2u7"]
-[ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="3_ibsor"]
 [ext_resource type="Texture2D" uid="uid://cdldfjrrkwq65" path="res://src/sprites/player sprites/idle/idle1.png" id="4_hc2u7"]
 [ext_resource type="Texture2D" uid="uid://qj4byoqd5txq" path="res://src/sprites/player sprites/idle/idle2.png" id="4_ibsor"]
 [ext_resource type="Texture2D" uid="uid://ba0brndrk340d" path="res://src/sprites/player sprites/walkRight/walkRight1.png" id="5_hc2u7"]
@@ -11,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dtys6xfurowxa" path="res://src/sprites/player sprites/walkRight/walkRight4.png" id="8_hmxxs"]
 [ext_resource type="Texture2D" uid="uid://ctu6mcixiewa6" path="res://src/sprites/player sprites/walkRight/walkRight5.png" id="9_2jinp"]
 [ext_resource type="Texture2D" uid="uid://chxm0iwl2orp" path="res://src/sprites/player sprites/walkRight/walkRight6.png" id="10_6iek0"]
-[ext_resource type="Script" uid="uid://dwbrig7kmq58l" path="res://src/Classes/Hurtbox.gd" id="11_ibsor"]
 [ext_resource type="PackedScene" uid="uid://wxb4le0tibcc" path="res://src/pause/pause_menu.tscn" id="11_w0wra"]
 [ext_resource type="PackedScene" uid="uid://d1v2f6vunujwc" path="res://src/Enemy/enemy.tscn" id="13_ibsor"]
 [ext_resource type="PackedScene" uid="uid://dyuq4h0s1ksb6" path="res://sword.tscn" id="13_nqfqj"]
@@ -58,10 +56,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_hc2u7"]
-script = ExtResource("3_ibsor")
-metadata/_custom_type_script = "uid://b8ltlvjtoo63a"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73k8k"]
 size = Vector2(8.5, 13.5)
 
@@ -77,9 +71,6 @@ sprite_frames = SubResource("SpriteFrames_na0o7")
 animation = &"hurt"
 
 [node name="Hurtbox" type="Area2D" parent="Chara"]
-script = ExtResource("11_ibsor")
-stats = SubResource("Resource_hc2u7")
-metadata/_custom_type_script = "uid://dwbrig7kmq58l"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chara/Hurtbox"]
 scale = Vector2(2, 2)

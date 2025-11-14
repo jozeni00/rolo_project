@@ -20,7 +20,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_v0wwq")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("3_5nb6p")
 }, {
 "duration": 1.0,
@@ -29,22 +29,22 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_tsoji")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("6_hqx57")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("7_dllgs")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("8_qeuqu")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("9_x58x5")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("10_7krr7")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("11_wwqho")
 }],
 "loop": true,
@@ -54,12 +54,10 @@ animations = [{
 
 [sub_resource type="Resource" id="Resource_rx5id"]
 script = ExtResource("4_dwvek")
-Attack = 99
-CritChance = 0.1
 metadata/_custom_type_script = "uid://bx30siccecw4q"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx5id"]
-size = Vector2(32.5, 33.75)
+size = Vector2(5, 15)
 
 [sub_resource type="Animation" id="Animation_e4ynd"]
 resource_name = "attackR"
@@ -83,7 +81,7 @@ script = ExtResource("3_r76a6")
 stats = SubResource("Resource_rx5id")
 
 [node name="Hitbox2" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(21.75, -5.875)
+position = Vector2(20.5, -12)
 shape = SubResource("RectangleShape2D_rx5id")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
