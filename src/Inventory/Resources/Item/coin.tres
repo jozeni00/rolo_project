@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dyhee4sgho2sg"]
+
+[ext_resource type="Script" uid="uid://djffan4i0oikg" path="res://Classes/Item.gd" id="1_635s7"]
+[ext_resource type="Texture2D" uid="uid://bkop4sct54ppl" path="res://assets/gold_coin.png" id="2_rh2ff"]
+
+[resource]
+script = ExtResource("1_635s7")
+item_type = 1
+name = "Coin"
+description = "Shiny! I bet I can exchange this for goods."
+sprite = ExtResource("2_rh2ff")
+metadata/_custom_type_script = "uid://djffan4i0oikg"
