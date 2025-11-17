@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwbo56d7rreeg"
-path="res://.godot/imported/test turn-Sheet.png-db804fb70780aecb4824c244181c9267.ctex"
+uid="uid://bf7pp2n0vhyne"
+path="res://.godot/imported/dodge-Sheet.png-07a46a79ddc66b1e1a4c9bcc0362c9d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/sprite sheets/player sprites/test/test turn-Sheet.png"
-dest_files=["res://.godot/imported/test turn-Sheet.png-db804fb70780aecb4824c244181c9267.ctex"]
+source_file="res://src/sprite sheets/player sprites/dodge/dodge-Sheet.png"
+dest_files=["res://.godot/imported/dodge-Sheet.png-07a46a79ddc66b1e1a4c9bcc0362c9d1.ctex"]
 
 [params]
 

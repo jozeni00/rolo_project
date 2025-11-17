@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwbo56d7rreeg"
-path="res://.godot/imported/test turn-Sheet.png-db804fb70780aecb4824c244181c9267.ctex"
+uid="uid://babqcri5k7hox"
+path="res://.godot/imported/playerBurningTest-Sheet.png-085baf0ab0f7e26b6f78c7c6a2396bf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/sprite sheets/player sprites/test/test turn-Sheet.png"
-dest_files=["res://.godot/imported/test turn-Sheet.png-db804fb70780aecb4824c244181c9267.ctex"]
+source_file="res://src/sprite sheets/player sprites/playerBurning/playerBurningTest-Sheet.png"
+dest_files=["res://.godot/imported/playerBurningTest-Sheet.png-085baf0ab0f7e26b6f78c7c6a2396bf4.ctex"]
 
 [params]
 
