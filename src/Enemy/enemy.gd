@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
@@ -9,8 +9,11 @@ var direction: Vector2
 var player: Node2D
 var state
 var aggro_timer: Timer = Timer.new()
+var hurt_timer: Timer = Timer.new()
+var vulnerable
 
 @onready var sprite := $enemSprite
+@onready var HurtB := $Hurtbox
 #@onready var timer := $AggroTimer
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +25,13 @@ func _ready() -> void:
 	aggro_timer.wait_time = 2
 	add_child(aggro_timer)
 	aggro_timer.connect("timeout", Callable(self,"_on_aggro_timeout"))
+	hurt_timer.one_shot = true
+	hurt_timer.wait_time = .5
+	add_child(hurt_timer)
+	hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
+	hurt_timer.start()
+	state = "idle"
+	vulnerable = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,7 +77,7 @@ func chase(player, delta: float):
 
 
 func _on_detection_area_entered(area: Area2D) -> void:
-	if area.get_parent().is_in_group("Player"):
+	if (area.get_parent().is_in_group("Player") and state != "death" and state != "hurt"):
 		#print("IT BE THE PLAYER")
 		state = "aggro"
 		aggro_timer.stop()
@@ -75,7 +85,7 @@ func _on_detection_area_entered(area: Area2D) -> void:
 
 
 func _on_detection_area_exited(area: Area2D) -> void:
-	if area.get_parent().is_in_group("Player"):
+	if (area.get_parent().is_in_group("Player") and state != "death" and state != "hurt"):
 		#print("YOU CANNOT ESCAPE")
 		state = "chasing"
 		aggro_timer.start()
@@ -85,7 +95,7 @@ func _on_detection_area_exited(area: Area2D) -> void:
 
 
 func _on_attack_area_entered(area: Area2D) -> void:
-	if ((area.get_parent().is_in_group("Player"))):
+	if ((area.get_parent().is_in_group("Player")) and state != "death" and state != "hurt"):
 		#print("ATTACK")
 		state = "violence"
 	#pass # Replace with function body.
@@ -94,7 +104,7 @@ func _on_attack_area_entered(area: Area2D) -> void:
 
 
 func _on_exit_attack_range(area: Area2D) -> void:
-	if ((area.get_parent().is_in_group("Player"))):
+	if ((area.get_parent().is_in_group("Player")) and state != "death" and state != "hurt"):
 		#print("GET BACK HERE")
 		state = "aggro"
 		#timer.stop()
@@ -104,4 +114,33 @@ func _on_exit_attack_range(area: Area2D) -> void:
 func _on_aggro_timeout() -> void:
 	#print("Must've been the wind...")
 	state = "idle"
+	#pass # Replace with function body.
+
+
+func _on_hurtbox_got_hit() -> void:
+	if(vulnerable):
+		print("This should play the hurt animation...")
+		sprite.play("hurt")
+		state = "hurt"
+		hurt_timer.start()
+	#state = "mwefnrf"
+	#sprite.stop()
+	#pass # Replace with function body.
+func _on_hurt_timeout() -> void:
+	#print("Must've been the wind...")
+	if(state == "death"):
+		self.queue_free()
+	else:
+		speed = 40
+		state = "idle"
+		vulnerable = true
+	#pass # Replace with function body.
+
+
+func _on_hurtbox_dead() -> void:
+	state = "death"
+	print("DEAD")
+	hurt_timer.wait_time = 1
+	sprite.play("death")
+	hurt_timer.start()
 	#pass # Replace with function body.
