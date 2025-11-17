@@ -3,15 +3,24 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcunc0flxtkp4"
+<<<<<<< HEAD:src/enemySprites/knightfin_walk4.png.import
 path="res://.godot/imported/knightfin_walk4.png-f3d346ba45a93efedf42ef3e8d15b5e9.ctex"
+=======
+path="res://.godot/imported/knightfin_walk4.png-d6e65a8f9998d6c719eab2023f3b2b08.ctex"
+>>>>>>> 436830b (Made an enemy that can chase the player):enemySprites/knightfin_walk4.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< HEAD:src/enemySprites/knightfin_walk4.png.import
 source_file="res://src/enemySprites/knightfin_walk4.png"
 dest_files=["res://.godot/imported/knightfin_walk4.png-f3d346ba45a93efedf42ef3e8d15b5e9.ctex"]
+=======
+source_file="res://enemySprites/knightfin_walk4.png"
+dest_files=["res://.godot/imported/knightfin_walk4.png-d6e65a8f9998d6c719eab2023f3b2b08.ctex"]
+>>>>>>> 436830b (Made an enemy that can chase the player):enemySprites/knightfin_walk4.png.import
 
 [params]
 
