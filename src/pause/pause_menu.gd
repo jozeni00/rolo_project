@@ -1,5 +1,6 @@
 extends Control
 
+
 func _ready() -> void:
 	$Settings.visible = false
 	$Settings/ConfirmationDialog.confirmed.connect(_on_accept_pressed)
@@ -44,5 +45,6 @@ func _on_quit_confirm_confirmed() -> void:
 
 
 func _on_main_confirm_confirmed() -> void:
-	print("Really return to the Main Menu?") # Replace with function body.
+	get_tree().change_scene_to_file("res://src/main menu/control.tscn")
+	#print("Really return to the Main Menu?") # Replace with function body.
 	#pass # Replace with function body.

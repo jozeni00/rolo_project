@@ -24,10 +24,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 Player=""
-
-[global_group]
-
-Player=""
+Engine="Describes Components relating to the game engine that multiple nodes will need"
 
 [input]
 

@@ -11,6 +11,7 @@ var state
 var aggro_timer: Timer = Timer.new()
 var hurt_timer: Timer = Timer.new()
 var vulnerable
+signal attack
 
 @onready var sprite := $enemSprite
 @onready var HurtB := $Hurtbox
@@ -62,7 +63,7 @@ func _process(delta: float) -> void:
 	#pass
 	
 func chase(player, delta: float):
-	if(speed < 180):
+	if(speed < 180 and get_tree().get_first_node_in_group("Engine").returnPause() == 0):
 		speed += 1
 	direction = global_position.direction_to(player.global_position)
 	#direction =direction.normalized()

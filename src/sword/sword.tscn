@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c74je1fmiu10w"]
+[gd_scene load_steps=19 format=3 uid="uid://dyuq4h0s1ksb6"]
 
 [ext_resource type="Script" uid="uid://byypt60t6nbck" path="res://src/main/weapon.gd" id="1_e4ynd"]
 [ext_resource type="Texture2D" uid="uid://c7bf6pd500iti" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite1.png" id="2_v0wwq"]

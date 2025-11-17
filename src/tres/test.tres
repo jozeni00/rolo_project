@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=18 format=3 uid="uid://d264k6851ktxi"]
 
-[ext_resource type="FontFile" uid="uid://crexq1h32bkfk" path="res://fonts/Bungee-Regular.ttf" id="1_4naoo"]
+[ext_resource type="FontFile" uid="uid://crexq1h32bkfk" path="res://src/fonts/Bungee-Regular.ttf" id="1_4naoo"]
 [ext_resource type="Texture2D" uid="uid://6v0yuonkk5m" path="res://src/Settings/assets/slider.png" id="1_87dde"]
 [ext_resource type="Texture2D" uid="uid://dqqqeqvll73ji" path="res://src/Settings/assets/button.png" id="1_bhfbo"]
 [ext_resource type="Texture2D" uid="uid://bmrcuplakpufb" path="res://src/Settings/assets/slidergrey.png" id="1_r50gg"]
