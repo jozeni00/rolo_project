@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 
 Player=""
 
+[global_group]
+
+Player=""
+
 [input]
 
 Up={

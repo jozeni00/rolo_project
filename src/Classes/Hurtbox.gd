@@ -15,7 +15,6 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hitbox:
 		#print("HIT!! YOU GOT HIT!!")
-		get_parent().sprite.play("hurt")
 		var damage = calculate_damage(area.stats)
 		stats.Health -= damage
 		stats.Health = max(0, stats.Health)			# make sure health is > 0
