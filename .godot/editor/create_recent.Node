@@ -1,0 +1,8 @@
+ColorRect
+CharacterBody2D
+Sprite2D
+Node2D
+Button
+VBoxContainer
+CanvasLayer
+Label
