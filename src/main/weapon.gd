@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		var rotation_angle = global_position.angle_to_point(cursor_position)
 		#### Animation Controls ####
 		## Bow Attack ##
-		if Input.is_action_just_pressed("BasicAttack"):
+		if (Input.is_action_just_pressed("BasicAttack") and state == 0):
 			state = 1
 			print("BasicAttack")
 			weapon_timer.start()
