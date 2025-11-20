@@ -12,7 +12,7 @@ func _on_resume_pressed() -> void:
 
 
 func _on_save_pressed() -> void:
-	
+	$SaveManager.save_game(1, get_tree().get_first_node_in_group("Player").get_save_data(), {})
 	print("Game (will be) Saved") # Replace with PSS.
 
 

@@ -12,6 +12,8 @@ var dash_timer: Timer = Timer.new()
 
 @onready var sprite := $charaSprite
 
+@onready var hurtbox := $Hurtbox
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
@@ -57,6 +59,18 @@ func check_move() -> bool:
 	# Check ahead for collision
 	return true
 	
+func get_save_data() -> Dictionary:
+	return {
+		"position": [global_position.x, global_position.y],
+		"health": hurtbox.stats.Health
+	}
+
+func apply_save_data(data: Dictionary) -> void:
+	if data.has("position") and data["position"].size() == 2:
+		global_position = Vector2(data["position"][0], data["position"][1])
+	if data.has("health"):
+		hurtbox.stats.Health = data["health"]
+	print("Player data applied:", data)
 
 func _on_dash_timeout() -> void:
 	canDash = true;

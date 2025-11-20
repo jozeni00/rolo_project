@@ -1,0 +1,85 @@
+[gd_scene load_steps=17 format=3 uid="uid://k8d3s46qphti"]
+
+[ext_resource type="Texture2D" uid="uid://oegvh1wtf5gf" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt1.png" id="1_ituhh"]
+[ext_resource type="Texture2D" uid="uid://bb7satiku8s65" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt2.png" id="2_md2iw"]
+[ext_resource type="Texture2D" uid="uid://c4l26miooe7ys" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt3.png" id="3_dv78e"]
+[ext_resource type="Texture2D" uid="uid://b62st0deqry2m" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt4.png" id="4_vc5kp"]
+[ext_resource type="Texture2D" uid="uid://bpkaa4uyknspc" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt5.png" id="5_efi4s"]
+[ext_resource type="Texture2D" uid="uid://dchwpivhdox2u" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt6.png" id="6_33kbg"]
+[ext_resource type="Texture2D" uid="uid://d2rornvscpmml" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt7.png" id="7_8bdvh"]
+[ext_resource type="Texture2D" uid="uid://4aob8ej2ttfv" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt8.png" id="8_55l7x"]
+[ext_resource type="Texture2D" uid="uid://diah78mhwuyx2" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt9.png" id="9_bfws2"]
+[ext_resource type="Texture2D" uid="uid://c75iv2gcihmww" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt10.png" id="10_7suoy"]
+[ext_resource type="Texture2D" uid="uid://boxqyamv3y50j" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt11.png" id="11_m4mfb"]
+[ext_resource type="Texture2D" uid="uid://601ewlndckts" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt12.png" id="12_klja5"]
+[ext_resource type="Texture2D" uid="uid://vwclvr1yegov" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt13.png" id="13_frbt3"]
+[ext_resource type="Texture2D" uid="uid://d1e5qwu5kn1wg" path="res://src/sprite sheets/bossSprites/SharkoIdle/Sharko1.png" id="14_rtfr5"]
+[ext_resource type="Texture2D" uid="uid://6w77rwbyqxem" path="res://src/sprite sheets/bossSprites/SharkoIdle/Sharko2.png" id="15_hhgjm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpmik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ituhh")
+}, {
+"duration": 0.75,
+"texture": ExtResource("2_md2iw")
+}, {
+"duration": 0.75,
+"texture": ExtResource("3_dv78e")
+}, {
+"duration": 0.75,
+"texture": ExtResource("4_vc5kp")
+}, {
+"duration": 0.75,
+"texture": ExtResource("5_efi4s")
+}, {
+"duration": 0.75,
+"texture": ExtResource("6_33kbg")
+}, {
+"duration": 0.75,
+"texture": ExtResource("7_8bdvh")
+}, {
+"duration": 0.75,
+"texture": ExtResource("8_55l7x")
+}, {
+"duration": 0.75,
+"texture": ExtResource("9_bfws2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7suoy")
+}, {
+"duration": 0.75,
+"texture": ExtResource("11_m4mfb")
+}, {
+"duration": 3.0,
+"texture": ExtResource("12_klja5")
+}, {
+"duration": 0.5,
+"texture": ExtResource("13_frbt3")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_rtfr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hhgjm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Boss" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_vpmik")
+animation = &"attack"
+frame_progress = 0.12359722
