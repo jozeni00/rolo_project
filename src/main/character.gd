@@ -1,3 +1,4 @@
+class_name Player
 extends Node2D
 
 const LEFT = Vector2(-1,1)
@@ -10,9 +11,9 @@ var dshd
 
 var dash_timer: Timer = Timer.new()
 
-@onready var sprite := $charaSprite
-
-@onready var hurtbox := $Hurtbox
+@onready var state := $StateMachine
+@onready var sprite:= $charaSprite
+@onready var hurtbox:= $Hurtbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

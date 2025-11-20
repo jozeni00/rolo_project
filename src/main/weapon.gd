@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	#var new_node: Area2D
 	if(get_tree().get_first_node_in_group("Engine").returnPause() == 0):
 		var cursor_position = get_global_mouse_position()
-		var rotation_angle = global_position.angle_to_point(cursor_position)
+		var rotation_angle = get_parent().global_position.angle_to_point(cursor_position)
 		#### Animation Controls ####
 		## Bow Attack ##
 		if (Input.is_action_just_pressed("BasicAttack") and state == 0):
@@ -48,12 +48,11 @@ func _process(delta: float) -> void:
 		
 		## Direction ##
 		
-		
-		self.rotation = rotation_angle
-		if(self.rotation < -1.8 or self.rotation > 2.5):
-			self.scale = FLIP
-		elif(self.scale == FLIP):
-			self.scale = Vector2(1, 1)
+		self.rotation = rotation_angle + (PI/2)
+		if(rotation_angle < -(PI/2) or rotation_angle > (PI/2)):
+			sprite.scale = Vector2(-1,1)
+		else:
+			sprite.scale = Vector2(1, 1)
 	
 	#print(self.rotation)
 	#self.scale = FLIP

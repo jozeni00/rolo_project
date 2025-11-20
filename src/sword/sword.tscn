@@ -59,7 +59,7 @@ CritChance = 0.1
 metadata/_custom_type_script = "uid://bx30siccecw4q"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx5id"]
-size = Vector2(32.5, 33.75)
+size = Vector2(5, 14)
 
 [sub_resource type="Animation" id="Animation_e4ynd"]
 resource_name = "attackR"
@@ -75,15 +75,17 @@ script = ExtResource("1_e4ynd")
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(21, -6)
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_dwvek")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, -18)
+collision_mask = 2
 script = ExtResource("3_r76a6")
 stats = SubResource("Resource_rx5id")
 
 [node name="Hitbox2" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(21.75, -5.875)
+position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_rx5id")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

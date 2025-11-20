@@ -1,9 +1,11 @@
 extends Node2D
 
+const LOOT = preload("res://src/Inventory/loot.tscn")
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
 
 @export var speed = 180
+@export var loot_table: Array[DropRate]
 var velocity
 var direction: Vector2
 var player: Node2D
@@ -131,6 +133,17 @@ func _on_hurt_timeout() -> void:
 	#print("Must've been the wind...")
 	if(state == "death"):
 		self.queue_free()
+		for loot in loot_table:
+			var amount = loot.get_drop_amount()
+			if amount:
+				for i in amount:
+					var drop: Loot = LOOT.instantiate()
+					drop.item = loot.item
+					drop.global_position = global_position
+					var main = get_parent().get_parent()
+					if main:
+						main.call_deferred("add_child", drop)
+		
 	else:
 		speed = 40
 		state = "idle"
