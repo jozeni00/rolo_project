@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://k8d3s46qphti"]
+[gd_scene load_steps=37 format=3 uid="uid://k8d3s46qphti"]
 
 [ext_resource type="Texture2D" uid="uid://oegvh1wtf5gf" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt1.png" id="1_ituhh"]
+[ext_resource type="Script" uid="uid://c2bpwug5cyar1" path="res://src/Boss/boss.gd" id="1_klja5"]
 [ext_resource type="Texture2D" uid="uid://bb7satiku8s65" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt2.png" id="2_md2iw"]
 [ext_resource type="Texture2D" uid="uid://c4l26miooe7ys" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt3.png" id="3_dv78e"]
 [ext_resource type="Texture2D" uid="uid://b62st0deqry2m" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt4.png" id="4_vc5kp"]
@@ -13,8 +14,22 @@
 [ext_resource type="Texture2D" uid="uid://boxqyamv3y50j" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt11.png" id="11_m4mfb"]
 [ext_resource type="Texture2D" uid="uid://601ewlndckts" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt12.png" id="12_klja5"]
 [ext_resource type="Texture2D" uid="uid://vwclvr1yegov" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt13.png" id="13_frbt3"]
+[ext_resource type="Texture2D" uid="uid://c17eavldts8xi" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath1.png" id="14_m4mfb"]
 [ext_resource type="Texture2D" uid="uid://d1e5qwu5kn1wg" path="res://src/sprite sheets/bossSprites/SharkoIdle/Sharko1.png" id="14_rtfr5"]
 [ext_resource type="Texture2D" uid="uid://6w77rwbyqxem" path="res://src/sprite sheets/bossSprites/SharkoIdle/Sharko2.png" id="15_hhgjm"]
+[ext_resource type="Texture2D" uid="uid://x4he78bwaskx" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath2.png" id="15_klja5"]
+[ext_resource type="Texture2D" uid="uid://oo2svtt7h65b" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath3.png" id="16_frbt3"]
+[ext_resource type="Texture2D" uid="uid://0uifqavp4mxr" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath4.png" id="17_rtfr5"]
+[ext_resource type="Texture2D" uid="uid://dciw38n0kdja1" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath5.png" id="18_hhgjm"]
+[ext_resource type="Texture2D" uid="uid://bemkn5h15puhy" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath6.png" id="19_vpmik"]
+[ext_resource type="Texture2D" uid="uid://dvv07htlyyq1p" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath7.png" id="20_5m10s"]
+[ext_resource type="Texture2D" uid="uid://bpg308v1jlwdp" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath8.png" id="21_m3h2y"]
+[ext_resource type="Texture2D" uid="uid://lf6psryj5oc2" path="res://src/sprite sheets/bossSprites/SharkoDeath/SharkoDeath9.png" id="22_7dxna"]
+[ext_resource type="Texture2D" uid="uid://c5jil4tlnbwee" path="res://src/sprite sheets/bossSprites/SharkoMove/SharkoMove.png" id="25_8dm8k"]
+[ext_resource type="Script" uid="uid://dwbrig7kmq58l" path="res://src/Classes/Hurtbox.gd" id="27_vpmik"]
+[ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="28_5m10s"]
+[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="29_m3h2y"]
+[ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="30_7dxna"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vpmik"]
 animations = [{
@@ -64,6 +79,46 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("14_m4mfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_klja5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_frbt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rtfr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hhgjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_vpmik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5m10s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_m3h2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_7dxna")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_m4mfb")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("14_rtfr5")
 }, {
 "duration": 1.0,
@@ -72,14 +127,70 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_8dm8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rtfr5")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_8dm8k"]
+script = ExtResource("28_5m10s")
+metadata/_custom_type_script = "uid://b8ltlvjtoo63a"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klja5"]
+size = Vector2(64, 68)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frbt3"]
+radius = 393.00128
+
+[sub_resource type="Resource" id="Resource_w5hbg"]
+script = ExtResource("30_7dxna")
+metadata/_custom_type_script = "uid://bx30siccecw4q"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtfr5"]
+radius = 77.0
+
 [node name="Boss" type="Node2D"]
+position = Vector2(325, 152)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Node2D" parent="."]
+script = ExtResource("1_klja5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="bossSprite" type="AnimatedSprite2D" parent="Area2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vpmik")
-animation = &"attack"
-frame_progress = 0.12359722
+animation = &"idle"
+
+[node name="Hurtbox" type="Area2D" parent="Area2D"]
+script = ExtResource("27_vpmik")
+stats = SubResource("Resource_8dm8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Hurtbox"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_klja5")
+
+[node name="Detection" type="Area2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Detection"]
+shape = SubResource("CircleShape2D_frbt3")
+
+[node name="Attack" type="Area2D" parent="Area2D"]
+script = ExtResource("29_m3h2y")
+stats = SubResource("Resource_w5hbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Attack"]
+shape = SubResource("CircleShape2D_rtfr5")
+
+[connection signal="dead" from="Area2D/Hurtbox" to="Area2D" method="_on_hurtbox_dead"]
+[connection signal="got_hit" from="Area2D/Hurtbox" to="Area2D" method="_on_hurtbox_got_hit"]
+[connection signal="area_entered" from="Area2D/Detection" to="Area2D" method="_on_detection_area_entered"]
+[connection signal="area_exited" from="Area2D/Detection" to="Area2D" method="_on_detection_area_exited"]
+[connection signal="area_entered" from="Area2D/Attack" to="Area2D" method="_on_attack_area_entered"]
+[connection signal="area_exited" from="Area2D/Attack" to="Area2D" method="_on_exit_attack_range"]

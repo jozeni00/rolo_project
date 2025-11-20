@@ -80,4 +80,4 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_2h5qw")
 
 [node name="Weapon" parent="." instance=ExtResource("12_ye0k3")]
-position = Vector2(0, 0)
+position = Vector2(0, -14)

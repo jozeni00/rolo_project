@@ -19,8 +19,9 @@ func _ready() -> void:
 	state = 0;
 	$Hitbox/Hitbox2.disabled = true
 	global_position = get_parent().get_position()
+	
 	weapon_timer.one_shot = true
-	weapon_timer.wait_time = .75
+	weapon_timer.wait_time = .4
 	add_child(weapon_timer)
 	weapon_timer.connect("timeout", Callable(self,"_on_weapon_timeout"))
 #	sprite.play("default")
@@ -74,7 +75,7 @@ func _on_weapon_timeout() -> void:
 	elif(state == 2):
 		$Hitbox/Hitbox2.disabled = true
 		sprite.play("default")
-		weapon_timer.wait_time = .75
+		weapon_timer.wait_time = .4
 		sprite.stop()
 		
 		state = 0

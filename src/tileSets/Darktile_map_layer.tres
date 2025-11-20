@@ -1,0 +1,46 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bc3wxtb6d6adc"]
+
+[ext_resource type="Texture2D" uid="uid://dd6atlb6pfr3w" path="res://src/sprite sheets/map/tiles/darkworld/ground-1.png" id="1_xyssn"]
+[ext_resource type="Texture2D" uid="uid://c3binkhxp2orb" path="res://src/sprite sheets/map/tiles/darkworld/ground-2.png" id="2_ciaqy"]
+[ext_resource type="Texture2D" uid="uid://b3vycqp12w4w1" path="res://src/sprite sheets/map/tiles/darkworld/tree.png" id="3_lb56s"]
+[ext_resource type="Texture2D" uid="uid://dbdeqsmlw5po6" path="res://src/tileSets/DarkGarden.png" id="4_xxaom"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5e43"]
+texture = ExtResource("1_xyssn")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mr80r"]
+texture = ExtResource("2_ciaqy")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ldy4"]
+texture = ExtResource("3_lb56s")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0gj5"]
+texture = ExtResource("4_xxaom")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 1
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 2
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+uv_clipping = true
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "ground1 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "ground2 1"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+terrain_set_0/terrain_2/name = "tree"
+terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_p5e43")
+sources/1 = SubResource("TileSetAtlasSource_mr80r")
+sources/2 = SubResource("TileSetAtlasSource_5ldy4")
+sources/4 = SubResource("TileSetAtlasSource_g0gj5")
