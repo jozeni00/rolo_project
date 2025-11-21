@@ -1,5 +1,7 @@
 extends Control
 
+@export var settings_menu_scene: PackedScene   # assign settings_menu.tscn in Inspector
+
 # ===================== #
 #        TESTING        #
 # ===================== #
@@ -17,7 +19,8 @@ func _slot_path(idx:int) -> String:
 	return "%s/%s" % [SAVE_DIR, SAVE_FMT % idx]
 
 func _ensure_save_dir() -> void:
-	if TEST_MODE: return
+	if TEST_MODE:
+		return
 	if not DirAccess.dir_exists_absolute(SAVE_DIR):
 		DirAccess.make_dir_recursive_absolute(SAVE_DIR)
 
@@ -71,6 +74,7 @@ func _delete_save(idx:int) -> bool:
 # ===================== #
 @onready var main_menu: Control        = $"main menu"
 @onready var start_menu: Control       = $"start menu"
+@onready var options_holder: Control   = $"options_holder"   # container for settings menu
 
 @onready var start_button: Button      = $"main menu/StartButton"
 @onready var options_button: Button    = $"main menu/OptionsButton"
@@ -97,11 +101,14 @@ func _delete_save(idx:int) -> bool:
 # ===================== #
 var slot_btns: Array[Button] = []
 var selected_slot: int = -1   # slot the user clicked (1..5)
+var options_instance: Control = null   # instance of settings_menu.tscn
 
 # ===================== #
 #         READY         #
 # ===================== #
 func _ready() -> void:
+	print("control.gd _ready: starting main menu")
+
 	slot_btns = [slot1_btn, slot2_btn, slot3_btn, slot4_btn, slot5_btn]
 	_ensure_save_dir()
 
@@ -136,9 +143,11 @@ func _ready() -> void:
 	slot_confirm.confirmed.connect(_on_slot_confirmed)
 	delete_confirm.confirmed.connect(_on_delete_confirmed)
 
-	# initial visibility
+	# initial visibility – ONLY main menu visible
 	main_menu.visible = true
 	start_menu.visible = false
+	options_holder.visible = false
+
 	_refresh_slot_labels()
 	_update_buttons_enabled()
 	_set_status("TEST MODE: No files written. (Slots 2 & 4 start as USED.)" if TEST_MODE else "")
@@ -149,6 +158,7 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	main_menu.visible = false
 	start_menu.visible = true
+	options_holder.visible = false
 	_set_status("Select a slot, then press New / Load / Delete.")
 
 func _on_quit_pressed() -> void:
@@ -157,15 +167,43 @@ func _on_quit_pressed() -> void:
 	quit_confirm.popup_centered_ratio(0.35)
 
 func _on_options_pressed() -> void:
-	_set_status("Options pressed (placeholder).")
+	print("_on_options_pressed – opening settings")
+
+	# hide other menus, show options_holder
+	main_menu.visible = false
+	start_menu.visible = false
+	options_holder.visible = true
+
+	# Instance options menu once
+	if options_instance == null:
+		if settings_menu_scene == null:
+			push_error("settings_menu_scene is not assigned in Inspector!")
+		else:
+			options_instance = settings_menu_scene.instantiate()
+			options_holder.add_child(options_instance)
+
+	# wire Accept button inside settings menu as our Back button
+	_wire_settings_menu()
+
+	_set_status("Options")
+
+func _on_options_back_pressed() -> void:
+	print("_on_options_back_pressed – back to main menu")
+
+	options_holder.visible = false
+	start_menu.visible = false
+	main_menu.visible = true
+	_set_status("")
 
 # ===================== #
 #     BACK -> MAIN      #
 # ===================== #
 func _on_back_pressed() -> void:
 	# Close any dialogs (if they were open)
-	if slot_confirm.visible: slot_confirm.hide()
-	if delete_confirm.visible: delete_confirm.hide()
+	if slot_confirm.visible:
+		slot_confirm.hide()
+	if delete_confirm.visible:
+		delete_confirm.hide()
 
 	# Clear selection and return to main
 	selected_slot = -1
@@ -174,6 +212,7 @@ func _on_back_pressed() -> void:
 
 	start_menu.visible = false
 	main_menu.visible = true
+	options_holder.visible = false
 	_set_status("")
 
 # ===================== #
@@ -184,7 +223,8 @@ func _on_slot_selected(idx:int) -> void:
 	_highlight_selected_slot(idx)
 	_update_buttons_enabled()
 	var used := _slot_exists(idx)
-	_set_status("Selected Slot %d (%s)" % [idx, "USED" if used else "Empty"])
+	var used_text := "USED" if used else "Empty"
+	_set_status("Selected Slot %d (%s)" % [idx, used_text])
 
 # ===================== #
 #   BUTTON -> POPUPS    #
@@ -194,7 +234,6 @@ func _on_new_game_pressed() -> void:
 	if selected_slot <= 0:
 		_set_status("Select a slot first, then press New Game.")
 		return
-	# Confirm overwrite if USED
 	var warn := "\nThis will OVERWRITE any existing save." if _slot_exists(selected_slot) else ""
 	slot_confirm.title = "Confirm New Game"
 	slot_confirm.dialog_text = "Start a NEW game in Slot %d?%s" % [selected_slot, warn]
@@ -235,14 +274,20 @@ func _on_slot_confirmed() -> void:
 	match mode:
 		"new":
 			_write_new_game(selected_slot)
-			_set_status("TEST: Marked Slot %d as USED." % selected_slot if TEST_MODE else "New game saved to Slot %d" % selected_slot)
+			if TEST_MODE:
+				_set_status("TEST: Marked Slot %d as USED." % selected_slot)
+			else:
+				_set_status("New game saved to Slot %d" % selected_slot)
 		"load":
 			var save := _read_save(selected_slot)
 			if save.is_empty():
 				_set_status("Slot %d was empty — starting NEW game." % selected_slot)
 				_write_new_game(selected_slot)
 			else:
-				_set_status("TEST: Loaded Slot %d (mock)." % selected_slot if TEST_MODE else "Loaded Slot %d" % selected_slot)
+				if TEST_MODE:
+					_set_status("TEST: Loaded Slot %d (mock)." % selected_slot)
+				else:
+					_set_status("Loaded Slot %d" % selected_slot)
 	_refresh_slot_labels()
 	_update_buttons_enabled()
 
@@ -250,11 +295,53 @@ func _on_delete_confirmed() -> void:
 	if selected_slot <= 0:
 		return
 	if _delete_save(selected_slot):
-		_set_status("TEST: Marked Slot %d as EMPTY." % selected_slot if TEST_MODE else "Deleted Slot %d" % selected_slot)
+		if TEST_MODE:
+			_set_status("TEST: Marked Slot %d as EMPTY." % selected_slot)
+		else:
+			_set_status("Deleted Slot %d." % selected_slot)
 	else:
 		_set_status("Failed to delete Slot %d." % selected_slot)
 	_refresh_slot_labels()
 	_update_buttons_enabled()
+
+# ===================== #
+#   SETTINGS WIRES      #
+# ===================== #
+
+func _wire_settings_menu() -> void:
+	if options_instance == null:
+		return
+
+	# 1) Try to get node named "Accept" directly
+	var accept_node: Node = null
+	if options_instance.has_node("Accept"):
+		accept_node = options_instance.get_node("Accept")
+	else:
+		# 2) Fallback: search recursively for a node named "Accept"
+		accept_node = options_instance.find_child("Accept", true, false)
+
+	if accept_node == null:
+		push_warning("settings_menu.tscn has no node named 'Accept'")
+		return
+
+	if not (accept_node is BaseButton):
+		push_warning("'Accept' node exists but is not a BaseButton")
+		return
+
+	var accept_btn: BaseButton = accept_node as BaseButton
+
+	# Disconnect any existing _on_accept_pressed connections to avoid crashes
+	var conns: Array = accept_btn.pressed.get_connections()
+	for conn in conns:
+		var callable: Callable = conn["callable"]
+		if callable.get_method() == "_on_accept_pressed":
+			accept_btn.pressed.disconnect(callable)
+
+	# Connect Accept button as our Back button
+	if not accept_btn.pressed.is_connected(_on_options_back_pressed):
+		accept_btn.pressed.connect(_on_options_back_pressed)
+
+	print("Settings: wired Accept button as Back at path:", accept_btn.get_path())
 
 # ===================== #
 #        HELPERS        #
@@ -263,7 +350,8 @@ func _refresh_slot_labels() -> void:
 	for i in range(slot_btns.size()):
 		var idx := i + 1
 		var b := slot_btns[i]
-		if not b: continue
+		if not b:
+			continue
 		if _slot_exists(idx):
 			b.text = "Slot %d  (USED)" % idx
 		else:
@@ -272,26 +360,25 @@ func _refresh_slot_labels() -> void:
 func _update_buttons_enabled() -> void:
 	var has_sel := selected_slot > 0
 	var sel_used := has_sel and _slot_exists(selected_slot)
-	# New can always run (will overwrite if used)
 	new_btn.disabled = not has_sel
-	# Load enabled when a slot is selected (popup handles empty->new)
 	load_btn.disabled = not has_sel
-	# Delete only when a USED slot selected
 	delete_btn.disabled = not (has_sel and sel_used)
 
 func _highlight_selected_slot(idx:int) -> void:
 	for i in range(slot_btns.size()):
 		var b := slot_btns[i]
-		if not b: continue
-		b.self_modulate = Color(1.0, 0.95, 0.8, 1.0) if (i + 1) == idx else Color(1,1,1,1)
+		if not b:
+			continue
+		b.self_modulate = Color(1.0, 0.95, 0.8, 1.0) if (i + 1) == idx else Color(1, 1, 1, 1)
 
 func _set_status(msg: String) -> void:
 	if status_label:
 		status_label.text = msg
 	print(msg)
 
-# ESC: back to main menu (keep selection cleared)
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		if start_menu.visible and not slot_confirm.visible and not delete_confirm.visible:
+		if options_holder.visible:
+			_on_options_back_pressed()
+		elif start_menu.visible and not slot_confirm.visible and not delete_confirm.visible:
 			_on_back_pressed()
