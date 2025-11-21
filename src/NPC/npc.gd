@@ -2,6 +2,7 @@ extends Node2D
 
 const LOOT = preload("res://src/Inventory/loot.tscn")
 @onready var p = get_tree().get_first_node_in_group("Player")
+@onready var topZone = load("res://src/Scenes that are Very Very Temporary/light_room.tscn")
 var playerPresence
 var questGiver
 var questGiven
@@ -17,7 +18,7 @@ func _ready() -> void:
 	questGiven = false
 	success = false
 	leave_timer.one_shot = true
-	leave_timer.wait_time = 1
+	leave_timer.wait_time = 2
 	add_child(leave_timer)
 	leave_timer.connect("timeout", Callable(self,"_on_leave_timeout"))
 	#leave_timer.start()
@@ -54,6 +55,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 func _on_leave_timeout() -> void:
+	get_tree().get_first_node_in_group("Engine").get_child(0).add_sibling(topZone.instantiate())
 	get_tree().get_first_node_in_group("Engine").get_child(0).queue_free()
 
 func _on_area_2d_area_exited(area: Area2D) -> void:

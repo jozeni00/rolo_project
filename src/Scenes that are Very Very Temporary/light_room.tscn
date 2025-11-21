@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cywdo5odbcbtp"]
+
+[ext_resource type="Script" uid="uid://bm8i3kdrp0qsl" path="res://src/Scenes that are Very Very Temporary/farm_room.gd" id="1_w8qnr"]
+[ext_resource type="Texture2D" uid="uid://co6i81ipaixxu" path="res://src/Sprites that are Very Very Temporary/forest.png" id="2_w8qnr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7f8"]
+size = Vector2(67, 20)
+
+[node name="lightRoom" type="Node2D"]
+script = ExtResource("1_w8qnr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(320, 180)
+texture = ExtResource("2_w8qnr")
+
+[node name="TopLoadingZone" type="Area2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/TopLoadingZone"]
+position = Vector2(318.5, 10)
+shape = SubResource("RectangleShape2D_xc7f8")
+
+[connection signal="area_entered" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_entered"]
+[connection signal="area_exited" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_area_exited"]
