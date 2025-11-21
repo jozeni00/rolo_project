@@ -1,8 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://k8d3s46qphti"]
+[gd_scene load_steps=40 format=3 uid="uid://k8d3s46qphti"]
 
 [ext_resource type="Texture2D" uid="uid://oegvh1wtf5gf" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt1.png" id="1_ituhh"]
 [ext_resource type="Script" uid="uid://c2bpwug5cyar1" path="res://src/Boss/boss.gd" id="1_klja5"]
+[ext_resource type="Script" uid="uid://c0qrrwv86xpat" path="res://src/Inventory/Classes/DropRate.gd" id="2_m3h2y"]
 [ext_resource type="Texture2D" uid="uid://bb7satiku8s65" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt2.png" id="2_md2iw"]
+[ext_resource type="Resource" uid="uid://nswwgvbda1iq" path="res://src/Inventory/Resources/Item/sharkoTooth.tres" id="3_7dxna"]
 [ext_resource type="Texture2D" uid="uid://c4l26miooe7ys" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt3.png" id="3_dv78e"]
 [ext_resource type="Texture2D" uid="uid://b62st0deqry2m" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt4.png" id="4_vc5kp"]
 [ext_resource type="Texture2D" uid="uid://bpkaa4uyknspc" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt5.png" id="5_efi4s"]
@@ -30,6 +32,13 @@
 [ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="28_5m10s"]
 [ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="29_m3h2y"]
 [ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="30_7dxna"]
+
+[sub_resource type="Resource" id="Resource_vq66b"]
+script = ExtResource("2_m3h2y")
+item = ExtResource("3_7dxna")
+probability = 100.0
+min_amount = 1
+metadata/_custom_type_script = "uid://c0qrrwv86xpat"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vpmik"]
 animations = [{
@@ -157,11 +166,12 @@ metadata/_custom_type_script = "uid://bx30siccecw4q"
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtfr5"]
 radius = 77.0
 
-[node name="Boss" type="Node2D"]
+[node name="Boss" type="Node2D" groups=["Boss"]]
 position = Vector2(325, 152)
 
 [node name="Area2D" type="Node2D" parent="."]
 script = ExtResource("1_klja5")
+loot_table = Array[ExtResource("2_m3h2y")]([SubResource("Resource_vq66b")])
 
 [node name="bossSprite" type="AnimatedSprite2D" parent="Area2D"]
 texture_filter = 1

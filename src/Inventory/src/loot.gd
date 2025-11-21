@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 			if scale > Vector2(.25, .25):
 				scale *= .95
 		if distance < 10:
+			player.myInventory.add(item)
 			collected.emit()
 			queue_free()
 	

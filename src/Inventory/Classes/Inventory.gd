@@ -6,10 +6,13 @@ extends Resource
 
 
 func has_item(item: Item) -> bool:
+	
 	if item_lists.is_empty():
+		#print("EMPTY")
 		return false
 	
 	for i in item_lists:
+		print("item")
 		if i == item:
 			return true
 	

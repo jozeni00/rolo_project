@@ -1,6 +1,6 @@
 extends Node2D
 
-const LOOT = preload("res://src/Inventory/loot.tscn")
+const LOOT = preload("res://src/Inventory/Resources/Item/sharkoTooth.tscn")
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
 
@@ -13,6 +13,7 @@ var state
 var aggro_timer: Timer = Timer.new()
 var hurt_timer: Timer = Timer.new()
 var vulnerable
+@onready var title := "Scourge of Forsaken Seas, King Sharko"
 signal attack
 
 @onready var sprite := $bossSprite
@@ -32,7 +33,7 @@ func _ready() -> void:
 	hurt_timer.wait_time = .5
 	add_child(hurt_timer)
 	hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
-	hurt_timer.start()
+	#hurt_timer.start()
 	state = "idle"
 	vulnerable = false
 

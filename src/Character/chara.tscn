@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3b7udsqqhcwx"]
+[gd_scene load_steps=19 format=3 uid="uid://b3b7udsqqhcwx"]
 
 [ext_resource type="Script" uid="uid://b8eehyx61oppo" path="res://src/main/character.gd" id="1_kmau3"]
 [ext_resource type="Texture2D" uid="uid://qj4byoqd5txq" path="res://src/sprites/player sprites/idle/idle2.png" id="2_f36gb"]
+[ext_resource type="Script" uid="uid://0v6sdc7fss6a" path="res://src/Inventory/Classes/Item.gd" id="2_h5yxs"]
 [ext_resource type="Texture2D" uid="uid://cdldfjrrkwq65" path="res://src/sprites/player sprites/idle/idle1.png" id="3_h5yxs"]
+[ext_resource type="Script" uid="uid://dtuej7c5mruu8" path="res://src/Inventory/Classes/Inventory.gd" id="3_lt6ml"]
 [ext_resource type="Texture2D" uid="uid://ba0brndrk340d" path="res://src/sprites/player sprites/walkRight/walkRight1.png" id="4_lt6ml"]
 [ext_resource type="Texture2D" uid="uid://cauuwpmq1vl80" path="res://src/sprites/player sprites/walkRight/walkRight2.png" id="5_rdfk6"]
 [ext_resource type="Texture2D" uid="uid://77ar8b36ngc2" path="res://src/sprites/player sprites/walkRight/walkRight3.png" id="6_4iyqy"]
@@ -12,6 +14,11 @@
 [ext_resource type="Script" uid="uid://dwbrig7kmq58l" path="res://src/Classes/Hurtbox.gd" id="10_qp6gg"]
 [ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="11_g4dgd"]
 [ext_resource type="PackedScene" uid="uid://dyuq4h0s1ksb6" path="res://src/sword/sword.tscn" id="12_ye0k3"]
+
+[sub_resource type="Resource" id="Resource_rdfk6"]
+script = ExtResource("3_lt6ml")
+max_size = 10.0
+metadata/_custom_type_script = "uid://dtuej7c5mruu8"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ig5p7"]
 animations = [{
@@ -65,6 +72,7 @@ size = Vector2(8.5, 13.5)
 [node name="Chara" type="Node2D" groups=["Player"]]
 position = Vector2(386, 111)
 script = ExtResource("1_kmau3")
+myInventory = SubResource("Resource_rdfk6")
 
 [node name="charaSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ig5p7")

@@ -54,7 +54,7 @@ animations = [{
 
 [sub_resource type="Resource" id="Resource_rx5id"]
 script = ExtResource("4_dwvek")
-Attack = 50
+Attack = 99
 CritChance = 0.1
 metadata/_custom_type_script = "uid://bx30siccecw4q"
 

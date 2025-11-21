@@ -32,7 +32,7 @@ func _ready() -> void:
 	hurt_timer.wait_time = .5
 	add_child(hurt_timer)
 	hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
-	hurt_timer.start()
+	#hurt_timer.start()
 	state = "idle"
 	vulnerable = false
 

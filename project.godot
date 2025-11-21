@@ -26,6 +26,7 @@ window/stretch/mode="canvas_items"
 Player=""
 Engine="Describes Components relating to the game engine that multiple nodes will need"
 Wall=""
+Boss=""
 
 [input]
 

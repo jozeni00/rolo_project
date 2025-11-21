@@ -1,6 +1,7 @@
 class_name Player
 extends Node2D
 
+@export var myInventory : Inventory
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
 
