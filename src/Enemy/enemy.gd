@@ -1,9 +1,11 @@
 extends Node2D
 
+const LOOT = preload("res://src/Inventory/loot.tscn")
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
 
 @export var speed = 180
+@export var loot_table: Array[DropRate]
 var velocity
 var direction: Vector2
 var player: Node2D
@@ -11,6 +13,7 @@ var state
 var aggro_timer: Timer = Timer.new()
 var hurt_timer: Timer = Timer.new()
 var vulnerable
+signal attack
 
 @onready var sprite := $enemSprite
 @onready var HurtB := $Hurtbox
@@ -29,7 +32,7 @@ func _ready() -> void:
 	hurt_timer.wait_time = .5
 	add_child(hurt_timer)
 	hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
-	hurt_timer.start()
+	#hurt_timer.start()
 	state = "idle"
 	vulnerable = false
 
@@ -62,7 +65,7 @@ func _process(delta: float) -> void:
 	#pass
 	
 func chase(player, delta: float):
-	if(speed < 180):
+	if(speed < 180 and get_tree().get_first_node_in_group("Engine").returnPause() == 0):
 		speed += 1
 	direction = global_position.direction_to(player.global_position)
 	#direction =direction.normalized()
@@ -130,6 +133,17 @@ func _on_hurt_timeout() -> void:
 	#print("Must've been the wind...")
 	if(state == "death"):
 		self.queue_free()
+		for loot in loot_table:
+			var amount = loot.get_drop_amount()
+			if amount:
+				for i in amount:
+					var drop: Loot = LOOT.instantiate()
+					drop.item = loot.item
+					drop.global_position = global_position
+					var main = get_parent().get_parent()
+					if main:
+						main.call_deferred("add_child", drop)
+		
 	else:
 		speed = 40
 		state = "idle"

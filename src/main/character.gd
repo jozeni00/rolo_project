@@ -1,5 +1,7 @@
+class_name Player
 extends Node2D
 
+@export var myInventory : Inventory
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
 
@@ -7,10 +9,16 @@ const RIGHT = Vector2(1,1)
 var velocity
 var canDash
 var dshd
+var colliding
+var justLoaded
+
+var reqDirection
 
 var dash_timer: Timer = Timer.new()
 
-@onready var sprite := $charaSprite
+@onready var state := $StateMachine
+@onready var sprite:= $charaSprite
+@onready var hurtbox:= $Hurtbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,17 +30,20 @@ func _ready() -> void:
 	dash_timer.wait_time = 2
 	add_child(dash_timer)
 	dash_timer.connect("timeout", Callable(self,"_on_dash_timeout"))
+	reqDirection = Vector2(0,0)
+	colliding = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print(global_position)
 	velocity = Input.get_vector("Left", "Right", "Up", "Down")
 	if(Input.is_action_just_pressed("Dodge") and canDash):
 		speed *= 4
 		dash_timer.start()
 		dshd = true
-	
-	position += velocity * speed * delta
+	if(!check_move()):
+		position += velocity * speed * delta
 	
 	if(Input.is_action_just_released("Dodge") and dshd):
 		speed /= 4
@@ -55,8 +66,28 @@ func _process(delta: float) -> void:
 
 func check_move() -> bool:
 	# Check ahead for collision
-	return true
+	if(velocity != Vector2(0,0) and colliding):
+		print((velocity[reqDirection[0]]) / (velocity[reqDirection[0]]))
+		if ( ((velocity[reqDirection[0]])) == reqDirection[1]):
+			print("Good")
+			reqDirection = Vector2(0, 0)
+			colliding = false
+		else:
+			velocity[reqDirection[0]] = 0
+	return false
 	
+func get_save_data() -> Dictionary:
+	return {
+		"position": [global_position.x, global_position.y],
+		"health": hurtbox.stats.Health
+	}
+
+func apply_save_data(data: Dictionary) -> void:
+	if data.has("position") and data["position"].size() == 2:
+		global_position = Vector2(data["position"][0], data["position"][1])
+	if data.has("health"):
+		hurtbox.stats.Health = data["health"]
+	print("Player data applied:", data)
 
 func _on_dash_timeout() -> void:
 	canDash = true;

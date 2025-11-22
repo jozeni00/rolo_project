@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://spo1p5b67p2u"]
+
+[ext_resource type="TileSet" uid="uid://bc3wxtb6d6adc" path="res://src/tileSets/Darktile_map_layer.tres" id="1_6h4fa"]
+
+[node name="TileMapLayer" type="TileMapLayer"]
+texture_filter = 1
+position = Vector2(319, 187)
+rotation = -6.2831855
+scale = Vector2(4, 2.3)
+tile_set = ExtResource("1_6h4fa")

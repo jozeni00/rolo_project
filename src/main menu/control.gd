@@ -5,15 +5,15 @@ extends Control
 # ===================== #
 #        TESTING        #
 # ===================== #
-const TEST_MODE := true
+const TEST_MODE := false
 # Pretend these slots already have saves when in TEST_MODE:
 var _mock_used: Dictionary = {2: true, 4: true}  # change as you like
 
 # ===================== #
 #      REAL SAVES       #
 # ===================== #
-const SAVE_DIR := "user://saves"
-const SAVE_FMT := "slot_%d.json"
+const SAVE_DIR := "C:\\Users\\Arman\\Documents\\GitHub\\rolo_project\\src\\PlayerSave\\data\\"
+const SAVE_FMT := "slot%d.save"
 
 func _slot_path(idx:int) -> String:
 	return "%s/%s" % [SAVE_DIR, SAVE_FMT % idx]
@@ -25,8 +25,8 @@ func _ensure_save_dir() -> void:
 		DirAccess.make_dir_recursive_absolute(SAVE_DIR)
 
 func _slot_exists(idx:int) -> bool:
-	if TEST_MODE:
-		return _mock_used.get(idx, false)
+	#if TEST_MODE:
+	#	return _mock_used.get(idx, false)
 	return FileAccess.file_exists(_slot_path(idx))
 
 func _write_new_game(idx:int) -> void:
@@ -95,6 +95,7 @@ func _delete_save(idx:int) -> bool:
 @onready var slot_confirm: ConfirmationDialog   = $"start menu/SlotConfirm"    # NEW/LOAD
 @onready var delete_confirm: ConfirmationDialog = $"start menu/DeleteConfirm"  # DELETE
 @onready var status_label: Label       = $"start menu/StatusLabel"
+@onready var saveManage := $SaveManager
 
 # ===================== #
 #     STATE / ARRAYS    #
@@ -284,10 +285,9 @@ func _on_slot_confirmed() -> void:
 				_set_status("Slot %d was empty — starting NEW game." % selected_slot)
 				_write_new_game(selected_slot)
 			else:
-				if TEST_MODE:
-					_set_status("TEST: Loaded Slot %d (mock)." % selected_slot)
-				else:
-					_set_status("Loaded Slot %d" % selected_slot)
+				_set_status("TEST: Loaded Slot %d (mock)." % selected_slot if TEST_MODE else "Loaded Slot %d" % selected_slot)
+				saveManage.load_game(selected_slot)
+				get_tree().change_scene_to_file("res://src/main/main.tscn")
 	_refresh_slot_labels()
 	_update_buttons_enabled()
 

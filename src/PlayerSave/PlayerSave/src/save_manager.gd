@@ -1,6 +1,10 @@
 extends Node
 
+
 const SAVE_PATH = "user://PlayerSave/data/"
+
+signal loadComplete
+
 const NUM_SLOTS = 5
 
 func save_game(slot: int, player_data: Dictionary, keybinds: Dictionary):
@@ -24,10 +28,15 @@ func save_game(slot: int, player_data: Dictionary, keybinds: Dictionary):
 		print("Saving to path: ", file_path)
 
 func load_game(slot: int) -> Dictionary:
+	
 	var file_path = SAVE_PATH + "slot%d.save" % slot
 	if not FileAccess.file_exists(file_path):
 		return {}
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	file.close()
-	return data if typeof(data) == TYPE_DICTIONARY else {}
+	if typeof(data) == TYPE_DICTIONARY:
+		print("DATA FOUND")
+		return data
+	return {}
+	

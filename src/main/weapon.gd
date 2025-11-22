@@ -19,8 +19,9 @@ func _ready() -> void:
 	state = 0;
 	$Hitbox/Hitbox2.disabled = true
 	global_position = get_parent().get_position()
+	
 	weapon_timer.one_shot = true
-	weapon_timer.wait_time = .75
+	weapon_timer.wait_time = .4
 	add_child(weapon_timer)
 	weapon_timer.connect("timeout", Callable(self,"_on_weapon_timeout"))
 #	sprite.play("default")
@@ -32,27 +33,27 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#var new_node: Area2D
-	var cursor_position = get_global_mouse_position()
-	var rotation_angle = global_position.angle_to_point(cursor_position)
-	#### Animation Controls ####
-	## Bow Attack ##
-	if Input.is_action_just_pressed("BasicAttack"):
-		state = 1
-		print("BasicAttack")
-		weapon_timer.start()
-		sprite.play("default")
-	
+	if(get_tree().get_first_node_in_group("Engine").returnPause() == 0):
+		var cursor_position = get_global_mouse_position()
+		var rotation_angle = get_parent().global_position.angle_to_point(cursor_position)
+		#### Animation Controls ####
+		## Bow Attack ##
+		if (Input.is_action_just_pressed("BasicAttack") and state == 0):
+			state = 1
+			print("BasicAttack")
+			weapon_timer.start()
+			sprite.play("default")
 		
+			
 
-	
-	## Bow Direction ##
-	
-	
-	self.rotation = rotation_angle
-	if(self.rotation < -1.8 or self.rotation > 2.5):
-		self.scale = FLIP
-	elif(self.scale == FLIP):
-		self.scale = Vector2(1, 1)
+		
+		## Direction ##
+		
+		self.rotation = rotation_angle + (PI/2)
+		if(rotation_angle < -(PI/2) or rotation_angle > (PI/2)):
+			sprite.scale = Vector2(-1,1)
+		else:
+			sprite.scale = Vector2(1, 1)
 	
 	#print(self.rotation)
 	#self.scale = FLIP
@@ -74,7 +75,7 @@ func _on_weapon_timeout() -> void:
 	elif(state == 2):
 		$Hitbox/Hitbox2.disabled = true
 		sprite.play("default")
-		weapon_timer.wait_time = .75
+		weapon_timer.wait_time = .4
 		sprite.stop()
 		
 		state = 0

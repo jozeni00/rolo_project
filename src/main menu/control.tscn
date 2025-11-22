@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://7j4i00qli0xj"]
+[gd_scene load_steps=3 format=3 uid="uid://7j4i00qli0xj"]
 
 [ext_resource type="Script" uid="uid://c4ifw0aacb0hw" path="res://src/main menu/control.gd" id="1_j8dlu"]
+[ext_resource type="PackedScene" uid="uid://dbpln4nype1e" path="res://src/PlayerSave/save_manager.tscn" id="2_wo2u2"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -136,3 +137,5 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="SaveManager" parent="." instance=ExtResource("2_wo2u2")]
