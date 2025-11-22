@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bm8i3kdrp0qsl" path="res://src/Scenes that are Very Very Temporary/farm_room.gd" id="1_is8o5"]
 [ext_resource type="Texture2D" uid="uid://dwtynivtxd6bw" path="res://src/Sprites that are Very Very Temporary/farmRoom.png" id="2_is8o5"]
-[ext_resource type="PackedScene" uid="uid://dny7he0t12flb" path="res://src/NPC/NPC.tscn" id="3_14wo0"]
+[ext_resource type="PackedScene" uid="uid://dny7he0t12flb" path="res://src/Characters/NPC/NPC.tscn" id="3_14wo0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7f8"]
 size = Vector2(67, 20)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=3 uid="uid://k8d3s46qphti"]
 
 [ext_resource type="Texture2D" uid="uid://oegvh1wtf5gf" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt1.png" id="1_ituhh"]
-[ext_resource type="Script" uid="uid://c2bpwug5cyar1" path="res://src/Boss/boss.gd" id="1_klja5"]
+[ext_resource type="Script" uid="uid://c2bpwug5cyar1" path="res://src/Characters/Boss/boss.gd" id="1_klja5"]
 [ext_resource type="Script" uid="uid://c0qrrwv86xpat" path="res://src/Inventory/Classes/DropRate.gd" id="2_m3h2y"]
 [ext_resource type="Texture2D" uid="uid://bb7satiku8s65" path="res://src/sprite sheets/bossSprites/SharkoAttack/SharkoAtt2.png" id="2_md2iw"]
 [ext_resource type="Resource" uid="uid://nswwgvbda1iq" path="res://src/Inventory/Resources/Item/sharkoTooth.tres" id="3_7dxna"]

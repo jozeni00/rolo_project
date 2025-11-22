@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4xx36lxkvptj" path="res://src/Sprites that are Very Very Temporary/sharkRoom.png" id="1_5xkoa"]
 [ext_resource type="Script" uid="uid://cnt4fhabgfpye" path="res://src/Scenes that are Very Very Temporary/sharko_room.gd" id="1_v044x"]
-[ext_resource type="PackedScene" uid="uid://k8d3s46qphti" path="res://src/Boss/boss.tscn" id="3_v044x"]
+[ext_resource type="PackedScene" uid="uid://k8d3s46qphti" path="res://src/Characters/Boss/boss.tscn" id="3_v044x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xkoa"]
 size = Vector2(20, 362.5)

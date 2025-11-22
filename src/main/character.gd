@@ -16,7 +16,7 @@ var reqDirection
 
 var dash_timer: Timer = Timer.new()
 
-@onready var state := $StateMachine
+#@onready var state := $StateMachine
 @onready var sprite:= $charaSprite
 @onready var hurtbox:= $Hurtbox
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dny7he0t12flb"]
 
-[ext_resource type="Script" uid="uid://bxljjjminv8at" path="res://src/NPC/npc.gd" id="1_0t8av"]
+[ext_resource type="Script" uid="uid://bxljjjminv8at" path="res://src/Characters/NPC/npc.gd" id="1_0t8av"]
 [ext_resource type="Texture2D" uid="uid://c574qy7vvp3u7" path="res://src/sprite sheets/npcSprites/farmer1.png" id="1_y2xng"]
 [ext_resource type="Texture2D" uid="uid://bafsv0aa7urre" path="res://src/sprite sheets/npcSprites/farmer2.png" id="2_0t8av"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://06eyyalaoo3s"
-path="res://.godot/imported/knightfin_death3.png-4b12bc404963d1ffe21891c6587d4347.ctex"
+uid="uid://dl8rqv7vlba2j"
+path="res://.godot/imported/knightfin.png-e533a202be42d8276f7f5f03f5c8eb91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/enemySprites/knightfin_death3.png"
-dest_files=["res://.godot/imported/knightfin_death3.png-4b12bc404963d1ffe21891c6587d4347.ctex"]
+source_file="res://src/Characters/Enemy/enemySprites/knightfin.png"
+dest_files=["res://.godot/imported/knightfin.png-e533a202be42d8276f7f5f03f5c8eb91.ctex"]
 
 [params]
 
