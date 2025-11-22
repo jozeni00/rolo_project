@@ -6,7 +6,7 @@ func _ready() -> void:
 	$Settings/ConfirmationDialog.confirmed.connect(_on_accept_pressed)
 
 func _on_resume_pressed() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_parent().pauseGame()
 	#pass # Replace with function body.
 

@@ -8,7 +8,7 @@ const LASTFRAME = 5
 const FULLYDRAWN = 2
 const FLIP = Vector2(1,-1)
 const RIGHT = Vector2(1,1)
-var state;
+var state
 
 var weapon_timer: Timer = Timer.new()
 
@@ -24,10 +24,23 @@ func _ready() -> void:
 	weapon_timer.wait_time = .4
 	add_child(weapon_timer)
 	weapon_timer.connect("timeout", Callable(self,"_on_weapon_timeout"))
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 #	sprite.play("default")
 	#sprite.set_frame(0)
 	#sprite.pause()
 	pass
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		var dis = Vector2.ZERO.distance_to(event.relative)
+		if dis > 2:
+			var rotation_angle = Vector2.ZERO.angle_to_point(event.relative)
+			self.rotation = lerp_angle(rotation, rotation_angle + (PI/2),.1)
+			if(rotation_angle < -(PI/2) or rotation_angle > (PI/2)):
+				sprite.scale = Vector2(-1,1)
+
+			else:
+				sprite.scale = Vector2(1, 1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,27 +57,6 @@ func _process(delta: float) -> void:
 			weapon_timer.start()
 			sprite.play("default")
 		
-			
-
-		
-		## Direction ##
-		
-		self.rotation = rotation_angle + (PI/2)
-		if(rotation_angle < -(PI/2) or rotation_angle > (PI/2)):
-			sprite.scale = Vector2(-1,1)
-		else:
-			sprite.scale = Vector2(1, 1)
-	
-	#print(self.rotation)
-	#self.scale = FLIP
-	#print("\n")
-	#if(self.get_parent().scale == LEFT):
-			#rotation_angle = rotation_angle * -1
-		#self.scale = LEFT
-		
-		#self.rotation = -self.rotation
-	#else: #if(self.get_parent().scale == RIGHT):
-		#self.scale = RIGHT
 	
 func _on_weapon_timeout() -> void:
 	if(state == 1):

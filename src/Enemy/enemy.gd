@@ -22,7 +22,6 @@ signal attack
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	sprite.play("idle")
 	aggro_timer.one_shot = true
 	aggro_timer.wait_time = 2

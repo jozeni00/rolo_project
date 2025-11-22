@@ -22,7 +22,6 @@ var dash_timer: Timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	sprite.play("idle")
 	canDash = true
 	dshd = false
