@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt6kb8pc1kl08"
-path="res://.godot/imported/knightfin_walk3.png-fdc604604e7a74dc676b52749b4ecc40.ctex"
+uid="uid://i6gqat3rhj1h"
+path="res://.godot/imported/farmRoom.png-3ccc46529ac6d4fcd6f415bd5c7d9426.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/enemySprites/knightfin_walk3.png"
-dest_files=["res://.godot/imported/knightfin_walk3.png-fdc604604e7a74dc676b52749b4ecc40.ctex"]
+source_file="res://src/sprites/map/full rooms/farmRoom.png"
+dest_files=["res://.godot/imported/farmRoom.png-3ccc46529ac6d4fcd6f415bd5c7d9426.ctex"]
 
 [params]
 

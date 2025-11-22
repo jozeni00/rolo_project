@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt6kb8pc1kl08"
-path="res://.godot/imported/knightfin_walk3.png-fdc604604e7a74dc676b52749b4ecc40.ctex"
+uid="uid://b5ms2o55x85s7"
+path="res://.godot/imported/singleHotbar.png-536f26dc5c15e1e91073116ec4f46ca4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/enemySprites/knightfin_walk3.png"
-dest_files=["res://.godot/imported/knightfin_walk3.png-fdc604604e7a74dc676b52749b4ecc40.ctex"]
+source_file="res://src/sprites/iconSprites/hotbar/singleHotbar.png"
+dest_files=["res://.godot/imported/singleHotbar.png-536f26dc5c15e1e91073116ec4f46ca4.ctex"]
 
 [params]
 

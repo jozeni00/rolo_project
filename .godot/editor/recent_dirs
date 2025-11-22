@@ -1,1 +1,4 @@
-res://PlayerSave/src
+res://src/enemySprites
+res://src/sprite sheets/player sprites/playerBurning
+res://src/sprite sheets/player sprites/walkRight
+res://src/sprite sheets/player sprites/idle

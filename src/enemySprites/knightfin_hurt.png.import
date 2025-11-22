@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgb8odpxn8ktr"
-<<<<<<< HEAD:src/enemySprites/knightfin_hurt.png.import
+uid="uid://okv8613hp2cl"
 path="res://.godot/imported/knightfin_hurt.png-1fe5ae63ef5ddb107ebb083207b66b8e.ctex"
-=======
-path="res://.godot/imported/knightfin_hurt.png-66a807347a855a776e65bcf806c81b86.ctex"
->>>>>>> 436830b (Made an enemy that can chase the player):enemySprites/knightfin_hurt.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:src/enemySprites/knightfin_hurt.png.import
 source_file="res://src/enemySprites/knightfin_hurt.png"
 dest_files=["res://.godot/imported/knightfin_hurt.png-1fe5ae63ef5ddb107ebb083207b66b8e.ctex"]
-=======
-source_file="res://enemySprites/knightfin_hurt.png"
-dest_files=["res://.godot/imported/knightfin_hurt.png-66a807347a855a776e65bcf806c81b86.ctex"]
->>>>>>> 436830b (Made an enemy that can chase the player):enemySprites/knightfin_hurt.png.import
 
 [params]
 

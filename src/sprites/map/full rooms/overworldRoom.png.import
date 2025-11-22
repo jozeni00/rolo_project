@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt6kb8pc1kl08"
-path="res://.godot/imported/knightfin_walk3.png-fdc604604e7a74dc676b52749b4ecc40.ctex"
+uid="uid://bu308eckb6g2t"
+path="res://.godot/imported/overworldRoom.png-f488266f0fb36098b29bd7f505b400fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/enemySprites/knightfin_walk3.png"
-dest_files=["res://.godot/imported/knightfin_walk3.png-fdc604604e7a74dc676b52749b4ecc40.ctex"]
+source_file="res://src/sprites/map/full rooms/overworldRoom.png"
+dest_files=["res://.godot/imported/overworldRoom.png-f488266f0fb36098b29bd7f505b400fb.ctex"]
 
 [params]
 
