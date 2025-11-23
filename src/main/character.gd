@@ -66,8 +66,9 @@ func _process(delta: float) -> void:
 func check_move() -> bool:
 	# Check ahead for collision
 	if(velocity != Vector2(0,0) and colliding):
-		print((velocity[reqDirection[0]]) / (velocity[reqDirection[0]]))
-		if ( ((velocity[reqDirection[0]])) == reqDirection[1]):
+		print((velocity[reqDirection[0]] / reqDirection[1]))
+		
+		if ( ((abs(velocity[reqDirection[0]])) >= abs(reqDirection[1])) and ((velocity[reqDirection[0]] / reqDirection[1]) > 0)):
 			print("Good")
 			reqDirection = Vector2(0, 0)
 			colliding = false
