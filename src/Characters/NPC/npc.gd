@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 
 func checkPrgrs() -> bool:
 	#return false
-	success = p.myInventory.has_item(questItem)
+	success = PlayerData.inventory.has_item(questItem)
 	return success
 	
 func interact() -> void:

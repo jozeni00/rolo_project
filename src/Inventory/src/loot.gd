@@ -2,15 +2,17 @@ class_name Loot
 extends Node2D
 
 @export var item: Item
+@onready var sprite := $Sprite2D
 @onready var animation := $AnimationPlayer
 @onready var collect_range: Area2D = $Area2D
 
 const MAX_DROP_RANGE = 45
-const SPEED = 75
+const SPEED = 100
 var direction: Vector2 = Vector2.ZERO
 var player: Node2D = null
 
 signal collected
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +20,7 @@ func _ready() -> void:
 	global_position += Vector2(randf_range(-MAX_DROP_RANGE,MAX_DROP_RANGE), randf_range(-MAX_DROP_RANGE,MAX_DROP_RANGE))
 	collect_range.area_entered.connect(_on_area_entered)
 	animation.animation_finished.connect(_on_animation_finished)
+	sprite.texture = item.sprite
 
 func _process(delta: float) -> void:
 	if player:
@@ -28,8 +31,7 @@ func _process(delta: float) -> void:
 			if scale > Vector2(.25, .25):
 				scale *= .95
 		if distance < 10:
-			player.myInventory.add(item)
-			collected.emit()
+			add_to_inventory(item)
 			queue_free()
 	
 
@@ -42,6 +44,14 @@ func _on_animation_finished(anim_name: String) -> void:
 		return
 	
 	animation.play("default")
+
+func add_to_inventory(new_item: Item) -> void:
+	if new_item.item_type == item.Type.MONEY:
+		PlayerData.increment_money()
+	else:
+		PlayerData.inventory.add(new_item)
+	collected.emit()
+	PlayerData.inventory.print_items()
 
 func get_player_direction() -> Vector2:
 	assert(player)
