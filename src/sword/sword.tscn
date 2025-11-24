@@ -77,8 +77,6 @@ script = ExtResource("1_e4ynd")
 texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_dwvek")
-frame = 6
-frame_progress = 0.536765
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, -18)
