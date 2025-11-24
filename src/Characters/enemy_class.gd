@@ -118,7 +118,7 @@ func _ready() -> void:
 	add_child(_hurt_timer)
 	_hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
 	
-	hurtbox.area_entered.connect(_on_area_entered)
+	detect_area.area_entered.connect(_on_area_entered)
 	
 	state = IDLE
 	sprite.play("idle")
@@ -141,9 +141,9 @@ func _walk(_delta: float = 0.0167) -> void:
 		global_position += direction * SPEED * _delta
 
 func _chase(_delta: float = 0.0167) -> void:
-	print("GIVE CHASE")
+	print(target.global_position)
 	direction = global_position.direction_to(target.global_position)
-	global_position+= direction * SPEED * _delta
+	global_position += direction * SPEED * _delta
 
 func _attack(_delta: float = 0.0167) -> void:
 	pass

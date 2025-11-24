@@ -124,7 +124,7 @@ script = ExtResource("15_yfud7")
 metadata/_custom_type_script = "uid://bx30siccecw4q"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_doop2"]
-radius = 36.013885
+radius = 23.194826
 
 [node name="Enemy" type="Node2D" node_paths=PackedStringArray("sprite", "hurtbox", "hitbox", "detect_area")]
 script = ExtResource("1_085mr")
@@ -132,7 +132,7 @@ sprite = NodePath("Area2D/enemSprite")
 hurtbox = NodePath("Area2D/Hurtbox")
 hitbox = NodePath("Area2D/Attack")
 detect_area = NodePath("Area2D/Detection")
-detect_radius = 20000.0
+detect_radius = 2000.0
 loot_table = Array[ExtResource("2_mfr25")]([SubResource("Resource_085mr")])
 exp = 10
 metadata/_custom_type_script = "uid://buxnivcjv46jy"
