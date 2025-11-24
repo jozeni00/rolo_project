@@ -1,9 +1,9 @@
+Enemy
 CollisionShape2D
 Area2D
 Hitbox
 Hurtbox
 AnimatedSprite2D
-Enemy
 ColorRect
 CharacterBody2D
 Sprite2D

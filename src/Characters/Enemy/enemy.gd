@@ -23,14 +23,7 @@ signal attack
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	sprite.play("idle")
-	aggro_timer.one_shot = true
-	aggro_timer.wait_time = 2
-	add_child(aggro_timer)
-	aggro_timer.connect("timeout", Callable(self,"_on_aggro_timeout"))
-	hurt_timer.one_shot = true
-	hurt_timer.wait_time = .5
-	add_child(hurt_timer)
-	hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
+	
 	#hurt_timer.start()
 	state = "idle"
 	vulnerable = false
@@ -45,12 +38,12 @@ func _process(delta: float) -> void:
 		##position += velocity * delta
 		if ((velocity.length() > 0)):
 			sprite.play("walk")
-		
+		"""
 			if(velocity[0] < 0 and self.scale != LEFT):# and self.get_child(2).cursor_position.x < self.position.x):
 				
 				self.scale = LEFT
 			elif(velocity[0] > 0 and self.scale == LEFT):
-				self.scale = RIGHT
+				self.scale = RIGHT"""
 			
 	elif (state == "idle"):
 		speed = 40
@@ -114,9 +107,7 @@ func _on_exit_attack_range(area: Area2D) -> void:
 
 
 func _on_aggro_timeout() -> void:
-	#print("Must've been the wind...")
 	state = "idle"
-	#pass # Replace with function body.
 
 
 func _on_hurtbox_got_hit() -> void:
@@ -128,8 +119,8 @@ func _on_hurtbox_got_hit() -> void:
 	#state = "mwefnrf"
 	#sprite.stop()
 	#pass # Replace with function body.
+	
 func _on_hurt_timeout() -> void:
-	#print("Must've been the wind...")
 	if(state == "death"):
 		self.queue_free()
 		for loot in loot_table:

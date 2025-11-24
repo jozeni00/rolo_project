@@ -1,5 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://d1v2f6vunujwc"]
+[gd_scene load_steps=35 format=3 uid="uid://d1v2f6vunujwc"]
 
+[ext_resource type="Script" uid="uid://buxnivcjv46jy" path="res://src/Characters/enemy_class.gd" id="1_085mr"]
 [ext_resource type="Script" uid="uid://blxcihr8ws807" path="res://src/Characters/Enemy/enemy.gd" id="1_e1ltt"]
 [ext_resource type="Texture2D" uid="uid://c5glh37p4cocm" path="res://src/Characters/Enemy/enemySprites/knightfin2.png" id="1_hb8ge"]
 [ext_resource type="Texture2D" uid="uid://cgdu0robuyqba" path="res://src/Characters/Enemy/enemySprites/knightfin_death1.png" id="2_dlccv"]
@@ -25,6 +26,12 @@
 [ext_resource type="Script" uid="uid://dwbrig7kmq58l" path="res://src/Classes/Hurtbox.gd" id="14_yfud7"]
 [ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="15_7una0"]
 [ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="15_yfud7"]
+
+[sub_resource type="Resource" id="Resource_085mr"]
+script = ExtResource("2_mfr25")
+item = ExtResource("3_tsvhe")
+max_amount = 5
+metadata/_custom_type_script = "uid://c0qrrwv86xpat"
 
 [sub_resource type="Resource" id="Resource_mfr25"]
 script = ExtResource("2_mfr25")
@@ -127,7 +134,16 @@ metadata/_custom_type_script = "uid://bx30siccecw4q"
 [sub_resource type="CircleShape2D" id="CircleShape2D_doop2"]
 radius = 36.013885
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("sprite", "hurtbox", "hitbox", "detect_area")]
+script = ExtResource("1_085mr")
+sprite = NodePath("Area2D/enemSprite")
+hurtbox = NodePath("Area2D/Hurtbox")
+hitbox = NodePath("Area2D/Attack")
+detect_area = NodePath("Area2D/Detection")
+detect_radius = 20.0
+loot_table = Array[ExtResource("2_mfr25")]([SubResource("Resource_085mr")])
+exp = 10
+metadata/_custom_type_script = "uid://buxnivcjv46jy"
 
 [node name="Area2D" type="Node2D" parent="."]
 position = Vector2(100, 100)
@@ -162,10 +178,7 @@ stats = SubResource("Resource_nn272")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Attack"]
 shape = SubResource("CircleShape2D_doop2")
 
-[node name="AggroTimer" type="Timer" parent="."]
-
 [connection signal="dead" from="Area2D/Hurtbox" to="Area2D" method="_on_hurtbox_dead"]
-[connection signal="got_hit" from="Area2D/Hurtbox" to="Area2D" method="_on_hurtbox_got_hit"]
 [connection signal="area_entered" from="Area2D/Detection" to="Area2D" method="_on_detection_area_entered"]
 [connection signal="area_exited" from="Area2D/Detection" to="Area2D" method="_on_detection_area_exited"]
 [connection signal="area_entered" from="Area2D/Attack" to="Area2D" method="_on_attack_area_entered"]

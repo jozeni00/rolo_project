@@ -56,6 +56,8 @@ var state_exits: Dictionary = {}
 var _spawn_location: Vector2 = global_position
 var _walk_location: Vector2 = global_position
 var _idle_timer: Timer = Timer.new()
+var _aggro_timer: Timer = Timer.new()
+var _hurt_timer: Timer = Timer.new()
 var target: Node2D
 var direction: Vector2:
 	set(value):
@@ -97,6 +99,18 @@ func _ready() -> void:
 	_idle_timer.wait_time = randf_range(1,3)
 	add_child(_idle_timer)
 	_idle_timer.connect("timeout", Callable(self, "_idle_timeout"))
+	
+	_aggro_timer.one_shot = true
+	_aggro_timer.wait_time = 2
+	add_child(_aggro_timer)
+	_aggro_timer.connect("timeout", Callable(self,"_on_aggro_timeout"))
+	
+	hitbox.connect("got_hit", Callable(self, "_on_hurtbox_got_hit"))
+	
+	_hurt_timer.one_shot = true
+	_hurt_timer.wait_time = .5
+	add_child(_hurt_timer)
+	_hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
 	
 	hurtbox.area_entered.connect(_on_area_entered)
 	
@@ -152,9 +166,14 @@ func _attack_entry() -> void:
 	pass
 
 func _hurt_entry() -> void:
+	print("OUCH")
+	sprite.animation = "hurt"
+	_hurt_timer.start()
 	pass
 
 func _death_entry() -> void:
+	sprite.animation = "death"
+	_hurt_timer.start()
 	pass
 
 # State exit function.
@@ -171,6 +190,7 @@ func _attack_exit() -> void:
 	pass
 
 func _hurt_exit() -> void:
+	sprite.animation = "idle"
 	pass
 
 func _death_exit() -> void:
@@ -181,5 +201,29 @@ func _idle_timeout() -> void:
 	state = WALK
 
 func _on_area_entered(area: Area2D) -> void:
-	target = area.get_parent()
-	state = CHASE
+	if(area == get_tree().get_first_node_in_group("Player").hurtbox):
+		target = area.get_parent()
+		state = CHASE
+
+func _on_hurt_timeout() -> void:
+	print("HURT TIMEOUT")
+	if(state == DEATH):
+		self.queue_free()
+		for loot in loot_table:
+			var amount = loot.get_drop_amount()
+			if amount:
+				for i in amount:
+					var drop: Loot = LOOT.instantiate()
+					drop.item = loot.item
+					drop.global_position = global_position
+					var main = get_parent().get_parent()
+					if main:
+						main.call_deferred("add_child", drop)
+		
+	else:
+		state = IDLE
+
+
+func _on_hurtbox_got_hit() -> void:
+	print("OUCH")
+	pass # Replace with function body.
