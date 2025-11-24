@@ -74,6 +74,9 @@ func _ready() -> void:
 	assert(detect_area, "No detection area assigned.")
 	assert(detect_radius, "No detection radius assigned.")
 	
+	var detect_shape: Shape2D = detect_area.get_child(0).shape
+	detect_shape.radius = detect_radius
+	
 	state_entries[IDLE] = Callable(self, "_idle_entry")
 	state_entries[WALK] = Callable(self, "_walk_entry")
 	state_entries[CHASE] = Callable(self, "_chase_entry")
@@ -100,12 +103,15 @@ func _ready() -> void:
 	add_child(_idle_timer)
 	_idle_timer.connect("timeout", Callable(self, "_idle_timeout"))
 	
+	# Implement the Aggro Timer, that controls the enemy's aggression state
 	_aggro_timer.one_shot = true
 	_aggro_timer.wait_time = 2
 	add_child(_aggro_timer)
 	_aggro_timer.connect("timeout", Callable(self,"_on_aggro_timeout"))
 	
-	hitbox.connect("got_hit", Callable(self, "_on_hurtbox_got_hit"))
+	# Implement functions for the hurtbox getting hurt and dying
+	hurtbox.connect("got_hit", Callable(self, "_on_hurtbox_got_hit"))
+	hurtbox.connect("dead", Callable(self, "_on_death"))
 	
 	_hurt_timer.one_shot = true
 	_hurt_timer.wait_time = .5
@@ -135,6 +141,7 @@ func _walk(_delta: float = 0.0167) -> void:
 		global_position += direction * SPEED * _delta
 
 func _chase(_delta: float = 0.0167) -> void:
+	print("GIVE CHASE")
 	direction = global_position.direction_to(target.global_position)
 	global_position+= direction * SPEED * _delta
 
@@ -225,5 +232,9 @@ func _on_hurt_timeout() -> void:
 
 
 func _on_hurtbox_got_hit() -> void:
-	print("OUCH")
-	pass # Replace with function body.
+	state = HURT
+
+func _on_death() -> void:
+	state = DEATH
+	_hurt_timer.wait_time = 2
+	_hurt_timer.start()
