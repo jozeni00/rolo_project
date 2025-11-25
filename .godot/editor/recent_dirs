@@ -1,7 +1,5 @@
-res://src/Inventory/Resources/Item
-res://src/Characters/Enemy/enemySprites
-res://
-res://src/Characters
+res://src/sprite sheets/player sprites/dodge
+res://src/Skills/Character
 res://src/main
 res://src/sprite sheets/player sprites/playerBurning
 res://src/sprite sheets/player sprites/walkRight

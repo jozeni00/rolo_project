@@ -1,9 +1,4 @@
-Enemy
-CollisionShape2D
-Area2D
-Hitbox
-Hurtbox
-AnimatedSprite2D
+Skill
 ColorRect
 CharacterBody2D
 Sprite2D
