@@ -7,7 +7,7 @@ extends Node2D
 @onready var collect_range: Area2D = $Area2D
 
 const MAX_DROP_RANGE = 45
-const SPEED = 100
+var speed: float = 100
 var direction: Vector2 = Vector2.ZERO
 var player: Node2D = null
 
@@ -25,11 +25,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player:
 		direction = get_player_direction()
-		position += direction * SPEED * delta
+		position += direction * speed * delta
 		var distance = global_position.distance_to(player.global_position)
 		if distance < 30 and distance > 10:
 			if scale > Vector2(.25, .25):
 				scale *= .95
+				speed *= 1.1
 		if distance < 10:
 			add_to_inventory(item)
 			queue_free()

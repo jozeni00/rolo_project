@@ -118,6 +118,8 @@ func _ready() -> void:
 	add_child(_hurt_timer)
 	_hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
 	
+	sprite.connect("animation_finished", Callable(self,"_on_animation_finished"))
+	
 	detect_area.area_entered.connect(_on_area_entered)
 	
 	state = IDLE
@@ -127,6 +129,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	state_updates[state].call(delta)
+
+func _exit_tree() -> void:
+	for loot in loot_table:
+			var amount = loot.get_drop_amount()
+			if amount:
+				for i in amount:
+					var drop: Loot = LOOT.instantiate()
+					drop.item = loot.item
+					drop.global_position = global_position
+					var main = get_parent().get_parent()
+					if main:
+						main.call_deferred("add_child", drop)
 
 # State update function.
 func _idle(_delta: float = 0.0167) -> void:
@@ -141,7 +155,6 @@ func _walk(_delta: float = 0.0167) -> void:
 		global_position += direction * SPEED * _delta
 
 func _chase(_delta: float = 0.0167) -> void:
-	print(target.global_position)
 	direction = global_position.direction_to(target.global_position)
 	global_position += direction * SPEED * _delta
 
@@ -164,7 +177,6 @@ func _walk_entry() -> void:
 	_walk_location = Vector2(
 		randf_range(-_WANDER_DISTANCE, _WANDER_DISTANCE) + _spawn_location.x,
 		randf_range(-_WANDER_DISTANCE, _WANDER_DISTANCE) + _spawn_location.y)
-	print("Walk Location: ", _walk_location)
 
 func _chase_entry() -> void:
 	sprite.animation = "walk"
@@ -174,13 +186,20 @@ func _attack_entry() -> void:
 
 func _hurt_entry() -> void:
 	print("OUCH")
+	print(name, " Health: ", hurtbox.stats.Health)
 	sprite.animation = "hurt"
-	_hurt_timer.start()
+	var collision: CollisionShape2D = hurtbox.get_child(0)
+	collision.disabled = true
+	#_hurt_timer.start()
 	pass
 
 func _death_entry() -> void:
+	var collision: CollisionShape2D = hurtbox.get_child(0)
+	collision.disabled = true
+	#*** Will also need to disable hitbox. ***#
 	sprite.animation = "death"
-	_hurt_timer.start()
+	sprite.play()
+	#_hurt_timer.start()
 	pass
 
 # State exit function.
@@ -197,11 +216,22 @@ func _attack_exit() -> void:
 	pass
 
 func _hurt_exit() -> void:
-	sprite.animation = "idle"
+	var collision: CollisionShape2D = hurtbox.get_child(0)
+	collision.disabled = false
 	pass
 
 func _death_exit() -> void:
-	pass
+	self.queue_free()
+	for loot in loot_table:
+		var amount = loot.get_drop_amount()
+		if amount:
+			for i in amount:
+				var drop: Loot = LOOT.instantiate()
+				drop.item = loot.item
+				drop.global_position = global_position
+				var main = get_parent().get_parent()
+				if main:
+					main.call_deferred("add_child", drop)
 
 
 func _idle_timeout() -> void:
@@ -238,3 +268,9 @@ func _on_death() -> void:
 	state = DEATH
 	_hurt_timer.wait_time = 2
 	_hurt_timer.start()
+
+func _on_animation_finished() -> void:
+	if sprite.get_animation() == "hurt":
+		state = CHASE
+	if sprite.get_animation() == "death" and state == DEATH:
+		_death_exit()

@@ -39,7 +39,6 @@ func update_health(op_stats: AttackStats) -> void:
 	var damage = calculate_damage(op_stats)
 	stats.Health -= damage
 	stats.Health = max(0, stats.Health)			# make sure health is > 0
-	print(stats.Health)
 	got_hit.emit()
 	if stats.Health <= 0:
 		monitoring = false
