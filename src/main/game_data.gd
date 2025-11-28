@@ -1,5 +1,8 @@
 extends Node
 
+enum Element{NONE, AIR, WATER, EARTH, FIRE}
+enum Stats{ATTACK, ELEMENTAL_ATTACK, CRIT_CHANCE, CRIT_MULTIPLIER, COOLDOWN, ATTACK_DURATION, KNOCKBACK}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

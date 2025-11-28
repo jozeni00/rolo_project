@@ -1,3 +1,4 @@
+class_name Weapon
 extends Node2D
 
 @export var speed = 100
@@ -37,10 +38,10 @@ func _input(event: InputEvent) -> void:
 			var rotation_angle = Vector2.ZERO.angle_to_point(event.relative)
 			self.rotation = lerp_angle(rotation, rotation_angle + (PI/2),.1)
 			if(rotation_angle < -(PI/2) or rotation_angle > (PI/2)):
-				sprite.scale = Vector2(-1,1)
+				scale = Vector2(-1,1)
 
 			else:
-				sprite.scale = Vector2(1, 1)
+				scale = Vector2(1, 1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,7 +56,8 @@ func _process(delta: float) -> void:
 			state = 1
 			print("BasicAttack")
 			weapon_timer.start()
-			sprite.play("default")
+			#sprite.play("default")
+			$AnimationPlayer.play("attack")
 		
 	
 func _on_weapon_timeout() -> void:
