@@ -5,9 +5,14 @@ extends Node2D
 @export var successSprite: Texture2D
 @onready var sprite = $icon
 @export var elem: String
+var active
+@export var skillName: String
+@export var description: String
+@export var prevNode: skillNode
 
 
 func _ready() -> void:
+	active = false
 	print("Ready")
 
 func swapSprite():

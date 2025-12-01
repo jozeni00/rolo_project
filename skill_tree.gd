@@ -27,6 +27,9 @@ So you can't make one branch lopsided with this script, unfortunately
 var active
 func _ready() -> void:
 	active = false
+	$skillDescription.title = selection.skillName
+	$skillDesc.add_theme_font_size_override("font_size", 10)
+	$skillDesc.text = (selection.description.c_unescape())
 	
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("SkillTree")):
@@ -57,6 +60,8 @@ func _process(delta: float) -> void:
 		if(Input.get_vector("Left", "Right", "Up", "Down").length() > 0):
 			selectionIndex = (rowCol[0] * numRows) + rowCol[1]
 			selection = (skills[selectionIndex])
+			$skillDescription.title = selection.skillName
+			$skillDesc.text = (selection.description.c_unescape())
 			reticule.global_position = selection.global_position
 			
 		if(selection != lastSelection):
@@ -65,11 +70,12 @@ func _process(delta: float) -> void:
 			purchaseSkill(player.skill_points)
 
 func checkCompatibility() -> bool:		
-	if(currentElement == "NONE"):
-		currentElement = selection.elem
-		return true
-	elif(currentElement in selection.elem):
-		return true
+	if(currentElement == "NONE" or (currentElement in selection.elem)):
+		if(selection.prevNode == null or selection.prevNode.active):
+			selection.active = true
+			if(currentElement == "NONE"):
+				currentElement = selection.elem
+			return true
 	return false
 		
 func purchaseSkill(points: int)->void:

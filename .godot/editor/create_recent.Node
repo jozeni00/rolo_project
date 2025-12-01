@@ -1,3 +1,5 @@
+Label
+GraphFrame
 Sprite2D
 Node2D
 skillNode
@@ -8,4 +10,3 @@ CharacterBody2D
 Button
 VBoxContainer
 CanvasLayer
-Label
