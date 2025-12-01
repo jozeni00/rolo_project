@@ -44,7 +44,7 @@ var reqDirection
 
 var dash_timer: Timer = Timer.new()
 
-var char_skill_path: String = "res://src/Skills/Character/"
+var char_skill_path: String = "res://src/Skills/"
 var dodge: Skill
 
 #@onready var state := $StateMachine
@@ -117,7 +117,8 @@ func check_move() -> bool:
 	return false
 
 func load_skill(skill_name: String) -> Skill:
-	var scene: PackedScene = load(char_skill_path + skill_name + ".tscn")
+	var scene = load(str(char_skill_path + skill_name + ".tscn"))
+	print(scene)
 	var loaded_skill: Node = scene.instantiate()
 	call_deferred("add_child", loaded_skill)
 	if loaded_skill is Skill:
