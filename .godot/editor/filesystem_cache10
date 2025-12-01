@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1764352637
+::res://::1764610937
 enemy_base.tscn::PackedScene::7294416339895582065::1764352623::0::1::::<><><>0<>0<><>::uid://buxnivcjv46jy::::res://src/Characters/enemy_class.gd<>uid://c0qrrwv86xpat::::res://src/Inventory/Classes/DropRate.gd<>uid://dyhee4sgho2sg::::res://src/Inventory/Resources/Item/coin.tres<>uid://vr6o36a26l17::::res://src/Characters/Enemy/enemySprites/knightfin_sheet.png<>uid://dwbrig7kmq58l::::res://src/Classes/Hurtbox.gd<>uid://b6utarwb21mpe::::res://src/Classes/Hitbox.gd<>uid://b8ltlvjtoo63a::::res://src/Resource/CharacterStats/CharacterStats.gd<>uid://bx30siccecw4q::::res://src/Resource/AttackStats/AttackStats.gd
 export_presets.cfg::TextFile::-1::1762372654::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::1942930702118367638::1762372654::1763616528::1::::<><><>0<>0<>2a869ceef4bb4cd947a32741468b38a0<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -43,8 +43,8 @@ knightfin_walk4.png::CompressedTexture2D::8278921829404807156::1763616455::17638
 ::res://src/Characters/NPC/::1763863343
 npc.gd::GDScript::4024035259372069263::1763863343::0::1::::<>Node2D<><>0<>0<><>::
 NPC.tscn::PackedScene::8123217778409616035::1763823980::0::1::::<><><>0<>0<><>::uid://bxljjjminv8at::::res://src/Characters/NPC/npc.gd<>uid://c574qy7vvp3u7::::res://src/sprite sheets/npcSprites/farmer1.png<>uid://bafsv0aa7urre::::res://src/sprite sheets/npcSprites/farmer2.png
-::res://src/Characters/Player/::1764358865
-player.tscn::PackedScene::4355751529083848643::1764358865::0::1::::<><><>0<>0<><>::uid://b8eehyx61oppo::::res://src/main/character.gd<>uid://0v6sdc7fss6a::::res://src/Inventory/Classes/Item.gd<>uid://dtuej7c5mruu8::::res://src/Inventory/Classes/Inventory.gd<>uid://bf7pp2n0vhyne::::res://src/sprite sheets/player sprites/dodge/dodge-Sheet.png<>uid://5xpksykxlbys::::res://src/sprite sheets/player sprites/idle/idle.png<>uid://dkeiyk3x82ftr::::res://src/sprite sheets/player sprites/walkRight/walkRight-Sheet.png<>uid://dwbrig7kmq58l::::res://src/Classes/Hurtbox.gd<>uid://b8ltlvjtoo63a::::res://src/Resource/CharacterStats/CharacterStats.gd<>uid://dyuq4h0s1ksb6::::res://src/sword/sword.tscn
+::res://src/Characters/Player/::1764363190
+player.tscn::PackedScene::4355751529083848643::1764363190::0::1::::<><><>0<>0<><>::uid://b8eehyx61oppo::::res://src/main/character.gd<>uid://0v6sdc7fss6a::::res://src/Inventory/Classes/Item.gd<>uid://dtuej7c5mruu8::::res://src/Inventory/Classes/Inventory.gd<>uid://bf7pp2n0vhyne::::res://src/sprite sheets/player sprites/dodge/dodge-Sheet.png<>uid://5xpksykxlbys::::res://src/sprite sheets/player sprites/idle/idle.png<>uid://dkeiyk3x82ftr::::res://src/sprite sheets/player sprites/walkRight/walkRight-Sheet.png<>uid://dwbrig7kmq58l::::res://src/Classes/Hurtbox.gd<>uid://b8ltlvjtoo63a::::res://src/Resource/CharacterStats/CharacterStats.gd<>uid://dyuq4h0s1ksb6::::res://src/sword/sword.tscn
 ::res://src/Classes/::1764355993
 Character.gd::GDScript::2980275928701471528::1764117005::0::1::::TestCharacter<>CharacterBody2D<><>0<>0<><>::
 Hitbox.gd::GDScript::4604716941381065682::1763616455::0::1::::Hitbox<>Area2D<><>0<>0<><>::
@@ -71,13 +71,13 @@ sharkoTooth.tscn::PackedScene::7292202569023721923::1763826022::0::1::::<><><>0<
 gold_coin.png::CompressedTexture2D::6143419524624255812::1763774707::1763774707::1::::<><><>0<>0<>5e08a433453582dbab1c4b0570d80560<>res://.godot/imported/gold_coin.png-f655f0ff082f68d86d8a81c076a365ef.ctex::
 ::res://src/Inventory/src/::1764154099
 loot.gd::GDScript::7801794340411628447::1764154099::0::1::::Loot<>Node2D<><>0<>0<><>::
-::res://src/main/::1764357967
-character.gd::GDScript::4711166700827524984::1764352623::0::1::::Player<>Node2D<><>0<>0<><>::
+::res://src/main/::1764613288
+character.gd::GDScript::4711166700827524984::1764363140::0::1::::Player<>Node2D<><>0<>0<><>::
 game_data.gd::GDScript::7556780655178497555::1764354758::0::1::::<>Node<><>0<>0<><>::
 main.gd::GDScript::5834318301117469138::1763947586::0::1::::<>Node<><>0<>0<><>::
-main.tscn::PackedScene::1301527530976029473::1764357967::0::1::::<><><>0<>0<><>::uid://cpegmt0ce3ee1::::res://src/main/main.gd<>uid://b3b7udsqqhcwx::::res://src/Characters/Player/player.tscn<>uid://cqweyty7cmf1d::::res://src/Scenes that are Very Very Temporary/farmRoom.tscn<>uid://wxb4le0tibcc::::res://src/pause/pause_menu.tscn
-player_data.gd::GDScript::3978170682933593217::1764352623::0::1::::<>Node<><>0<>0<><>::
-weapon.gd::GDScript::4121444349828179402::1764357967::0::1::::<>Node2D<><>0<>0<><>::
+main.tscn::PackedScene::1301527530976029473::1764613288::0::1::::<><><>0<>0<><>::uid://cpegmt0ce3ee1::::res://src/main/main.gd<>uid://b3b7udsqqhcwx::::res://src/Characters/Player/player.tscn<>uid://cqweyty7cmf1d::::res://src/Scenes that are Very Very Temporary/farmRoom.tscn<>uid://wxb4le0tibcc::::res://src/pause/pause_menu.tscn
+player_data.gd::GDScript::3978170682933593217::1764363083::0::1::::<>Node<><>0<>0<><>::
+weapon.gd::GDScript::4121444349828179402::1764361941::0::1::::Weapon<>Node2D<><>0<>0<><>::
 ::res://src/main/assets/::1763616455
 ::res://src/main/assets/sprites/::1763616455
 ::res://src/main/assets/sprites/Idle/::1763616455
@@ -155,11 +155,13 @@ settings.gd::GDScript::8988286572049949505::1763616455::0::1::::<>Control<><>0<>
 settings_test.gd::GDScript::2642419574980948970::1763616455::0::1::::<>Node2D<><>0<>0<><>::
 sounds.gd::GDScript::1728669170566176171::1763616455::0::1::::<>Control<><>0<>0<><>::
 VolumeHSlider.gd::GDScript::3162671539057733604::1763616455::0::1::::VolumeHSlider<>HSlider<><>0<>0<><>::
-::res://src/Skills/::1764043055
+::res://src/Skills/::1764614053
+SkillPath.gd::GDScript::4349558250792259153::1764614053::0::1::::SkillPath<>Node<><>0<>0<><>::
 Skill.gd::GDScript::605490937350753523::1764043055::0::1::::Skill<>Node<><>0<>0<><>::
-::res://src/Skills/Character/::1764352623
+::res://src/Skills/Character/::1764614053
 dodge.gd::GDScript::7619030953122776110::1764043055::0::1::::<>Skill<><>0<>0<><>::
-Dodge.tscn::PackedScene::1652697753325388578::1764352623::0::1::::<><><>0<>0<><>::uid://dgsylduntq5ok::::res://src/Skills/Character/Dodge.gd
+dodge.tscn::PackedScene::1652697753325388578::1764352623::0::1::::<><><>0<>0<><>::uid://dgsylduntq5ok::::res://src/Skills/Character/Dodge.gd
+character_skill_path.tscn::PackedScene::7384911598659363812::1764614149::0::1::::<><><>0<>0<><>::uid://b277ua1uqs4nt::::res://src/Skills/SkillPath.gd<>uid://xstxqi16kmk5::::res://src/Skills/Character/dodge.tscn
 ::res://src/Skills/Sword/::1763616455
 sword_flame_blast.gd::GDScript::1986812169250825870::1763616455::0::1::::<>Node2D<><>0<>0<><>::
 sword_flame_blast.tscn::PackedScene::3602770303336772369::1763616455::0::1::::<><><>0<>0<><>::uid://3korhd0mky3g::::res://src/Skills/Sword/sword_flame_blast.gd<>uid://b6utarwb21mpe::::res://src/Classes/Hitbox.gd<>uid://bx30siccecw4q::::res://src/Resource/AttackStats/AttackStats.gd
@@ -278,8 +280,8 @@ farmRoom.png::CompressedTexture2D::8744120665112166620::1763774707::1763775199::
 forest.png::CompressedTexture2D::5820026934482914078::1763774707::1763775199::1::::<><><>0<>0<>06e31074b339f0e31c3738bd1f028cd5<>res://.godot/imported/forest.png-304f1715b6a011bb77392c17dffcbf91.ctex::
 midRoom.png::CompressedTexture2D::2403021501093369119::1763774707::1763775199::1::::<><><>0<>0<>0f100d942e892674ac1a0fe265858291<>res://.godot/imported/midRoom.png-e789511c2c00941017e838e66f0e0458.ctex::
 sharkRoom.png::CompressedTexture2D::4470825976878305331::1763774707::1763775199::1::::<><><>0<>0<>2c0b182c69a7ac557f7f59f3c73be395<>res://.godot/imported/sharkRoom.png-0f21cd283e0c713f0e46cb7587d404bc.ctex::
-::res://src/sword/::1764357921
-sword.tscn::PackedScene::8886105520517339001::1764357921::0::1::::<><><>0<>0<><>::uid://byypt60t6nbck::::res://src/main/weapon.gd<>uid://c7bf6pd500iti::::res://src/sprite sheets/weaponSprites/sword-export.aseprite1.png<>uid://biuvunma238ly::::res://src/sprite sheets/weaponSprites/sword-export.aseprite2.png<>uid://b6utarwb21mpe::::res://src/Classes/Hitbox.gd<>uid://bx30siccecw4q::::res://src/Resource/AttackStats/AttackStats.gd<>uid://bhipjadm2pagu::::res://src/sprite sheets/weaponSprites/sword-export.aseprite3.png<>uid://c425c43ewkovf::::res://src/sprite sheets/weaponSprites/sword-export.aseprite4.png<>uid://0kdk316pbhkh::::res://src/sprite sheets/weaponSprites/sword-export.aseprite5.png<>uid://ge7rtvv2fge5::::res://src/sprite sheets/weaponSprites/sword-export.aseprite6.png<>uid://iqncsf5eu45s::::res://src/sprite sheets/weaponSprites/sword-export.aseprite7.png<>uid://c5b10cptl5o5u::::res://src/sprite sheets/weaponSprites/sword-export.aseprite8.png<>uid://d34kj1kdv2bxo::::res://src/sprite sheets/weaponSprites/sword-export.aseprite9.png<>uid://bvk6fhbakm6yk::::res://src/sprite sheets/weaponSprites/sword-export.aseprite10.png
+::res://src/sword/::1764361940
+sword.tscn::PackedScene::8886105520517339001::1764361940::0::1::::<><><>0<>0<><>::uid://byypt60t6nbck::::res://src/main/weapon.gd<>uid://c7bf6pd500iti::::res://src/sprite sheets/weaponSprites/sword-export.aseprite1.png<>uid://biuvunma238ly::::res://src/sprite sheets/weaponSprites/sword-export.aseprite2.png<>uid://b6utarwb21mpe::::res://src/Classes/Hitbox.gd<>uid://bx30siccecw4q::::res://src/Resource/AttackStats/AttackStats.gd<>uid://bhipjadm2pagu::::res://src/sprite sheets/weaponSprites/sword-export.aseprite3.png<>uid://c425c43ewkovf::::res://src/sprite sheets/weaponSprites/sword-export.aseprite4.png<>uid://0kdk316pbhkh::::res://src/sprite sheets/weaponSprites/sword-export.aseprite5.png<>uid://ge7rtvv2fge5::::res://src/sprite sheets/weaponSprites/sword-export.aseprite6.png<>uid://iqncsf5eu45s::::res://src/sprite sheets/weaponSprites/sword-export.aseprite7.png<>uid://c5b10cptl5o5u::::res://src/sprite sheets/weaponSprites/sword-export.aseprite8.png<>uid://d34kj1kdv2bxo::::res://src/sprite sheets/weaponSprites/sword-export.aseprite9.png<>uid://bvk6fhbakm6yk::::res://src/sprite sheets/weaponSprites/sword-export.aseprite10.png
 ::res://src/tileSets/::1763775199
 DarkGarden.png::CompressedTexture2D::7235916433141400679::1763774707::1763775199::1::::<><><>0<>0<>8e360f78537cec08977f43841bac4b27<>res://.godot/imported/DarkGarden.png-dd14802e67a01dc595148d98235223e5.ctex::
 Darktile_map_layer.tres::TileSet::2585978796085697200::1763774707::0::1::::<><><>0<>0<><>::uid://dd6atlb6pfr3w::::res://src/sprite sheets/map/tiles/darkworld/ground-1.png<>uid://c3binkhxp2orb::::res://src/sprite sheets/map/tiles/darkworld/ground-2.png<>uid://b3vycqp12w4w1::::res://src/sprite sheets/map/tiles/darkworld/tree.png<>uid://dbdeqsmlw5po6::::res://src/tileSets/DarkGarden.png
