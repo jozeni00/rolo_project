@@ -1,0 +1,143 @@
+[gd_scene load_steps=22 format=3 uid="uid://cgy735373fv3b"]
+
+[ext_resource type="Script" uid="uid://dnu27qlwweif" path="res://skill_tree.gd" id="1_b8dv1"]
+[ext_resource type="Texture2D" uid="uid://cc77xjmp2vsdo" path="res://src/sprite sheets/skillTree/fireIcon.png" id="1_feiep"]
+[ext_resource type="Script" uid="uid://ccigoengoabwc" path="res://skillNode.gd" id="2_3pve4"]
+[ext_resource type="Texture2D" uid="uid://dt70bkxurqn35" path="res://src/sprite sheets/skillTree/windSwordIcon.png" id="2_wpi0c"]
+[ext_resource type="Texture2D" uid="uid://dwxbq6mf1x8v0" path="res://src/sprite sheets/skillTree/earthSwordIcon.png" id="3_87dja"]
+[ext_resource type="Texture2D" uid="uid://5bqan6m5x8ru" path="res://src/sprite sheets/skillTree/fireSuccess.png" id="3_b280s"]
+[ext_resource type="Texture2D" uid="uid://bcb1t4mmhimtp" path="res://src/sprite sheets/skillTree/burnSpreadIcon.png" id="4_6mqne"]
+[ext_resource type="Texture2D" uid="uid://cvdeb37kfbjsx" path="res://src/sprite sheets/skillTree/downburstIcon.png" id="5_b8dv1"]
+[ext_resource type="Texture2D" uid="uid://dpfnsmy4gq83d" path="res://src/sprite sheets/skillTree/earthSwordSuccess.png" id="5_lrvki"]
+[ext_resource type="Texture2D" uid="uid://cb342mav6wrdu" path="res://src/sprite sheets/skillTree/windSwordSuccess.png" id="5_p87ok"]
+[ext_resource type="Texture2D" uid="uid://j62h4yst7qid" path="res://src/sprite sheets/skillTree/heldgroundIcon.png" id="6_3pve4"]
+[ext_resource type="Texture2D" uid="uid://cqg428lg1d7xr" path="res://src/sprite sheets/skillTree/wildfireIcon.png" id="7_6mqne"]
+[ext_resource type="Texture2D" uid="uid://4jsdkmor54kq" path="res://src/sprite sheets/skillTree/coldfrontIcon.png" id="8_b8dv1"]
+[ext_resource type="Texture2D" uid="uid://bxbd4wxon3lys" path="res://src/sprite sheets/skillTree/highMagnitudeIcon.png" id="9_3pve4"]
+[ext_resource type="Texture2D" uid="uid://bwy8l8crplpt5" path="res://src/sprite sheets/skillTree/burnSpreadSuccess.png" id="9_11w05"]
+[ext_resource type="Texture2D" uid="uid://bse8r6cioejl1" path="res://src/sprite sheets/skillTree/wildfireSuccess.png" id="10_d4sjy"]
+[ext_resource type="Texture2D" uid="uid://cap0f8mayts6m" path="res://src/sprite sheets/skillTree/downburstSuccess.png" id="11_rvx07"]
+[ext_resource type="Texture2D" uid="uid://sfk662vebf4x" path="res://src/sprite sheets/skillTree/coldfrontSuccess.png" id="12_cdydi"]
+[ext_resource type="Texture2D" uid="uid://dbdhrultnifvf" path="res://src/sprite sheets/skillTree/reticule.png" id="12_jrb25"]
+[ext_resource type="Texture2D" uid="uid://c07n4uoxwbmic" path="res://src/sprite sheets/skillTree/heldgroundSuccess.png" id="13_ivcr1"]
+[ext_resource type="Texture2D" uid="uid://cvepbncvkttb6" path="res://src/sprite sheets/skillTree/highMagnitudeSuccess.png" id="14_4cf1k"]
+
+[node name="skillTree" type="Node2D" node_paths=PackedStringArray("skills")]
+position = Vector2(275, 71)
+script = ExtResource("1_b8dv1")
+skills = [NodePath("earthSword"), NodePath("heldGround"), NodePath("highMagnitude"), NodePath("fireSword"), NodePath("extraKindling"), NodePath("wildfire"), NodePath("windSword"), NodePath("downburst"), NodePath("coldFront")]
+metadata/_custom_type_script = "uid://dnu27qlwweif"
+
+[node name="fireSword" type="Node2D" parent="."]
+script = ExtResource("2_3pve4")
+skillCost = 1.0
+successSprite = ExtResource("3_b280s")
+elem = "FIRE"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="fireSword"]
+texture_filter = 1
+texture = ExtResource("1_feiep")
+
+[node name="windSword" type="Node2D" parent="."]
+position = Vector2(32, -1)
+script = ExtResource("2_3pve4")
+skillCost = 1.0
+successSprite = ExtResource("5_p87ok")
+elem = "AIR"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="windSword"]
+texture_filter = 1
+texture = ExtResource("2_wpi0c")
+
+[node name="earthSword" type="Node2D" parent="."]
+position = Vector2(-32, 0)
+script = ExtResource("2_3pve4")
+skillCost = 1.0
+successSprite = ExtResource("5_lrvki")
+elem = "EARTH"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="earthSword"]
+texture_filter = 1
+texture = ExtResource("3_87dja")
+
+[node name="extraKindling" type="Node2D" parent="."]
+position = Vector2(0, 24)
+script = ExtResource("2_3pve4")
+skillCost = 2.0
+successSprite = ExtResource("9_11w05")
+elem = "FIRE+"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="extraKindling"]
+texture_filter = 1
+texture = ExtResource("4_6mqne")
+
+[node name="downburst" type="Node2D" parent="."]
+position = Vector2(32, 24)
+script = ExtResource("2_3pve4")
+skillCost = 2.0
+successSprite = ExtResource("11_rvx07")
+elem = "WIND+"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="downburst"]
+texture_filter = 1
+texture = ExtResource("5_b8dv1")
+
+[node name="heldGround" type="Node2D" parent="."]
+position = Vector2(-32, 24)
+script = ExtResource("2_3pve4")
+skillCost = 2.0
+successSprite = ExtResource("13_ivcr1")
+elem = "EARTH+"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="heldGround"]
+texture_filter = 1
+texture = ExtResource("6_3pve4")
+
+[node name="wildfire" type="Node2D" parent="."]
+position = Vector2(0, 48)
+script = ExtResource("2_3pve4")
+skillCost = 4.0
+successSprite = ExtResource("10_d4sjy")
+elem = "FIRE++"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="wildfire"]
+texture_filter = 1
+texture = ExtResource("7_6mqne")
+
+[node name="coldFront" type="Node2D" parent="."]
+position = Vector2(32, 48)
+script = ExtResource("2_3pve4")
+skillCost = 4.0
+successSprite = ExtResource("12_cdydi")
+elem = "ICE"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="coldFront"]
+texture_filter = 1
+texture = ExtResource("8_b8dv1")
+
+[node name="highMagnitude" type="Node2D" parent="."]
+position = Vector2(-32, 48)
+script = ExtResource("2_3pve4")
+skillCost = 4.0
+successSprite = ExtResource("14_4cf1k")
+elem = "EARTH++"
+metadata/_custom_type_script = "uid://ccigoengoabwc"
+
+[node name="icon" type="Sprite2D" parent="highMagnitude"]
+texture_filter = 1
+texture = ExtResource("9_3pve4")
+
+[node name="Reticule" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Reticule"]
+texture_filter = 1
+texture = ExtResource("12_jrb25")

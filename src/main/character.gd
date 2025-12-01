@@ -47,6 +47,8 @@ var dash_timer: Timer = Timer.new()
 var char_skill_path: String = "res://src/Skills/Character/"
 var dodge: Skill
 
+@onready var skillCheck = false
+
 #@onready var state := $StateMachine
 @onready var sprite:= $charaSprite
 @onready var hurtbox:= $Hurtbox
@@ -74,34 +76,41 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#print(global_position)
 	velocity = Input.get_vector("Left", "Right", "Up", "Down")
-	if(Input.is_action_just_pressed("Dodge") and canDash):
-		#speed *= 4
-		#dash_timer.start()
-		#dshd = true
-		dodge.execute(self, velocity)
-	if(!check_move()):
-		position += velocity * speed * delta
-		
-	
-	if(Input.is_action_just_released("Dodge") and dshd):
-		#speed /= 4
-		#canDash = false
-		#dshd = false
-		pass
-	
-	if(get_parent().returnPause() == 0):
-		if ((velocity.length() > 0)):
-			sprite.play("walk")
-		
-			if(velocity[0] < 0 and sprite.scale != LEFT):# and self.get_child(2).cursor_position.x < self.position.x):
-				
-				sprite.scale = LEFT
-			elif(velocity[0] > 0 and sprite.scale == LEFT):
-				sprite.scale = RIGHT
-			
+	if(Input.is_action_just_pressed("SkillTree")):
+		skillCheck = not(skillCheck)
+		if(skillCheck == true):
+			sprite.pause()
 		else:
-			sprite.play("idle")
-			#print("Nothin at all")
+			sprite.play()
+	if(!skillCheck):
+		if(Input.is_action_just_pressed("Dodge") and canDash):
+			#speed *= 4
+			#dash_timer.start()
+			#dshd = true
+			dodge.execute(self, velocity)
+		if(!check_move()):
+			position += velocity * speed * delta
+			
+		
+		if(Input.is_action_just_released("Dodge") and dshd):
+			#speed /= 4
+			#canDash = false
+			#dshd = false
+			pass
+		
+		if(!get_parent().returnPause()):
+			if ((velocity.length() > 0)):
+				sprite.play("walk")
+			
+				if(velocity[0] < 0 and sprite.scale != LEFT):# and self.get_child(2).cursor_position.x < self.position.x):
+					
+					sprite.scale = LEFT
+				elif(velocity[0] > 0 and sprite.scale == LEFT):
+					sprite.scale = RIGHT
+				
+			else:
+				sprite.play("idle")
+				#print("Nothin at all")
 
 func check_move() -> bool:
 	# Check ahead for collision
@@ -124,6 +133,20 @@ func load_skill(skill_name: String) -> Skill:
 		return loaded_skill
 	
 	return null
+
+func addEXP(gain: int) -> void:
+	xp += gain
+	while(xp >= 20):
+		xp -= 20
+		level += 1
+		print("LEVEL UP")
+		fortitude += 1
+		strength += 1
+		skill_points += level
+		agility += 1
+		tenacity += 1
+		intellect += 1
+	
 
 func load_playerdata() -> void:
 	level = PlayerData.level
