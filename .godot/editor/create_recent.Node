@@ -1,8 +1,12 @@
-ColorRect
-CharacterBody2D
+Label
+GraphFrame
 Sprite2D
 Node2D
+skillNode
+skill_tree
+Skill
+ColorRect
+CharacterBody2D
 Button
 VBoxContainer
 CanvasLayer
-Label

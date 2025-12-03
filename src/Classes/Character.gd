@@ -1,4 +1,4 @@
-class_name Character
+class_name TestCharacter
 extends CharacterBody2D
 
 @export var hurtbox: Hurtbox

@@ -8,6 +8,8 @@ var target: Hitbox
 
 ## Emitted when Hitbox area enters Hurtbox area.
 signal got_hit
+## Emitted when the Hitpoints have changed.
+signal hp_changed
 ## Emit when parry successful.
 signal parry(opposition: Area2D) # signal could be used to stagger opponent
 ## Emitted when Health reaches 0.
@@ -22,8 +24,9 @@ func _ready() -> void:
 	timer.connect("timeout", Callable(self,"_on_timeout"))
 	area_entered.connect(_on_area_entered)
 
-func _process(delta: float) -> void:
-	if !timer.is_stopped() and Input.is_action_just_pressed("OffHandAction"):
+func _process(_delta: float) -> void:
+	if (!timer.is_stopped() and 
+	Input.is_action_just_pressed("OffHandAction") and get_parent() is Player):
 		print("Parry!")
 		timer.stop()
 		parry.emit(target)
@@ -39,24 +42,26 @@ func update_health(op_stats: AttackStats) -> void:
 	var damage = calculate_damage(op_stats)
 	stats.Health -= damage
 	stats.Health = max(0, stats.Health)			# make sure health is > 0
-	print(stats.Health)
 	got_hit.emit()
+	if damage and damage < stats.Health:
+		hp_changed.emit()
 	if stats.Health <= 0:
 		monitoring = false
+		timer.stop()
 		dead.emit()
 
 ## Takes Hitbox stats and use them to calculate damage with some chance of crit.
 func calculate_damage(hit_stats: AttackStats) -> int:
-	var crit: bool = randf() < hit_stats.CritChance
-	var damage = hit_stats.Attack
-	if hit_stats.WeaponElement != hit_stats.Element.NONE:
+	var crit: bool = randf() < hit_stats.crit_chance
+	var damage = hit_stats.attack
+	if hit_stats.WeaponElement != hit_stats.NONE:
 		if hit_stats.WeaponElement == stats.ElementWeakness:
-			damage += int(hit_stats.ElementalAttack * 2)
+			damage += int(hit_stats.elemental_attack * 2)
 		elif hit_stats.WeaponElement == stats.ElementResistance:
-			damage += round(hit_stats.ElementalAttack / 2)
+			damage += roundi(hit_stats.elemental_attack / 2.0)
 	
 	if crit:
-		damage *= hit_stats.CritMultiplier
+		damage *= hit_stats.crit_multiplier
 
 	return damage
 

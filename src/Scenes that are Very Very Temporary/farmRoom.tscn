@@ -18,6 +18,7 @@ position = Vector2(320, 180)
 texture = ExtResource("2_is8o5")
 
 [node name="TopLoadingZone" type="Area2D" parent="Area2D"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/TopLoadingZone"]
 position = Vector2(318.5, 10)

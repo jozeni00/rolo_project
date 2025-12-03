@@ -11,12 +11,16 @@ var _money: int = 0:		# money/currency to exhcange for goods
 
 const _MAX_LEVEL: int = 20
 
-var _level: int = 1				# player's current level
-var _exp: int = 0				# player's current experience points
-var _max_exp: int = _level * 14 # max exp before next level-up
-var _skill_points: int = 0
-var attack_attribute: AttackStats = AttackStats.new()
-var character_attributes: CharacterStats = CharacterStats.new()
+var level: int = 1				# player's current level
+var xp: int = 0				# player's current experience points
+var _max_exp: int = level * 14 # max exp before next level-up
+var skill_points: int = 0
+var strength: int = 10
+var element: int = 0
+var fortitude: int = 0
+var agility: int = 0
+var tenacity: int = 0
+var intellect: int = 0
 
 ## Increment the player's money by 1.
 func increment_money() -> void:
@@ -32,11 +36,11 @@ func get_money() -> int:
 
 ## Add the player's experience point by the given amount and update level
 ## as neccessary.
-func add_exp(exp: int) -> void:
-	if exp < 0 or _level >= _MAX_LEVEL:
+func add_exp(value: int) -> void:
+	if value < 0 or level >= _MAX_LEVEL:
 		return
-	_exp += exp
-	while _exp >= _max_exp and _level < _MAX_LEVEL:
-		_level += 1
-		_skill_points += 1
-		_max_exp = 14 * _level
+	xp += value
+	while xp >= _max_exp and level < _MAX_LEVEL:
+		level += 1
+		skill_points += 1
+		_max_exp = 14 * level

@@ -19,28 +19,28 @@ func _on_loading_zone_entered(area: Area2D) -> void:
 func _on_wall_1_area_entered(area: Area2D) -> void:
 	if(area == p.hurtbox):
 		p.colliding = true;
-		p.reqDirection = Vector2(0, 1)
+		p.reqDirection = Vector2(0, .2)
 	#pass # Replace with function body.
 
 
 func _on_wall_2_area_entered(area: Area2D) -> void:
 	if(area == p.hurtbox):
 		p.colliding = true;
-		p.reqDirection = Vector2(0, -1)
+		p.reqDirection = Vector2(0, -0.2)
 	#pass # Replace with function body.
 
 
 func _on_wall_3_area_entered(area: Area2D) -> void:
 	if(area == p.hurtbox):
 		p.colliding = true;
-		p.reqDirection = Vector2(1, -1)
+		p.reqDirection = Vector2(1, -0.2)
 	#pass # Replace with function body.
 
 
 func _on_wall_5_area_entered(area: Area2D) -> void:
 	if(area == p.hurtbox):
 		p.colliding = true;
-		p.reqDirection = Vector2(1, -1)
+		p.reqDirection = Vector2(1, -0.2)
 	#pass # Replace with function body.
 
 
@@ -48,7 +48,7 @@ func _on_wall_4_area_entered(area: Area2D) -> void:
 	if(area == p.hurtbox):
 		p.colliding = true;
 		print("Hfnhsnfekf")
-		p.reqDirection = Vector2(1, 1)
+		p.reqDirection = Vector2(1, 0.2)
 	#pass # Replace with function body.
 
 

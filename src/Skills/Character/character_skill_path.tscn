@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddhkod3lpuoym"]
+
+[ext_resource type="Script" uid="uid://b277ua1uqs4nt" path="res://src/Skills/SkillPath.gd" id="1_p1w8a"]
+[ext_resource type="PackedScene" uid="uid://xstxqi16kmk5" path="res://src/Skills/dodge.tscn" id="2_fakka"]
+
+[node name="CharacterSkillPath" type="Node"]
+script = ExtResource("1_p1w8a")
+metadata/_custom_type_script = "uid://b277ua1uqs4nt"
+
+[node name="Dodge" parent="." instance=ExtResource("2_fakka")]
