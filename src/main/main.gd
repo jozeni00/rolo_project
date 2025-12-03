@@ -18,18 +18,10 @@ func _process(delta: float) -> void:
 		#print("This should be pausing rn")
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pauseGame()
-	if(Input.is_action_just_pressed("SkillTree")):
-		if($skillTree.visible):
-			$skillTree.hide()
-		else:
-			$skillTree.show()
-	if(Input.is_action_just_pressed("OffHandAction")):
-		get_tree().get_first_node_in_group("Player").skill_points = 9999
 	#pass
 	
 func returnPause() -> int:	
 	return paused
-
 func pauseGame():
 	if(paused):
 		Engine.time_scale = 1

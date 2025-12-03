@@ -196,7 +196,6 @@ func _hurt_entry() -> void:
 func _death_entry() -> void:
 	var collision: CollisionShape2D = hurtbox.get_child(0)
 	collision.disabled = true
-	#hitbox.queue_free() doesn't work (Invalid access to property or key 'stats' on a base object of type 'previously freed.')
 	#*** Will also need to disable hitbox. ***#
 	sprite.animation = "death"
 	sprite.play()
@@ -222,7 +221,6 @@ func _hurt_exit() -> void:
 	pass
 
 func _death_exit() -> void:
-	get_tree().get_first_node_in_group("Player").addEXP(exp)
 	self.queue_free()
 	for loot in loot_table:
 		var amount = loot.get_drop_amount()
@@ -243,6 +241,24 @@ func _on_area_entered(area: Area2D) -> void:
 	if(area == get_tree().get_first_node_in_group("Player").hurtbox):
 		target = area.get_parent()
 		state = CHASE
+
+func _on_hurt_timeout() -> void:
+	print("HURT TIMEOUT")
+	if(state == DEATH):
+		self.queue_free()
+		for loot in loot_table:
+			var amount = loot.get_drop_amount()
+			if amount:
+				for i in amount:
+					var drop: Loot = LOOT.instantiate()
+					drop.item = loot.item
+					drop.global_position = global_position
+					var main = get_parent().get_parent()
+					if main:
+						main.call_deferred("add_child", drop)
+		
+	else:
+		state = IDLE
 
 
 func _on_hurtbox_got_hit() -> void:
