@@ -1,8 +1,13 @@
 extends Node2D
 
+<<<<<<< HEAD:src/Characters/Enemy/enemy.gd
 const LOOT = preload("res://src/Inventory/loot.tscn")
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
+=======
+const LEFT = Vector2(-1, 1)
+const RIGHT = Vector2(1, 1)
+>>>>>>> d7fce3b (icons in sprite sheets/icon_sprites):src/Enemy/enemy.gd
 
 @export var speed = 180
 @export var loot_table: Array[DropRate]
@@ -19,6 +24,7 @@ signal attack
 @onready var HurtB := $Hurtbox
 #@onready var timer := $AggroTimer
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
@@ -26,12 +32,17 @@ func _ready() -> void:
 	aggro_timer.one_shot = true
 	aggro_timer.wait_time = 2
 	add_child(aggro_timer)
-	aggro_timer.connect("timeout", Callable(self,"_on_aggro_timeout"))
+	aggro_timer.connect("timeout", Callable(self, "_on_aggro_timeout"))
 	hurt_timer.one_shot = true
 	hurt_timer.wait_time = .5
 	add_child(hurt_timer)
+<<<<<<< HEAD:src/Characters/Enemy/enemy.gd
 	hurt_timer.connect("timeout", Callable(self,"_on_hurt_timeout"))
 	#hurt_timer.start()
+=======
+	hurt_timer.connect("timeout", Callable(self, "_on_hurt_timeout"))
+	hurt_timer.start()
+>>>>>>> d7fce3b (icons in sprite sheets/icon_sprites):src/Enemy/enemy.gd
 	state = "idle"
 	vulnerable = false
 
@@ -39,32 +50,36 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	direction = Vector2.ZERO
-	if(state == "aggro" or state == "chasing"):
+	if state == "aggro" or state == "chasing":
 		chase(player, delta)
 		#velocity = 0
 		##position += velocity * delta
-		if ((velocity.length() > 0)):
+		if velocity.length() > 0:
 			sprite.play("walk")
-		
-			if(velocity[0] < 0 and self.scale != LEFT):# and self.get_child(2).cursor_position.x < self.position.x):
-				
+
+			if velocity[0] < 0 and self.scale != LEFT:  # and self.get_child(2).cursor_position.x < self.position.x):
 				self.scale = LEFT
-			elif(velocity[0] > 0 and self.scale == LEFT):
+			elif velocity[0] > 0 and self.scale == LEFT:
 				self.scale = RIGHT
-			
-	elif (state == "idle"):
+
+	elif state == "idle":
 		speed = 40
 		sprite.play("idle")
-			#print("Nothin at all")
-	elif (state == "violence"):
-		if(speed < 180):
+		#print("Nothin at all")
+	elif state == "violence":
+		if speed < 180:
 			speed += 1
 		#print("I wish to demolish you")
 		sprite.play("idle")
 	#pass
-	
+
+
 func chase(player, delta: float):
+<<<<<<< HEAD:src/Characters/Enemy/enemy.gd
 	if(speed < 180 and get_tree().get_first_node_in_group("Engine").returnPause() == 0):
+=======
+	if speed < 180:
+>>>>>>> d7fce3b (icons in sprite sheets/icon_sprites):src/Enemy/enemy.gd
 		speed += 1
 	direction = global_position.direction_to(player.global_position)
 	#direction =direction.normalized()
@@ -79,7 +94,7 @@ func chase(player, delta: float):
 
 
 func _on_detection_area_entered(area: Area2D) -> void:
-	if (area.get_parent().is_in_group("Player") and state != "death" and state != "hurt"):
+	if area.get_parent().is_in_group("Player") and state != "death" and state != "hurt":
 		#print("IT BE THE PLAYER")
 		state = "aggro"
 		aggro_timer.stop()
@@ -87,26 +102,22 @@ func _on_detection_area_entered(area: Area2D) -> void:
 
 
 func _on_detection_area_exited(area: Area2D) -> void:
-	if (area.get_parent().is_in_group("Player") and state != "death" and state != "hurt"):
+	if area.get_parent().is_in_group("Player") and state != "death" and state != "hurt":
 		#print("YOU CANNOT ESCAPE")
 		state = "chasing"
 		aggro_timer.start()
 	#pass # Replace with function body.
 
 
-
-
 func _on_attack_area_entered(area: Area2D) -> void:
-	if ((area.get_parent().is_in_group("Player")) and state != "death" and state != "hurt"):
+	if (area.get_parent().is_in_group("Player")) and state != "death" and state != "hurt":
 		#print("ATTACK")
 		state = "violence"
 	#pass # Replace with function body.
-	
-	
 
 
 func _on_exit_attack_range(area: Area2D) -> void:
-	if ((area.get_parent().is_in_group("Player")) and state != "death" and state != "hurt"):
+	if (area.get_parent().is_in_group("Player")) and state != "death" and state != "hurt":
 		#print("GET BACK HERE")
 		state = "aggro"
 		#timer.stop()
@@ -120,7 +131,7 @@ func _on_aggro_timeout() -> void:
 
 
 func _on_hurtbox_got_hit() -> void:
-	if(vulnerable):
+	if vulnerable:
 		print("This should play the hurt animation...")
 		sprite.play("hurt")
 		state = "hurt"
@@ -128,9 +139,11 @@ func _on_hurtbox_got_hit() -> void:
 	#state = "mwefnrf"
 	#sprite.stop()
 	#pass # Replace with function body.
+
+
 func _on_hurt_timeout() -> void:
 	#print("Must've been the wind...")
-	if(state == "death"):
+	if state == "death":
 		self.queue_free()
 		for loot in loot_table:
 			var amount = loot.get_drop_amount()
