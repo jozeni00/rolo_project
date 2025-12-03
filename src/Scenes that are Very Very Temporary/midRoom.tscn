@@ -11,11 +11,11 @@ size = Vector2(67, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi3k"]
 size = Vector2(70, 16)
 
-[sub_resource type="Resource" id="Resource_m0re3"]
+[sub_resource type="Resource" id="Resource_087ba"]
 script = ExtResource("4_087ba")
 metadata/_custom_type_script = "uid://b8ltlvjtoo63a"
 
-[sub_resource type="Resource" id="Resource_sto1p"]
+[sub_resource type="Resource" id="Resource_m0re3"]
 script = ExtResource("4_087ba")
 metadata/_custom_type_script = "uid://b8ltlvjtoo63a"
 
@@ -47,13 +47,13 @@ shape = SubResource("RectangleShape2D_3vi3k")
 position = Vector2(150, 144)
 
 [node name="Hurtbox" parent="Area2D/Enemy/Area2D" index="1"]
-stats = SubResource("Resource_m0re3")
+stats = SubResource("Resource_087ba")
 
 [node name="Enemy2" parent="Area2D" instance=ExtResource("3_3vi3k")]
 position = Vector2(496, 145)
 
 [node name="Hurtbox" parent="Area2D/Enemy2/Area2D" index="1"]
-stats = SubResource("Resource_sto1p")
+stats = SubResource("Resource_m0re3")
 
 [connection signal="area_entered" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_entered"]
 [connection signal="area_exited" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_area_exited"]

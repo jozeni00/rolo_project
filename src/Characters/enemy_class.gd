@@ -43,6 +43,7 @@ var state: State:
 		state_exits[state].call()
 		state = value
 		state_entries[state].call()
+		sprite.play()
 
 ## The function table that holds each state's "_init"/entry function.
 var state_entries: Dictionary = {}
@@ -59,13 +60,18 @@ var _idle_timer: Timer = Timer.new()
 var _aggro_timer: Timer = Timer.new()
 var _hurt_timer: Timer = Timer.new()
 var target: Node2D
+var offset: Vector2 = Vector2(randf_range(-15,15), randf_range(-15,15))
 var direction: Vector2:
 	set(value):
+		if sign(direction.x) != sign(value.x):
+			offset = Vector2(randf_range(-15,15), randf_range(-25,25))
 		direction = value
 		if direction.x < 0:
 			sprite.scale = Vector2(-1,1)
 		elif direction.x > 0:
 			sprite.scale = Vector2(1,1)
+		
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -155,8 +161,13 @@ func _walk(_delta: float = 0.0167) -> void:
 		global_position += direction * SPEED * _delta
 
 func _chase(_delta: float = 0.0167) -> void:
-	direction = global_position.direction_to(target.global_position)
-	global_position += direction * SPEED * _delta
+	var distance: float = global_position.distance_to(target.global_position)
+	if distance >= 15:
+		sprite.animation = "walk"
+		direction = global_position.direction_to(target.global_position + offset)
+		global_position += direction * SPEED * _delta
+	else:
+		sprite.animation = "idle"
 
 func _attack(_delta: float = 0.0167) -> void:
 	pass
