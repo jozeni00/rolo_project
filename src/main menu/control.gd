@@ -75,6 +75,7 @@ func _delete_save(idx:int) -> bool:
 @onready var main_menu: Control        = $"main menu"
 @onready var start_menu: Control       = $"start menu"
 @onready var options_holder: Control   = $"options_holder"   # container for settings menu
+@onready var settings_menu: Control    = $"Settings"
 
 @onready var start_button: Button      = $"main menu/StartButton"
 @onready var options_button: Button    = $"main menu/OptionsButton"
@@ -124,6 +125,7 @@ func _ready() -> void:
 	# main menu wiring
 	start_button.pressed.connect(_on_start_pressed)
 	options_button.pressed.connect(_on_options_pressed)
+	$Settings/ConfirmationDialog.confirmed.connect(_on_accept_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 	quit_confirm.confirmed.connect(func(): get_tree().quit())
 
@@ -147,7 +149,8 @@ func _ready() -> void:
 	# initial visibility – ONLY main menu visible
 	main_menu.visible = true
 	start_menu.visible = false
-	options_holder.visible = false
+	#options_holder.visible = false
+	settings_menu.visible = false
 
 	_refresh_slot_labels()
 	_update_buttons_enabled()
@@ -173,20 +176,25 @@ func _on_options_pressed() -> void:
 	# hide other menus, show options_holder
 	main_menu.visible = false
 	start_menu.visible = false
-	options_holder.visible = true
-
+#	options_holder.visible = true
+	settings_menu.visible = true
 	# Instance options menu once
-	if options_instance == null:
-		if settings_menu_scene == null:
-			push_error("settings_menu_scene is not assigned in Inspector!")
-		else:
-			options_instance = settings_menu_scene.instantiate()
-			options_holder.add_child(options_instance)
+	#if options_instance == null:
+		#if settings_menu_scene == null:
+			#push_error("settings_menu_scene is not assigned in Inspector!")
+		#else:
+			#options_instance = settings_menu_scene.instantiate()
+			#options_holder.add_child(options_instance)
 
 	# wire Accept button inside settings menu as our Back button
-	_wire_settings_menu()
+	#_wire_settings_menu()
+#
+	#_set_status("Options")
 
-	_set_status("Options")
+func _on_accept_pressed() -> void:
+	settings_menu.visible = false
+	main_menu.visible = true
+
 
 func _on_options_back_pressed() -> void:
 	print("_on_options_back_pressed – back to main menu")
@@ -314,11 +322,11 @@ func _wire_settings_menu() -> void:
 
 	# 1) Try to get node named "Accept" directly
 	var accept_node: Node = null
-	if options_instance.has_node("Accept"):
-		accept_node = options_instance.get_node("Accept")
+	if settings_menu.has_node("Accept"):
+		accept_node = settings_menu.get_node("Accept")
 	else:
 		# 2) Fallback: search recursively for a node named "Accept"
-		accept_node = options_instance.find_child("Accept", true, false)
+		accept_node = settings_menu.find_child("Accept", true, false)
 
 	if accept_node == null:
 		push_warning("settings_menu.tscn has no node named 'Accept'")

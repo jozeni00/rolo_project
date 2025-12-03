@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7nd4377q8ii"
-path="res://.godot/imported/hotbar.png-c27af6653b04e5f4429551d58ab24f02.ctex"
+path="res://.godot/imported/hotbar.png-e5e8c3cf0694331e6ed0742752c0b9d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/sprites/iconSprites/hotbar/hotbar.png"
-dest_files=["res://.godot/imported/hotbar.png-c27af6653b04e5f4429551d58ab24f02.ctex"]
+source_file="res://src/sprite sheets/icon_sprites/hotbar/hotbar.png"
+dest_files=["res://.godot/imported/hotbar.png-e5e8c3cf0694331e6ed0742752c0b9d1.ctex"]
 
 [params]
 
