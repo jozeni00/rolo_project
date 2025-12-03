@@ -179,6 +179,7 @@ sprite_frames = SubResource("SpriteFrames_vpmik")
 animation = &"idle"
 
 [node name="Hurtbox" type="Area2D" parent="Area2D"]
+visible = false
 script = ExtResource("27_vpmik")
 stats = SubResource("Resource_8dm8k")
 
@@ -187,11 +188,13 @@ position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_klja5")
 
 [node name="Detection" type="Area2D" parent="Area2D"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Detection"]
 shape = SubResource("CircleShape2D_frbt3")
 
 [node name="Attack" type="Area2D" parent="Area2D"]
+visible = false
 script = ExtResource("29_m3h2y")
 stats = SubResource("Resource_w5hbg")
 

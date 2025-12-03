@@ -1,30 +1,171 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqweyty7cmf1d"]
+[gd_scene load_steps=20 format=3 uid="uid://cqweyty7cmf1d"]
 
-[ext_resource type="Script" uid="uid://bm8i3kdrp0qsl" path="res://src/Scenes that are Very Very Temporary/farm_room.gd" id="1_is8o5"]
-[ext_resource type="Texture2D" uid="uid://dwtynivtxd6bw" path="res://src/Sprites that are Very Very Temporary/farmRoom.png" id="2_is8o5"]
-[ext_resource type="PackedScene" uid="uid://dny7he0t12flb" path="res://src/Characters/NPC/NPC.tscn" id="3_14wo0"]
+[ext_resource type="Script" uid="uid://byypt60t6nbck" path="res://src/main/weapon.gd" id="1_ynblw"]
+[ext_resource type="Texture2D" uid="uid://c7bf6pd500iti" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite1.png" id="2_pewen"]
+[ext_resource type="Texture2D" uid="uid://biuvunma238ly" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite2.png" id="3_5biol"]
+[ext_resource type="Texture2D" uid="uid://bhipjadm2pagu" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite3.png" id="4_8ygaw"]
+[ext_resource type="Texture2D" uid="uid://c425c43ewkovf" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite4.png" id="5_3sgdy"]
+[ext_resource type="Texture2D" uid="uid://0kdk316pbhkh" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite5.png" id="6_lyfsv"]
+[ext_resource type="Texture2D" uid="uid://ge7rtvv2fge5" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite6.png" id="7_ettp4"]
+[ext_resource type="Texture2D" uid="uid://iqncsf5eu45s" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite7.png" id="8_yaor0"]
+[ext_resource type="Texture2D" uid="uid://c5b10cptl5o5u" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite8.png" id="9_qhvmh"]
+[ext_resource type="Texture2D" uid="uid://d34kj1kdv2bxo" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite9.png" id="10_6hx0u"]
+[ext_resource type="Texture2D" uid="uid://bvk6fhbakm6yk" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite10.png" id="11_kvmcm"]
+[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="12_835q6"]
+[ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="13_3xtay"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7f8"]
-size = Vector2(67, 20)
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwvek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pewen")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_5biol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ygaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3sgdy")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_lyfsv")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_ettp4")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_yaor0")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_qhvmh")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_6hx0u")
+}, {
+"duration": 0.5,
+"texture": ExtResource("11_kvmcm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="farmRoom" type="Node2D"]
-script = ExtResource("1_is8o5")
+[sub_resource type="Resource" id="Resource_rx5id"]
+script = ExtResource("13_3xtay")
+_Base_Attack = 50
+metadata/_custom_type_script = "uid://bx30siccecw4q"
 
-[node name="Area2D" type="Area2D" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx5id"]
+size = Vector2(6, 20)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[sub_resource type="Animation" id="Animation_gywpd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/Hitbox2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.83775806]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/Hitbox2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_e4ynd"]
+resource_name = "attackR"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.18, 0.28, 0.38, 0.48000002, 0.58, 0.68, 0.78, 0.88, 0.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/Hitbox2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10090011, 0.31, 0.39817572, 0.81, 0.9026763, 0.97211295),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.83775806, -0.83775806, 2.268928, 2.268928, 1.5707964, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/Hitbox2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.31, 0.39817572, 0.81, 0.9026763, 0.97211295),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1), Vector2(-9, -1), Vector2(-9, -1), Vector2(8, 10), Vector2(8, 10), Vector2(6, 6), Vector2(0, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r76a6"]
+_data = {
+&"RESET": SubResource("Animation_gywpd"),
+&"attack": SubResource("Animation_e4ynd")
+}
+
+[node name="Weapon" type="Node2D"]
+position = Vector2(183, 193)
+script = ExtResource("1_ynblw")
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(320, 180)
-texture = ExtResource("2_is8o5")
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_dwvek")
 
-[node name="TopLoadingZone" type="Area2D" parent="Area2D"]
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-1, -18)
+collision_mask = 2
+script = ExtResource("12_835q6")
+stats = SubResource("Resource_rx5id")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/TopLoadingZone"]
-position = Vector2(318.5, 10)
-shape = SubResource("RectangleShape2D_xc7f8")
+[node name="Hitbox2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-9, -1)
+rotation = -0.83775806
+shape = SubResource("RectangleShape2D_rx5id")
 
-[node name="NPC" parent="." instance=ExtResource("3_14wo0")]
-position = Vector2(-227, -100)
-
-[connection signal="area_entered" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_entered"]
-[connection signal="area_exited" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_area_exited"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r76a6")
+}
