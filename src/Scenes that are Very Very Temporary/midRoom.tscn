@@ -30,12 +30,14 @@ position = Vector2(320, 180)
 texture = ExtResource("1_5esxd")
 
 [node name="TopLoadingZone" type="Area2D" parent="Area2D"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/TopLoadingZone"]
 position = Vector2(318.5, 10)
 shape = SubResource("RectangleShape2D_xc7f8")
 
 [node name="BottomLoadingZone" type="Area2D" parent="Area2D"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/BottomLoadingZone"]
 position = Vector2(320, 353)
