@@ -194,6 +194,7 @@ func _hurt_entry() -> void:
 	pass
 
 func _death_entry() -> void:
+	get_tree().get_first_node_in_group("Player").addEXP(exp)
 	var collision: CollisionShape2D = hurtbox.get_child(0)
 	collision.disabled = true
 	#*** Will also need to disable hitbox. ***#

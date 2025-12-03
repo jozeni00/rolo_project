@@ -47,6 +47,7 @@ func update_health(op_stats: AttackStats) -> void:
 		hp_changed.emit()
 	if stats.Health <= 0:
 		monitoring = false
+		timer.stop()
 		dead.emit()
 
 ## Takes Hitbox stats and use them to calculate damage with some chance of crit.
