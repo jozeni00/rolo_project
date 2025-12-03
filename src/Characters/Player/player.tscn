@@ -384,6 +384,7 @@ frame = 3
 frame_progress = 0.35714105
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 script = ExtResource("10_qp6gg")
 stats = SubResource("Resource_5atsa")
@@ -394,5 +395,8 @@ shape = SubResource("RectangleShape2D_2h5qw")
 
 [node name="Weapon" parent="." instance=ExtResource("12_ye0k3")]
 position = Vector2(0, -14)
+
+[node name="Hitbox" parent="Weapon" index="1"]
+visible = false
 
 [editable path="Weapon"]

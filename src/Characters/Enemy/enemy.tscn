@@ -152,6 +152,7 @@ animation = &"hurt"
 autoplay = "idle"
 
 [node name="Hurtbox" type="Area2D" parent="Area2D"]
+visible = false
 collision_layer = 2
 script = ExtResource("14_yfud7")
 stats = SubResource("Resource_uukco")
@@ -162,12 +163,14 @@ position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_7una0")
 
 [node name="Detection" type="Area2D" parent="Area2D"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Detection"]
 shape = SubResource("CircleShape2D_ar8e5")
 debug_color = Color(0.627451, 0.9254902, 1, 0.043137256)
 
 [node name="Attack" type="Area2D" parent="Area2D"]
+visible = false
 collision_layer = 2
 script = ExtResource("14_nn272")
 stats = SubResource("Resource_nn272")

@@ -104,6 +104,7 @@ script = ExtResource("1_m4qe2")
 item = ExtResource("2_m4qe2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -6)
 texture = ExtResource("3_gcdct")
 hframes = 6
@@ -111,6 +112,7 @@ hframes = 6
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 light_mask = 2
 visibility_layer = 2
 shape = SubResource("CircleShape2D_e547a")
