@@ -1,2 +1,29 @@
-res://tres/test.tres::b052b400bbbefc460c621dd0994392f0::1760678278::res://.godot/exported/133200997/export-144ba0bb550423c81c7a69fa9658e20e-test.res
-res://Settings/settings_menu.tscn::dcb6690d168198310c368c1bd7f4d379::1760678278::res://.godot/exported/133200997/export-88d77ec9b9b04fc3881bc7e1967602e9-settings_menu.scn
+res://src/Characters/Boss/boss.tscn::5e44a13d25b27c0d51c51be1f5ba3feb::1764719860::res://.godot/exported/133200997/export-4d3d76d3e863e2fdae0ad0bdf8142f81-boss.scn
+res://src/Characters/Enemy/enemy.tscn::d6929de9aa566431e048c764be2a7de7::1764719860::res://.godot/exported/133200997/export-08d5e877eef39199faadb038b580182a-enemy.scn
+res://src/Characters/NPC/NPC.tscn::21f9c132e2f66184e6cf4d0e8a0a853f::1764719860::res://.godot/exported/133200997/export-5d38827ec4d815ca6ea386ec2b776f0b-NPC.scn
+res://src/Characters/Player/player.tscn::700a14739fea9301075752d4f7b5a73d::1764719860::res://.godot/exported/133200997/export-3330dc4fc12563de2f2dce2442dda2e1-player.scn
+res://src/Inventory/Resources/Item/coin.tres::2501a1479a0f4c1fd1593ddeb932c301::1764719860::res://.godot/exported/133200997/export-1060e0df793c6401da5e9f07892f9bbb-coin.res
+res://src/Inventory/Resources/Item/sharkoTooth.tres::d7344cc7254dc6b1242140201582e96d::1764719860::res://.godot/exported/133200997/export-5cf37b8ca747182f0f27168a46a7e205-sharkoTooth.res
+res://src/Inventory/Resources/Item/sharkoTooth.tscn::1751e5f112e785ca3009b46533624835::1764719860::res://.godot/exported/133200997/export-a85464ddbb5b4d70cfd631bde7f170c6-sharkoTooth.scn
+res://src/Inventory/loot.tscn::0616e12a9103d84a1d99f4f2db6a4f02::1764719860::res://.godot/exported/133200997/export-e04d6687310364a3a336e519cca84ed1-loot.scn
+res://src/main/main.tscn::0ae388eb89156e9ee171e32d587616dd::1764719860::res://.godot/exported/133200997/export-69fd87c629ce721eb5cf84cfb0d5183c-main.scn
+res://src/main menu/canvas_layer.tscn::cc5322cf2c33afd51e8ee630adc502ac::1763347939::res://.godot/exported/133200997/export-8b5a1757cf41ebed8d4d6bc3c6a250db-canvas_layer.scn
+res://src/main menu/control.tscn::c2e12a80c0d3d70a2b452423267f0ec9::1764719860::res://.godot/exported/133200997/export-79abcb0a0b2f69ad540ac1bece38bf84-control.scn
+res://src/main menu/node_2d.tscn::2b2198beea85aa4868389249d5ac4f18::1763347021::res://.godot/exported/133200997/export-984f76305e24331616b428735b29ea14-node_2d.scn
+res://src/pause/confirm_box.tscn::dad37ce6a9cc33b1e07555821e4c26bc::1763347021::res://.godot/exported/133200997/export-64c2256b399f2121618c94a48f8dcd59-confirm_box.scn
+res://src/pause/pause_menu.tscn::36cb0dc6f7583fc604e7b7b76d16ba30::1764719860::res://.godot/exported/133200997/export-3bfef129dad319f37113cbf3c5d8d37e-pause_menu.scn
+res://src/PlayerSave/PlayerSave/TestPlayerScene.tscn::98bd7c4b9d53421af674bd22524c3753::1763347939::res://.godot/exported/133200997/export-f684c2062c64d55122a584426a4e7049-TestPlayerScene.scn
+res://src/PlayerSave/save_manager.tscn::21903bc9e8fc86eeb00807485870ed58::1764719860::res://.godot/exported/133200997/export-ce48dfe535c4afe64f5507e1db8374dd-save_manager.scn
+res://src/Scenes that are Very Very Temporary/farmRoom.tscn::4c89ce934d84c6892acec12ead03236c::1764719860::res://.godot/exported/133200997/export-d61514bcb9440fb72fccd65cb6b7b200-farmRoom.scn
+res://src/Scenes that are Very Very Temporary/light_room.tscn::0386335b43417c9fdd55a10e7cdde7b0::1764719860::res://.godot/exported/133200997/export-0843f6f964297ca198066fc9b152cccb-light_room.scn
+res://src/Scenes that are Very Very Temporary/midRoom.tscn::692fe6e1a24ca0523635475a573d7e9a::1764719860::res://.godot/exported/133200997/export-2fedd1e276d2d208766e1d48fd9639d8-midRoom.scn
+res://src/Scenes that are Very Very Temporary/sharkoRoom.tscn::af86d457c8fd486922314542bfcb417c::1764719860::res://.godot/exported/133200997/export-7ff4631ce10923077ffcdc4911c5e6ac-sharkoRoom.scn
+res://src/Settings/settings_menu.tscn::8ae72e4754de4d2201a5888a1a21a3d1::1763347939::res://.godot/exported/133200997/export-5b8eb95da1e4cdea1b891f24cc472b64-settings_menu.scn
+res://src/Settings/settings_test.tscn::492620746ec1004ab2733e0f243a7aa9::1763347021::res://.godot/exported/133200997/export-139e72ac265cff4bb3203cae0c2d8fb5-settings_test.scn
+res://src/Skills/Sword/sword_flame_blast.tscn::45b6289ff03cc881e194147cd7937b90::1763347021::res://.godot/exported/133200997/export-e630bb542adcb1ad47dca000383fd933-sword_flame_blast.scn
+res://src/sword/sword.tscn::58cc5b63165a1aa6a9d1013965cf1e5a::1764719860::res://.godot/exported/133200997/export-f12b01fbc7b8e2718bcfa954f54afe14-sword.scn
+res://src/tileSets/Darktile_map_layer.tres::7c31be1260b58808953d26fb0cb0947e::1764719860::res://.godot/exported/133200997/export-fe350aa71e7963548809a63c37889105-Darktile_map_layer.res
+res://src/tileSets/tile_map_layer.tscn::1834948624c72b76b94d06bf0148b9ff::1764719860::res://.godot/exported/133200997/export-11d02fee2a3c0a5fdc798dedea357872-tile_map_layer.scn
+res://src/tres/test.tres::2388658467f15977fc781c05eb29b0e2::1764719860::res://.godot/exported/133200997/export-425dea6c7736d2d3ff9fb33704eaa018-test.res
+res://src/weapons/enemWeapon.tscn::befd8c0b024b27731e994ae7d08b7286::1763347939::res://.godot/exported/133200997/export-e783dbe4b8d7dc2a6f2c1cab050df978-enemWeapon.scn
+res://src/test.tscn::32b484d5321673a33a70ddef22f7e7e4::1763347021::res://.godot/exported/133200997/export-2dc1981371e489939c201e952de5d9ac-test.scn
