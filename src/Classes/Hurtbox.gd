@@ -24,18 +24,21 @@ func _ready() -> void:
 	timer.connect("timeout", Callable(self,"_on_timeout"))
 	area_entered.connect(_on_area_entered)
 
+'''
 func _process(_delta: float) -> void:
 	if (!timer.is_stopped() and 
 	Input.is_action_just_pressed("OffHandAction") and get_parent() is Player):
 		print("Parry!")
 		timer.stop()
 		parry.emit(target)
+'''
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hitbox:
 		target = area
 		#print("HIT!! YOU GOT HIT!!")
-		timer.start()
+		#timer.start()
+		update_health(target.stats)
 
 ## Update Health when hit.
 func update_health(op_stats: AttackStats) -> void:

@@ -46,6 +46,7 @@ var dash_timer: Timer = Timer.new()
 
 var char_skill_path: String = "res://src/Skills/"
 var dodge: Skill
+var parry: Skill
 
 @onready var skillCheck = false
 
@@ -67,6 +68,7 @@ func _ready() -> void:
 	colliding = false
 	
 	dodge = load_skill("dodge")
+	parry = load_skill("parry")
 	call_deferred("load_playerdata")
 	
 	sprite.animation_finished.connect(_on_animation_finished)
@@ -97,6 +99,9 @@ func _process(delta: float) -> void:
 			#canDash = false
 			#dshd = false
 			pass
+		
+		if Input.is_action_just_pressed("OffHandAction"):
+			parry.execute(self)
 		
 		if(!get_parent().returnPause()):
 			if ((velocity.length() > 0)):
@@ -140,7 +145,7 @@ func addEXP(gain: int) -> void:
 	while(xp >= 20):
 		xp -= 20
 		level += 1
-		print("LEVEL UP")
+		print("LEVEL UP: ", level)
 		fortitude += 1
 		strength += 1
 		skill_points += level

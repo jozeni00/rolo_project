@@ -1,10 +1,12 @@
+CollisionShape2D
+Area2D
+Skill
 Sprite2D
 Node2D
 Label
 GraphFrame
 skillNode
 skill_tree
-Skill
 ColorRect
 CharacterBody2D
 Button

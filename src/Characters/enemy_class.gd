@@ -59,12 +59,16 @@ var _walk_location: Vector2 = global_position
 var _idle_timer: Timer = Timer.new()
 var _aggro_timer: Timer = Timer.new()
 var _hurt_timer: Timer = Timer.new()
-var target: Node2D
-var offset: Vector2 = Vector2(randf_range(-15,15), randf_range(-15,15))
+var target: Player
+var knockback_velocity: Vector2
+var offset_amp: float = 100
+var offset: Vector2 = Vector2(randf_range(-offset_amp,offset_amp), randf_range(-offset_amp,offset_amp))
 var direction: Vector2:
 	set(value):
 		if sign(direction.x) != sign(value.x):
-			offset = Vector2(randf_range(-15,15), randf_range(-25,25))
+			offset = Vector2(randf_range(-offset_amp,offset_amp), randf_range(-offset_amp,offset_amp))
+			if offset_amp > 20:
+				offset_amp -= 20
 		direction = value
 		if direction.x < 0:
 			sprite.scale = Vector2(-1,1)
@@ -173,7 +177,9 @@ func _attack(_delta: float = 0.0167) -> void:
 	pass
 
 func _hurt(_delta: float = 0.0167) -> void:
-	pass
+	var dir: Vector2 = -global_position.direction_to(target.global_position)
+	dir *= target.weapon.stats.knockback + 1
+	global_position += dir * SPEED/2 * _delta
 
 func _death(_delta: float = 0.0167) -> void:
 	pass

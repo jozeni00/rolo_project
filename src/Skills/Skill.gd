@@ -2,10 +2,16 @@ class_name Skill
 extends Node
 
 ## The amount of time in seconds the skill is active.
-var duration: float = 0.3
+var duration: float = 0.3:
+	set(value):
+		duration = value
+		_duration_timer.wait_time = duration
 var _duration_timer: Timer = Timer.new()
 ## Time in-between successive skill activation
-var cooldown: float = 1
+var cooldown: float = 1:
+	set(value):
+		cooldown = value
+		_cooldown_timer.wait_time = cooldown
 var _cooldown_timer: Timer = Timer.new()
 
 func _init() -> void:
@@ -22,7 +28,7 @@ func execute(master: Player, direction: Vector2 = Vector2.ZERO):
 	pass
 
 func ready() -> bool:
-	return _cooldown_timer.is_stopped()
+	return _cooldown_timer.is_stopped() and _duration_timer.is_stopped()
 
 func cooldown_start() -> void:
 	_cooldown_timer.start()
