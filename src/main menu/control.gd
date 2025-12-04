@@ -162,7 +162,7 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	main_menu.visible = false
 	start_menu.visible = true
-	options_holder.visible = false
+	#options_holder.visible = false
 	_set_status("Select a slot, then press New / Load / Delete.")
 
 func _on_quit_pressed() -> void:
@@ -221,7 +221,7 @@ func _on_back_pressed() -> void:
 
 	start_menu.visible = false
 	main_menu.visible = true
-	options_holder.visible = false
+#	options_holder.visible = false
 	_set_status("")
 
 # ===================== #
