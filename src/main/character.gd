@@ -75,6 +75,7 @@ func _ready() -> void:
 	call_deferred("load_playerdata")
 	
 	sprite.animation_finished.connect(_on_animation_finished)
+	hurtbox.got_hit.connect(_on_hurt)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -180,6 +181,9 @@ func apply_save_data(data: Dictionary) -> void:
 	if data.has("health"):
 		hurtbox.stats.Health = data["health"]
 	print("Player data applied:", data)
+
+func _on_hurt() -> void:
+	print("Player Health: ", hurtbox.stats.Health)
 
 func _on_dash_timeout() -> void:
 	canDash = true;
