@@ -187,7 +187,7 @@ func _chase(_delta: float = 0.0167) -> void:
 		sprite.animation = "idle"
 	
 	var target_weapon: Weapon = target.weapon.get_parent()
-	if target_weapon.state == ATTACK:
+	if target_weapon.state == 1:
 		reflex_timer.start(randf_range(0.1,0.15))
 
 func _attack(_delta: float = 0.0167) -> void:

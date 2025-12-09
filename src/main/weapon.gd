@@ -128,7 +128,7 @@ func _process(delta: float) -> void:
 		if ((Input.is_action_just_pressed("BasicAttack") or Input.is_action_just_pressed("SpecialAttack")) and state == 0):
 			if(Input.is_action_just_pressed("SpecialAttack")):
 				spec = true
-			state = 2
+			state = 1
 			print("BasicAttack")
 			weapon_timer.start()
 			#sprite.play("default")
@@ -141,9 +141,9 @@ func load_specSkill(skill_name: String) -> void:
 	specSkill =  loaded_skill
 	
 func _on_weapon_timeout() -> void:
-	if(state == 2):
+	if(state == 1):
 		$Hitbox/Hitbox2.disabled = false
-		state = 1
+		state = 2
 		weapon_timer.wait_time = .5
 		weapon_timer.start()
 		
@@ -151,7 +151,7 @@ func _on_weapon_timeout() -> void:
 			if((specSkill != null )):
 				specSkill.execute(player)
 			specEnd = false
-	elif(state == 1):
+	elif(state == 2):
 		$Hitbox/Hitbox2.disabled = true
 		#sprite.play("default")
 		weapon_timer.wait_time = .4
