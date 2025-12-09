@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 			$skillTree.hide()
 		else:
 			$skillTree.show()
-	if(Input.is_action_just_pressed("OffHandAction")):
+	if(Input.is_action_just_pressed("BasicAttack")):
 		get_tree().get_first_node_in_group("Player").skill_points = 9999
 	#pass
 	

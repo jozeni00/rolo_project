@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwg5jx3q2ypyq"]
+
+[ext_resource type="Script" uid="uid://cp3tyj80icmf2" path="res://src/Skills/Sword/shootBeam.gd" id="1_h0blq"]
+
+[node name="shootBeam" type="Node"]
+script = ExtResource("1_h0blq")
+metadata/_custom_type_script = "uid://ivkl2pj4k5hn"

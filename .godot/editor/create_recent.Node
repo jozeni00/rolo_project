@@ -1,6 +1,8 @@
 CollisionShape2D
-Area2D
 Skill
+Hitbox
+Area2D
+Timer
 Sprite2D
 Node2D
 Label
@@ -10,5 +12,3 @@ skill_tree
 ColorRect
 CharacterBody2D
 Button
-VBoxContainer
-CanvasLayer

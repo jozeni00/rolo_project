@@ -38,6 +38,8 @@ func _on_area_entered(area: Area2D) -> void:
 		target = area
 		#print("HIT!! YOU GOT HIT!!")
 		#timer.start()
+		if(target.stats.WeaponElement == GameData.Element.FIRE ):
+			print("HOT")
 		update_health(target.stats)
 
 ## Update Health when hit.

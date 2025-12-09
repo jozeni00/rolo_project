@@ -15,6 +15,10 @@ func _ready() -> void:
 	active = false
 	print("Ready")
 
-func swapSprite():
+func loadSkill() -> void:
+	pass
+
+func swapSprite() -> void:
+	loadSkill()
 	sprite.texture = successSprite
 	

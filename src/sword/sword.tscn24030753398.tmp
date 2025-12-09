@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dyuq4h0s1ksb6"]
+[gd_scene load_steps=20 format=3 uid="uid://dyuq4h0s1ksb6"]
 
 [ext_resource type="Script" uid="uid://byypt60t6nbck" path="res://src/main/weapon.gd" id="1_e4ynd"]
 [ext_resource type="Texture2D" uid="uid://c7bf6pd500iti" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite1.png" id="2_v0wwq"]
@@ -13,47 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://c5b10cptl5o5u" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite8.png" id="9_x58x5"]
 [ext_resource type="Texture2D" uid="uid://d34kj1kdv2bxo" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite9.png" id="10_7krr7"]
 [ext_resource type="Texture2D" uid="uid://bvk6fhbakm6yk" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite10.png" id="11_wwqho"]
-[ext_resource type="Texture2D" uid="uid://bi367hr8s6so" path="res://src/sprite sheets/weaponSprites/sword/fireswordSheet.png" id="12_woui7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_th1ti"]
-atlas = ExtResource("12_woui7")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6vb5a"]
-atlas = ExtResource("12_woui7")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rwf4d"]
-atlas = ExtResource("12_woui7")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_53j3x"]
-atlas = ExtResource("12_woui7")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j51kb"]
-atlas = ExtResource("12_woui7")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulnqi"]
-atlas = ExtResource("12_woui7")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4eiwo"]
-atlas = ExtResource("12_woui7")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cnswj"]
-atlas = ExtResource("12_woui7")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rguje"]
-atlas = ExtResource("12_woui7")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v71wm"]
-atlas = ExtResource("12_woui7")
-region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dwvek"]
 animations = [{
@@ -90,41 +49,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_th1ti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6vb5a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwf4d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_53j3x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j51kb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ulnqi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4eiwo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cnswj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rguje")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v71wm")
-}],
-"loop": true,
-"name": &"fire",
 "speed": 5.0
 }]
 
