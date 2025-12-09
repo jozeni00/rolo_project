@@ -5,6 +5,7 @@ extends Node
 #@export var screensize = Vector2i(720,480)
 
 @onready var pauseMenu = $Pause_Menu
+@onready var world = "Dark"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

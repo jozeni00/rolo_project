@@ -403,4 +403,6 @@ script = ExtResource("10_2srgy")
 [node name="Sprite2D" type="Sprite2D" parent="Reticle"]
 texture = ExtResource("11_0pyd7")
 
+[connection signal="dead" from="Hurtbox" to="." method="_on_hurtbox_dead"]
+
 [editable path="Weapon"]

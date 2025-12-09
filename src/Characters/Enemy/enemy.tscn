@@ -126,6 +126,7 @@ radius = 101.00495
 
 [sub_resource type="Resource" id="Resource_nn272"]
 script = ExtResource("15_yfud7")
+_Base_Attack = 99
 metadata/_custom_type_script = "uid://bx30siccecw4q"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_doop2"]

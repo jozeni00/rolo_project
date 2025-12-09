@@ -43,6 +43,7 @@ func interact() -> void:
 	elif(questGiven):
 		if(checkPrgrs()):
 			dialogue = "There it is!\nHere, I'll send you back"
+			get_tree().get_first_node_in_group("Engine").world = "Light"
 			$Label.text = dialogue
 			leave_timer.start()
 			#get_tree().get_first_node_in_group("Engine").get_child(0).queue_free()

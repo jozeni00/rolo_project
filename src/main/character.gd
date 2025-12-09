@@ -192,3 +192,12 @@ func _on_animation_finished() -> void:
 	if sprite.get_animation() == "dodge":
 		sprite.animation = "idle"
 		sprite.play()
+
+
+func _on_hurtbox_dead() -> void:
+	if(get_tree().get_first_node_in_group("Engine").world == "Dark"):
+		get_tree().quit()
+	else:
+		get_tree().get_first_node_in_group("Engine").get_child(0).add_sibling(load("res://src/Scenes that are Very Very Temporary/farmRoom.tscn").instantiate())
+		get_tree().get_first_node_in_group("Engine").get_child(0).queue_free()
+	#pass # Replace with function body.
