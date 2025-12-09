@@ -6,17 +6,18 @@ enum State{
 	IDLE,
 	## State when the enemy is randomly walking around.
 	WALK,
+	## State when the enemy is attacked.
+	ATTACK,
 	## State when the enemy is pursuing the player.
 	CHASE,
 	## State when the enemy is currently performing an attack.
-	ATTACK,
-	## State when the enemy is attacked.
 	HURT,
 	## State when the enemy's health reaches 0.
 	DEATH
 	}
 
 const LOOT = preload("res://src/Inventory/loot.tscn")
+const char_skill_path: String = "res://src/Skills/"
 
 const IDLE := State.IDLE
 const WALK := State.WALK
@@ -26,8 +27,10 @@ const HURT := State.HURT
 const DEATH := State.DEATH
 
 var hitter
+var dodge: Skill
+var reflex_timer: Timer = Timer.new()
 
-const SPEED: int = 100
+var speed: int = 100
 const _WANDER_DISTANCE: float = 50
 
 @export var sprite: AnimatedSprite2D
@@ -37,6 +40,8 @@ const _WANDER_DISTANCE: float = 50
 @export var detect_radius: float
 @export var loot_table: Array[DropRate]
 @export_range(0,10,1, "suffix:xp") var exp: int = 0
+
+@onready var collision: CollisionShape2D = hurtbox.get_child(0)
 
 ## The current state of the enemy. Whenever the state changes,
 ## the state's transition function will be called.
@@ -110,6 +115,11 @@ func _ready() -> void:
 	state_exits[HURT] = Callable(self, "_hurt_exit")
 	state_exits[DEATH] = Callable(self, "_death_exit")
 	
+	reflex_timer.one_shot = true
+	reflex_timer.wait_time = randf_range(0.5,1)
+	add_child(reflex_timer)
+	reflex_timer.connect("timeout", Callable(self, "_reflex_timeout"))
+	
 	_idle_timer.one_shot = true
 	_idle_timer.wait_time = randf_range(1,3)
 	add_child(_idle_timer)
@@ -136,6 +146,7 @@ func _ready() -> void:
 	
 	state = IDLE
 	sprite.play("idle")
+	dodge = load_skill("dodge")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -164,16 +175,20 @@ func _walk(_delta: float = 0.0167) -> void:
 		state = IDLE
 	else:
 		direction = global_position.direction_to(_walk_location)
-		global_position += direction * SPEED * _delta
+		global_position += direction * speed * _delta
 
 func _chase(_delta: float = 0.0167) -> void:
 	var distance: float = global_position.distance_to(target.global_position)
 	if distance >= 15:
 		sprite.animation = "walk"
 		direction = global_position.direction_to(target.global_position + offset)
-		global_position += direction * SPEED * _delta
+		global_position += direction * speed * _delta
 	else:
 		sprite.animation = "idle"
+	
+	var target_weapon: Weapon = target.weapon.get_parent()
+	if target_weapon.state == ATTACK:
+		reflex_timer.start(randf_range(0.1,0.15))
 
 func _attack(_delta: float = 0.0167) -> void:
 	pass
@@ -182,7 +197,7 @@ func _hurt(_delta: float = 0.0167) -> void:
 	hitter = $Area2D/Hurtbox.target
 	var dir: Vector2 = -global_position.direction_to(hitter.global_position)
 	dir *= hitter.stats.knockback + 1
-	global_position += dir * SPEED/2 * _delta
+	global_position += dir * speed/2 * _delta
 
 func _death(_delta: float = 0.0167) -> void:
 	pass
@@ -211,7 +226,7 @@ func _hurt_entry() -> void:
 	var collision: CollisionShape2D = hurtbox.get_child(0)
 	collision.disabled = true
 	#_hurt_timer.start()
-	pass
+	reflex_timer.stop()
 
 func _death_entry() -> void:
 	get_tree().get_first_node_in_group("Player").addEXP(exp)
@@ -237,7 +252,6 @@ func _attack_exit() -> void:
 	pass
 
 func _hurt_exit() -> void:
-	var collision: CollisionShape2D = hurtbox.get_child(0)
 	collision.disabled = false
 	pass
 
@@ -254,6 +268,20 @@ func _death_exit() -> void:
 				if main:
 					main.call_deferred("add_child", drop)
 
+func load_skill(skill_name: String) -> Skill:
+	var scene = load(str(char_skill_path + skill_name + ".tscn"))
+	print(scene)
+	var loaded_skill: Node = scene.instantiate()
+	call_deferred("add_child", loaded_skill)
+	if loaded_skill is Skill:
+		return loaded_skill
+	
+	return null
+
+func _reflex_timeout() -> void:
+	var distance: float = global_position.distance_to(target.global_position)
+	if distance < 60:
+		dodge.execute(self, direction)
 
 func _idle_timeout() -> void:
 	state = WALK

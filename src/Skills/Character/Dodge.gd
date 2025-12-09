@@ -1,6 +1,6 @@
 extends Skill
 
-var _self: Player
+var _self: Node2D
 var _animation: String
 var _direction: Vector2
 
@@ -12,8 +12,8 @@ func _process(delta: float) -> void:
 		_self.global_position += _self.speed * 1.5 * _direction * delta
 		
 
-func execute(master: Player, direction: Vector2 = Vector2.ZERO):
-	if ready():
+func execute(master: Node2D, direction: Vector2 = Vector2.ZERO):
+	if ready() and (master is Player or master is Enemy):
 		_self = master
 		_direction = direction
 		_animation = master.sprite.animation

@@ -15,7 +15,7 @@ func _ready() -> void:
 	_duration_timer.connect("timeout", Callable(self, "_duration_timeout"))
 
 
-func execute(master: Player, _direction: Vector2 = Vector2.ZERO):
+func execute(master: Node2D, _direction: Vector2 = Vector2.ZERO):
 	if ready():
 		print("Parry active.")
 		skill_owner = master

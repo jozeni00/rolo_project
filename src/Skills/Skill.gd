@@ -24,7 +24,7 @@ func _init() -> void:
 	add_child(_cooldown_timer)
 
 ## This is the method that is executed at activation.
-func execute(master: Player, direction: Vector2 = Vector2.ZERO):
+func execute(master: Node2D, direction: Vector2 = Vector2.ZERO):
 	pass
 
 func ready() -> bool:
