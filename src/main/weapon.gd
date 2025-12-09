@@ -6,12 +6,18 @@ enum State{SHEATH, DRAWN, ATTACK}
 @export var speed = 100
 @onready var sprite := $WeaponSprite
 @onready var Hitbox = $Hitbox
+@onready var specEnd = false
+@onready var player = get_tree().get_first_node_in_group("Player")
+
+var beam
+var char_skill_path: String = "res://src/Skills/"
 
 const SHEATH := State.SHEATH
 const DRAWN := State.DRAWN
 const ATTACK := State.ATTACK
 const LASTFRAME = 5
 const FULLYDRAWN = 2
+var specSkill: Skill
 const FLIP = Vector2(1,-1)
 const RIGHT = Vector2(1,1)
 var state: State = SHEATH:
@@ -19,7 +25,7 @@ var state: State = SHEATH:
 		state_exits[state].call()
 		state = value
 		state_entries[state].call()
-		sprite.play()
+		#sprite.play()
 var spec
 
 ## The function table that holds each state's "_init"/entry function.
@@ -67,7 +73,10 @@ func _ready() -> void:
 ''' State Entry Functions'''
 # To run once when state is entered.
 func _sheath_entry() -> void:
-	sprite.visible = false
+	sprite.pause()
+	$AnimationPlayer.stop()
+	#sprite.visible = false
+	pass
 func _drawn_entry() -> void:
 	pass
 func _attack_entry() -> void:
@@ -76,16 +85,7 @@ func _attack_entry() -> void:
 ''' State Process Functions'''
 # To run every frame while in state.
 func _sheath_input(_event: InputEvent = null) -> void:
-	if _event is InputEventMouseMotion:
-		var dis = Vector2.ZERO.distance_to(_event.relative)
-		if (dis > 2 and !(get_tree().get_first_node_in_group("Engine").returnPause() or get_tree().get_first_node_in_group("Player").skillCheck)):
-			var rotation_angle = Vector2.ZERO.angle_to_point(_event.relative)
-			self.rotation = lerp_angle(rotation, rotation_angle + (PI/2),.1)
-			if(rotation_angle < -(PI/2) or rotation_angle > (PI/2)):
-				scale = Vector2(-1,1)
-
-			else:
-				scale = Vector2(1, 1)
+	pass
 func _drawn_input(_event: InputEvent = null) -> void:
 	pass
 func _attack_input(_event: InputEvent = null) -> void:
@@ -94,15 +94,28 @@ func _attack_input(_event: InputEvent = null) -> void:
 ''' State Exit Functions'''
 # To run once when the state is exited.
 func _sheath_exit() -> void:
-	sprite.visible = true
+	
+	$AnimationPlayer.play("attack")
+	#sprite.visible = true
+	pass
 func _drawn_exit() -> void:
 	pass
 func _attack_exit() -> void:
 	pass
 
 
-func _input(event: InputEvent) -> void:
-	state_inputs[state].call(event)
+func _input(_event: InputEvent) -> void:
+	if _event is InputEventMouseMotion:
+		var dis = Vector2.ZERO.distance_to(_event.relative)
+		if (dis > 2 and !(get_tree().get_first_node_in_group("Engine").returnPause() or get_tree().get_first_node_in_group("Player").skillCheck)):
+			var rotation_angle = Vector2.ZERO.angle_to_point(_event.relative)
+			self.rotation = lerp_angle(self.rotation, rotation_angle + (PI/2),.1)
+			if(rotation_angle < -(PI/2) or rotation_angle > (PI/2)):
+				scale = Vector2(-1,1)
+
+			else:
+				scale = Vector2(1, 1)
+	state_inputs[state].call(_event)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -119,8 +132,13 @@ func _process(delta: float) -> void:
 			print("BasicAttack")
 			weapon_timer.start()
 			#sprite.play("default")
-			$AnimationPlayer.play("attack")
 		
+func load_specSkill(skill_name: String) -> void:
+	var scene = load(str(char_skill_path + skill_name + ".tscn"))
+	print(scene)
+	var loaded_skill: Node = scene.instantiate()
+	call_deferred("add_child", loaded_skill)
+	specSkill =  loaded_skill
 	
 func _on_weapon_timeout() -> void:
 	if(state == 1):
@@ -128,6 +146,11 @@ func _on_weapon_timeout() -> void:
 		state = 2
 		weapon_timer.wait_time = .5
 		weapon_timer.start()
+		
+		if(specEnd):
+			if((specSkill != null )):
+				specSkill.execute(player)
+			specEnd = false
 	elif(state == 2):
 		$Hitbox/Hitbox2.disabled = true
 		#sprite.play("default")
@@ -135,6 +158,7 @@ func _on_weapon_timeout() -> void:
 		sprite.stop()
 		if(!spec):
 			state = 0
+			
 		else:
 			print("SpecialAttack")
 			weapon_timer.start()
@@ -142,7 +166,9 @@ func _on_weapon_timeout() -> void:
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("attack")
 			state = 1
+			
 			spec = false
+			specEnd = true
 	#pass # Replace with function body.
 	
 		

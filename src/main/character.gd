@@ -5,6 +5,9 @@ extends Node2D
 @export var myInventory : Inventory
 const LEFT = Vector2(-1,1)
 const RIGHT = Vector2(1,1)
+@onready var weaponNode = $Weapon
+
+@onready var reticle = $Reticle
 
 ''' Character Attributes/Level '''
 var level: int

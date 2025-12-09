@@ -25,6 +25,8 @@ const ATTACK := State.ATTACK
 const HURT := State.HURT
 const DEATH := State.DEATH
 
+var hitter
+
 const SPEED: int = 100
 const _WANDER_DISTANCE: float = 50
 
@@ -177,8 +179,9 @@ func _attack(_delta: float = 0.0167) -> void:
 	pass
 
 func _hurt(_delta: float = 0.0167) -> void:
-	var dir: Vector2 = -global_position.direction_to(target.global_position)
-	dir *= target.weapon.stats.knockback + 1
+	hitter = $Area2D/Hurtbox.target
+	var dir: Vector2 = -global_position.direction_to(hitter.global_position)
+	dir *= hitter.stats.knockback + 1
 	global_position += dir * SPEED/2 * _delta
 
 func _death(_delta: float = 0.0167) -> void:

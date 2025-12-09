@@ -27,8 +27,8 @@ func _input(event: InputEvent) -> void:
 			direction = event.relative.normalized()
 			var center: Vector2 = get_parent().global_position
 			var new_position = center + direction * radius
-			global_position.x = lerpf(global_position.x, new_position.x,1)
-			global_position.y = lerpf(global_position.y, new_position.y,1)
+			global_position.x = lerpf(global_position.x, new_position.x,.1)
+			global_position.y = lerpf(global_position.y, new_position.y,.1)
 
 func _on_timeout() -> void:
 	visible = false

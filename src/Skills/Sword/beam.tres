@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackStats" load_steps=2 format=3 uid="uid://p2udpoksmrao"]
+
+[ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="1_d3p7f"]
+
+[resource]
+script = ExtResource("1_d3p7f")
+_Base_Attack = 10
+WeaponElement = 4
+_Base_ElementalAttack = 5
+_Base_CritChance = 0.0
+_Base_AttackDuration = 0.1
+metadata/_custom_type_script = "uid://bx30siccecw4q"

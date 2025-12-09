@@ -79,7 +79,7 @@ func checkCompatibility() -> bool:
 	return false
 		
 func purchaseSkill(points: int)->void:
-	if(points >= selection.skillCost and checkCompatibility()):
+	if(!selection.active and points >= selection.skillCost and checkCompatibility()):
 		selection.swapSprite()
 		player.skill_points -= selection.skillCost
 		print(player.skill_points)
