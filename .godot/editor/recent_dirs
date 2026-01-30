@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 /home/aiden/Documents/school/class/csci-150/project/rolo_project
-=======
-<<<<<<< HEAD
-=======
 res://
 res://src/sprite sheets/player sprites/dodge
->>>>>>> SkillTree
 res://src/Skills/Character
 res://src/sprite sheets/player sprites/dodge
->>>>>>> test2
 res://src/main
 res://src/sprite sheets/player sprites/playerBurning
 res://src/sprite sheets/player sprites/walkRight

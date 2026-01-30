@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1764893791
+::res://::1765292853
 enemy_base.tscn::PackedScene::7294416339895582065::1764722630::0::1::::<><><>0<>0<><>::uid://buxnivcjv46jy::::res://src/Characters/enemy_class.gd<>uid://c0qrrwv86xpat::::res://src/Inventory/Classes/DropRate.gd<>uid://dyhee4sgho2sg::::res://src/Inventory/Resources/Item/coin.tres<>uid://vr6o36a26l17::::res://src/Characters/Enemy/enemySprites/knightfin_sheet.png<>uid://dwbrig7kmq58l::::res://src/Classes/Hurtbox.gd<>uid://b6utarwb21mpe::::res://src/Classes/Hitbox.gd<>uid://b8ltlvjtoo63a::::res://src/Resource/CharacterStats/CharacterStats.gd<>uid://bx30siccecw4q::::res://src/Resource/AttackStats/AttackStats.gd
 export_presets.cfg::TextFile::-1::1764726814::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::1942930702118367638::1762476171::1762476171::1::::<><><>0<>0<>2a869ceef4bb4cd947a32741468b38a0<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -46,7 +46,7 @@ knightfin_walk4.png::CompressedTexture2D::8278921829404807156::1764719860::17647
 ::res://src/Characters/NPC/::1764722630
 npc.gd::GDScript::4024035259372069263::1764719860::0::1::::<>Node2D<><>0<>0<><>::
 NPC.tscn::PackedScene::8123217778409616035::1764722630::0::1::::<><><>0<>0<><>::uid://bxljjjminv8at::::res://src/Characters/NPC/npc.gd<>uid://c574qy7vvp3u7::::res://src/sprite sheets/npcSprites/farmer1.png<>uid://bafsv0aa7urre::::res://src/sprite sheets/npcSprites/farmer2.png
-::res://src/Characters/Player/::1764892853
+::res://src/Characters/Player/::1764893792
 Circle.png::CompressedTexture2D::1037105168618913487::1764892853::1764893792::1::::<><><>0<>0<>c97675ff7c95e4a9f790dea226eca5c9<>res://.godot/imported/Circle.png-82bf40e21dce32c41d4136e96638f255.ctex::
 player.tscn::PackedScene::4355751529083848643::1764892853::0::1::::<><><>0<>0<><>::uid://b8eehyx61oppo::::res://src/main/character.gd<>uid://0v6sdc7fss6a::::res://src/Inventory/Classes/Item.gd<>uid://dtuej7c5mruu8::::res://src/Inventory/Classes/Inventory.gd<>uid://bf7pp2n0vhyne::::res://src/sprite sheets/player sprites/dodge/dodge-Sheet.png<>uid://5xpksykxlbys::::res://src/sprite sheets/player sprites/idle/idle.png<>uid://dkeiyk3x82ftr::::res://src/sprite sheets/player sprites/walkRight/walkRight-Sheet.png<>uid://v3ixfbyenpr5::::res://src/Characters/Player/reticle.gd<>uid://dwbrig7kmq58l::::res://src/Classes/Hurtbox.gd<>uid://o1m8aavlac1d::::res://src/Characters/Player/Circle.png<>uid://b8ltlvjtoo63a::::res://src/Resource/CharacterStats/CharacterStats.gd<>uid://dyuq4h0s1ksb6::::res://src/sword/sword.tscn
 reticle.gd::GDScript::1532295367972177668::1764892853::0::1::::<>Node2D<><>0<>0<><>::
@@ -198,17 +198,20 @@ Sharko1.png::CompressedTexture2D::8994280766956615842::1764719860::1764720621::1
 Sharko2.png::CompressedTexture2D::2223271479502615184::1764719860::1764720621::1::::<><><>0<>0<>9fcbaf127c3c6b044247905beab85322<>res://.godot/imported/Sharko2.png-ace77d513e43838e06054d7dfb1f2bff.ctex::
 ::res://src/sprite sheets/bossSprites/SharkoMove/::1764720621
 SharkoMove.png::CompressedTexture2D::6897593009034462172::1764719860::1764720621::1::::<><><>0<>0<>c17c677093da6479f6510f10d492e13c<>res://.godot/imported/SharkoMove.png-176a159e0134a50b72dd640b895d217d.ctex::
-::res://src/sprite sheets/icon_sprites/::1764892853
+::res://src/sprite sheets/icon_sprites/::1765292646
 king_sharko_tooth.png::CompressedTexture2D::6549980827870783699::1763349225::1764720621::1::::<><><>0<>0<>13e780a2d15b11171fa869e791c28426<>res://.godot/imported/king_sharko_tooth.png-1e8f3276f9ffa4e15d1c5e35e6f80835.ctex::
 skill_point_icon.png::CompressedTexture2D::886391863346440952::1764722620::1764722620::1::::<><><>0<>0<>8f90d3370cc2c470b93a956c2b2399c7<>res://.godot/imported/skill_point_icon.png-d470ba7e1ca8375163b19e08798278ce.ctex::
 skill_tree_slot.png::CompressedTexture2D::8911523544136906874::1764722620::1764722620::1::::<><><>0<>0<>e62747067877420039d22370264c608f<>res://.godot/imported/skill_tree_slot.png-fd42d8a7df3cf54606e99bc5cd245aa1.ctex::
 soul_currency_icon-Sheet.png::CompressedTexture2D::3669020607457424077::1764722620::1764722620::1::::<><><>0<>0<>f3f79e9c25450ca49d722e228bded60e<>res://.godot/imported/soul_currency_icon-Sheet.png-d922363ea59a1ddbaf30b4f0b3b4260b.ctex::
 soul_icon.png::CompressedTexture2D::5591509391041029509::1764722620::1764722620::1::::<><><>0<>0<>08669d783a1d008c2dc6bb50de2551e5<>res://.godot/imported/soul_icon.png-029e0c985e5b060528a55d62525ca3ca.ctex::
-::res://src/sprite sheets/icon_sprites/healthbar/::1764892853
+::res://src/sprite sheets/icon_sprites/healthbar/::1764893792
 HealthBar-Sheet.png::CompressedTexture2D::5707611812790283463::1764892853::1764893792::1::::<><><>0<>0<>9070ebd0f2c0f96c760668b283ed9902<>res://.godot/imported/HealthBar-Sheet.png-4c8ef66edbe4ddd0754b34adbd10e751.ctex::
-::res://src/sprite sheets/icon_sprites/hotbar/::1764892853
+::res://src/sprite sheets/icon_sprites/hotbar/::1764893792
 hotbar.png::CompressedTexture2D::66856334346632988::1764892853::1764893792::1::::<><><>0<>0<>79abb40efc48383102232303c9cc2465<>res://.godot/imported/hotbar.png-e5e8c3cf0694331e6ed0742752c0b9d1.ctex::
 singleHotbar.png::CompressedTexture2D::4518000431254183732::1764892853::1764893792::1::::<><><>0<>0<>b9fc90e9eb39498e3859d720ab3add65<>res://.godot/imported/singleHotbar.png-167ec86a5c5fbf13aa75a516b580b627.ctex::
+::res://src/sprite sheets/icon_sprites/Inventory/::1765292646
+::res://src/sprite sheets/icon_sprites/smallHealthBar/::1765292647
+smallHealthBar.png::CompressedTexture2D::523146423045438552::1765292647::1765292854::1::::<><><>0<>0<>6b2fd8677a37e6bba72d951b61dc7a64<>res://.godot/imported/smallHealthBar.png-90aa4023067d67d3f64bf009df9d9eb2.ctex::
 ::res://src/sprite sheets/map/::1763682984
 ::res://src/sprite sheets/map/tiles/::1763682984
 ::res://src/sprite sheets/map/tiles/darkworld/::1764720621
@@ -227,9 +230,9 @@ idle-Sheet.png::CompressedTexture2D::4245649735023771925::1763347939::1764720621
 idle.png::CompressedTexture2D::2154075593296025166::1764719860::1764720621::1::::<><><>0<>0<>44bf3f93c8483d60286e2c0059165dc7<>res://.godot/imported/idle.png-8a418529323a1d175ab7ed0a31034984.ctex::
 ::res://src/sprite sheets/player sprites/playerBurning/::1764720621
 playerBurningTest-Sheet.png::CompressedTexture2D::2389461011552314223::1763682984::1764720621::1::::<><><>0<>0<>706bf679055ca06162012dc2a09e6d89<>res://.godot/imported/playerBurningTest-Sheet.png-085baf0ab0f7e26b6f78c7c6a2396bf4.ctex::
-::res://src/sprite sheets/player sprites/playerDying/::1764892853
-playerDying-Sheet.png::CompressedTexture2D::4385287800902572294::1764892853::1764893792::1::::<><><>0<>0<>94b119774497fbac3dc4dfdf4f43d48a<>res://.godot/imported/playerDying-Sheet.png-1de6a02e9e4c12e676af83295f4a8fa8.ctex::
-::res://src/sprite sheets/player sprites/playerHurt/::1764892853
+::res://src/sprite sheets/player sprites/playerDying/::1765292647
+playerDying-Sheet.png::CompressedTexture2D::4385287800902572294::1765292647::1765292854::1::::<><><>0<>0<>94b119774497fbac3dc4dfdf4f43d48a<>res://.godot/imported/playerDying-Sheet.png-1de6a02e9e4c12e676af83295f4a8fa8.ctex::
+::res://src/sprite sheets/player sprites/playerHurt/::1764893792
 playerHurt-Sheet.png::CompressedTexture2D::3751180013991918225::1764892853::1764893792::1::::<><><>0<>0<>5c768086647b92389037a99f42837436<>res://.godot/imported/playerHurt-Sheet.png-9132bda8d8e60db0d204f22444839e4c.ctex::
 ::res://src/sprite sheets/player sprites/southToRightTurn/::1764720621
 test turn-Sheet.png::CompressedTexture2D::6769647550517003337::1763347021::1764720621::1::::<><><>0<>0<>2267cd142063faa8783e36185b4051b9<>res://.godot/imported/test turn-Sheet.png-7f685ba9b5a627dd94ebefd7bd7dac9a.ctex::
