@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bl11cpuvm16t8"]
+
+[ext_resource type="Script" uid="uid://m5xwdx12svpg" path="res://attribute_row.gd" id="1_8hoth"]
+
+[node name="AttributeMenu" type="Control" unique_id=2048618089]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1208792156]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Skill Points" type="Label" parent="VBoxContainer" unique_id=387014445]
+layout_mode = 2
+
+[node name="AttributeRow" type="HBoxContainer" parent="VBoxContainer" unique_id=186303752]
+layout_mode = 2
+script = ExtResource("1_8hoth")
+
+[node name="Strength" type="Label" parent="VBoxContainer/AttributeRow" unique_id=1925604583]
+layout_mode = 2
+
+[node name="value" type="Label" parent="VBoxContainer/AttributeRow" unique_id=1415126556]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="VBoxContainer/AttributeRow" unique_id=146146352]
+layout_mode = 2
+
+[node name="AttributeRow2" type="HBoxContainer" parent="VBoxContainer" unique_id=1872867127]
+layout_mode = 2
+
+[node name="Element" type="Label" parent="VBoxContainer/AttributeRow2" unique_id=1880032213]
+layout_mode = 2
+
+[node name="value" type="Label" parent="VBoxContainer/AttributeRow2" unique_id=1294878612]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="VBoxContainer/AttributeRow2" unique_id=1184577605]
+layout_mode = 2
+
+[node name="AttributeRow3" type="HBoxContainer" parent="VBoxContainer" unique_id=1377119090]
+layout_mode = 2
+
+[node name="Fortitude" type="Label" parent="VBoxContainer/AttributeRow3" unique_id=1936474655]
+layout_mode = 2
+
+[node name="value" type="Label" parent="VBoxContainer/AttributeRow3" unique_id=1580516368]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="VBoxContainer/AttributeRow3" unique_id=725885003]
+layout_mode = 2
+
+[node name="AttributeRow4" type="HBoxContainer" parent="VBoxContainer" unique_id=582346013]
+layout_mode = 2
+
+[node name="Agility" type="Label" parent="VBoxContainer/AttributeRow4" unique_id=1883956435]
+layout_mode = 2
+
+[node name="value" type="Label" parent="VBoxContainer/AttributeRow4" unique_id=1490486614]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="VBoxContainer/AttributeRow4" unique_id=1339233203]
+layout_mode = 2
+
+[node name="AttributeRow5" type="HBoxContainer" parent="VBoxContainer" unique_id=425017903]
+layout_mode = 2
+
+[node name="Tenacity" type="Label" parent="VBoxContainer/AttributeRow5" unique_id=1171022221]
+layout_mode = 2
+
+[node name="value" type="Label" parent="VBoxContainer/AttributeRow5" unique_id=231618023]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="VBoxContainer/AttributeRow5" unique_id=148328325]
+layout_mode = 2
+
+[node name="AttributeRow6" type="HBoxContainer" parent="VBoxContainer" unique_id=1884373294]
+layout_mode = 2
+
+[node name="Intellect" type="Label" parent="VBoxContainer/AttributeRow6" unique_id=690837600]
+layout_mode = 2
+
+[node name="value" type="Label" parent="VBoxContainer/AttributeRow6" unique_id=2063369805]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="VBoxContainer/AttributeRow6" unique_id=1857680802]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/AttributeRow/AddButton" to="VBoxContainer/AttributeRow" method="_on_add_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AttributeRow2/AddButton" to="VBoxContainer/AttributeRow" method="_on_add_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AttributeRow4/AddButton" to="VBoxContainer/AttributeRow" method="_on_add_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AttributeRow5/AddButton" to="VBoxContainer/AttributeRow" method="_on_add_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AttributeRow6/AddButton" to="VBoxContainer/AttributeRow" method="_on_add_button_pressed"]

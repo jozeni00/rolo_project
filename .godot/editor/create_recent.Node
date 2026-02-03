@@ -1,3 +1,8 @@
+Button
+Label
+HBoxContainer
+VBoxContainer
+Control
 CollisionShape2D
 Skill
 Hitbox
@@ -5,10 +10,6 @@ Area2D
 Timer
 Sprite2D
 Node2D
-Label
 GraphFrame
 skillNode
 skill_tree
-ColorRect
-CharacterBody2D
-Button
