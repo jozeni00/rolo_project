@@ -1,7 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1765292853
+::res://::1769735090
 enemy_base.tscn::PackedScene::7294416339895582065::1764722630::0::1::::<><><>0<>0<><>::uid://buxnivcjv46jy::::res://src/Characters/enemy_class.gd<>uid://c0qrrwv86xpat::::res://src/Inventory/Classes/DropRate.gd<>uid://dyhee4sgho2sg::::res://src/Inventory/Resources/Item/coin.tres<>uid://vr6o36a26l17::::res://src/Characters/Enemy/enemySprites/knightfin_sheet.png<>uid://dwbrig7kmq58l::::res://src/Classes/Hurtbox.gd<>uid://b6utarwb21mpe::::res://src/Classes/Hitbox.gd<>uid://b8ltlvjtoo63a::::res://src/Resource/CharacterStats/CharacterStats.gd<>uid://bx30siccecw4q::::res://src/Resource/AttackStats/AttackStats.gd
-export_presets.cfg::TextFile::-1::1764726814::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1765292880::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::1942930702118367638::1762476171::1762476171::1::::<><><>0<>0<>2a869ceef4bb4cd947a32741468b38a0<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1763347020::0::1::::<><><>0<>0<><>::
 Retrospective of the First SCRUM Cycle.txt::TextFile::-1::1763347020::0::1::::<><><>0<>0<><>::
@@ -210,7 +210,7 @@ HealthBar-Sheet.png::CompressedTexture2D::5707611812790283463::1764892853::17648
 hotbar.png::CompressedTexture2D::66856334346632988::1764892853::1764893792::1::::<><><>0<>0<>79abb40efc48383102232303c9cc2465<>res://.godot/imported/hotbar.png-e5e8c3cf0694331e6ed0742752c0b9d1.ctex::
 singleHotbar.png::CompressedTexture2D::4518000431254183732::1764892853::1764893792::1::::<><><>0<>0<>b9fc90e9eb39498e3859d720ab3add65<>res://.godot/imported/singleHotbar.png-167ec86a5c5fbf13aa75a516b580b627.ctex::
 ::res://src/sprite sheets/icon_sprites/Inventory/::1765292646
-::res://src/sprite sheets/icon_sprites/smallHealthBar/::1765292647
+::res://src/sprite sheets/icon_sprites/smallHealthBar/::1765292854
 smallHealthBar.png::CompressedTexture2D::523146423045438552::1765292647::1765292854::1::::<><><>0<>0<>6b2fd8677a37e6bba72d951b61dc7a64<>res://.godot/imported/smallHealthBar.png-90aa4023067d67d3f64bf009df9d9eb2.ctex::
 ::res://src/sprite sheets/map/::1763682984
 ::res://src/sprite sheets/map/tiles/::1763682984
@@ -230,7 +230,7 @@ idle-Sheet.png::CompressedTexture2D::4245649735023771925::1763347939::1764720621
 idle.png::CompressedTexture2D::2154075593296025166::1764719860::1764720621::1::::<><><>0<>0<>44bf3f93c8483d60286e2c0059165dc7<>res://.godot/imported/idle.png-8a418529323a1d175ab7ed0a31034984.ctex::
 ::res://src/sprite sheets/player sprites/playerBurning/::1764720621
 playerBurningTest-Sheet.png::CompressedTexture2D::2389461011552314223::1763682984::1764720621::1::::<><><>0<>0<>706bf679055ca06162012dc2a09e6d89<>res://.godot/imported/playerBurningTest-Sheet.png-085baf0ab0f7e26b6f78c7c6a2396bf4.ctex::
-::res://src/sprite sheets/player sprites/playerDying/::1765292647
+::res://src/sprite sheets/player sprites/playerDying/::1765292854
 playerDying-Sheet.png::CompressedTexture2D::4385287800902572294::1765292647::1765292854::1::::<><><>0<>0<>94b119774497fbac3dc4dfdf4f43d48a<>res://.godot/imported/playerDying-Sheet.png-1de6a02e9e4c12e676af83295f4a8fa8.ctex::
 ::res://src/sprite sheets/player sprites/playerHurt/::1764893792
 playerHurt-Sheet.png::CompressedTexture2D::3751180013991918225::1764892853::1764893792::1::::<><><>0<>0<>5c768086647b92389037a99f42837436<>res://.godot/imported/playerHurt-Sheet.png-9132bda8d8e60db0d204f22444839e4c.ctex::
