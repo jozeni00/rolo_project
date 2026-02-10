@@ -8,15 +8,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="SkillPointsLabel" type="Label" parent="." unique_id=387014445]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1208792156]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Skill Points" type="Label" parent="VBoxContainer" unique_id=387014445]
+layout_mode = 2
 
 [node name="AttributeRow" type="HBoxContainer" parent="VBoxContainer" unique_id=186303752]
 layout_mode = 2

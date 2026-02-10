@@ -9,9 +9,6 @@ const RIGHT = Vector2(1,1)
 
 @onready var reticle = $Reticle
 
-signal stats_changed
-
-
 ''' Character Attributes/Level '''
 var level: int
 var xp: int
@@ -59,7 +56,6 @@ func spend_point(attribute: String) -> bool:
 			intellect += 1
 
 	skill_points -= 1
-	stats_changed.emit()
 	return true
 
 
@@ -112,15 +108,10 @@ func _process(delta: float) -> void:
 	velocity = Input.get_vector("Left", "Right", "Up", "Down")
 	if(Input.is_action_just_pressed("SkillTree")):
 		skillCheck = not(skillCheck)
-		$AttributeMenu.visible = skillCheck
-		if (skillCheck == true):
-			$AttributeMenu.refresh()
 		if(skillCheck == true):
 			sprite.pause()
 		else:
 			sprite.play()
-		if skillCheck:
-			return
 	if(!skillCheck):
 		if(Input.is_action_just_pressed("Dodge") and canDash):
 			#speed *= 4
