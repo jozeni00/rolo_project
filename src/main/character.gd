@@ -36,30 +36,6 @@ var intellect: int:
 		intellect = value
 		weapon.stats.cooldown *= 1 + (intellect * 0.02)
 
-''' Attribute System '''
-func spend_point(attribute: String) -> bool:
-	if skill_points <= 0:
-		return false
-
-	match attribute:
-		"strength":
-			strength += 1
-		"element":
-			element += 1
-		"fortitude":
-			fortitude += 1
-		"agility":
-			agility += 1
-		"tenacity":
-			tenacity += 1
-		"intellect":
-			intellect += 1
-
-	skill_points -= 1
-	return true
-
-
-
 @export var speed = 200
 var velocity
 var canDash
