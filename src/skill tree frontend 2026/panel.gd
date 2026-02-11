@@ -35,7 +35,7 @@ var skill_cost := {
 	"Acid resistance": 1,
 
 	# Lightning
-	"Shocking teleportati": 1,
+	"Shocking teleportation": 1,
 	"Striking stun": 1,
 	"Lightning resistance": 1,
 }

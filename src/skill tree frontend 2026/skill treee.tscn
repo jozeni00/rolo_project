@@ -262,7 +262,7 @@ throws a powerful javelin at the enemy and stuns them
 I'm sure this will be a shocking story like there never has been before!"
 text = "Striking stun"
 
-[node name="Lighting resistance" type="Button" parent="Panel/Skill tree container/Lightning" unique_id=1360627349]
+[node name="Lightning resistance" type="Button" parent="Panel/Skill tree container/Lightning" unique_id=1360627349]
 layout_mode = 0
 offset_left = 320.0
 offset_top = 33.0
