@@ -391,7 +391,7 @@ offset_right = 48.0
 offset_bottom = 87.0
 text = "+1"
 
-[node name="Temacity level" type="Label" parent="Panel/Skill tree container/Attributes/Tenacity" unique_id=1076011526]
+[node name="Tenacity level" type="Label" parent="Panel/Skill tree container/Attributes/Tenacity" unique_id=1076011526]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 24.0

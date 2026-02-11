@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770702783
+::res://::1770766638
 enemy_base.tscn::PackedScene::7294416339895582065::1770697836::0::1::::<><><>0<>0<><>::uid://buxnivcjv46jy::::res://src/Characters/enemy_class.gd<>uid://c0qrrwv86xpat::::res://src/Inventory/Classes/DropRate.gd<>uid://dyhee4sgho2sg::::res://src/Inventory/Resources/Item/coin.tres<>uid://vr6o36a26l17::::res://src/Characters/Enemy/enemySprites/knightfin_sheet.png<>uid://dwbrig7kmq58l::::res://src/Classes/Hurtbox.gd<>uid://b6utarwb21mpe::::res://src/Classes/Hitbox.gd<>uid://b8ltlvjtoo63a::::res://src/Resource/CharacterStats/CharacterStats.gd<>uid://bx30siccecw4q::::res://src/Resource/AttackStats/AttackStats.gd
 export_presets.cfg::TextFile::-1::1770693875::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::1942930702118367638::1770678977::1770693660::1::::<><><>0<>0<>2a869ceef4bb4cd947a32741468b38a0<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -106,10 +106,10 @@ canvas_layer.tscn::PackedScene::2974688674484987587::1770693875::0::1::::<><><>0
 control.gd::GDScript::6825177040437854224::1770693875::0::1::::<>Control<><>0<>0<><>::
 control.tscn::PackedScene::2266398827790915499::1770693875::0::1::::<><><>0<>0<><>::uid://c4ifw0aacb0hw::::res://src/main menu/control.gd<>uid://dbpln4nype1e::::res://src/PlayerSave/save_manager.tscn<>uid://dy6aot16krxbq::::res://src/Settings/settings_menu.tscn
 node_2d.tscn::PackedScene::6061617499335188827::1770693875::0::1::::<><><>0<>0<><>::
-::res://src/pause/::1770693875
+::res://src/pause/::1770714658
 confirm_box.tscn::PackedScene::8217826006652481980::1770693875::0::1::::<><><>0<>0<><>::
 pause_menu.gd::GDScript::2604556082645439341::1770693875::0::1::::<>Control<><>0<>0<><>::
-pause_menu.tscn::PackedScene::1591748338493756634::1770693875::0::1::::<><><>0<>0<><>::uid://bddwwm27tbgvt::::res://src/pause/pause_menu.gd<>uid://dy6aot16krxbq::::res://src/Settings/settings_menu.tscn<>uid://dbpln4nype1e::::res://src/PlayerSave/save_manager.tscn
+pause_menu.tscn::PackedScene::1591748338493756634::1770714658::0::1::::<><><>0<>0<><>::uid://bddwwm27tbgvt::::res://src/pause/pause_menu.gd<>uid://dy6aot16krxbq::::res://src/Settings/settings_menu.tscn<>uid://dbpln4nype1e::::res://src/PlayerSave/save_manager.tscn
 ::res://src/PlayerSave/::1770693875
 save_manager.tscn::PackedScene::213562035518815328::1770693875::0::1::::<><><>0<>0<><>::uid://bl5wd5o32hidp::::res://src/PlayerSave/PlayerSave/src/save_manager.gd
 ::res://src/PlayerSave/data/::1770693875
@@ -157,8 +157,10 @@ settings.gd::GDScript::8988286572049949505::1770693875::0::1::::<>Control<><>0<>
 settings_test.gd::GDScript::2642419574980948970::1770693875::0::1::::<>Node2D<><>0<>0<><>::
 sounds.gd::GDScript::1728669170566176171::1770693875::0::1::::<>Control<><>0<>0<><>::
 VolumeHSlider.gd::GDScript::3162671539057733604::1770693875::0::1::::VolumeHSlider<>HSlider<><>0<>0<><>::
-::res://src/skill tree frontend 2026/::1770702057
-skill treee.tscn::PackedScene::2730500557077384638::1770702057::0::1::::<><><>0<>0<><>::uid://4j5804qskrk3::::res://src/skill tree frontend 2026/skill_treee.gd
+::res://src/skill tree frontend 2026/::1770726347
+attributes.gd::GDScript::7196068158121669857::1770725971::0::1::::<>Control<><>0<>0<><>::
+panel.gd::GDScript::2616342539887686273::1770726310::0::1::::<>Panel<><>0<>0<><>::
+skill treee.tscn::PackedScene::2730500557077384638::1770726347::0::1::::<><><>0<>0<><>::uid://dar3grbe4fj1r::::res://src/skill tree frontend 2026/attributes.gd<>uid://bdjm1q7y6aell::::res://src/skill tree frontend 2026/panel.gd
 skill_treee.gd::GDScript::2055937664905848164::1770699172::0::1::::<>Control<><>0<>0<><>::
 ::res://src/Skills/::1770693875
 dodge.tscn::PackedScene::1652697753325388578::1770693875::0::1::::<><><>0<>0<><>::uid://dgsylduntq5ok::::res://src/Skills/Character/Dodge.gd
