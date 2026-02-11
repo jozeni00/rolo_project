@@ -1,0 +1,174 @@
+[gd_scene load_steps=33 format=3 uid="uid://d1v2f6vunujwc"]
+
+[ext_resource type="Script" uid="uid://buxnivcjv46jy" path="res://src/Characters/enemy_class.gd" id="1_085mr"]
+[ext_resource type="Texture2D" uid="uid://c5glh37p4cocm" path="res://src/Characters/Enemy/enemySprites/knightfin2.png" id="1_hb8ge"]
+[ext_resource type="Texture2D" uid="uid://cgdu0robuyqba" path="res://src/Characters/Enemy/enemySprites/knightfin_death1.png" id="2_dlccv"]
+[ext_resource type="Texture2D" uid="uid://ducx1rktpkhtn" path="res://src/Characters/Enemy/enemySprites/knightfin3.png" id="2_e1ltt"]
+[ext_resource type="Script" uid="uid://c0qrrwv86xpat" path="res://src/Inventory/Classes/DropRate.gd" id="2_mfr25"]
+[ext_resource type="Texture2D" uid="uid://okv8613hp2cl" path="res://src/Characters/Enemy/enemySprites/knightfin_hurt.png" id="2_yv2r3"]
+[ext_resource type="Texture2D" uid="uid://csgktqpsbfb2o" path="res://src/Characters/Enemy/enemySprites/knightfin4.png" id="3_dxifv"]
+[ext_resource type="Texture2D" uid="uid://b1pyjj4dbajy1" path="res://src/Characters/Enemy/enemySprites/knightfin_death2.png" id="3_ga8qh"]
+[ext_resource type="Resource" uid="uid://dyhee4sgho2sg" path="res://src/Inventory/Resources/Item/coin.tres" id="3_tsvhe"]
+[ext_resource type="Texture2D" uid="uid://06eyyalaoo3s" path="res://src/Characters/Enemy/enemySprites/knightfin_death3.png" id="4_mfr25"]
+[ext_resource type="Texture2D" uid="uid://cahk886qxv3yl" path="res://src/Characters/Enemy/enemySprites/knightfin5.png" id="4_pwjut"]
+[ext_resource type="Texture2D" uid="uid://bqvkm70wec3og" path="res://src/Characters/Enemy/enemySprites/knightfin_death4.png" id="5_ly5mq"]
+[ext_resource type="Texture2D" uid="uid://cl14svk0riek8" path="res://src/Characters/Enemy/enemySprites/knightfin6.png" id="5_n0g06"]
+[ext_resource type="Texture2D" uid="uid://ch02t5qouppjn" path="res://src/Characters/Enemy/enemySprites/knightfin7.png" id="6_ar8e5"]
+[ext_resource type="Texture2D" uid="uid://cf3bg71ig5mjk" path="res://src/Characters/Enemy/enemySprites/knightfin_death5.png" id="6_tsvhe"]
+[ext_resource type="Texture2D" uid="uid://bo1hnlhs8u4r8" path="res://src/Characters/Enemy/enemySprites/knightfin8.png" id="7_doop2"]
+[ext_resource type="Texture2D" uid="uid://c04qokka10onb" path="res://src/Characters/Enemy/enemySprites/knightfin9.png" id="8_5hcft"]
+[ext_resource type="Texture2D" uid="uid://krs4u1eppjg1" path="res://src/Characters/Enemy/enemySprites/knightfin_walk1.png" id="10_ar8e5"]
+[ext_resource type="Texture2D" uid="uid://ccmoft0qqjhmj" path="res://src/Characters/Enemy/enemySprites/knightfin_walk2.png" id="11_doop2"]
+[ext_resource type="Texture2D" uid="uid://dt6kb8pc1kl08" path="res://src/Characters/Enemy/enemySprites/knightfin_walk3.png" id="12_5hcft"]
+[ext_resource type="Texture2D" uid="uid://dp7mvrybqvd2k" path="res://src/Characters/Enemy/enemySprites/knightfin_walk4.png" id="13_nnovl"]
+[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="14_nn272"]
+[ext_resource type="Script" uid="uid://dwbrig7kmq58l" path="res://src/Classes/Hurtbox.gd" id="14_yfud7"]
+[ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="15_7una0"]
+[ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="15_yfud7"]
+
+[sub_resource type="Resource" id="Resource_085mr"]
+script = ExtResource("2_mfr25")
+item = ExtResource("3_tsvhe")
+max_amount = 5
+metadata/_custom_type_script = "uid://c0qrrwv86xpat"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnovl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dlccv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ga8qh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mfr25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ly5mq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tsvhe")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yv2r3")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hb8ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e1ltt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dxifv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pwjut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n0g06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ar8e5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_doop2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5hcft")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ar8e5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_doop2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5hcft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nnovl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_yv2r3"]
+script = ExtResource("15_7una0")
+metadata/_custom_type_script = "uid://b8ltlvjtoo63a"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7una0"]
+size = Vector2(25, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ar8e5"]
+radius = 105.00476
+
+[sub_resource type="Resource" id="Resource_nn272"]
+script = ExtResource("15_yfud7")
+metadata/_custom_type_script = "uid://bx30siccecw4q"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_doop2"]
+radius = 36.013885
+
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("sprite", "hurtbox", "hitbox", "detect_area")]
+script = ExtResource("1_085mr")
+sprite = NodePath("Area2D/enemSprite")
+hurtbox = NodePath("Area2D/Hurtbox")
+hitbox = NodePath("Area2D/Attack")
+detect_area = NodePath("Area2D/Detection")
+detect_radius = 20.0
+loot_table = Array[ExtResource("2_mfr25")]([SubResource("Resource_085mr")])
+exp = 10
+metadata/_custom_type_script = "uid://buxnivcjv46jy"
+
+[node name="Area2D" type="Node2D" parent="."]
+position = Vector2(100, 100)
+
+[node name="enemSprite" type="AnimatedSprite2D" parent="Area2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nnovl")
+animation = &"hurt"
+
+[node name="Hurtbox" type="Area2D" parent="Area2D"]
+collision_layer = 2
+script = ExtResource("14_yfud7")
+stats = SubResource("Resource_yv2r3")
+metadata/_custom_type_script = "uid://dwbrig7kmq58l"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Hurtbox"]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_7una0")
+
+[node name="Detection" type="Area2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Detection"]
+shape = SubResource("CircleShape2D_ar8e5")
+
+[node name="Attack" type="Area2D" parent="Area2D"]
+collision_layer = 2
+script = ExtResource("14_nn272")
+stats = SubResource("Resource_nn272")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Attack"]
+shape = SubResource("CircleShape2D_doop2")
+
+[connection signal="area_entered" from="Area2D/Detection" to="Area2D" method="_on_detection_area_entered"]
+[connection signal="area_exited" from="Area2D/Detection" to="Area2D" method="_on_detection_area_exited"]
+[connection signal="area_entered" from="Area2D/Attack" to="Area2D" method="_on_attack_area_entered"]
+[connection signal="area_exited" from="Area2D/Attack" to="Area2D" method="_on_exit_attack_range"]

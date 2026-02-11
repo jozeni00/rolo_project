@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ssp76li6h0cr"]
+
+[ext_resource type="Script" uid="uid://cpegmt0ce3ee1" path="res://src/main/main.gd" id="1_ibsor"]
+[ext_resource type="PackedScene" uid="uid://b3b7udsqqhcwx" path="res://src/Character/chara.tscn" id="4_djufw"]
+[ext_resource type="PackedScene" uid="uid://cqweyty7cmf1d" path="res://src/Scenes that are Very Very Temporary/farmRoom.tscn" id="4_jkpqq"]
+[ext_resource type="PackedScene" uid="uid://wxb4le0tibcc" path="res://src/pause/pause_menu.tscn" id="11_w0wra"]
+
+[node name="main" type="Node2D" groups=["Engine"]]
+script = ExtResource("1_ibsor")
+
+[node name="farmRoom" parent="." instance=ExtResource("4_jkpqq")]
+
+[node name="Chara" parent="." instance=ExtResource("4_djufw")]
+position = Vector2(479, 127)
+
+[node name="Pause_Menu" parent="." instance=ExtResource("11_w0wra")]
+visible = false
+offset_left = 297.0
+offset_top = 120.0
+offset_right = 297.0
+offset_bottom = 120.0

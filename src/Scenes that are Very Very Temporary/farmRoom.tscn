@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqweyty7cmf1d"]
+
+[ext_resource type="Script" uid="uid://bm8i3kdrp0qsl" path="res://src/Scenes that are Very Very Temporary/farm_room.gd" id="1_is8o5"]
+[ext_resource type="Texture2D" uid="uid://dwtynivtxd6bw" path="res://src/Sprites that are Very Very Temporary/farmRoom.png" id="2_is8o5"]
+[ext_resource type="PackedScene" uid="uid://dny7he0t12flb" path="res://src/Characters/NPC/NPC.tscn" id="3_14wo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7f8"]
+size = Vector2(67, 20)
+
+[node name="farmRoom" type="Node2D"]
+script = ExtResource("1_is8o5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(320, 180)
+texture = ExtResource("2_is8o5")
+
+[node name="TopLoadingZone" type="Area2D" parent="Area2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/TopLoadingZone"]
+position = Vector2(318.5, 10)
+shape = SubResource("RectangleShape2D_xc7f8")
+
+[node name="NPC" parent="." instance=ExtResource("3_14wo0")]
+position = Vector2(-227, -100)
+
+[connection signal="area_entered" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_entered"]
+[connection signal="area_exited" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_area_exited"]

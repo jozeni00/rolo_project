@@ -1,0 +1,90 @@
+[gd_scene load_steps=19 format=3 uid="uid://dyuq4h0s1ksb6"]
+
+[ext_resource type="Script" uid="uid://byypt60t6nbck" path="res://src/main/weapon.gd" id="1_e4ynd"]
+[ext_resource type="Texture2D" uid="uid://c7bf6pd500iti" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite1.png" id="2_v0wwq"]
+[ext_resource type="Texture2D" uid="uid://biuvunma238ly" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite2.png" id="3_5nb6p"]
+[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="3_r76a6"]
+[ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="4_dwvek"]
+[ext_resource type="Texture2D" uid="uid://bhipjadm2pagu" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite3.png" id="4_evhoq"]
+[ext_resource type="Texture2D" uid="uid://c425c43ewkovf" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite4.png" id="5_tsoji"]
+[ext_resource type="Texture2D" uid="uid://0kdk316pbhkh" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite5.png" id="6_hqx57"]
+[ext_resource type="Texture2D" uid="uid://ge7rtvv2fge5" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite6.png" id="7_dllgs"]
+[ext_resource type="Texture2D" uid="uid://iqncsf5eu45s" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite7.png" id="8_qeuqu"]
+[ext_resource type="Texture2D" uid="uid://c5b10cptl5o5u" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite8.png" id="9_x58x5"]
+[ext_resource type="Texture2D" uid="uid://d34kj1kdv2bxo" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite9.png" id="10_7krr7"]
+[ext_resource type="Texture2D" uid="uid://bvk6fhbakm6yk" path="res://src/sprite sheets/weaponSprites/sword-export.aseprite10.png" id="11_wwqho"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwvek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v0wwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5nb6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_evhoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tsoji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hqx57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dllgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qeuqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x58x5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7krr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wwqho")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_rx5id"]
+script = ExtResource("4_dwvek")
+metadata/_custom_type_script = "uid://bx30siccecw4q"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx5id"]
+size = Vector2(5, 15)
+
+[sub_resource type="Animation" id="Animation_e4ynd"]
+resource_name = "attackR"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r76a6"]
+_data = {
+&"attackR": SubResource("Animation_e4ynd")
+}
+
+[node name="Weapon" type="Node2D"]
+position = Vector2(183, 193)
+script = ExtResource("1_e4ynd")
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(21, -6)
+sprite_frames = SubResource("SpriteFrames_dwvek")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_r76a6")
+stats = SubResource("Resource_rx5id")
+
+[node name="Hitbox2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(20.5, -12)
+shape = SubResource("RectangleShape2D_rx5id")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r76a6")
+}

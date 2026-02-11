@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://xstxqi16kmk5"]
+
+[ext_resource type="Script" uid="uid://dgsylduntq5ok" path="res://src/Skills/Character/Dodge.gd" id="1_srbsf"]
+
+[node name="Dodge" type="Node"]
+script = ExtResource("1_srbsf")
+metadata/_custom_type_script = "uid://ivkl2pj4k5hn"

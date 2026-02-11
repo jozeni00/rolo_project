@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnqbdbe37oa3x"]
+
+[ext_resource type="Texture2D" uid="uid://baibobqapci84" path="res://src/Sprites that are Very Very Temporary/midRoom.png" id="1_5esxd"]
+[ext_resource type="Script" uid="uid://ll3xwpmo6v67" path="res://src/Scenes that are Very Very Temporary/mid_room.gd" id="1_xc7f8"]
+[ext_resource type="PackedScene" uid="uid://d1v2f6vunujwc" path="res://src/Characters/Enemy/enemy.tscn" id="3_3vi3k"]
+[ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="4_087ba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7f8"]
+size = Vector2(67, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi3k"]
+size = Vector2(70, 16)
+
+[sub_resource type="Resource" id="Resource_087ba"]
+script = ExtResource("4_087ba")
+metadata/_custom_type_script = "uid://b8ltlvjtoo63a"
+
+[sub_resource type="Resource" id="Resource_m0re3"]
+script = ExtResource("4_087ba")
+metadata/_custom_type_script = "uid://b8ltlvjtoo63a"
+
+[node name="midRoom" type="Node2D"]
+script = ExtResource("1_xc7f8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(320, 180)
+texture = ExtResource("1_5esxd")
+
+[node name="TopLoadingZone" type="Area2D" parent="Area2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/TopLoadingZone"]
+position = Vector2(318.5, 10)
+shape = SubResource("RectangleShape2D_xc7f8")
+
+[node name="BottomLoadingZone" type="Area2D" parent="Area2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/BottomLoadingZone"]
+position = Vector2(320, 353)
+shape = SubResource("RectangleShape2D_3vi3k")
+
+[node name="Enemy" parent="Area2D" instance=ExtResource("3_3vi3k")]
+position = Vector2(150, 144)
+
+[node name="Hurtbox" parent="Area2D/Enemy/Area2D" index="1"]
+stats = SubResource("Resource_087ba")
+
+[node name="Enemy2" parent="Area2D" instance=ExtResource("3_3vi3k")]
+position = Vector2(496, 145)
+
+[node name="Hurtbox" parent="Area2D/Enemy2/Area2D" index="1"]
+stats = SubResource("Resource_m0re3")
+
+[connection signal="area_entered" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_entered"]
+[connection signal="area_exited" from="Area2D/TopLoadingZone" to="." method="_on_top_loading_zone_area_exited"]
+[connection signal="area_entered" from="Area2D/BottomLoadingZone" to="." method="_on_bottom_loading_zone_entered"]
+
+[editable path="Area2D/Enemy"]
+[editable path="Area2D/Enemy2"]

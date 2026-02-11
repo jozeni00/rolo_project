@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dny7he0t12flb"]
+
+[ext_resource type="Script" uid="uid://bxljjjminv8at" path="res://src/Characters/NPC/npc.gd" id="1_0t8av"]
+[ext_resource type="Texture2D" uid="uid://c574qy7vvp3u7" path="res://src/sprite sheets/npcSprites/farmer1.png" id="1_y2xng"]
+[ext_resource type="Texture2D" uid="uid://bafsv0aa7urre" path="res://src/sprite sheets/npcSprites/farmer2.png" id="2_0t8av"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfxta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y2xng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0t8av")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0h4yk"]
+radius = 38.013157
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("1_0t8av")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(334, 177)
+sprite_frames = SubResource("SpriteFrames_lfxta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(336, 180)
+shape = SubResource("CircleShape2D_0h4yk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 141.0
+offset_right = 478.0
+offset_bottom = 164.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

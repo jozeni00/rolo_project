@@ -1,0 +1,74 @@
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://d264k6851ktxi"]
+
+[ext_resource type="FontFile" uid="uid://crexq1h32bkfk" path="res://src/fonts/Bungee-Regular.ttf" id="1_4naoo"]
+[ext_resource type="Texture2D" uid="uid://6v0yuonkk5m" path="res://src/Settings/assets/slider.png" id="1_87dde"]
+[ext_resource type="Texture2D" uid="uid://dqqqeqvll73ji" path="res://src/Settings/assets/button.png" id="1_bhfbo"]
+[ext_resource type="Texture2D" uid="uid://bmrcuplakpufb" path="res://src/Settings/assets/slidergrey.png" id="1_r50gg"]
+[ext_resource type="Texture2D" uid="uid://bplrek6h18m40" path="res://src/Settings/assets/button1.png" id="1_s4fde"]
+[ext_resource type="Texture2D" uid="uid://bm58gq7hr8k40" path="res://src/Settings/assets/arrow.png" id="3_ribtc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2i12j"]
+texture = ExtResource("1_bhfbo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r50gg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4fde"]
+texture = ExtResource("1_s4fde")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhfbo"]
+texture = ExtResource("1_bhfbo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ribtc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4naoo"]
+bg_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ribtc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87dde"]
+bg_color = Color(0.011087579, 0.011087578, 0.01108758, 0.23529412)
+border_width_left = 5
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.23529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r50gg"]
+bg_color = Color(0, 0, 0, 0.23529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhfbo"]
+bg_color = Color(0, 0, 0, 0.23529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4fde"]
+bg_color = Color(0, 0, 0, 0.23529412)
+
+[resource]
+default_font = ExtResource("1_4naoo")
+default_font_size = 6
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_2i12j")
+Button/styles/focus = SubResource("StyleBoxEmpty_r50gg")
+Button/styles/hover = SubResource("StyleBoxTexture_s4fde")
+Button/styles/normal = SubResource("StyleBoxTexture_bhfbo")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ribtc")
+HSlider/icons/grabber = ExtResource("1_r50gg")
+HSlider/icons/grabber_highlight = ExtResource("1_87dde")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_4naoo")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ribtc")
+HSlider/styles/slider = SubResource("StyleBoxFlat_87dde")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 6
+Label/fonts/font = ExtResource("1_4naoo")
+OptionButton/colors/font_color = Color(1, 1, 1, 1)
+OptionButton/constants/arrow_margin = 2
+OptionButton/constants/h_separation = 2
+OptionButton/icons/arrow = ExtResource("3_ribtc")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_r50gg")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_bhfbo")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_s4fde")

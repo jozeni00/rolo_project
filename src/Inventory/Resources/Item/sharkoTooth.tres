@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://nswwgvbda1iq"]
+
+[ext_resource type="Script" uid="uid://0v6sdc7fss6a" path="res://src/Inventory/Classes/Item.gd" id="1_dlgbl"]
+[ext_resource type="Texture2D" uid="uid://c0k4hyywhywtf" path="res://src/sprite sheets/icon_sprites/king_sharko_tooth.png" id="2_6mfxs"]
+
+[resource]
+script = ExtResource("1_dlgbl")
+item_type = 2
+name = "Sharko's Tooth"
+description = "The tooth of a self-proclaimed \"King of Seas and Trees.\" Someone probably has a use for this."
+sprite = ExtResource("2_6mfxs")
+metadata/_custom_type_script = "uid://0v6sdc7fss6a"
