@@ -32,6 +32,10 @@ window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
+[editor]
+
+version_control/autoload_on_startup=true
+
 [global_group]
 
 Player=""
