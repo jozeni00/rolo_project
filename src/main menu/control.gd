@@ -12,7 +12,10 @@ var _mock_used: Dictionary = {2: true, 4: true}  # change as you like
 # ===================== #
 #      REAL SAVES       #
 # ===================== #
-const SAVE_DIR := "C:\\Users\\Arman\\Documents\\GitHub\\rolo_project\\src\\PlayerSave\\data\\"
+
+# # const SAVE_DIR := "C:\\Users\\Arman\\Documents\\GitHub\\rolo_project\\src\\PlayerSave\\data\\"
+
+const SAVE_DIR := ""
 const SAVE_FMT := "slot%d.save"
 
 func _slot_path(idx:int) -> String:
