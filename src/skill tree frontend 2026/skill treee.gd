@@ -1,7 +1,15 @@
 extends Control
 
+var _player: Player
+
 var player: Player:
+	get:
+		return _player
 	set(value):
-		player = value
-		# Pass it down to the Attributes node
-		$Panel/Skill\ tree\ container/Attributes.player = value
+		_player = value
+		
+		var panel = $Panel
+		var attributes_node = panel.get_node("SkillTreeContainer/Attributes")
+		
+		if attributes_node:
+			attributes_node.set_dependencies(value, panel)

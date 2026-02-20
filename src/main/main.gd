@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 			skill_tree_instance = skill_tree_scene.instantiate()
 			add_child(skill_tree_instance)
 
-			skill_tree_instance.player = $Cara
+			skill_tree_instance.player = $Chara
 
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:

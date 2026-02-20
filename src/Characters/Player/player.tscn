@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b3b7udsqqhcwx"]
+[gd_scene format=3 uid="uid://b3b7udsqqhcwx"]
 
 [ext_resource type="Script" uid="uid://b8eehyx61oppo" path="res://src/main/character.gd" id="1_kmau3"]
 [ext_resource type="Script" uid="uid://0v6sdc7fss6a" path="res://src/Inventory/Classes/Item.gd" id="2_h5yxs"]
@@ -372,35 +372,35 @@ metadata/_custom_type_script = "uid://b8ltlvjtoo63a"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h5qw"]
 size = Vector2(8.5, 13.5)
 
-[node name="Chara" type="Node2D" node_paths=PackedStringArray("weapon") groups=["Player"]]
+[node name="Chara" type="Node2D" unique_id=206327011 node_paths=PackedStringArray("weapon") groups=["Player"]]
 position = Vector2(386, 111)
 script = ExtResource("1_kmau3")
 weapon = NodePath("Weapon/Hitbox")
 myInventory = SubResource("Resource_rdfk6")
 
-[node name="Weapon" parent="." instance=ExtResource("12_ye0k3")]
+[node name="Weapon" parent="." unique_id=346102910 instance=ExtResource("12_ye0k3")]
 position = Vector2(0, -17)
 
-[node name="charaSprite" type="AnimatedSprite2D" parent="."]
+[node name="charaSprite" type="AnimatedSprite2D" parent="." unique_id=1862821179]
 sprite_frames = SubResource("SpriteFrames_ig5p7")
 animation = &"dodge"
 autoplay = "idle"
 frame = 3
 frame_progress = 0.35714105
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2032627349]
 collision_mask = 2
 script = ExtResource("10_qp6gg")
 stats = SubResource("Resource_5atsa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1834360587]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_2h5qw")
 
-[node name="Reticle" type="Node2D" parent="."]
+[node name="Reticle" type="Node2D" parent="." unique_id=1080016570]
 script = ExtResource("10_2srgy")
 
-[node name="Sprite2D" type="Sprite2D" parent="Reticle"]
+[node name="Sprite2D" type="Sprite2D" parent="Reticle" unique_id=830998740]
 texture = ExtResource("11_0pyd7")
 
 [editable path="Weapon"]

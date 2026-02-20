@@ -1,7 +1,10 @@
 extends Control
 var player: Player
 
-@onready var ui := get_node("../..")  # Attributes -> TabContainer -> Panel
+#@onready var ui := get_node("../..")  # Attributes -> TabContainer -> Panel
+
+var ui: Panel
+
 #@onready var player: Player = get_node("/root/Main/Player")
 
 
@@ -13,9 +16,16 @@ var player: Player
 	#"Tenacity": 1,
 	#"Intellect": 1,
 #}
-
+func set_dependencies(p: Player, panel: Panel) -> void:
+	player = p
+	ui = panel
+	_refresh_stat_labels()
+	
 func _ready() -> void:
 	_connect_stat_buttons()
+
+func set_player(p: Player) -> void:
+	player = p
 	_refresh_stat_labels()
 
 func _connect_stat_buttons() -> void:
