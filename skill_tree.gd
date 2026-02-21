@@ -80,8 +80,10 @@ func checkCompatibility() -> bool:
 		
 func purchaseSkill(points: int)->void:
 	if(points >= selection.skillCost and checkCompatibility()):
+		selection = (skills[selectionIndex])
 		selection.swapSprite()
 		player.skill_points -= selection.skillCost
+		print("Purchased " + skills[selectionIndex].name)
 		print(player.skill_points)
 	else:
 		print("NOT RIGHT")
