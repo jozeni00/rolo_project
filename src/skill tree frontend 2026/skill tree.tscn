@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://be5w7ex4rhq7w"]
 
+<<<<<<< HEAD:src/skill tree frontend 2026/skill treee.tscn
 [ext_resource type="Script" uid="uid://bnp1imobnr55y" path="res://src/skill tree frontend 2026/skill treee.gd" id="1_ddw46"]
 [ext_resource type="Script" uid="uid://dar3grbe4fj1r" path="res://src/skill tree frontend 2026/attributes.gd" id="2_ddw46"]
 [ext_resource type="Script" uid="uid://bdjm1q7y6aell" path="res://src/skill tree frontend 2026/panel.gd" id="2_k41d2"]
+=======
+[ext_resource type="Script" uid="uid://bdjm1q7y6aell" path="res://src/skill tree frontend 2026/panel.gd" id="1_bncpg"]
+[ext_resource type="Script" uid="uid://dar3grbe4fj1r" path="res://src/skill tree frontend 2026/attributes.gd" id="2_b3oy1"]
+>>>>>>> health-exp-level-stamina-2026:src/skill tree frontend 2026/skill tree.tscn
 
 [node name="Control" type="Control" unique_id=419918047]
 layout_mode = 3
@@ -17,7 +22,7 @@ script = ExtResource("1_ddw46")
 layout_mode = 0
 offset_right = 639.0
 offset_bottom = 361.0
-script = ExtResource("2_k41d2")
+script = ExtResource("1_bncpg")
 
 [node name="SkillTreeContainer" type="TabContainer" parent="Panel" unique_id=968945361]
 layout_mode = 0
@@ -42,10 +47,10 @@ autowrap_trim_flags = 0
 
 [node name="Flaming edge" type="Button" parent="Panel/SkillTreeContainer/Fire" unique_id=1611057213]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 33.0
-offset_right = 191.0
-offset_bottom = 64.0
+offset_left = 8.0
+offset_top = 65.0
+offset_right = 119.0
+offset_bottom = 96.0
 tooltip_text = "(req attribute point: 2)
 infuses your weapon is with the element of fire 
 and you can set enemies on fire with dot
@@ -54,10 +59,10 @@ text = "Flaming edge"
 
 [node name="Fire resistance" type="Button" parent="Panel/SkillTreeContainer/Fire" unique_id=539794388]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 33.0
-offset_right = 377.0
-offset_bottom = 64.0
+offset_left = 8.0
+offset_top = 97.0
+offset_right = 129.0
+offset_bottom = 128.0
 tooltip_text = "(req attribute points: 3)
 harness the power of fire and let it burn within you!
 the chance of fire related status effect are reduce and you take less fire damage
@@ -84,10 +89,9 @@ text = "Hydrobeam
 
 [node name="Splash" type="Button" parent="Panel/SkillTreeContainer/Water" unique_id=800803427]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 33.0
-offset_right = 170.0
-offset_bottom = 64.0
+offset_top = 65.0
+offset_right = 59.0
+offset_bottom = 96.0
 tooltip_text = "(req atttribute points: 2)
 infuse your sword with the element of water.
 It can make your enemies wet! 
@@ -100,10 +104,9 @@ text = "Splash
 
 [node name="Water resistance" type="Button" parent="Panel/SkillTreeContainer/Water" unique_id=1650826961]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 33.0
-offset_right = 321.0
-offset_bottom = 64.0
+offset_top = 97.0
+offset_right = 139.0
+offset_bottom = 128.0
 tooltip_text = "(req attribute points: 3)
 harness the power of water and let the currents flow within you!
 the chance of water related status effects are reduced 
@@ -129,10 +132,9 @@ text = "Earthbound gate"
 
 [node name="Sandtorm slash" type="Button" parent="Panel/SkillTreeContainer/Earth" unique_id=1791523962]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 33.0
-offset_right = 287.0
-offset_bottom = 64.0
+offset_top = 65.0
+offset_right = 136.0
+offset_bottom = 96.0
 tooltip_text = "(req attribute points: 2)
 infuse your sword with the element of Earth.
 when hitting an enemy it has a chance to slow them down.
@@ -142,10 +144,9 @@ text = "Sandstorm slash"
 
 [node name="Stone armor" type="Button" parent="Panel/SkillTreeContainer/Earth" unique_id=1964811740]
 layout_mode = 0
-offset_left = 304.0
-offset_top = 33.0
-offset_right = 408.0
-offset_bottom = 64.0
+offset_top = 97.0
+offset_right = 105.0
+offset_bottom = 128.0
 tooltip_text = "(req attribute points: 3)
 
 harness the power of Earth and let the sands shift within you!
@@ -172,10 +173,9 @@ text = "Spearwind dash"
 
 [node name="Windward stun" type="Button" parent="Panel/SkillTreeContainer/Air" unique_id=1934688429]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 33.0
-offset_right = 268.0
-offset_bottom = 64.0
+offset_top = 57.0
+offset_right = 126.0
+offset_bottom = 88.0
 tooltip_text = "(req attribute points: 2)
 infuses your weapon with the element of air.
 upon attacking a(n) enem (y) ies there is a chance for them to be stunned for a moment
@@ -184,10 +184,9 @@ text = "Windward stun"
 
 [node name="Air resistance" type="Button" parent="Panel/SkillTreeContainer/Air" unique_id=1629659747]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 33.0
-offset_right = 392.0
-offset_bottom = 64.0
+offset_top = 81.0
+offset_right = 114.0
+offset_bottom = 112.0
 tooltip_text = "(req attribute points: 3)
 harness the power of air and let the currents breeze past you!
 the chance of air related status effects are reduced 
@@ -214,10 +213,9 @@ text = "Trail of corrosion"
 
 [node name="Corrode" type="Button" parent="Panel/SkillTreeContainer/Acid" unique_id=1935395407]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 33.0
-offset_right = 240.0
-offset_bottom = 66.0
+offset_top = 65.0
+offset_right = 88.0
+offset_bottom = 98.0
 tooltip_text = "(req attribute points: 2)
 infuses your weapon with the element of Acid.
 upon attacking a(n) enem (y) ies there is a chance 
@@ -227,10 +225,9 @@ text = "Corrode"
 
 [node name="Acid resistance" type="Button" parent="Panel/SkillTreeContainer/Acid" unique_id=1305417279]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 33.0
-offset_right = 344.0
-offset_bottom = 66.0
+offset_top = 89.0
+offset_right = 125.0
+offset_bottom = 122.0
 tooltip_text = "(req attribute points: 3)
 harness the power of Acid and let the acidity intoxicate you!
 the chance of acid related status effects are reduced 
@@ -243,6 +240,7 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
+<<<<<<< HEAD:src/skill tree frontend 2026/skill treee.tscn
 [node name="Shocking teleportation" type="Button" parent="Panel/SkillTreeContainer/Lightning" unique_id=684578858]
 layout_mode = 0
 offset_top = 33.0
@@ -265,10 +263,12 @@ I'm sure this will be a shocking story like there never has been before!"
 text = "Striking stun"
 
 [node name="Lightning resistance" type="Button" parent="Panel/SkillTreeContainer/Lightning" unique_id=1360627349]
+=======
+[node name="Lightning resistance" type="Button" parent="Panel/Skill tree container/Lightning" unique_id=1360627349]
+>>>>>>> health-exp-level-stamina-2026:src/skill tree frontend 2026/skill tree.tscn
 layout_mode = 0
-offset_left = 320.0
 offset_top = 33.0
-offset_right = 484.0
+offset_right = 164.0
 offset_bottom = 64.0
 tooltip_text = "(req attribute points: 3)
 harness the power of Lightning and let it shock you!
@@ -277,9 +277,33 @@ and you take less Lightning damage
 I guess you could say this is a shocking experience!"
 text = "Lightning resistance"
 
+<<<<<<< HEAD:src/skill tree frontend 2026/skill treee.tscn
 [node name="Attributes" type="Control" parent="Panel/SkillTreeContainer" unique_id=1315938951]
+=======
+[node name="Striking stun" type="Button" parent="Panel/Skill tree container/Lightning" unique_id=1933030837]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 106.0
+offset_bottom = 88.0
+tooltip_text = "(req attribute points: 2)
+throws a powerful javelin at the enemy and stuns them
+I'm sure this will be a shocking story like there never has been before!"
+text = "Striking stun"
+
+[node name="Shocking teleportation" type="Button" parent="Panel/Skill tree container/Lightning" unique_id=684578858]
+layout_mode = 0
+offset_top = 81.0
+offset_right = 184.0
+offset_bottom = 112.0
+tooltip_text = "(req attribute points: 1)
+swap places with the enemy. 
+I'm sure this will be a shocking revelation!"
+text = "Shocking teleportation"
+
+[node name="Attributes" type="Control" parent="Panel/Skill tree container" unique_id=1315938951]
+>>>>>>> health-exp-level-stamina-2026:src/skill tree frontend 2026/skill tree.tscn
 layout_mode = 2
-script = ExtResource("2_ddw46")
+script = ExtResource("2_b3oy1")
 metadata/_tab_index = 6
 
 [node name="Strength" type="Label" parent="Panel/SkillTreeContainer/Attributes" unique_id=865967210]
@@ -433,12 +457,12 @@ offset_right = 629.0
 offset_bottom = 32.0
 text = "Attribute points: 0"
 
-[node name="Add 1 test for attribute points" type="Button" parent="Panel/Attribute points" unique_id=869597803]
+[node name="Add 5 test for attribute points" type="Button" parent="Panel/Attribute points" unique_id=869597803]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 32.0
 offset_right = 83.0
 offset_bottom = 63.0
-text = "+1"
+text = "+5"
 
 [node name="Skill unlocked" type="AcceptDialog" parent="Panel" unique_id=415129471]

@@ -1,7 +1,12 @@
 extends Control
 var player: Player
 
-#@onready var ui := get_node("../..")  # Attributes -> TabContainer -> Panel
+signal stats_changed(new_stats: Dictionary)
+
+# Attributes is inside TabContainer -> Panel is 2 levels up
+@onready var ui := get_node("../..")
+
+const ADD_BUTTON_NAME := "Add 1"
 
 var ui: Panel
 
@@ -23,57 +28,37 @@ func set_dependencies(p: Player, panel: Panel) -> void:
 	
 func _ready() -> void:
 	_connect_stat_buttons()
-
-func set_player(p: Player) -> void:
-	player = p
-	_refresh_stat_labels()
+	_refresh_all_labels()
+	emit_signal("stats_changed", stats.duplicate(true))
 
 func _connect_stat_buttons() -> void:
 	for stat_node in get_children():
-		var btn := stat_node.get_node_or_null("Add 1") as Button
+		if not stats.has(stat_node.name):
+			continue
+
+		var btn := stat_node.get_node_or_null(ADD_BUTTON_NAME) as Button
 		if btn:
 			btn.pressed.connect(func():
 				_try_increase(stat_node.name)
 			)
-	
 
 func _try_increase(stat_name: String) -> void:
-	# spend 1 shared point from Panel
 	if not ui.try_spend_points(1):
 		ui.show_popup("Not enough attribute points!")
 		return
-		
-	match stat_name:
-		"Strength":
-			player.strength += 1
-		"Element":
-			player.element += 1
-		"Fortitude":
-			player.fortitude += 1
-		"Agility":
-			player.agility += 1
-		"Tenacity":
-			player.tenacity += 1
-		"Intellect":
-			player.intellect += 1
-	_refresh_stat_labels()
+	stats[stat_name] += 1
+	_set_label_for(stat_name)
+	emit_signal("stats_changed", stats.duplicate(true))
 
-func _refresh_stat_labels() -> void:
-	for stat_node in get_children():
-		var lbl := stat_node.get_node_or_null(stat_node.name + " level") as Label
-		if not lbl:
-			continue
+func _refresh_all_labels() -> void:
+	for stat_name in stats.keys():
+		_set_label_for(stat_name)
 
-		match stat_node.name:
-			"Strength":
-				lbl.text = str(player.strength)
-			"Element":
-				lbl.text = str(player.element)
-			"Fortitude":
-				lbl.text = str(player.fortitude)
-			"Agility":
-				lbl.text = str(player.agility)
-			"Tenacity":
-				lbl.text = str(player.tenacity)
-			"Intellect":
-				lbl.text = str(player.intellect)
+func _set_label_for(stat_name: String) -> void:
+	var stat_node := get_node_or_null(stat_name)
+	if stat_node == null:
+		return
+
+	var lbl := stat_node.get_node_or_null("%s level" % stat_name) as Label
+	if lbl:
+		lbl.text = str(stats[stat_name])
