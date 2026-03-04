@@ -3,7 +3,7 @@ extends Panel
 @onready var points_label: Label = $"Attribute points"
 @onready var add_points_btn: Button = $"Attribute points/Add 1 test for attribute points"
 @onready var popup: AcceptDialog = $"Skill unlocked"
-@onready var tab_container: TabContainer = $"SkillTreeContainer"
+@onready var tab_container: TabContainer = $"Skill tree container"
 
 var attribute_points := 0
 

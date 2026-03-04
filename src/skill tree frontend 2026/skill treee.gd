@@ -9,7 +9,7 @@ var player: Player:
 		_player = value
 		
 		var panel = $Panel
-		var attributes_node = panel.get_node("SkillTreeContainer/Attributes")
+		var attributes_node = panel.get_node("Skill tree container/Attributes")
 		
 		if attributes_node:
 			attributes_node.set_dependencies(value, panel)
