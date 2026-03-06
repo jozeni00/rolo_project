@@ -3,7 +3,9 @@ extends Panel
 @onready var points_label: Label = $"Attribute points"
 @onready var add_points_btn: Button = $"Attribute points/Add 5 test for attribute points"
 @onready var popup: AcceptDialog = $"Skill unlocked"
-@onready var tab_container: TabContainer = $"SkillTreeContainer"
+@onready var tab_container: TabContainer = $"Skill tree container"
+#@onready var player: Player = $"/root/Main/Chara"
+var player: Player
 
 # Correct path based on your scene tree:
 @onready var attributes_node: Node = $"Skill tree container/Attributes"
@@ -60,6 +62,28 @@ func _ready() -> void:
 
 	_refresh_points()
 	_connect_all_skill_buttons()
+	
+	
+	call_deferred("_setup_attributes")
+
+	# Connect to Attributes updates (requirements update live)
+	if attributes_node and attributes_node.has_signal("stats_changed"):
+		if not attributes_node.stats_changed.is_connected(_on_stats_changed):
+			attributes_node.stats_changed.connect(_on_stats_changed)
+	else:
+		push_warning("Panel: Could not connect to Attributes.stats_changed. Make sure Attributes.gd is on 'Skill tree container/Attributes' and defines stats_changed.")
+
+	# Pull initial stats (Godot 4 has no has_variable)
+	#if attributes_node:
+	#	attributes = attributes_node.stats.duplicate(true)
+
+	_update_skill_buttons()
+
+func _setup_attributes():
+	player = get_node("/root/Main/Chara")
+
+	if attributes_node and player:
+		attributes_node.set_dependencies(player, self)
 
 	# Connect to Attributes updates (requirements update live)
 	if attributes_node and attributes_node.has_signal("stats_changed"):
