@@ -24,6 +24,8 @@ var music_volume: float
 var brightness: float
 var resolution: int
 
+var windowList = DisplayServer.get_window_list()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -55,7 +57,17 @@ func load_config() -> void:
 	## updating display settings
 	brightness = config.get_value("Displays", "Brightness")
 	resolution = config.get_value("Displays", "Resolution")
-	DisplayServer.window_set_size(RESOLUTIONS[resolution])
+	DisplayServer.window_set_size(RESOLUTIONS[resolution], windowList[0])
+	var newWinPos = Vector2i(RESOLUTIONS[resolution].x/2, RESOLUTIONS[resolution].y/2)
+	DisplayServer.window_set_position(newWinPos, windowList[0])
+
+#
+	#while DisplayServer.window_get_position(windowList[0]) != newWinPos:
+		#print("Not the right position for window #" + windowList[0].to_string())
+		#DisplayServer.window_set_position(newWinPos, windowList[0])
+		#await get_tree().create_timer(1).timeout
+		#
+	#print("Correct position for window #" + windowList[0].to_string())
 	
 	#for display in displaysection.get_children():
 		#if display is HSlider:

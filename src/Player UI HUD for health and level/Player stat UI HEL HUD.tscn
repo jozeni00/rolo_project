@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://csm3npfyxganv"]
+
+[ext_resource type="Script" uid="uid://vpjkbyhka5ns" path="res://src/Player UI HUD for health and level/control.gd" id="1_a13li"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a13li"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Player Stat Ui Hel Hud" type="Control" unique_id=1011519574]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="." unique_id=308871635]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_a13li")
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1183926848]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a13li")
+
+[node name="Health" type="Label" parent="Control/Panel" unique_id=1700651483]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health 100/100"
+
+[node name="Take damage" type="Button" parent="Control/Panel/Health" unique_id=1144604956]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 237.0
+offset_bottom = 31.0
+text = "take damage"
+
+[node name="Level" type="Label" parent="Control/Panel" unique_id=34262054]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 106.0
+offset_bottom = 47.0
+text = "Level 100/100"
+
+[node name="EXP" type="Label" parent="Control/Panel" unique_id=1123386520]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 95.0
+offset_bottom = 79.0
+text = "EXP 100/100"
+
+[node name="Add exp" type="Button" parent="Control/Panel/EXP" unique_id=1248640407]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 240.0
+offset_bottom = 24.0
+text = "add exp"
+
+[node name="Blocking stamina" type="Label" parent="Control/Panel" unique_id=286126460]
+layout_mode = 0
+offset_top = 104.0
+offset_right = 40.0
+offset_bottom = 127.0
+text = "blocking stamina: 100/100"
+
+[node name="Block" type="Button" parent="Control/Panel/Blocking stamina" unique_id=176910605]
+layout_mode = 0
+offset_left = 240.0
+offset_right = 290.0
+offset_bottom = 31.0
+text = "Block"
