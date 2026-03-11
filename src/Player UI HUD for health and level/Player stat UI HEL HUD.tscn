@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://vpjkbyhka5ns" path="res://src/Player UI HUD for health and level/control.gd" id="1_a13li"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a13li"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="Player Stat Ui Hel Hud" type="Control" unique_id=1011519574]
 layout_mode = 3
 anchors_preset = 15
@@ -20,6 +32,7 @@ script = ExtResource("1_a13li")
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a13li")
 
 [node name="Health" type="Label" parent="Control/Panel" unique_id=1700651483]
 layout_mode = 0
