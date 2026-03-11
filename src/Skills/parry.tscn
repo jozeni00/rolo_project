@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b642qcc7lkxdf"]
+[gd_scene format=3 uid="uid://b642qcc7lkxdf"]
 
 [ext_resource type="Script" uid="uid://c33g4kqv3iwmp" path="res://src/Skills/parry.gd" id="1_2libc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_001xw"]
 
-[node name="Parry" type="Node"]
+[node name="Parry" type="Node" unique_id=1390600243]
 script = ExtResource("1_2libc")
 metadata/_custom_type_script = "uid://ivkl2pj4k5hn"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=260835659]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=456852593]
 shape = SubResource("CircleShape2D_001xw")

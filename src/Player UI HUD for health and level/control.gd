@@ -11,6 +11,8 @@ extends Control
 @onready var add_exp_btn: Button = $"Panel/EXP/Add exp"
 @onready var block_btn: Button = $"Panel/Blocking stamina/Block"
 
+@export var hurtbox: Hurtbox
+
 # Constants
 const MAX_HEALTH := 100
 const EXP_CAP := 100
@@ -40,8 +42,8 @@ func _process(delta: float) -> void:
 	var now := Time.get_ticks_msec() / 1000.0
 
 	# Health Regen (1/sec)
-	if health < MAX_HEALTH:
-		health = min(MAX_HEALTH, health + HEALTH_REGEN_PER_SEC * delta)
+	if hurtbox.stats.Health < hurtbox.stats.MaxHealth:
+		hurtbox.stats.Health = min(hurtbox.stats.MaxHealth, hurtbox.stats.Health + HEALTH_REGEN_PER_SEC * delta)
 
 	
 	# Stamina Regen (after delay)
@@ -51,7 +53,7 @@ func _process(delta: float) -> void:
 	_refresh_ui()
 
 func _on_take_damage_pressed() -> void:
-	health = max(0.0, health - 10.0)
+	hurtbox.stats.Health = max(0.0, hurtbox.stats.Health - 10.0)
 	_refresh_ui()
 
 func _on_add_exp_pressed() -> void:
@@ -67,7 +69,7 @@ func _on_block_pressed() -> void:
 	_refresh_ui()
 
 func _refresh_ui() -> void:
-	health_label.text = "Health %d/%d" % [int(round(health)), MAX_HEALTH]
+	health_label.text = "Health %d/%d" % [int(round(hurtbox.stats.Health)), hurtbox.stats.MaxHealth]
 	level_label.text = "Level %d" % level
 	exp_label.text = "EXP %d/%d" % [exp, EXP_CAP]
 	stamina_label.text = "Blocking stamina: %d/%d" % [int(round(stamina)), MAX_STAMINA]

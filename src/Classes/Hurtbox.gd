@@ -42,6 +42,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 ## Update Health when hit.
 func update_health(op_stats: AttackStats) -> void:
+	print("Health: ", stats.Health)
 	var damage = calculate_damage(op_stats)
 	stats.Health -= damage
 	stats.Health = max(0, stats.Health)			# make sure health is > 0
