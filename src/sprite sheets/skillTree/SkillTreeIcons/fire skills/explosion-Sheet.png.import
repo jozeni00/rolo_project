@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0kfwb45nol6c"
-path="res://.godot/imported/fireball icon.png-6c367f6fb722d97822eaf6cc27e748fa.ctex"
+uid="uid://s01lxd5xdvb2"
+path="res://.godot/imported/explosion-Sheet.png-7bdc6e0c0e467461b4c057b3bce9f3d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/sprite sheets/skillTree/SkillTreeIcons/fire skills/fireball icon.png"
-dest_files=["res://.godot/imported/fireball icon.png-6c367f6fb722d97822eaf6cc27e748fa.ctex"]
+source_file="res://src/sprite sheets/skillTree/SkillTreeIcons/fire skills/explosion-Sheet.png"
+dest_files=["res://.godot/imported/explosion-Sheet.png-7bdc6e0c0e467461b4c057b3bce9f3d4.ctex"]
 
 [params]
 
