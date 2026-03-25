@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cgy735373fv3b"]
+[gd_scene format=3 uid="uid://cgy735373fv3b"]
 
 [ext_resource type="Script" uid="uid://dnu27qlwweif" path="res://skill_tree.gd" id="1_b8dv1"]
 [ext_resource type="Texture2D" uid="uid://cc77xjmp2vsdo" path="res://src/sprite sheets/skillTree/fireIcon.png" id="1_feiep"]
@@ -22,13 +22,13 @@
 [ext_resource type="Texture2D" uid="uid://c07n4uoxwbmic" path="res://src/sprite sheets/skillTree/heldgroundSuccess.png" id="13_ivcr1"]
 [ext_resource type="Texture2D" uid="uid://cvepbncvkttb6" path="res://src/sprite sheets/skillTree/highMagnitudeSuccess.png" id="14_4cf1k"]
 
-[node name="skillTree" type="Node2D" node_paths=PackedStringArray("skills")]
+[node name="skillTree" type="Node2D" unique_id=1968871132 node_paths=PackedStringArray("skills")]
 position = Vector2(275, 71)
 script = ExtResource("1_b8dv1")
 skills = [NodePath("earthSword"), NodePath("heldGround"), NodePath("highMagnitude"), NodePath("fireSword"), NodePath("extraKindling"), NodePath("wildfire"), NodePath("windSword"), NodePath("downburst"), NodePath("coldFront")]
 metadata/_custom_type_script = "uid://dnu27qlwweif"
 
-[node name="fireSword" type="Node2D" parent="."]
+[node name="fireSword" type="Node2D" parent="." unique_id=1574278373]
 script = ExtResource("2_3pve4")
 skillCost = 1.0
 successSprite = ExtResource("3_b280s")
@@ -37,11 +37,11 @@ skillName = "Blazing Blade"
 description = "Upgrades the Sword to have the FIRE element.\\n\\n Slashes apply a BURN status that deals damage over time.\\n\\n Your Special Attack becomes a blade beam that inflicts BURN"
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="fireSword"]
+[node name="icon" type="Sprite2D" parent="fireSword" unique_id=551365941]
 texture_filter = 1
 texture = ExtResource("1_feiep")
 
-[node name="windSword" type="Node2D" parent="."]
+[node name="windSword" type="Node2D" parent="." unique_id=804840555]
 position = Vector2(32, -1)
 script = ExtResource("2_3pve4")
 skillCost = 1.0
@@ -51,11 +51,11 @@ skillName = "Zephyr Blade"
 description = "Your Sword is imbued with the AIR element.\\n\\nSlashes send basic enemies flying.\\n\\nYour Special Attack becomes a Cyclone Slash."
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="windSword"]
+[node name="icon" type="Sprite2D" parent="windSword" unique_id=691225925]
 texture_filter = 1
 texture = ExtResource("2_wpi0c")
 
-[node name="earthSword" type="Node2D" parent="."]
+[node name="earthSword" type="Node2D" parent="." unique_id=2146445812]
 position = Vector2(-32, 0)
 script = ExtResource("2_3pve4")
 skillCost = 1.0
@@ -65,11 +65,11 @@ skillName = "Bedrock Blade"
 description = "Imbue your Sword with the EARTH element.\\n\\nYour slashes now stagger basic enemies.\\n\\nYour Special Attack becomes an Earthquake attack."
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="earthSword"]
+[node name="icon" type="Sprite2D" parent="earthSword" unique_id=167853933]
 texture_filter = 1
 texture = ExtResource("3_87dja")
 
-[node name="extraKindling" type="Node2D" parent="." node_paths=PackedStringArray("prevNode")]
+[node name="extraKindling" type="Node2D" parent="." unique_id=197567397 node_paths=PackedStringArray("prevNode")]
 position = Vector2(0, 24)
 script = ExtResource("2_3pve4")
 skillCost = 2.0
@@ -80,11 +80,11 @@ description = "Your Blade Beam leaves a Burning Trail in its wake that inflicts 
 prevNode = NodePath("../fireSword")
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="extraKindling"]
+[node name="icon" type="Sprite2D" parent="extraKindling" unique_id=1486164628]
 texture_filter = 1
 texture = ExtResource("4_6mqne")
 
-[node name="downburst" type="Node2D" parent="." node_paths=PackedStringArray("prevNode")]
+[node name="downburst" type="Node2D" parent="." unique_id=1271922515 node_paths=PackedStringArray("prevNode")]
 position = Vector2(32, 24)
 script = ExtResource("2_3pve4")
 skillCost = 2.0
@@ -95,11 +95,11 @@ description = "Your knockback effects now send bosses flying back as well.\\n\\n
 prevNode = NodePath("../windSword")
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="downburst"]
+[node name="icon" type="Sprite2D" parent="downburst" unique_id=1622426053]
 texture_filter = 1
 texture = ExtResource("5_b8dv1")
 
-[node name="heldGround" type="Node2D" parent="." node_paths=PackedStringArray("prevNode")]
+[node name="heldGround" type="Node2D" parent="." unique_id=1448913004 node_paths=PackedStringArray("prevNode")]
 position = Vector2(-32, 24)
 script = ExtResource("2_3pve4")
 skillCost = 2.0
@@ -110,11 +110,11 @@ description = "Blocking consumes less blocking stamina."
 prevNode = NodePath("../earthSword")
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="heldGround"]
+[node name="icon" type="Sprite2D" parent="heldGround" unique_id=1450556356]
 texture_filter = 1
 texture = ExtResource("6_3pve4")
 
-[node name="wildfire" type="Node2D" parent="." node_paths=PackedStringArray("prevNode")]
+[node name="wildfire" type="Node2D" parent="." unique_id=1706391718 node_paths=PackedStringArray("prevNode")]
 position = Vector2(0, 48)
 script = ExtResource("2_3pve4")
 skillCost = 4.0
@@ -125,11 +125,11 @@ description = "BURNed enemies can spread the effect to each other."
 prevNode = NodePath("../extraKindling")
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="wildfire"]
+[node name="icon" type="Sprite2D" parent="wildfire" unique_id=183254749]
 texture_filter = 1
 texture = ExtResource("7_6mqne")
 
-[node name="coldFront" type="Node2D" parent="." node_paths=PackedStringArray("prevNode")]
+[node name="coldFront" type="Node2D" parent="." unique_id=747193739 node_paths=PackedStringArray("prevNode")]
 position = Vector2(32, 48)
 script = ExtResource("2_3pve4")
 skillCost = 4.0
@@ -140,11 +140,11 @@ description = "Your AIR effects are also imbued with ICE.\\n\\nAttacks send enem
 prevNode = NodePath("../downburst")
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="coldFront"]
+[node name="icon" type="Sprite2D" parent="coldFront" unique_id=1349165653]
 texture_filter = 1
 texture = ExtResource("8_b8dv1")
 
-[node name="highMagnitude" type="Node2D" parent="." node_paths=PackedStringArray("prevNode")]
+[node name="highMagnitude" type="Node2D" parent="." unique_id=2073838107 node_paths=PackedStringArray("prevNode")]
 position = Vector2(-32, 48)
 script = ExtResource("2_3pve4")
 skillCost = 4.0
@@ -155,25 +155,25 @@ description = "Your stagger effects now affect bosses. \\n\\nYour Earthquake has
 prevNode = NodePath("../heldGround")
 metadata/_custom_type_script = "uid://ccigoengoabwc"
 
-[node name="icon" type="Sprite2D" parent="highMagnitude"]
+[node name="icon" type="Sprite2D" parent="highMagnitude" unique_id=480945243]
 texture_filter = 1
 texture = ExtResource("9_3pve4")
 
-[node name="Reticule" type="Node2D" parent="."]
+[node name="Reticule" type="Node2D" parent="." unique_id=8071380]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Reticule"]
+[node name="Sprite2D" type="Sprite2D" parent="Reticule" unique_id=1652813210]
 texture_filter = 1
 texture = ExtResource("12_jrb25")
 
-[node name="skillDescription" type="GraphFrame" parent="."]
+[node name="skillDescription" type="GraphFrame" parent="." unique_id=1632201000]
 offset_left = 56.0
 offset_top = -16.0
 offset_right = 263.0
 offset_bottom = 188.0
 title = "Placeholder Text"
 
-[node name="skillDesc" type="Label" parent="."]
+[node name="skillDesc" type="Label" parent="." unique_id=761068681]
 offset_left = 74.0
 offset_top = 20.0
 offset_right = 245.0
