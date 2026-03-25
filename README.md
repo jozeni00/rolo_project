@@ -1,6 +1,8 @@
 # Rolo - Rogue-like Only Lives Once
 CSCI-150 Project
 
+Test Cases : https://docs.google.com/spreadsheets/d/1WKCYqAgPM8pfnXUOHKvrMGB3EZUJ9CE4jSbywNmFEs4/edit?usp=sharing
+
 ## Settings Menu
 The Settings Menu currently contains the options for *Sounds*, *Displays*, and *Keybinds*.
 <p align="center">

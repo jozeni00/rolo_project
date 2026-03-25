@@ -79,6 +79,7 @@ var direction: Vector2:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("enemy_class.gd is running.")
 	assert(hurtbox, "No hurtbox assigned.")
 	assert(hitbox, "No hitbox assigned.")
 	assert(detect_area, "No detection area assigned.")
@@ -171,9 +172,13 @@ func _chase(_delta: float = 0.0167) -> void:
 		direction = global_position.direction_to(target.global_position + offset)
 		global_position += direction * SPEED * _delta
 	else:
+		#print("Enemy is Attacking!")
 		sprite.animation = "idle"
 
 func _attack(_delta: float = 0.0167) -> void:
+	# Face the player while attacking
+	if target:
+		direction = global_position.direction_to(target.global_position)
 	pass
 
 func _hurt(_delta: float = 0.0167) -> void:
@@ -199,6 +204,9 @@ func _chase_entry() -> void:
 	sprite.animation = "walk"
 
 func _attack_entry() -> void:
+	print("Enemy is attacking!")
+	#sprite.animation = "attack"
+	#sprite.play()
 	pass
 
 func _hurt_entry() -> void:
@@ -290,5 +298,9 @@ func _on_death() -> void:
 func _on_animation_finished() -> void:
 	if sprite.get_animation() == "hurt":
 		state = CHASE
+
+	if sprite.get_animation() == "attack":
+		state = CHASE
+
 	if sprite.get_animation() == "death" and state == DEATH:
 		_death_exit()
