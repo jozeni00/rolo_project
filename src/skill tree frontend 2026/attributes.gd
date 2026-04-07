@@ -1,7 +1,5 @@
 extends Control
 
-signal stats_changed(new_stats: Dictionary)
-
 var player: Player
 
 signal stats_changed(new_stats: Dictionary)
@@ -9,9 +7,9 @@ signal stats_changed(new_stats: Dictionary)
 # Attributes is inside TabContainer -> Panel is 2 levels up
 @onready var ui := get_node("../..")
 
-const ADD_BUTTON_NAME := "Add 1"
+# var ui: Panel
 
-var ui: Panel
+var stats := {}
 
 const ADD_BUTTON_NAME := "Add 1"
 
