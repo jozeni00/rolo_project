@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cywdo5odbcbtp"]
+[gd_scene format=3 uid="uid://cywdo5odbcbtp"]
 
 [ext_resource type="Script" uid="uid://bm8i3kdrp0qsl" path="res://src/Scenes that are Very Very Temporary/farm_room.gd" id="1_w8qnr"]
-[ext_resource type="Texture2D" uid="uid://co6i81ipaixxu" path="res://src/Sprites that are Very Very Temporary/forest.png" id="2_w8qnr"]
+[ext_resource type="Texture2D" uid="uid://co6i81ipaixxu" path="res://src/ReplicatedStorage/Sprites that are Very Very Temporary/forest.png" id="2_w8qnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7f8"]
 size = Vector2(67, 20)

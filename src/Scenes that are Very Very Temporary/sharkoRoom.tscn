@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0pd71tgyl6vy"]
+[gd_scene format=3 uid="uid://d0pd71tgyl6vy"]
 
-[ext_resource type="Texture2D" uid="uid://b4xx36lxkvptj" path="res://src/Sprites that are Very Very Temporary/sharkRoom.png" id="1_5xkoa"]
+[ext_resource type="Texture2D" uid="uid://b4xx36lxkvptj" path="res://src/ReplicatedStorage/Sprites that are Very Very Temporary/sharkRoom.png" id="1_5xkoa"]
 [ext_resource type="Script" uid="uid://cnt4fhabgfpye" path="res://src/Scenes that are Very Very Temporary/sharko_room.gd" id="1_v044x"]
 [ext_resource type="PackedScene" uid="uid://k8d3s46qphti" path="res://src/Characters/Boss/boss.tscn" id="3_v044x"]
 

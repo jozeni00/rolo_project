@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://nswwgvbda1iq"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://nswwgvbda1iq"]
 
 [ext_resource type="Script" uid="uid://0v6sdc7fss6a" path="res://src/Inventory/Classes/Item.gd" id="1_dlgbl"]
-[ext_resource type="Texture2D" uid="uid://c0k4hyywhywtf" path="res://src/sprite sheets/icon_sprites/king_sharko_tooth.png" id="2_6mfxs"]
+[ext_resource type="Texture2D" uid="uid://c0k4hyywhywtf" path="res://src/ReplicatedStorage/sprite sheets/icon_sprites/king_sharko_tooth.png" id="2_6mfxs"]
 
 [resource]
 script = ExtResource("1_dlgbl")

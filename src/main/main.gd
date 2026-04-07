@@ -5,7 +5,7 @@ extends Node
 #@export var screensize = Vector2i(720,480)
 
 @onready var pauseMenu = $Pause_Menu
-var skill_tree_scene := preload("res://src/skill tree frontend 2026/skill tree.tscn")
+var skill_tree_scene := preload("res://src/StarterGui/skill tree frontend 2026/skill tree.tscn")
 var skill_tree_instance : Node = null
 
 

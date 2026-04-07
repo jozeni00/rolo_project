@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://db5nrmuylurff"]
+[gd_scene format=3 uid="uid://db5nrmuylurff"]
 
 [ext_resource type="Script" uid="uid://djfiobl2o7lk6" path="res://src/Inventory/src/loot.gd" id="1_m4qe2"]
 [ext_resource type="Resource" uid="uid://nswwgvbda1iq" path="res://src/Inventory/Resources/Item/sharkoTooth.tres" id="2_m4qe2"]
-[ext_resource type="Texture2D" uid="uid://c0k4hyywhywtf" path="res://src/sprite sheets/icon_sprites/king_sharko_tooth.png" id="3_gcdct"]
+[ext_resource type="Texture2D" uid="uid://c0k4hyywhywtf" path="res://src/ReplicatedStorage/sprite sheets/icon_sprites/king_sharko_tooth.png" id="3_gcdct"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e547a"]
 radius = 30.0
