@@ -1,10 +1,7 @@
 extends Node
 
-
 const SAVE_PATH = "user://PlayerSave/data/"
-
 signal loadComplete
-
 const NUM_SLOTS = 5
 
 func save_game(slot: int, player_data: Dictionary, keybinds: Dictionary):

@@ -33,11 +33,14 @@ func unlock_skill() -> void:
 		unlocks[_skill_array[_next_unlock]] = true
 		_next_unlock += 1
 		PlayerData.skill_points -= 1
+		print("Unlocked " + _skill_array[_next_unlock])
+		
 
 
 func load_skill(skill_name: String) -> Skill:
 	if !unlocks[skill_name]:
 		return null
+	print("Loading " + skill_name)
 	var scene: PackedScene = load(paths[skill_name])
 	var skill: Skill = scene.instantiate()
 	return skill

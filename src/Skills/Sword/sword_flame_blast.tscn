@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://brlhdohaxc6gj"]
+[gd_scene format=3 uid="uid://brlhdohaxc6gj"]
 
 [ext_resource type="Script" uid="uid://3korhd0mky3g" path="res://src/Skills/Sword/sword_flame_blast.gd" id="1_5m7lc"]
 [ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="1_45ao0"]

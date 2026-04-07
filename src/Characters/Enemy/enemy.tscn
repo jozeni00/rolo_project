@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d1v2f6vunujwc"]
+[gd_scene format=3 uid="uid://d1v2f6vunujwc"]
 
 [ext_resource type="Script" uid="uid://buxnivcjv46jy" path="res://src/Characters/enemy_class.gd" id="1_085mr"]
 [ext_resource type="Texture2D" uid="uid://c5glh37p4cocm" path="res://src/Characters/Enemy/enemySprites/knightfin2.png" id="1_hb8ge"]
@@ -131,7 +131,7 @@ metadata/_custom_type_script = "uid://bx30siccecw4q"
 [sub_resource type="CircleShape2D" id="CircleShape2D_doop2"]
 radius = 23.194826
 
-[node name="Enemy" type="Node2D" node_paths=PackedStringArray("sprite", "hurtbox", "hitbox", "detect_area")]
+[node name="Enemy" type="Node2D" unique_id=679049347 node_paths=PackedStringArray("sprite", "hurtbox", "hitbox", "detect_area")]
 position = Vector2(138, 147)
 script = ExtResource("1_085mr")
 sprite = NodePath("Area2D/enemSprite")
@@ -143,37 +143,37 @@ loot_table = Array[ExtResource("2_mfr25")]([SubResource("Resource_085mr")])
 exp = 10
 metadata/_custom_type_script = "uid://buxnivcjv46jy"
 
-[node name="Area2D" type="Node2D" parent="."]
+[node name="Area2D" type="Node2D" parent="." unique_id=926077463]
 
-[node name="enemSprite" type="AnimatedSprite2D" parent="Area2D"]
+[node name="enemSprite" type="AnimatedSprite2D" parent="Area2D" unique_id=1644844202]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nnovl")
 animation = &"hurt"
 autoplay = "idle"
 
-[node name="Hurtbox" type="Area2D" parent="Area2D"]
+[node name="Hurtbox" type="Area2D" parent="Area2D" unique_id=1524310381]
 collision_layer = 2
 script = ExtResource("14_yfud7")
 stats = SubResource("Resource_uukco")
 metadata/_custom_type_script = "uid://dwbrig7kmq58l"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Hurtbox" unique_id=1551010991]
 position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_7una0")
 
-[node name="Detection" type="Area2D" parent="Area2D"]
+[node name="Detection" type="Area2D" parent="Area2D" unique_id=1914623000]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Detection" unique_id=106240589]
 shape = SubResource("CircleShape2D_ar8e5")
 debug_color = Color(0.627451, 0.9254902, 1, 0.043137256)
 
-[node name="Attack" type="Area2D" parent="Area2D"]
+[node name="Attack" type="Area2D" parent="Area2D" unique_id=203341275]
 collision_layer = 2
 script = ExtResource("14_nn272")
 stats = SubResource("Resource_nn272")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Attack"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Attack" unique_id=1995303067]
 shape = SubResource("CircleShape2D_doop2")
 debug_color = Color(0.94509804, 0.3882353, 0.31764707, 0.101960786)
 

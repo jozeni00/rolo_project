@@ -24,7 +24,7 @@ func _ready() -> void:
 	#leave_timer.start()
 	dialogue = "Hm? You want to get back to the Overworld\n...\nYou look strong enough...\nCan you bring me the tooth of King Sharko?"
 	pass
-	
+
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("Interact") and playerPresence):
 		interact()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://db6p8a6sd63rx"]
+[gd_scene format=3 uid="uid://db6p8a6sd63rx"]
 
 [ext_resource type="Script" uid="uid://buxnivcjv46jy" path="res://src/Characters/enemy_class.gd" id="1_8nqel"]
 [ext_resource type="Script" uid="uid://c0qrrwv86xpat" path="res://src/Inventory/Classes/DropRate.gd" id="2_qqe8e"]
