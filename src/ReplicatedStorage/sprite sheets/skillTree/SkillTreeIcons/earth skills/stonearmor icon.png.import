@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfk662vebf4x"
-path="res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"
+uid="uid://dpx15dxcj80e4"
+path="res://.godot/imported/stonearmor icon.png-90f8c5b089c2ff60b957fa2ec94267ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/coldfrontSuccess.png"
-dest_files=["res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/SkillTreeIcons/earth skills/stonearmor icon.png"
+dest_files=["res://.godot/imported/stonearmor icon.png-90f8c5b089c2ff60b957fa2ec94267ae.ctex"]
 
 [params]
 

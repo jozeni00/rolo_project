@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bse8r6cioejl1"
-path="res://.godot/imported/wildfireSuccess.png-75ea8b3f2861ba4e994a25cae3471a3f.ctex"
+path="res://.godot/imported/wildfireSuccess.png-8a8768af4b09422c8cb1d97b162f78a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/wildfireSuccess.png"
-dest_files=["res://.godot/imported/wildfireSuccess.png-75ea8b3f2861ba4e994a25cae3471a3f.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/wildfireSuccess.png"
+dest_files=["res://.godot/imported/wildfireSuccess.png-8a8768af4b09422c8cb1d97b162f78a9.ctex"]
 
 [params]
 

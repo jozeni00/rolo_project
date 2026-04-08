@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c07n4uoxwbmic"
-path="res://.godot/imported/heldgroundSuccess.png-75596839dc5d6285bc66d0729ebe037d.ctex"
+path="res://.godot/imported/heldgroundSuccess.png-8bbf442adeba637cbf2c1fa66fbc7e1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/heldgroundSuccess.png"
-dest_files=["res://.godot/imported/heldgroundSuccess.png-75596839dc5d6285bc66d0729ebe037d.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/heldgroundSuccess.png"
+dest_files=["res://.godot/imported/heldgroundSuccess.png-8bbf442adeba637cbf2c1fa66fbc7e1c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfk662vebf4x"
-path="res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"
+uid="uid://dym8tcq672poi"
+path="res://.godot/imported/playerBurningTest-Sheet.png-09923821e8ae05eace616ab3b47b6ccb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/coldfrontSuccess.png"
-dest_files=["res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/player sprites/playerBurning/playerBurningTest-Sheet.png"
+dest_files=["res://.godot/imported/playerBurningTest-Sheet.png-09923821e8ae05eace616ab3b47b6ccb.ctex"]
 
 [params]
 

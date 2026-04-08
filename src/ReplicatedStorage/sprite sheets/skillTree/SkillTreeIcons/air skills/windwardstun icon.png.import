@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfk662vebf4x"
-path="res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"
+uid="uid://clw21mjbd87uk"
+path="res://.godot/imported/windwardstun icon.png-249c8fc4664b2eca1e50e6217d9316ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/coldfrontSuccess.png"
-dest_files=["res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/SkillTreeIcons/air skills/windwardstun icon.png"
+dest_files=["res://.godot/imported/windwardstun icon.png-249c8fc4664b2eca1e50e6217d9316ac.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfk662vebf4x"
-path="res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"
+uid="uid://xb5fgw6prmi3"
+path="res://.godot/imported/fireresistance icon.png-451f6b2f9f57b64bbe6d430256ce0c45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/coldfrontSuccess.png"
-dest_files=["res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/SkillTreeIcons/fire skills/fireresistance icon.png"
+dest_files=["res://.godot/imported/fireresistance icon.png-451f6b2f9f57b64bbe6d430256ce0c45.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxbd4wxon3lys"
-path="res://.godot/imported/highMagnitudeIcon.png-f6dbfc17c98b427047d01ad1059d9216.ctex"
+path="res://.godot/imported/highMagnitudeIcon.png-3bf7ab413b5b1e9d08d99accab6394c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/highMagnitudeIcon.png"
-dest_files=["res://.godot/imported/highMagnitudeIcon.png-f6dbfc17c98b427047d01ad1059d9216.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/highMagnitudeIcon.png"
+dest_files=["res://.godot/imported/highMagnitudeIcon.png-3bf7ab413b5b1e9d08d99accab6394c1.ctex"]
 
 [params]
 

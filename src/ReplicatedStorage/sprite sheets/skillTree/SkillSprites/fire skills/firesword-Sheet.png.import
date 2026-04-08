@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfk662vebf4x"
-path="res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"
+uid="uid://jjif1qdrpcy6"
+path="res://.godot/imported/firesword-Sheet.png-476d2bb852d39ad54bb2491fa2d3d58d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/coldfrontSuccess.png"
-dest_files=["res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/SkillSprites/fire skills/firesword-Sheet.png"
+dest_files=["res://.godot/imported/firesword-Sheet.png-476d2bb852d39ad54bb2491fa2d3d58d.ctex"]
 
 [params]
 

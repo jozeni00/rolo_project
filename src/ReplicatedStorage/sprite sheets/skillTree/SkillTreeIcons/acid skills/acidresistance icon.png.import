@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfk662vebf4x"
-path="res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"
+uid="uid://38qtxy8h50p0"
+path="res://.godot/imported/acidresistance icon.png-a54c74ebaff602abe7685d8ab8fd89f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/coldfrontSuccess.png"
-dest_files=["res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/SkillTreeIcons/acid skills/acidresistance icon.png"
+dest_files=["res://.godot/imported/acidresistance icon.png-a54c74ebaff602abe7685d8ab8fd89f6.ctex"]
 
 [params]
 

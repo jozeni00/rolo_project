@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfk662vebf4x"
-path="res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"
+uid="uid://dlynxgy35nntp"
+path="res://.godot/imported/playerDying-Sheet.png-13097cc8edac057caf7cd83e9d3b8f89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/coldfrontSuccess.png"
-dest_files=["res://.godot/imported/coldfrontSuccess.png-74f8e36b47a6389eb630bba00ce02c68.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/player sprites/playerDying/playerDying-Sheet.png"
+dest_files=["res://.godot/imported/playerDying-Sheet.png-13097cc8edac057caf7cd83e9d3b8f89.ctex"]
 
 [params]
 

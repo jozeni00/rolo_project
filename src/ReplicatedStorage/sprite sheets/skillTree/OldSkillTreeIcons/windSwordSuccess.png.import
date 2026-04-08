@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb342mav6wrdu"
-path="res://.godot/imported/windSwordSuccess.png-3a0c2d9ca15b33189fb1f4ed23a9aa23.ctex"
+path="res://.godot/imported/windSwordSuccess.png-ef1b10ff99c8c3cd8523767f91a91d20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/windSwordSuccess.png"
-dest_files=["res://.godot/imported/windSwordSuccess.png-3a0c2d9ca15b33189fb1f4ed23a9aa23.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/windSwordSuccess.png"
+dest_files=["res://.godot/imported/windSwordSuccess.png-ef1b10ff99c8c3cd8523767f91a91d20.ctex"]
 
 [params]
 

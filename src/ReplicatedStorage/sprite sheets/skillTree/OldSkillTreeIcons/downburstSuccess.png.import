@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cap0f8mayts6m"
-path="res://.godot/imported/downburstSuccess.png-127399204d6deda7e87727781d353a1b.ctex"
+path="res://.godot/imported/downburstSuccess.png-6e5f466875f850421059543efbb2ebba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/downburstSuccess.png"
-dest_files=["res://.godot/imported/downburstSuccess.png-127399204d6deda7e87727781d353a1b.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/downburstSuccess.png"
+dest_files=["res://.godot/imported/downburstSuccess.png-6e5f466875f850421059543efbb2ebba.ctex"]
 
 [params]
 

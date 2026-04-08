@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcb1t4mmhimtp"
-path="res://.godot/imported/burnSpreadIcon.png-c993a4bc470e74fd602411e61ea7d8d1.ctex"
+path="res://.godot/imported/burnSpreadIcon.png-d1c0f71b7dbd13fc87e89aa2f2897d51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/burnSpreadIcon.png"
-dest_files=["res://.godot/imported/burnSpreadIcon.png-c993a4bc470e74fd602411e61ea7d8d1.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/skillTree/OldSkillTreeIcons/burnSpreadIcon.png"
+dest_files=["res://.godot/imported/burnSpreadIcon.png-d1c0f71b7dbd13fc87e89aa2f2897d51.ctex"]
 
 [params]
 
