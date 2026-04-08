@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csm3npfyxganv"]
 
-[ext_resource type="Script" uid="uid://vpjkbyhka5ns" path="res://src/Player UI HUD for health and level/control.gd" id="1_a13li"]
+[ext_resource type="Script" uid="uid://vpjkbyhka5ns" path="res://src/Player UI HUD for health and level/control.gd" id="1_1emwh"]
 [ext_resource type="Texture2D" uid="uid://cnk2sd03i1mw2" path="res://src/sprites/iconSprites/healthbar/HealthBar-Sheet.png" id="2_1emwh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1emwh"]
@@ -31,7 +31,7 @@ grow_vertical = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_a13li")
+script = ExtResource("1_1emwh")
 
 [node name="Panel" type="Panel" parent="Control" unique_id=1183926848]
 layout_mode = 0
