@@ -21,8 +21,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameData="*res://src/main/game_data.gd"
-PlayerData="*res://src/main/player_data.gd"
+GameData="*res://src/ServerScriptService/main/game_data.gd"
+PlayerData="*res://src/ServerScriptService/main/player_data.gd"
 
 [display]
 

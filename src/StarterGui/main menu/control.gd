@@ -296,7 +296,7 @@ func _on_slot_confirmed() -> void:
 			else:
 				_set_status("TEST: Loaded Slot %d (mock)." % selected_slot if TEST_MODE else "Loaded Slot %d" % selected_slot)
 				saveManage.load_game(selected_slot)
-				get_tree().change_scene_to_file("res://src/main/main.tscn")
+				get_tree().change_scene_to_file("res://src/ServerScriptService/main/main.tscn")
 	_refresh_slot_labels()
 	_update_buttons_enabled()
 

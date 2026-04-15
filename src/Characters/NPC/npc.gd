@@ -2,7 +2,7 @@ extends Node2D
 
 const LOOT = preload("res://src/Inventory/loot.tscn")
 @onready var p = get_tree().get_first_node_in_group("Player")
-@onready var topZone = load("res://src/Scenes that are Very Very Temporary/light_room.tscn")
+@onready var topZone = load("res://src/ReplicatedStorage/Scenes that are Very Very Temporary/light_room.tscn")
 var playerPresence
 var questGiver
 var questGiven
