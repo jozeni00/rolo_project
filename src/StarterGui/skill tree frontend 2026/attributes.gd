@@ -1,15 +1,9 @@
 extends Control
 
-var player: Player
-
 signal stats_changed(new_stats: Dictionary)
 
-# Attributes is inside TabContainer -> Panel is 2 levels up
-@onready var ui := get_node("../..")
-
-# var ui: Panel
-
-var stats := {}
+var player: Player
+var ui: Panel
 
 const ADD_BUTTON_NAME := "Add 1"
 
@@ -21,13 +15,9 @@ func set_dependencies(p: Player, panel: Panel) -> void:
 
 func _ready() -> void:
 	_connect_stat_buttons()
-	_refresh_all_labels()
-	emit_signal("stats_changed", stats.duplicate(true))
 
 func _connect_stat_buttons() -> void:
 	for stat_node in get_children():
-		if not stats.has(stat_node.name):
-			continue
 		var btn := stat_node.get_node_or_null(ADD_BUTTON_NAME) as Button
 		if btn:
 			btn.pressed.connect(func():
@@ -38,6 +28,7 @@ func _try_increase(stat_name: String) -> void:
 	if not ui.try_spend_points(1):
 		ui.show_popup("Not enough attribute points!")
 		return
+
 	match stat_name:
 		"Strength":
 			player.strength += 1
@@ -66,6 +57,7 @@ func _refresh_all_labels() -> void:
 func _set_label_for(stat_name: String) -> void:
 	if player == null:
 		return
+
 	var stat_node := get_node_or_null(stat_name)
 	if stat_node == null:
 		return
