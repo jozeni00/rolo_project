@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c5b10cptl5o5u" path="res://src/ReplicatedStorage/sprite sheets/weaponSprites/sword-export.aseprite8.png" id="9_tpe5q"]
 [ext_resource type="Texture2D" uid="uid://d34kj1kdv2bxo" path="res://src/ReplicatedStorage/sprite sheets/weaponSprites/sword-export.aseprite9.png" id="10_ar7cb"]
 [ext_resource type="Texture2D" uid="uid://bvk6fhbakm6yk" path="res://src/ReplicatedStorage/sprite sheets/weaponSprites/sword-export.aseprite10.png" id="11_wvyxg"]
-[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/Classes/Hitbox.gd" id="12_t1s67"]
+[ext_resource type="Script" uid="uid://b6utarwb21mpe" path="res://src/ReplicatedStorage/Classes/Hitbox.gd" id="12_t1s67"]
 [ext_resource type="Script" uid="uid://bx30siccecw4q" path="res://src/Resource/AttackStats/AttackStats.gd" id="13_q2s70"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dwvek"]

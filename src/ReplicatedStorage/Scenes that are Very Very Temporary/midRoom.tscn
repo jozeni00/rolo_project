@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://baibobqapci84" path="res://src/ReplicatedStorage/Sprites that are Very Very Temporary/midRoom.png" id="1_5esxd"]
 [ext_resource type="Script" uid="uid://ll3xwpmo6v67" path="res://src/ReplicatedStorage/Scenes that are Very Very Temporary/mid_room.gd" id="1_xc7f8"]
-[ext_resource type="PackedScene" uid="uid://d1v2f6vunujwc" path="res://src/Characters/Enemy/enemy.tscn" id="3_3vi3k"]
+[ext_resource type="PackedScene" uid="uid://d1v2f6vunujwc" path="res://src/ReplicatedStorage/Characters/Enemy/enemy.tscn" id="3_3vi3k"]
 [ext_resource type="Script" uid="uid://b8ltlvjtoo63a" path="res://src/Resource/CharacterStats/CharacterStats.gd" id="4_087ba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7f8"]
