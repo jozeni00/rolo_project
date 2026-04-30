@@ -1,6 +1,23 @@
 [gd_scene format=3 uid="uid://csm3npfyxganv"]
 
 [ext_resource type="Script" uid="uid://vpjkbyhka5ns" path="res://src/StarterGui/Player UI HUD for health and level/control.gd" id="1_a13li"]
+[ext_resource type="Texture2D" uid="uid://56aihr370nud" path="res://src/ReplicatedStorage/sprite sheets/icon_sprites/healthbar/HealthBar.png" id="2_r1pcd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juay5"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1pcd"]
+atlas = ExtResource("2_r1pcd")
+region = Rect2(0, 0, 320, 20)
 
 [node name="Player Stat Ui Hel Hud" type="Control" unique_id=1011519574]
 layout_mode = 3
@@ -14,12 +31,21 @@ grow_vertical = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("1_a13li")
 
 [node name="Panel" type="Panel" parent="Control" unique_id=1183926848]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_juay5")
+
+[node name="Health Bar" type="TextureRect" parent="Control/Panel" unique_id=257200678]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_r1pcd")
+stretch_mode = 2
 
 [node name="Health" type="Label" parent="Control/Panel" unique_id=1700651483]
 layout_mode = 0

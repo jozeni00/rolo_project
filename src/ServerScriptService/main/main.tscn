@@ -13,10 +13,12 @@ script = ExtResource("1_ibsor")
 
 [node name="Chara" parent="." unique_id=554157701 instance=ExtResource("4_djufw")]
 position = Vector2(479, 127)
+myInventory = null
 
 [node name="skillTree" parent="." unique_id=828004209 instance=ExtResource("5_jkpqq")]
 visible = false
 position = Vector2(314, 138)
+script = null
 
 [node name="Pause_Menu" parent="." unique_id=1151276458 instance=ExtResource("11_w0wra")]
 visible = false

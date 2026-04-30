@@ -1,10 +1,15 @@
 extends Control
 
+signal attribute_points_changed(points: int)
+
 # Labels
 @onready var health_label: Label = $"Panel/Health"
 @onready var level_label: Label = $"Panel/Level"
 @onready var exp_label: Label = $"Panel/EXP"
 @onready var stamina_label: Label = $"Panel/Blocking stamina"
+
+# Health bar
+@onready var health_bar_sprite: TextureRect = $"Panel/Health Bar"
 
 # Buttons
 @onready var take_damage_btn: Button = $"Panel/Health/Take damage"
@@ -14,54 +19,89 @@ extends Control
 @export var hurtbox: Hurtbox
 
 # Constants
-const MAX_HEALTH := 100
 const EXP_CAP := 100
-
 const MAX_STAMINA := 1000
 const BLOCK_COST := 100
 
 const REGEN_DELAY_SEC := 1.0
 const STAMINA_REGEN_PER_SEC := 100.0
-const HEALTH_REGEN_PER_SEC := 1   # HP regen per second
+const HEALTH_REGEN_PER_SEC := 10.0 
+
+# Health bar size
+const HEALTH_BAR_WIDTH := 320
+const HEALTH_BAR_HEIGHT := 20
 
 # Stats
-var health: float = MAX_HEALTH
 var level: int = 1
 var exp: int = 0
-
 var stamina: float = MAX_STAMINA
 var regen_locked_until: float = 0.0
+var health_regen_accumulator: float = 0.0
 
 func _ready() -> void:
 	take_damage_btn.pressed.connect(_on_take_damage_pressed)
 	add_exp_btn.pressed.connect(_on_add_exp_pressed)
 	block_btn.pressed.connect(_on_block_pressed)
+
+	health_bar_sprite.size = Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)
+	health_bar_sprite.custom_minimum_size = Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)
+	health_bar_sprite.z_index = -1
+
 	_refresh_ui()
 
 func _process(delta: float) -> void:
-	var now := Time.get_ticks_msec() / 1000.0
+	var now: float = Time.get_ticks_msec() / 1000.0
 
-	# Health Regen (1/sec)
-	if hurtbox.stats.Health < hurtbox.stats.MaxHealth:
-		hurtbox.stats.Health = min(hurtbox.stats.MaxHealth, hurtbox.stats.Health + HEALTH_REGEN_PER_SEC * delta)
+	if hurtbox != null and hurtbox.stats != null:
+		if hurtbox.stats.Health < hurtbox.stats.MaxHealth:
+			health_regen_accumulator += HEALTH_REGEN_PER_SEC * delta
 
-	
-	# Stamina Regen (after delay)
+			if health_regen_accumulator >= 1.0:
+				var heal_amount: int = int(health_regen_accumulator)
+
+				hurtbox.stats.Health = min(
+					hurtbox.stats.MaxHealth,
+					hurtbox.stats.Health + heal_amount
+				)
+
+				health_regen_accumulator -= float(heal_amount)
+
 	if now >= regen_locked_until and stamina < MAX_STAMINA:
 		stamina = min(MAX_STAMINA, stamina + STAMINA_REGEN_PER_SEC * delta)
 
 	_refresh_ui()
 
 func _on_take_damage_pressed() -> void:
-	hurtbox.stats.Health = max(0.0, hurtbox.stats.Health - 10.0)
+	if hurtbox == null or hurtbox.stats == null:
+		return
+
+	hurtbox.stats.Health = max(0.0, hurtbox.stats.Health - 20.0)
+	health_regen_accumulator = 0.0
 	_refresh_ui()
 
 func _on_add_exp_pressed() -> void:
-	exp += 100
+	add_exp(25)
+
+func add_exp(amount: int) -> void:
+	exp += amount
+
 	while exp >= EXP_CAP:
 		exp -= EXP_CAP
 		level += 1
+		give_attribute_point()
+
 	_refresh_ui()
+
+func give_attribute_point() -> void:
+	var player = get_tree().get_first_node_in_group("Player")
+
+	if player == null:
+		return
+
+	player.skill_points += 1
+
+	# live update trigger
+	attribute_points_changed.emit(player.skill_points)
 
 func _on_block_pressed() -> void:
 	stamina = max(0.0, stamina - float(BLOCK_COST))
@@ -69,7 +109,33 @@ func _on_block_pressed() -> void:
 	_refresh_ui()
 
 func _refresh_ui() -> void:
-	health_label.text = "Health %d/%d" % [int(round(hurtbox.stats.Health)), hurtbox.stats.MaxHealth]
+	if hurtbox != null and hurtbox.stats != null:
+		var current: float = float(hurtbox.stats.Health)
+		var max_h: float = float(hurtbox.stats.MaxHealth)
+
+		health_label.text = "Health %d/%d" % [int(current), int(max_h)]
+		_update_health_bar(current, max_h)
+	else:
+		health_label.text = "Health --/--"
+
 	level_label.text = "Level %d" % level
 	exp_label.text = "EXP %d/%d" % [exp, EXP_CAP]
-	stamina_label.text = "Blocking stamina: %d/%d" % [int(round(stamina)), MAX_STAMINA]
+	stamina_label.text = "Blocking stamina: %d/%d" % [int(stamina), MAX_STAMINA]
+
+func _update_health_bar(current: float, max_h: float) -> void:
+	if max_h <= 0.0:
+		return
+
+	var atlas := health_bar_sprite.texture as AtlasTexture
+	if atlas == null:
+		return
+
+	var percent: float = clamp(current / max_h, 0.0, 1.0)
+	var width: int = int(round(HEALTH_BAR_WIDTH * percent))
+
+	if width <= 0:
+		health_bar_sprite.visible = false
+		return
+
+	health_bar_sprite.visible = true
+	atlas.region = Rect2(0, 0, width, HEALTH_BAR_HEIGHT)
