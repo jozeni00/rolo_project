@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qaqt1segwfk"
-path="res://.godot/imported/3_01.png-61bf158629f388199df6145a852d3a75.ctex"
+uid="uid://namlam8ooct"
+path="res://.godot/imported/darkleftup.png-388c622e0c5a7c7eb1a47dcc66398987.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Settings/assets/3_01.png"
-dest_files=["res://.godot/imported/3_01.png-61bf158629f388199df6145a852d3a75.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/map/tiles/darkworld/darkleftup.png"
+dest_files=["res://.godot/imported/darkleftup.png-388c622e0c5a7c7eb1a47dcc66398987.ctex"]
 
 [params]
 

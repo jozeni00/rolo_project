@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bim7xnfx3omnj"]
+[gd_scene load_steps=5 format=3 uid="uid://bim7xnfx3omnj"]
 
-[ext_resource type="Script" uid="uid://d1b81ch5be6tp" path="res://src/StarterGui/Settings/src/settings.gd" id="1_uftoq"]
-[ext_resource type="Texture2D" uid="uid://bo5ymcab8450s" path="res://src/StarterGui/Settings/assets/Menu.png" id="2_q6g3q"]
-[ext_resource type="Theme" uid="uid://d264k6851ktxi" path="res://src/ReplicatedStorage/tres/test.tres" id="3_bbx0c"]
+[ext_resource type="Script" uid="uid://d1b81ch5be6tp" path="res://Settings/src/settings.gd" id="1_uftoq"]
+[ext_resource type="Texture2D" uid="uid://bo5ymcab8450s" path="res://Settings/assets/Menu.png" id="2_q6g3q"]
+[ext_resource type="Theme" uid="uid://d264k6851ktxi" path="res://tres/test.tres" id="3_bbx0c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlw3h"]
 

@@ -1,33 +1,10 @@
 extends Control
 
-@onready var resolution_option = $Display/DisplayControls/OptionButton
-@onready var brightness_overlay = get_node("BrightnessOverlay")
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-# Brightness Control
-func _on_brightness_value_changed(value: float) -> void:
-	if brightness_overlay:
-		# 0 = darkest (black opaque), 100 = brightest (fully transparent)
-		brightness_overlay.modulate = Color(0, 0, 0, (100.0 - value) / 100.0)
-	print("Brightness set to:", value)
 
-
-func _on_resolution_item_selected(index: int) -> void:
-	print("here")
-	var windowList = DisplayServer.get_window_list()
-	var win_pos = DisplayServer.window_get_position(windowList[0])
-	var win_size = DisplayServer.window_get_size(windowList[0])
-	var resolutions = [
-		Vector2i(640, 360),
-		Vector2i(1280, 720),
-		Vector2i(1920, 1080)
-	]
-	DisplayServer.window_set_size(resolutions[index])
-	
-	DisplayServer.window_set_position(Vector2i(win_size.x/2, win_size.y/2), windowList[0])
-	#DisplayServer.window_set_position(win_pos, windowList[0])
-	
-	print("Resolution changed to:", resolutions[index])
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

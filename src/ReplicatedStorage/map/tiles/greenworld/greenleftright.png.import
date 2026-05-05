@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qaqt1segwfk"
-path="res://.godot/imported/3_01.png-61bf158629f388199df6145a852d3a75.ctex"
+uid="uid://bru7em8xm2nai"
+path="res://.godot/imported/greenleftright.png-9f6e9d4cfea88840fb2b6d7ddd2cf3ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Settings/assets/3_01.png"
-dest_files=["res://.godot/imported/3_01.png-61bf158629f388199df6145a852d3a75.ctex"]
+source_file="res://src/ReplicatedStorage/map/tiles/greenworld/greenleftright.png"
+dest_files=["res://.godot/imported/greenleftright.png-9f6e9d4cfea88840fb2b6d7ddd2cf3ae.ctex"]
 
 [params]
 

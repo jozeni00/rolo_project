@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qaqt1segwfk"
-path="res://.godot/imported/3_01.png-61bf158629f388199df6145a852d3a75.ctex"
+uid="uid://bayi5yi1eprxl"
+path="res://.godot/imported/darkright.png-f6febb4479c5c9e73dde655e03e38b9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Settings/assets/3_01.png"
-dest_files=["res://.godot/imported/3_01.png-61bf158629f388199df6145a852d3a75.ctex"]
+source_file="res://src/ReplicatedStorage/sprite sheets/map/tiles/darkworld/darkright.png"
+dest_files=["res://.godot/imported/darkright.png-f6febb4479c5c9e73dde655e03e38b9e.ctex"]
 
 [params]
 

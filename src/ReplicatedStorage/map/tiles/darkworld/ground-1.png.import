@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd6atlb6pfr3w"
-path="res://.godot/imported/ground-1.png-015467e203ca54179e4681e955b7aa73.ctex"
+path="res://.godot/imported/ground-1.png-a550cf00c0bd1f255409cf6f07bcbfae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/map/tiles/darkworld/ground-1.png"
-dest_files=["res://.godot/imported/ground-1.png-015467e203ca54179e4681e955b7aa73.ctex"]
+source_file="res://src/ReplicatedStorage/map/tiles/darkworld/ground-1.png"
+dest_files=["res://.godot/imported/ground-1.png-a550cf00c0bd1f255409cf6f07bcbfae.ctex"]
 
 [params]
 
