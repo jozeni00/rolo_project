@@ -39,19 +39,36 @@ func _process(delta: float) -> void:
 		pauseGame()
 
 	if Input.is_action_just_pressed("SkillTree"):
-		if skill_tree_instance == null:
-			skill_tree_instance = skill_tree_scene.instantiate()
-			add_child(skill_tree_instance)
+		toggle_skill_tree()
 
-			skill_tree_instance.player = $Chara
+func toggle_skill_tree() -> void:
+	if skill_tree_instance == null:
+		skill_tree_instance = skill_tree_scene.instantiate()
+		add_child(skill_tree_instance)
 
-			if hud_control != null:
-				hud_control.attribute_points_changed.connect(skill_tree_instance.refresh_attribute_points)
+		skill_tree_instance.player = $Chara
 
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			skill_tree_instance.queue_free()
-			skill_tree_instance = null
+		if hud_control != null:
+			hud_control.attribute_points_changed.connect(skill_tree_instance.refresh_attribute_points)
+
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+		# Hide HUD/UI when skill tree opens
+		if hud_control != null:
+			hud_control.hide()
+
+		# Hide pause menu too, just in case it was open
+		pauseMenu.hide()
+		paused = false
+		Engine.time_scale = 1
+
+	else:
+		skill_tree_instance.queue_free()
+		skill_tree_instance = null
+
+		# Show HUD/UI again when skill tree closes
+		if hud_control != null:
+			hud_control.show()
 
 func returnPause() -> int:
 	return int(paused)
@@ -61,9 +78,18 @@ func pauseGame() -> void:
 		Engine.time_scale = 1
 		pauseMenu.hide()
 		paused = false
+
+		# Show HUD again when unpausing, unless skill tree is open
+		if hud_control != null and skill_tree_instance == null:
+			hud_control.show()
+
 	else:
 		Engine.time_scale = 0
 		pauseMenu.show()
+
+		# Hide HUD/UI when pause menu opens
+		if hud_control != null:
+			hud_control.hide()
 
 		move_child(pauseMenu, get_child_count() - 1)
 

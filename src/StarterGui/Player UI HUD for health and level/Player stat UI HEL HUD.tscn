@@ -53,13 +53,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Health 100/100"
 
-[node name="Take damage" type="Button" parent="Control/Panel/Health" unique_id=1144604956]
-layout_mode = 0
-offset_left = 128.0
-offset_right = 237.0
-offset_bottom = 31.0
-text = "take damage"
-
 [node name="Level" type="Label" parent="Control/Panel" unique_id=34262054]
 layout_mode = 0
 offset_top = 24.0
@@ -73,13 +66,6 @@ offset_top = 56.0
 offset_right = 95.0
 offset_bottom = 79.0
 text = "EXP 100/100"
-
-[node name="Add exp" type="Button" parent="Control/Panel/EXP" unique_id=1248640407]
-layout_mode = 0
-offset_left = 128.0
-offset_right = 240.0
-offset_bottom = 24.0
-text = "add exp"
 
 [node name="Blocking stamina" type="Label" parent="Control/Panel" unique_id=286126460]
 layout_mode = 0

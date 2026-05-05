@@ -11,9 +11,7 @@ signal attribute_points_changed(points: int)
 # Health bar
 @onready var health_bar_sprite: TextureRect = $"Panel/Health Bar"
 
-# Buttons
-@onready var take_damage_btn: Button = $"Panel/Health/Take damage"
-@onready var add_exp_btn: Button = $"Panel/EXP/Add exp"
+# Button
 @onready var block_btn: Button = $"Panel/Blocking stamina/Block"
 
 @export var hurtbox: Hurtbox
@@ -23,9 +21,11 @@ const EXP_CAP := 100
 const MAX_STAMINA := 1000
 const BLOCK_COST := 100
 
-const REGEN_DELAY_SEC := 1.0
+const STAMINA_REGEN_DELAY_SEC := 1.0
+const HEALTH_REGEN_DELAY_SEC := 2.0
+
 const STAMINA_REGEN_PER_SEC := 100.0
-const HEALTH_REGEN_PER_SEC := 10.0 
+const HEALTH_REGEN_PER_SEC := 10.0
 
 # Health bar size
 const HEALTH_BAR_WIDTH := 320
@@ -35,17 +35,22 @@ const HEALTH_BAR_HEIGHT := 20
 var level: int = 1
 var exp: int = 0
 var stamina: float = MAX_STAMINA
-var regen_locked_until: float = 0.0
+
+var stamina_regen_locked_until: float = 0.0
+var health_regen_locked_until: float = 0.0
 var health_regen_accumulator: float = 0.0
 
+var last_health_value: float = -1.0
+
 func _ready() -> void:
-	take_damage_btn.pressed.connect(_on_take_damage_pressed)
-	add_exp_btn.pressed.connect(_on_add_exp_pressed)
 	block_btn.pressed.connect(_on_block_pressed)
 
 	health_bar_sprite.size = Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)
 	health_bar_sprite.custom_minimum_size = Vector2(HEALTH_BAR_WIDTH, HEALTH_BAR_HEIGHT)
 	health_bar_sprite.z_index = -1
+
+	if hurtbox != null and hurtbox.stats != null:
+		last_health_value = float(hurtbox.stats.Health)
 
 	_refresh_ui()
 
@@ -53,34 +58,34 @@ func _process(delta: float) -> void:
 	var now: float = Time.get_ticks_msec() / 1000.0
 
 	if hurtbox != null and hurtbox.stats != null:
-		if hurtbox.stats.Health < hurtbox.stats.MaxHealth:
-			health_regen_accumulator += HEALTH_REGEN_PER_SEC * delta
+		var current_health: float = float(hurtbox.stats.Health)
 
-			if health_regen_accumulator >= 1.0:
-				var heal_amount: int = int(health_regen_accumulator)
+		# If health dropped, delay health regen by 1 second
+		if last_health_value >= 0.0 and current_health < last_health_value:
+			health_regen_locked_until = now + HEALTH_REGEN_DELAY_SEC
+			health_regen_accumulator = 0.0
 
-				hurtbox.stats.Health = min(
-					hurtbox.stats.MaxHealth,
-					hurtbox.stats.Health + heal_amount
-				)
+		last_health_value = current_health
 
-				health_regen_accumulator -= float(heal_amount)
+		if now >= health_regen_locked_until:
+			if hurtbox.stats.Health < hurtbox.stats.MaxHealth:
+				health_regen_accumulator += HEALTH_REGEN_PER_SEC * delta
 
-	if now >= regen_locked_until and stamina < MAX_STAMINA:
+				if health_regen_accumulator >= 1.0:
+					var heal_amount: int = int(health_regen_accumulator)
+
+					hurtbox.stats.Health = min(
+						hurtbox.stats.MaxHealth,
+						hurtbox.stats.Health + heal_amount
+					)
+
+					health_regen_accumulator -= float(heal_amount)
+					last_health_value = float(hurtbox.stats.Health)
+
+	if now >= stamina_regen_locked_until and stamina < MAX_STAMINA:
 		stamina = min(MAX_STAMINA, stamina + STAMINA_REGEN_PER_SEC * delta)
 
 	_refresh_ui()
-
-func _on_take_damage_pressed() -> void:
-	if hurtbox == null or hurtbox.stats == null:
-		return
-
-	hurtbox.stats.Health = max(0.0, hurtbox.stats.Health - 20.0)
-	health_regen_accumulator = 0.0
-	_refresh_ui()
-
-func _on_add_exp_pressed() -> void:
-	add_exp(25)
 
 func add_exp(amount: int) -> void:
 	exp += amount
@@ -100,12 +105,12 @@ func give_attribute_point() -> void:
 
 	player.skill_points += 1
 
-	# live update trigger
+	# Live update trigger
 	attribute_points_changed.emit(player.skill_points)
 
 func _on_block_pressed() -> void:
 	stamina = max(0.0, stamina - float(BLOCK_COST))
-	regen_locked_until = Time.get_ticks_msec() / 1000.0 + REGEN_DELAY_SEC
+	stamina_regen_locked_until = Time.get_ticks_msec() / 1000.0 + STAMINA_REGEN_DELAY_SEC
 	_refresh_ui()
 
 func _refresh_ui() -> void:
