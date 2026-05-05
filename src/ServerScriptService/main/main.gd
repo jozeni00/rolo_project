@@ -14,6 +14,9 @@ var hud_control: Control = null
 
 
 func _ready() -> void:
+	Engine.time_scale = 1
+	paused = false
+
 	hud_instance = hud_scene.instantiate()
 	add_child(hud_instance)
 
@@ -37,43 +40,80 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		pauseGame()
+		if skill_tree_instance != null:
+			close_skill_tree()
+		else:
+			pauseGame()
 
 	if Input.is_action_just_pressed("SkillTree"):
-		toggle_skill_tree()
+		if skill_tree_instance == null:
+			open_skill_tree()
+		else:
+			close_skill_tree()
 
 
-func toggle_skill_tree() -> void:
-	if skill_tree_instance == null:
-		skill_tree_instance = skill_tree_scene.instantiate()
-		add_child(skill_tree_instance)
+func open_skill_tree() -> void:
+	Engine.time_scale = 1
+	paused = false
+	pauseMenu.hide()
 
-		skill_tree_instance.player = $Chara
+	if $Chara.has_method("set_skill_tree_open"):
+		$Chara.set_skill_tree_open(true)
 
-		if hud_control != null and hud_control.has_signal("attribute_points_changed"):
-			if not hud_control.attribute_points_changed.is_connected(skill_tree_instance.refresh_attribute_points):
-				hud_control.attribute_points_changed.connect(skill_tree_instance.refresh_attribute_points)
+	skill_tree_instance = skill_tree_scene.instantiate()
+	add_child(skill_tree_instance)
 
-		# Force refresh when skill tree opens
-		if skill_tree_instance.has_method("refresh_attribute_points"):
-			skill_tree_instance.refresh_attribute_points()
+	skill_tree_instance.player = $Chara
 
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if hud_control != null:
+		if hud_control.has_signal("attribute_points_changed"):
+			if skill_tree_instance.has_method("refresh_attribute_points"):
+				if not hud_control.attribute_points_changed.is_connected(skill_tree_instance.refresh_attribute_points):
+					hud_control.attribute_points_changed.connect(skill_tree_instance.refresh_attribute_points)
+
+		hud_control.hide()
+
+	if skill_tree_instance.has_method("refresh_attribute_points"):
+		skill_tree_instance.refresh_attribute_points()
+
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func close_skill_tree() -> void:
+	if skill_tree_instance != null:
+		if skill_tree_instance.has_method("save_before_close"):
+			skill_tree_instance.save_before_close()
 
 		if hud_control != null:
-			hud_control.hide()
+			if hud_control.has_signal("attribute_points_changed"):
+				if skill_tree_instance.has_method("refresh_attribute_points"):
+					if hud_control.attribute_points_changed.is_connected(skill_tree_instance.refresh_attribute_points):
+						hud_control.attribute_points_changed.disconnect(skill_tree_instance.refresh_attribute_points)
 
-		pauseMenu.hide()
-		paused = false
-		Engine.time_scale = 1
-
-	else:
 		skill_tree_instance.queue_free()
 		skill_tree_instance = null
 
-		if hud_control != null:
-			hud_control.show()
+	if $Chara.has_method("set_skill_tree_open"):
+		$Chara.set_skill_tree_open(false)
+
+	if hud_control != null:
+		hud_control.show()
+
+	pauseMenu.hide()
+	paused = false
+	Engine.time_scale = 1
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func close_pause_menu() -> void:
+	Engine.time_scale = 1
+	pauseMenu.hide()
+	paused = false
+
+	if hud_control != null and skill_tree_instance == null:
+		hud_control.show()
+
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func returnPause() -> int:
@@ -82,16 +122,14 @@ func returnPause() -> int:
 
 func pauseGame() -> void:
 	if paused:
-		Engine.time_scale = 1
-		pauseMenu.hide()
-		paused = false
-
-		if hud_control != null and skill_tree_instance == null:
-			hud_control.show()
-
+		close_pause_menu()
 	else:
+		if skill_tree_instance != null:
+			close_skill_tree()
+
 		Engine.time_scale = 0
 		pauseMenu.show()
+		paused = true
 
 		if hud_control != null:
 			hud_control.hide()
@@ -101,5 +139,6 @@ func pauseGame() -> void:
 		if pauseMenu is CanvasItem:
 			pauseMenu.z_index = 1000
 
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 		$Pause_Menu/GraphFrame/MarginContainer/VBoxContainer/Resume.grab_focus()
-		paused = true

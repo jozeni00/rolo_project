@@ -2,7 +2,7 @@ extends Control
 
 signal stats_changed(new_stats: Dictionary)
 
-var player: Player
+var player: Player = null
 var skill_tree_panel: Node = null
 
 var stats: Dictionary = {
@@ -14,11 +14,6 @@ var stats: Dictionary = {
 	"Intellect": 0,
 }
 
-# These point to the number/level labels inside each attribute node.
-# Example:
-# Strength
-# ├── Add 1
-# └── Strength level
 @onready var strength_label: Label = $"Strength/Strength level"
 @onready var element_label: Label = $"Element/Element level"
 @onready var fortitude_label: Label = $"Fortitude/Fortitude level"
@@ -26,7 +21,6 @@ var stats: Dictionary = {
 @onready var tenacity_label: Label = $"Tenacity/Tenacity level"
 @onready var intellect_label: Label = $"Intellect/Intellect level"
 
-# Add 1 buttons inside each attribute node
 @onready var strength_btn: Button = $"Strength/Add 1"
 @onready var element_btn: Button = $"Element/Add 1"
 @onready var fortitude_btn: Button = $"Fortitude/Add 1"
@@ -42,6 +36,7 @@ func _ready() -> void:
 func _late_ready() -> void:
 	_find_skill_tree_panel()
 	_connect_buttons()
+	load_stats_from_player()
 	update_labels()
 	stats_changed.emit(stats)
 
@@ -50,29 +45,53 @@ func set_dependencies(new_player: Player, new_skill_tree_panel: Node) -> void:
 	player = new_player
 	skill_tree_panel = new_skill_tree_panel
 
-	print("Attributes.gd received skill_tree_panel: ", skill_tree_panel)
-
 	if skill_tree_panel == null:
 		_find_skill_tree_panel()
 
+	load_stats_from_player()
 	update_labels()
 	stats_changed.emit(stats)
 
 
 func _find_skill_tree_panel() -> void:
-	# Expected structure:
-	# Panel
-	# └── Skill tree container
-	#     └── Attributes
 	var possible_panel := get_parent().get_parent()
-
-	print("Attributes.gd possible_panel found: ", possible_panel)
 
 	if possible_panel != null and possible_panel.has_method("try_spend_points"):
 		skill_tree_panel = possible_panel
-		print("Attributes.gd linked to Panel successfully.")
 	else:
 		push_warning("Attributes.gd could not find the skill tree Panel with try_spend_points().")
+
+
+func load_stats_from_player() -> void:
+	if player == null:
+		push_warning("Cannot load stats because player is null.")
+		return
+
+	stats["Strength"] = int(player.strength)
+	stats["Element"] = int(player.element)
+	stats["Fortitude"] = int(player.fortitude)
+	stats["Agility"] = int(player.agility)
+	stats["Tenacity"] = int(player.tenacity)
+	stats["Intellect"] = int(player.intellect)
+
+
+func save_stats_to_player() -> void:
+	if player == null:
+		push_warning("Cannot save stats because player is null.")
+		return
+
+	player.strength = int(stats["Strength"])
+	player.element = int(stats["Element"])
+	player.fortitude = int(stats["Fortitude"])
+	player.agility = int(stats["Agility"])
+	player.tenacity = int(stats["Tenacity"])
+	player.intellect = int(stats["Intellect"])
+
+	if player.has_method("_apply_attribute_effects"):
+		player._apply_attribute_effects()
+
+	if player.has_method("save_playerdata"):
+		player.save_playerdata()
 
 
 func _connect_buttons() -> void:
@@ -92,8 +111,6 @@ func _connect_button(button: Button, stat_name: String) -> void:
 	if not button.pressed.is_connected(add_stat.bind(stat_name)):
 		button.pressed.connect(add_stat.bind(stat_name))
 
-	print("Connected button for: ", stat_name)
-
 
 func add_stat(stat_name: String) -> void:
 	if skill_tree_panel == null:
@@ -107,37 +124,20 @@ func add_stat(stat_name: String) -> void:
 		push_warning("Cannot add " + stat_name + ": skill_tree_panel has no try_spend_points().")
 		return
 
-	print("Trying to add stat: ", stat_name)
-
-	if skill_tree_panel.has_method("get_current_points"):
-		print("Panel attribute_points before spend: ", skill_tree_panel.get_current_points())
-	else:
-		print("Panel attribute_points before spend: ", skill_tree_panel.attribute_points)
-
 	if not skill_tree_panel.try_spend_points(1):
-		if skill_tree_panel.has_method("get_current_points"):
-			print("Spend failed. Panel attribute_points is: ", skill_tree_panel.get_current_points())
-		else:
-			print("Spend failed. Panel attribute_points is: ", skill_tree_panel.attribute_points)
 		return
 
 	stats[stat_name] += 1
 
-	print("Spend worked. New stats: ", stats)
-
-	if skill_tree_panel.has_method("get_current_points"):
-		print("Panel attribute_points after spend: ", skill_tree_panel.get_current_points())
-	else:
-		print("Panel attribute_points after spend: ", skill_tree_panel.attribute_points)
-
+	save_stats_to_player()
 	update_labels()
 	stats_changed.emit(stats)
 
 
 func update_labels() -> void:
-	strength_label.text = "%d" % stats["Strength"]
-	element_label.text = "%d" % stats["Element"]
-	fortitude_label.text = "%d" % stats["Fortitude"]
-	agility_label.text = "%d" % stats["Agility"]
-	tenacity_label.text = "%d" % stats["Tenacity"]
-	intellect_label.text = "%d" % stats["Intellect"]
+	strength_label.text = "%d" % int(stats["Strength"])
+	element_label.text = "%d" % int(stats["Element"])
+	fortitude_label.text = "%d" % int(stats["Fortitude"])
+	agility_label.text = "%d" % int(stats["Agility"])
+	tenacity_label.text = "%d" % int(stats["Tenacity"])
+	intellect_label.text = "%d" % int(stats["Intellect"])

@@ -15,12 +15,12 @@ var level: int = 1				# player's current level
 var xp: int = 0				# player's current experience points
 var _max_exp: int = level * 14 # max exp before next level-up
 var skill_points: int = 0
-var strength: int = 10
-var element: int = 0
-var fortitude: int = 0
-var agility: int = 0
-var tenacity: int = 0
-var intellect: int = 0
+var strength: int = 1
+var element: int = 1
+var fortitude: int = 1
+var agility: int = 1
+var tenacity: int = 1
+var intellect: int = 1
 
 ## Increment the player's money by 1.
 func increment_money() -> void:

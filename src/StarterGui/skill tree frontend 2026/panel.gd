@@ -6,8 +6,6 @@ extends Panel
 @onready var attributes_node: Node = $"Skill tree container/Attributes"
 
 var player: Player = null
-
-# Local fallback only. Main source should be player.skill_points.
 var attribute_points := 0
 
 var attributes: Dictionary = {
@@ -20,32 +18,26 @@ var attributes: Dictionary = {
 }
 
 var skill_req := {
-	# Fire
 	"Fireball": {"Intellect": 2},
 	"Flaming edge": {"Strength": 3, "Agility": 2},
 	"Fire resistance": {"Fortitude": 4},
 
-	# Water
 	"Hydrobeam": {"Intellect": 2},
 	"Splash": {"Intellect": 1},
 	"Water resistance": {"Fortitude": 4},
 
-	# Earth
 	"Earthbound gate": {"Strength": 2, "Fortitude": 2},
 	"Sandtorm slash": {"Agility": 3},
 	"Stone armor": {"Fortitude": 5},
 
-	# Air
 	"Spearwind dash": {"Agility": 3},
 	"Windward stun": {"Agility": 2, "Intellect": 1},
 	"Air resistance": {"Fortitude": 4},
 
-	# Acid
 	"Trail of corrosion": {"Intellect": 2},
 	"Corrode": {"Intellect": 3},
 	"Acid resistance": {"Fortitude": 4},
 
-	# Lightning
 	"Shocking teleportation": {"Agility": 2, "Intellect": 2},
 	"Striking stun": {"Agility": 3},
 	"Lightning resistance": {"Fortitude": 4},
@@ -64,9 +56,7 @@ func set_player(new_player: Player) -> void:
 	player = new_player
 
 	if player != null:
-		var current_points = player.get("skill_points")
-		if current_points != null:
-			attribute_points = int(current_points)
+		attribute_points = int(player.skill_points)
 
 	_refresh_points()
 
@@ -75,10 +65,9 @@ func set_attribute_points(points: int) -> void:
 	attribute_points = points
 
 	if player != null:
-		player.set("skill_points", points)
+		player.skill_points = points
 
 	_refresh_points()
-	print("PANEL ATTRIBUTE POINTS SET TO: ", attribute_points)
 
 
 func _setup_attributes() -> void:
@@ -109,10 +98,7 @@ func _setup_attributes() -> void:
 
 func get_current_points() -> int:
 	if player != null:
-		var current_points = player.get("skill_points")
-
-		if current_points != null:
-			attribute_points = int(current_points)
+		attribute_points = int(player.skill_points)
 
 	return attribute_points
 
@@ -124,7 +110,7 @@ func add_points(n: int) -> void:
 	attribute_points = current_points
 
 	if player != null:
-		player.set("skill_points", current_points)
+		player.skill_points = current_points
 
 	_refresh_points()
 
@@ -132,23 +118,17 @@ func add_points(n: int) -> void:
 func try_spend_points(cost: int) -> bool:
 	var current_points := get_current_points()
 
-	print("try_spend_points called. Current points: ", current_points, " Cost: ", cost)
-
 	if current_points < cost:
 		show_popup("Not enough attribute points!")
 		return false
 
 	current_points -= cost
-
 	attribute_points = current_points
 
 	if player != null:
-		player.set("skill_points", current_points)
+		player.skill_points = current_points
 
 	_refresh_points()
-
-	print("Spend worked. Remaining points: ", current_points)
-
 	return true
 
 
@@ -158,13 +138,11 @@ func _refresh_points() -> void:
 
 func _on_stats_changed(new_stats: Dictionary) -> void:
 	attributes = new_stats.duplicate(true)
-	print("PANEL RECEIVED UPDATED ATTRIBUTES: ", attributes)
 	_update_skill_buttons()
 
 
 func _connect_all_skill_buttons() -> void:
 	var buttons := _find_buttons_recursive(tab_container)
-	print("Found buttons under skill tree: ", buttons.size())
 
 	for btn in buttons:
 		if skill_req.has(btn.name):
@@ -231,16 +209,14 @@ func _update_skill_buttons() -> void:
 
 		var skill_name := btn.name
 		var is_unlocked := unlocked.has(skill_name)
-		var missing := _missing_requirements(skill_name)
 
 		btn.disabled = is_unlocked
+		btn.text = ""
 
 		if is_unlocked:
-			btn.text = "%s\nUnlocked" % skill_name
-		elif missing.size() == 0:
-			btn.text = "%s\nReady" % skill_name
+			btn.tooltip_text = "%s\nUnlocked" % skill_name
 		else:
-			btn.text = "%s\n%s" % [skill_name, _requirements_text(skill_name)]
+			btn.tooltip_text = "%s\n%s" % [skill_name, _requirements_text(skill_name)]
 
 
 func _requirements_text(skill_name: String) -> String:
