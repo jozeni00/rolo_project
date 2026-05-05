@@ -2,15 +2,14 @@ extends Node2D
 
 const configPath: String = "user://settings.cfg"
 
-@onready var soundsection := $CanvasLayer/Settings/ScrollContainer/VBoxContainer/Sounds
-@onready var displaysection := $CanvasLayer/Settings/ScrollContainer/VBoxContainer/Displays
-@onready var keybindsection := $CanvasLayer/Settings/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons
+@onready var soundsection := $Settings/Panel/ScrollContainer/VBoxContainer/Sounds
+@onready var displaysection := $Settings/Panel/ScrollContainer/VBoxContainer/Displays
+@onready var keybindsection := $Settings/Panel/ScrollContainer/VBoxContainer/Keybinds/KeyBindButtons
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	### Load current settings configuration
 	load_config()
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,6 +61,7 @@ func load_config() -> void:
 	for keybind in keybindsection.get_children():
 		if keybind is KeybindButton:
 			var event = config.get_value(keybindsection.name,keybind.action)
+			var action: String = keybind.action
 			
 			if event is InputEventKey:
 				keybind.text = event.as_text_physical_keycode()
@@ -75,5 +75,5 @@ func load_config() -> void:
 					MOUSE_BUTTON_MIDDLE:
 						keybind.text = "Scroll-Button"
 			
-			InputMap.action_erase_events(keybind.action)
-			InputMap.action_add_event(keybind.action, event)
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action, event)
