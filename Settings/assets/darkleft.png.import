@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwxrj56k1cxjk"
-path="res://.godot/imported/darkleft.png-5bda23d998c2466a171a766bb063acf6.ctex"
+path="res://.godot/imported/darkleft.png-c1a9036fdfb612b401c5827fe2428231.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/map/tiles/darkworld/darkleft.png"
-dest_files=["res://.godot/imported/darkleft.png-5bda23d998c2466a171a766bb063acf6.ctex"]
+source_file="res://Settings/assets/darkleft.png"
+dest_files=["res://.godot/imported/darkleft.png-c1a9036fdfb612b401c5827fe2428231.ctex"]
 
 [params]
 

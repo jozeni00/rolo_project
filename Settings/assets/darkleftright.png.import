@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfpiwdvuvdqu3"
-path="res://.godot/imported/darkleftright.png-7cecfab7bd998fd18c82adfff0dfed00.ctex"
+path="res://.godot/imported/darkleftright.png-a3c29f4c2ffdd5a4078651c169d11fbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/map/tiles/darkworld/darkleftright.png"
-dest_files=["res://.godot/imported/darkleftright.png-7cecfab7bd998fd18c82adfff0dfed00.ctex"]
+source_file="res://Settings/assets/darkleftright.png"
+dest_files=["res://.godot/imported/darkleftright.png-a3c29f4c2ffdd5a4078651c169d11fbb.ctex"]
 
 [params]
 

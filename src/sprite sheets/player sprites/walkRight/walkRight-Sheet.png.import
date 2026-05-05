@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://cqhelsngc4ysv"
-path="res://.godot/imported/walkRight-Sheet.png-b0b34f363af361a89c4055fb4298a27a.ctex"
-=======
-uid="uid://dkeiyk3x82ftr"
+uid="uid://x31hpp6wjyas"
 path="res://.godot/imported/walkRight-Sheet.png-f1b7884719d8c9097f753cd834a582bc.ctex"
->>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD
-source_file="res://src/ReplicatedStorage/sprite sheets/player sprites/walkRight/walkRight-Sheet.png"
-dest_files=["res://.godot/imported/walkRight-Sheet.png-b0b34f363af361a89c4055fb4298a27a.ctex"]
-=======
 source_file="res://src/sprite sheets/player sprites/walkRight/walkRight-Sheet.png"
 dest_files=["res://.godot/imported/walkRight-Sheet.png-f1b7884719d8c9097f753cd834a582bc.ctex"]
->>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 
 [params]
 

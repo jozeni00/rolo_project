@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtu4tufs6va1a"
-path="res://.godot/imported/darkup.png-85f1da2c805f24ecddeb98a83054fa48.ctex"
+path="res://.godot/imported/darkup.png-ac1540c70d7a7715df28c242876550b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/map/tiles/darkworld/darkup.png"
-dest_files=["res://.godot/imported/darkup.png-85f1da2c805f24ecddeb98a83054fa48.ctex"]
+source_file="res://Settings/assets/darkup.png"
+dest_files=["res://.godot/imported/darkup.png-ac1540c70d7a7715df28c242876550b3.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx7ievrgxo72m"
-path="res://.godot/imported/darkdown.png-0986f7d549d71f42d18be6041846b48a.ctex"
+path="res://.godot/imported/darkdown.png-48e56fb2192a2dd1d2ab044d88fef952.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/ReplicatedStorage/sprite sheets/map/tiles/darkworld/darkdown.png"
-dest_files=["res://.godot/imported/darkdown.png-0986f7d549d71f42d18be6041846b48a.ctex"]
+source_file="res://Settings/assets/darkdown.png"
+dest_files=["res://.godot/imported/darkdown.png-48e56fb2192a2dd1d2ab044d88fef952.ctex"]
 
 [params]
 
