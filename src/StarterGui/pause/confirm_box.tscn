@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dpc1nndulm64w"]
+
+[node name="ConfirmBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -542.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GraphFrame" type="GraphFrame" parent="."]
+layout_mode = 0
+offset_left = -59.0
+offset_top = 46.0
+offset_right = 143.0
+offset_bottom = 148.0
+
+[node name="confirmation" type="Label" parent="."]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 66.0
+offset_right = 117.0
+offset_bottom = 95.0
+text = "ARE YOU SURE?"
+horizontal_alignment = 1
+
+[node name="Yes" type="Button" parent="."]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 99.0
+offset_right = 24.0
+offset_bottom = 139.0
+text = "Yes"
+
+[node name="No" type="Button" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 99.0
+offset_right = 134.0
+offset_bottom = 139.0
+text = "No"
+
+[connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_no_pressed"]
