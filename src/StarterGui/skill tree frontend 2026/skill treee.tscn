@@ -582,12 +582,4 @@ offset_right = 629.0
 offset_bottom = 32.0
 text = "Attribute points: 0"
 
-[node name="Add 5 test for attribute points" type="Button" parent="Panel/Attribute points" unique_id=869597803]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 32.0
-offset_right = 83.0
-offset_bottom = 63.0
-text = "+5"
-
 [node name="Skill unlocked" type="AcceptDialog" parent="Panel" unique_id=415129471]

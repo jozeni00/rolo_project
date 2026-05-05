@@ -103,7 +103,7 @@ func give_attribute_point() -> void:
 	if player == null:
 		return
 
-	player.skill_points += 1
+	player.skill_points += 5
 
 	# Live update trigger
 	attribute_points_changed.emit(player.skill_points)
