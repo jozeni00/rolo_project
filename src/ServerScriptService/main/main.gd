@@ -12,6 +12,7 @@ var hud_scene := preload("res://src/StarterGui/Player UI HUD for health and leve
 var hud_instance: Node = null
 var hud_control: Control = null
 
+
 func _ready() -> void:
 	hud_instance = hud_scene.instantiate()
 	add_child(hud_instance)
@@ -33,6 +34,7 @@ func _ready() -> void:
 
 	pauseMenu.hide()
 
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -41,6 +43,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("SkillTree"):
 		toggle_skill_tree()
 
+
 func toggle_skill_tree() -> void:
 	if skill_tree_instance == null:
 		skill_tree_instance = skill_tree_scene.instantiate()
@@ -48,16 +51,19 @@ func toggle_skill_tree() -> void:
 
 		skill_tree_instance.player = $Chara
 
-		if hud_control != null:
-			hud_control.attribute_points_changed.connect(skill_tree_instance.refresh_attribute_points)
+		if hud_control != null and hud_control.has_signal("attribute_points_changed"):
+			if not hud_control.attribute_points_changed.is_connected(skill_tree_instance.refresh_attribute_points):
+				hud_control.attribute_points_changed.connect(skill_tree_instance.refresh_attribute_points)
+
+		# Force refresh when skill tree opens
+		if skill_tree_instance.has_method("refresh_attribute_points"):
+			skill_tree_instance.refresh_attribute_points()
 
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-		# Hide HUD/UI when skill tree opens
 		if hud_control != null:
 			hud_control.hide()
 
-		# Hide pause menu too, just in case it was open
 		pauseMenu.hide()
 		paused = false
 		Engine.time_scale = 1
@@ -66,12 +72,13 @@ func toggle_skill_tree() -> void:
 		skill_tree_instance.queue_free()
 		skill_tree_instance = null
 
-		# Show HUD/UI again when skill tree closes
 		if hud_control != null:
 			hud_control.show()
 
+
 func returnPause() -> int:
 	return int(paused)
+
 
 func pauseGame() -> void:
 	if paused:
@@ -79,7 +86,6 @@ func pauseGame() -> void:
 		pauseMenu.hide()
 		paused = false
 
-		# Show HUD again when unpausing, unless skill tree is open
 		if hud_control != null and skill_tree_instance == null:
 			hud_control.show()
 
@@ -87,7 +93,6 @@ func pauseGame() -> void:
 		Engine.time_scale = 0
 		pauseMenu.show()
 
-		# Hide HUD/UI when pause menu opens
 		if hud_control != null:
 			hud_control.hide()
 
