@@ -53,9 +53,7 @@ offset_left = 64.0
 offset_top = 33.0
 offset_right = 168.0
 offset_bottom = 137.0
-tooltip_text = "Fireball
-(req attribute points: 1)
-Launch fireballs at your enemies what more could there be!"
+tooltip_text = "Launch fireballs at your enemies what more could there be!"
 text = "
 
 
@@ -71,8 +69,7 @@ offset_left = 192.0
 offset_top = 33.0
 offset_right = 296.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute point: 2)
-infuses your weapon is with the element of fire 
+tooltip_text = "infuses your weapon is with the element of fire 
 and you can set enemies on fire with dot
  i guess you could really feel the INTENSITY of the situation!"
 text = "
@@ -90,8 +87,7 @@ offset_left = 320.0
 offset_top = 33.0
 offset_right = 424.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 3)
-harness the power of fire and let it burn within you!
+tooltip_text = "harness the power of fire and let it burn within you!
 the chance of fire related status effect are reduce and you take less fire damage
 let it burn, let it burn,
  can't hold it back anymore~
@@ -116,8 +112,7 @@ offset_left = 64.0
 offset_top = 33.0
 offset_right = 168.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 1)
-a beam of water
+tooltip_text = "a beam of water
 you could really SEA this coming didn't you"
 text = "
 
@@ -134,8 +129,7 @@ offset_left = 192.0
 offset_top = 33.0
 offset_right = 296.0
 offset_bottom = 137.0
-tooltip_text = "(req atttribute points: 2)
-infuse your sword with the element of water.
+tooltip_text = "infuse your sword with the element of water.
 It can make your enemies wet! 
 if their wet it can do double damage!
 I guess you could say we really got a splash of inspiration!
@@ -156,8 +150,7 @@ offset_left = 320.0
 offset_top = 33.0
 offset_right = 424.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 3)
-harness the power of water and let the currents flow within you!
+tooltip_text = "harness the power of water and let the currents flow within you!
 the chance of water related status effects are reduced 
 and you take less water damage
 oh no your resistant to a drop of water....now your gonna die..."
@@ -181,8 +174,7 @@ offset_left = 64.0
 offset_top = 33.0
 offset_right = 168.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 1)
-creates a temporary wall that can be created
+tooltip_text = "creates a temporary wall that can be created
 in any of the four cardinal directions.
 this really is a rocky situation."
 text = "
@@ -200,8 +192,7 @@ offset_left = 192.0
 offset_top = 33.0
 offset_right = 296.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 2)
-infuse your sword with the element of Earth.
+tooltip_text = "infuse your sword with the element of Earth.
 when hitting an enemy it has a chance to slow them down.
 This really is a slowing experience!
 "
@@ -220,9 +211,7 @@ offset_left = 320.0
 offset_top = 33.0
 offset_right = 424.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 3)
-
-harness the power of Earth and let the sands shift within you!
+tooltip_text = "harness the power of Earth and let the sands shift within you!
 the chance of Earth related status effects are reduced.............psyche!
 you gain temporary armor that lowers incoming damage
 were you expecting something grandeur?
@@ -247,8 +236,7 @@ offset_left = 64.0
 offset_top = 33.0
 offset_right = 168.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 1)
-a dash ability that can be used to pierce the enemies with 
+tooltip_text = "a dash ability that can be used to pierce the enemies with 
 "
 text = "
 
@@ -265,8 +253,7 @@ offset_left = 192.0
 offset_top = 33.0
 offset_right = 296.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 2)
-infuses your weapon with the element of air.
+tooltip_text = "infuses your weapon with the element of air.
 upon attacking a(n) enem (y) ies there is a chance for them to be stunned for a moment
 it really is a STUNNING ability!"
 text = "
@@ -284,8 +271,7 @@ offset_left = 320.0
 offset_top = 33.0
 offset_right = 424.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 3)
-harness the power of air and let the currents breeze past you!
+tooltip_text = "harness the power of air and let the currents breeze past you!
 the chance of air related status effects are reduced 
 and you take less air damage
 I suppose you can say this is a breath taking experience!"
@@ -309,8 +295,7 @@ offset_left = 64.0
 offset_top = 33.0
 offset_right = 168.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 1)
-dragging your feet across the floor leaves
+tooltip_text = "dragging your feet across the floor leaves
 a trail of acid pools.
 enemies that step in them
 take dot while they remain in them"
@@ -329,8 +314,7 @@ offset_left = 192.0
 offset_top = 33.0
 offset_right = 296.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 2)
-infuses your weapon with the element of Acid.
+tooltip_text = "infuses your weapon with the element of Acid.
 upon attacking a(n) enem (y) ies there is a chance 
 for them to be stunned for a moment
 "
@@ -349,8 +333,7 @@ offset_left = 320.0
 offset_top = 33.0
 offset_right = 424.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 3)
-harness the power of Acid and let the acidity intoxicate you!
+tooltip_text = "harness the power of Acid and let the acidity intoxicate you!
 the chance of acid related status effects are reduced 
 and you take less Acid damage
 I guess you could say this is a toxic resistance!"
@@ -374,8 +357,7 @@ offset_left = 64.0
 offset_top = 33.0
 offset_right = 168.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 1)
-swap places with the enemy. 
+tooltip_text = "swap places with the enemy. 
 I'm sure this will be a shocking revelation!"
 text = "
 
@@ -393,8 +375,7 @@ offset_left = 192.0
 offset_top = 33.0
 offset_right = 296.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 2)
-throws a powerful javelin at the enemy and stuns them
+tooltip_text = "throws a powerful javelin at the enemy and stuns them
 I'm sure this will be a shocking story like there never has been before!"
 text = "
 
@@ -411,8 +392,7 @@ offset_left = 320.0
 offset_top = 33.0
 offset_right = 424.0
 offset_bottom = 137.0
-tooltip_text = "(req attribute points: 3)
-harness the power of Lightning and let it shock you!
+tooltip_text = "harness the power of Lightning and let it shock you!
 the chance of lightning related status effects are reduced 
 and you take less Lightning damage
 I guess you could say this is a shocking experience!"

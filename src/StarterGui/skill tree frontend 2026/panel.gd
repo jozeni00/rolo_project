@@ -48,6 +48,7 @@ var unlocked := {}
 
 func _ready() -> void:
 	_refresh_points()
+	_cache_original_tooltips()
 	_connect_all_skill_buttons()
 	call_deferred("_setup_attributes")
 
@@ -141,6 +142,15 @@ func _on_stats_changed(new_stats: Dictionary) -> void:
 	_update_skill_buttons()
 
 
+func _cache_original_tooltips() -> void:
+	var buttons := _find_buttons_recursive(tab_container)
+
+	for btn in buttons:
+		if skill_req.has(btn.name):
+			if not btn.has_meta("base_tooltip"):
+				btn.set_meta("base_tooltip", btn.tooltip_text)
+
+
 func _connect_all_skill_buttons() -> void:
 	var buttons := _find_buttons_recursive(tab_container)
 
@@ -211,12 +221,26 @@ func _update_skill_buttons() -> void:
 		var is_unlocked := unlocked.has(skill_name)
 
 		btn.disabled = is_unlocked
-		btn.text = ""
+
+		# Keep the skill name visible over the icon.
+		if is_unlocked:
+			btn.text = "%s\nUnlocked" % skill_name
+		else:
+			btn.text = skill_name
+
+		# Keep original tooltip and add unlock requirements.
+		var base_tooltip := ""
+
+		if btn.has_meta("base_tooltip"):
+			base_tooltip = str(btn.get_meta("base_tooltip"))
+
+		if base_tooltip.strip_edges() == "":
+			base_tooltip = skill_name
 
 		if is_unlocked:
-			btn.tooltip_text = "%s\nUnlocked" % skill_name
+			btn.tooltip_text = "%s\n\nStatus: Unlocked" % base_tooltip
 		else:
-			btn.tooltip_text = "%s\n%s" % [skill_name, _requirements_text(skill_name)]
+			btn.tooltip_text = "%s\n\nUnlock Requirements:\n%s" % [base_tooltip, _requirements_text(skill_name)]
 
 
 func _requirements_text(skill_name: String) -> String:
@@ -229,7 +253,7 @@ func _requirements_text(skill_name: String) -> String:
 
 		parts.append("%s %d/%d" % [stat_name, have, need])
 
-	return ", ".join(parts)
+	return "\n".join(parts)
 
 
 func show_popup(msg: String) -> void:
