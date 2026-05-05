@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dym8tcq672poi"
+=======
+uid="uid://babqcri5k7hox"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/playerBurningTest-Sheet.png-09923821e8ae05eace616ab3b47b6ccb.ctex"
 metadata={
 "vram_texture": false

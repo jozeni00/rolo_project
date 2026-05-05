@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://chwqnwygkk0pj"
+=======
+uid="uid://dtyx5nv6qspr2"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/lightningresistance icon.png-594a59d31fd136ba3a07d1c9612d24ef.ctex"
 metadata={
 "vram_texture": false

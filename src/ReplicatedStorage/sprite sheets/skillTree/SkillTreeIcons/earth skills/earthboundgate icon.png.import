@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://csn6w6ce4hvd2"
+=======
+uid="uid://d1gdwmvjh8ii1"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/earthboundgate icon.png-158d3ea47e1054065082adce26e7196b.ctex"
 metadata={
 "vram_texture": false

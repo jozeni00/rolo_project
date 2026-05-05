@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://nn75oa51a4qf"
+=======
+uid="uid://boo4m2fg16tln"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/sandstormslash icon.png-f00e0df0d8d03ad441a9b7b6e9dfac6f.ctex"
 metadata={
 "vram_texture": false

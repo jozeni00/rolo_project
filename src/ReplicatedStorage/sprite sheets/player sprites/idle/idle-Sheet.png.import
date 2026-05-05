@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://deo0fvjvt8u4k"
 path="res://.godot/imported/idle-Sheet.png-7cd04eb8d2190ff53b176a30c2c4e925.ctex"
+=======
+uid="uid://b1qvh335abla8"
+path="res://.godot/imported/idle-Sheet.png-d2e5061635cbe2421aa4ea2614236871.ctex"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< HEAD
 source_file="res://src/ReplicatedStorage/sprite sheets/player sprites/idle/idle-Sheet.png"
 dest_files=["res://.godot/imported/idle-Sheet.png-7cd04eb8d2190ff53b176a30c2c4e925.ctex"]
+=======
+source_file="res://src/sprite sheets/player sprites/idle/idle-Sheet.png"
+dest_files=["res://.godot/imported/idle-Sheet.png-d2e5061635cbe2421aa4ea2614236871.ctex"]
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 
 [params]
 

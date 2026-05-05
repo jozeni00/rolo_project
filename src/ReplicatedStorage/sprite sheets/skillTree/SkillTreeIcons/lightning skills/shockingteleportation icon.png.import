@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://hhag0q0bf2ry"
+=======
+uid="uid://swd3jaq5v3al"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/shockingteleportation icon.png-64cbf1152813cec2c88de8587625fadb.ctex"
 metadata={
 "vram_texture": false

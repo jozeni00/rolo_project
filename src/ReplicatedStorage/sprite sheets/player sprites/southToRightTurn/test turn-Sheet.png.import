@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://be2qre6gisntn"
+=======
+uid="uid://c3pjduwec7ldx"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/test turn-Sheet.png-139e876433ada85143a2a00efc52cc46.ctex"
 metadata={
 "vram_texture": false

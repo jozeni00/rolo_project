@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://b8vny2ub4w0ft"
+=======
+uid="uid://bf7pp2n0vhyne"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/dodge-Sheet.png-447fba3da5d756bcf24eaed749aed7cf.ctex"
 metadata={
 "vram_texture": false

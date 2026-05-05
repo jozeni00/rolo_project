@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dlynxgy35nntp"
+=======
+uid="uid://b3qjbxc6lybqs"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/playerDying-Sheet.png-13097cc8edac057caf7cd83e9d3b8f89.ctex"
 metadata={
 "vram_texture": false

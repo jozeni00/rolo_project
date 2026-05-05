@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://b3akamofujg7b"
+=======
+uid="uid://djlbdxuobifnk"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/trailofcorrosion icon.png-4604871ce756b315c86f1eb392c81b88.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cvojae6o6lv10"
+=======
+uid="uid://5xpksykxlbys"
+>>>>>>> 5f0aa25 (Reapply "Merge branch 'main' of https://github.com/jozeni00/rolo_project")
 path="res://.godot/imported/idle.png-daf741d62b0ff73810b4bd10ac7bf0ce.ctex"
 metadata={
 "vram_texture": false
